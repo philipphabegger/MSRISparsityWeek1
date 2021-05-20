@@ -1,0 +1,353 @@
+\chapter{Diophantine Equations and Special Points}
+
+\section{Overview}
+
+One of the most classical areas in mathematics, dating back to ancient
+times, is the study of solutions of polynomials equations in integer
+or rational unknowns. These \textit{diophantine equations} have
+provided a rich source of new mathematics in the last 2000 years.
+Number fields, \textit{i.e.}, finite extensions of the field of
+rational numbers, entered the picture in the 19th century. They are
+tools in studying diophantine equations. But it also makes sense to
+investigate solutions of diophantine equations with values in number
+fields or the ring of integers.
+
+%One theme that we will explore in this week is the observation that
+More recently, we began studying solutions of polynomial equations in
+a further class of numbers, so-called \textit{special points}. Special
+points is not a precise term but rather refers to complex numbers, or
+more general points on certain varieties, that have rich arithmetic
+properties.
+
+In this one week course we will be interested in three classes of
+special points:
+\begin{itemize}
+\item Roots of unity, \textit{i.e.}, complex numbers of the form
+  $e^{2\pi i q}$ with $q$ a rational number. These are precisely the
+  points of finite order of the multiplicative group $\IC^\times$. 
+
+\item Consider an elliptic curve $E$ defined over a number field
+  $K\subset\IC$. We regarding points in $E(\IC)$ of finite order as
+  special points.
+
+\item Finally, to any elliptic curve $E$ defined over $\IC$ we can
+  attach its ring of endomorphisms
+  $$\mathrm{End}(E) = \{\varphi \colon E\rightarrow E : \varphi\text{
+    is a morphism of varieties and }\varphi(0)=0\},$$
+  here $0\in E(\IC)$ is the neutral element.\footnote{Addition on
+    $\mathrm{End}(E)$ is pointwise addition and multiplication is
+    composition. It is a theorem that $\mathrm{End}(E)$ is a
+    commutative ring for any elliptic curve defined over a field of
+    characteristic $0$.}
+  The  structure of $E$ as an algebraic group gives us for free
+  multiplication-by-$N$ endomorphisms $[N] \in \mathrm{End}(E)$ for
+  all $N\in\IZ$. So $\mathrm{End}(E) \supset \IZ$.
+  We say that $E$ has complex multiplication if
+  $\mathrm{End}(E)\not=\IZ$.
+  Such an elliptic curve curve corresponds to a \textit{special point}
+  on the parameter space of all elliptic curves.   
+\end{itemize}
+
+As we will see, all three cases have an important similarity: special
+points are images of certain algebraic points under an analytic map.
+We will discuss all three cases in more detail during the next week. 
+
+\section{The Ihara--Serre--Tate Theorem}
+
+Here's a quote from a paper of Serge Lang from
+1965~\cite{Lang:Division}.
+
+\begin{displayquote}
+  ``A few years ago, \textsc{Mumford} asked me the following question:
+  If a curve in its Jacobian contains infinitely many points of finite
+  period, is the curve of genus $1$? The same question arose in
+  \textsc{Manin's} investigation of the \textsc{Picard-Fuchs}
+  equations [\ldots]''
+\end{displayquote}
+And so was born the Manin--Mumford Conjecture.
+
+Before moving on to Jacobians let us attempt to translate this question
+from the world of jacobians to that  of the algebraic group $(\IC^\times)^2$. By
+curve we consider an irreducible algebraic curve $C\subset
+(\IC^\times)^2$ defined over $\IC$. Then $C$ is given by zero set of
+an almost uniquely determined polynomial $P\in \IC[X,Y]$.
+In fact, it is more natural to work with the ring of
+Laurent polynomials $\IC[X^{\pm 1},Y^{\pm 1}]$, this is the ring of
+regular functions of $(\IC^\times)^2$ considered as an algebraic
+variety.
+What is the analog of the points of finite period in $(\IC^\times)$?
+These are just the pairs of roots of unity
+$$ (\IC^\times)^2_{\mathrm{tors}}= \mu_\infty^2  \text{ where
+}\mu_\infty = \{\zeta : \text{there is $n\in\{1,2,3,\ldots\}$
+  with }\zeta^n \}.$$
+Finally, we need to translate ``genus'' to this setting. First let us
+look at some examples.
+
+\begin{example}
+  \begin{itemize}
+  \item [(i)] Consider the curve $C$ defined by $P = X+Y-1$. If
+    $(z,w)\in(\IC^\times)^2$ has finite order with $P(z,w)=0$, then
+    both $z$ and $1-z=w$ lie on the unit circle $S^1= \{z\in\IC :
+    |z|=1\}\supset\mu_\infty$. 
+    Considering a picture we find exactly two possibilities    
+    $$
+    (z,w) \in \left\{ (e^{2\pi i/6},e^{-2\pi i/6}),(e^{-2\pi
+        i/6},e^{2\pi i/6})\right\}.
+    $$
+    So $C\cap (\IC^\times)^2_{\mathrm{tors}}$ has two elements and is
+    finite.
+
+  \item[(ii)] Consider the curve $C$ defined by
+    $P=X^{2021}Y^{-2022}-1$. Then
+    $P(z,w)=0$ for all $(z,w)\in \{(e^{4044\pi iq},e^{4042\pi i
+      q}) : q\in\IQ\}$.
+    So here we have infinitely many solutions in $(\IC^\times)^2$.
+  \end{itemize}
+\end{example}
+
+The second example suggests that curves of large degree may contain
+infinitely many points of $(\IC^\times)^2$. But observe that the zero
+set of $X^{r}Y^{s}-1$ in $(\IC^\times)^2$ is a subgroup for all
+$r,s\in\IZ$. 
+
+\begin{exercise}
+  \label{exer:infinitemany}
+  Let $\gamma\in \IC^\times$ and $(r,s)\in\IZ^2\ssm
+  \{0\}$. Show that $P=X^rY^s-\gamma$ is irreducible in $\IC[X^{\pm
+    1},Y^{\pm 1}]$ and show that its zero set $Z(P)$ is a coset in
+  $(\IC^\times)^2$. Show that $Z(P)$ contains a point in
+  $(\IC^\times)^2$ if and only if $\gamma$ is a root of unity. 
+\end{exercise}
+
+\begin{definition}
+  An algebraic curve in $(\IC^\times)^2$
+  is called special if it is the translate of an algebraic subgroup by
+  a point of finite order. 
+\end{definition}
+
+We have the following classical characterization of special curves. 
+
+\begin{lemma}
+  If $Z(P)$ is special, then up-to a monomial factor
+  $P=X^rY^s-\zeta$ where $(r,s)\in\IZ^2\ssm\{0\}$
+  and $\zeta$ a root of unity. 
+\end{lemma}
+
+
+In the first example, the set $\{(z,w) \in S^1\times S^1 : z+w=1\}$
+was finite. Write $Z(P) = \{(z,w) \in (\IC^\times)^2 : P(z,w)=0\}$. If
+$Z(P)\cap (S^1)^2$ is finite, then so is $Z(P) \cap (\IC^\times)^2$.
+
+\begin{exercise}
+  \label{exer:toralpoly}
+  Find a non-zero polynomial $P\in \IC[X^{\pm 1},Y^{\pm 1}]$ such that
+  $Z(P)$ is \emph{not} special but with $\{(z,w)\in S^1 \times S^1 :
+  P(z,w)=0\}$ uncountable infinite.  
+\end{exercise}
+%% Hint: Blaschke products
+
+Lang's paper contains a proof of the follow theorem which he
+attributes to Ihara, Serre, and Tate.
+
+\begin{theorem}
+  \label{thm:ist}
+  Let $C\subset (\IC^\times)^2$ be an irreducible algebraic curve.
+  Then
+  \begin{equation*}
+    C \cap (\IC^\times)^2_{\mathrm{tors}}\text{ is infinite}\quad\Longleftrightarrow\quad \text{$C$ is special}. 
+  \end{equation*}
+\end{theorem}
+
+The direction ``$\Longleftarrow$'' is the content of
+Exercise~\ref{exer:infinitemany}. We will prove ``$\Longrightarrow$''
+follow the approach of Tate (which is similar to Serre's).
+
+\begin{exercise}
+  Read Ihara's proof~\cite{Lang:Division} of Theorem~\ref{thm:ist}.
+\end{exercise}
+
+We we split the proof sketch up into several steps. We assume that
+$C=Z(P)$ intersects $(\IC^\times)^2$ in an infinite set where $P\in
+\IC[X^{\pm 1},Y^{\pm 1}]$ is irreducible.
+Our aim is to show that $C$ is special, in other words, $P$ is up-to a
+monomial factor of the form $X^rY^s-\zeta$ with $\zeta$ a root of
+unity. 
+
+The theorem is ultimately of arithmetic nature and Tate's proof uses
+input from number theory. The basic observation is that
+$(\IC^\times)^2_{\mathrm{tors}}\subset
+(\IQbar^\times)^2_{\mathrm{tors}}$ with $\IQbar$ the algebraic closure
+of $\IQ$ in $\IC$.
+
+\subsubsection{Reduction to the case $P \in \IQbar[X^{\pm
+    1},Y^{\pm 1}]$.}
+
+We show that $P$ lies in $\IQbar[X^{\pm 1},Y^{\pm 1}]$ up-to
+multiplication by a non-zero complex number. To do this we may assume
+that $P$ is a polynomial of degree $d\ge 1$.
+
+Consider a polynomial $Q\in
+\IQbar[X,Y]$ of degree $e\ge 1$ whose coefficients are unknowns. So
+$Q$ has a total of $N = \frac 12 e(e+1)$ coefficients. 
+By hypothesis there are infinitely many distinct
+$\zeta_1,\zeta_2,\ldots \in Z(P)\cap (\IC^\times)^2$.
+The equations $Q(\zeta_1) = \cdots = Q(\zeta_{N-1})=0$
+impose $N-1$ linear conditions on the $N$ coefficients of
+$Q$.
+This is an underdetermined system of homogeneous linear equations. So
+there exists $Q\in \IQ[X,Y]$ with $Q\not=0$  and $\deg Q \le e$ that vanishes at
+$\zeta_1,\ldots,\zeta_{N-1}$. But $P$ vanishes at these same points.
+If $P$ does not divide $Q$, then B\'ezout's Theorem implies
+\begin{equation*}
+  \frac 12 e(e+1)-1=  N-1 \le \text{number of common zeros of $P$ and $Q$} \le de.
+\end{equation*}
+As the right-hand side grows quicker in $e$ than the left-hand side we obtain a
+contradiction for $e$ large enough. So $P$ is a divisor of $Q$ and
+therefore must have coefficients in $\IQbar$ by multiplying by a non-zero
+scalar. 
+
+So $P \in K[X^{\pm 1},Y^{\pm 1}]$ where $K$ is a number field that we may assume is
+Galois over $\IQ$. To keep the notation light we will assume for
+simplicity $K=\IQ$. The general case follows along similar lines with
+some extra bookkeeping.
+
+\subsubsection{Roots of unity and their Galois conjugates}
+
+Each root of unity $\zeta$ has an order, the minimal
+$n\in\IN=\{1,2,3,\ldots\}$
+with
+$\zeta^n=1$. The $\IQ$-minimal polynomial $\Phi_n\in\IQ[X,Y]$
+of $\zeta$ is a divisor of
+$X^n-1$. Some important facts:
+
+\begin{itemize}
+\item The roots of $\Phi_n$ are $\{\zeta^a : a\in
+  (\IZ/n\IZ)^\times\}$. In particular, $\Phi_n$ depends only on $n$
+  and $\IQ(\zeta)/\IQ$ is a Galois extension. 
+\item The degree $\deg \Phi_n = \varphi(n)= n \prod_{p\mid n}
+  \left(1-\frac 1p\right)$, where the product runs over prime divisors
+  of $n$.
+\end{itemize}
+
+\begin{crucial}
+  If $(\zeta,\xi)\in \mu_\infty^2$ and $P(\zeta,\xi)=0$ and if
+  $\sigma\in \mathrm{Gal}(\IQbar/\IQ)$, then
+  $P(\sigma(\zeta),\sigma(\xi))=0$.
+
+  The action of the Galois groups on $\mu_\infty$ is by raising to a
+  power. For any $a\in\IZ$ coprime to the order of $(\zeta,\xi)$  
+  we find $P(\zeta^a,\xi^a)=0$. 
+\end{crucial}
+
+\begin{lemma}[Prime Lemma]
+  Say $(\zeta,\xi)\in \mu_\infty^2$ has order $n\ge 2$
+  with $P(\zeta,\xi)=0$. There exists a prime number $\ell=O((\log
+  n)^2)$ with $P(\zeta^\ell,\xi^\ell)=0$. 
+\end{lemma}
+\begin{proof}
+  The Prime Number Theorem states that the number of primes $\le x$ is
+  asymptotically equal to $x/\log x$ for $x\ge 2$.
+  We will only need that this number
+  is $\ge \delta x/\log x$, for fixed $\delta >0$. 
+  The number of
+  distinct prime divisors of $n$ is at most $(\log n)/\log 2$.
+  So the least prime number $\ell$ that does not divide $n$ satisfies $\ell =
+  O((\log n)^2)$. By the crucial observation we conclude
+  $P(\zeta^\ell,\xi^\ell)=0$. 
+\end{proof}
+
+Given a single point in $Z(P)\cap\mu_\infty^2$ the action of the
+Galois group producs more points. How many more? The number is
+$\varphi(n)$ where $n$ is the order of $(\zeta,\xi)$. 
+
+\begin{lemma}[Large Galois Orbit Lemma]
+  We have $\varphi(n) \ge (n/2)^{1/2}$. 
+\end{lemma}
+\begin{proof}
+  Factor $n=p_1^{e_1}\cdots p_g^{e_g}$ into primes $p_1<p_2<\cdots <
+  p_g$ and $e_1,\ldots,e_g\in\IN$. Then $\varphi(n) = \prod_{i=1}^g
+  p_i^{e_i-1}(p_i-1)$. Then $p_i^{e_i-1}(p_i-1)\ge p_i^{e_i/2}$ except
+  if $p_i^{e_i}=2$, \textit{i.e.}, $p_i=2,e_i=1$, in which case we
+  need the factor $2^{-1/2}$. 
+\end{proof}
+
+Now we can put things together. Let us again multiply $P$ by a
+monomial so that it becomes a polynomial.
+Let $(\zeta,\xi)\in \mu_\infty^2$ have order $n\ge 2$ with
+$P(\zeta,\xi)=0$. Let $\ell$ be a prime as in the Prime Lemma.
+Then $(\zeta,\xi)$ is a common zero of $P(X,Y)$ and
+$P(X^{\ell},Y^{\ell})$. By the Crucial Observation so is any Galois
+conjugate. By the Large Galois Orbit Lemma there are at least
+$(n/2)^{1/2}$ common roots. If $P$ does not divide $P(X^\ell,Y^\ell)$,
+then B\'ezout's Theorem implies
+\begin{equation*}
+  n^{1/2} = O((\log n)^2)
+\end{equation*}
+and this means that $n$ is bounded. But by assumption we may take $n$
+as large as we want and therefore $P$ must divide $P(X^\ell,Y^\ell)$.
+
+\begin{exercise}
+  Show that $X+Y-1$ does not divide  $X^\ell + Y^\ell-1$ for any prime
+  $\ell$. 
+\end{exercise}
+
+\subsubsection{Functional Transcendence}
+
+We return to a more geometric point of view in this final set.
+If $C=Z(P)$ contains a torsion point of large enough order $n$, then
+$P \mid P(X^\ell,Y^\ell)$ for some prime $\ell$.
+Geometrically, $C \subset [\ell]^{-1}(C)$ where $[\ell]$ denotes the $\ell$-th
+power endomorphism of $(\IC^\times)^2$.
+If $\bfzeta\in (\IC^\times)^2$ with $\bfzeta^\ell=1$, then the
+translation $\bfzeta C\subset [\ell]^{-1}(C)$. These $\bfzeta C$ are
+irreducible components of $[\ell]^{-1}(C)$; their total number is
+$\ell^2$. But the degree of $[\ell]^{-1}(C)$ is $\ell \deg C$. As soon
+as $\ell > \deg C$ the Pigeonhole Principle provides distinct
+$\bfzeta',\bfzeta''\in \mu_\infty$ with $\bfzeta' C = \bfzeta''C$.
+
+Hence $\bfzeta C=C$ with $\bfzeta = \bfzeta'{\bfzeta''}^{-1}$ of order
+$\ell$.
+
+Let us now check that $C$ is the translate of an algebraic subgroup of
+$(\IC^\times)^2$ by a point of finite order. % After translating we may
+% assume $1=(1,1)\in C$ and then it suffices to show that $C$ is a
+% subgroup of $(\IC^\times)^2$.
+
+To this end consider
+\begin{equation*}
+  G = \bigcap_{P\in C} P^{-1} C.
+\end{equation*}
+
+As a set, $G$ is a subgroup of $(\IC^\times)^2$. But it is also Zariski
+closed and of dimension at most $1$. So it is either finite or a
+curve. Observe that $\bfzeta C = C$ implies $\bfzeta\in G$. As
+$\bfzeta$ has order $\ell$. Although $\ell = O((\log n)^2)$ the proof
+can easily be modified to produce $\ell$ that is larger than any
+prescribed constant that depends on $C$. Therefore, $G$ must be
+infinite and thus equal to a translate of $C$.
+
+Therefore, $C$ is special, and this completes the proof of
+Theorem~\ref{thm:ist}.
+
+
+
+% So $P(\zeta_1 X,\zeta_2 Y)$ and $P(X,Y)$ define the same curve.
+% These two are equal up-to to a scalar if we assume, as we may that $P$ is a polynomial.
+
+% If $a_{ij}$ denotes a non-zero coefficient of $P$, then comparing
+% coefficients gives
+% $a_{ij}\zeta_1^i \zeta_2^j = \lambda a_{ij}$ for some $\lambda\not=0$
+% independent of $i,j$. As there are at least two monomials we find
+% $\zeta_1^{i}\zeta_2^j = \zeta_1^{i'}\zeta_2^{j'}$ with $(i,j)\not=(i',j')$.
+
+% Then $\prod_{\sigma \in \mathrm{Gal}(K/\IQ)}
+% \sigma(P)$ has coefficients in $\IQ$ and its zero set has infinitely
+% many points in common with $(\IC^\times)^2_{\mathrm{tors}}$.
+
+
+\section{Further Reading and Open Problems}
+
+
+%%% Local Variables:
+%%% TeX-master: "main"
+%%% End:
