@@ -219,15 +219,15 @@ some extra bookkeeping.
 Each root of unity $\zeta$ has an order, the minimal
 $n\in\IN=\{1,2,3,\ldots\}$
 with
-$\zeta^n=1$. The $\IQ$-minimal polynomial $\Phi_n\in\IQ[X,Y]$
+$\zeta^n=1$. The $\IQ$-minimal polynomial $\phi_n\in\IQ[X,Y]$
 of $\zeta$ is a divisor of
 $X^n-1$. Some important facts:
 
 \begin{itemize}
-\item The roots of $\Phi_n$ are $\{\zeta^a : a\in
-  (\IZ/n\IZ)^\times\}$. In particular, $\Phi_n$ depends only on $n$
+\item The roots of $\phi_n$ are $\{\zeta^a : a\in
+  (\IZ/n\IZ)^\times\}$. In particular, $\phi_n$ depends only on $n$
   and $\IQ(\zeta)/\IQ$ is a Galois extension. 
-\item The degree $\deg \Phi_n = \varphi(n)= n \prod_{p\mid n}
+\item The degree $\deg \phi_n = \varphi(n)= n \prod_{p\mid n}
   \left(1-\frac 1p\right)$, where the product runs over prime divisors
   of $n$.
 \end{itemize}
@@ -478,6 +478,7 @@ a Taylor series in $q$, the first few terms\footnote{There is some
 \end{equation*}
 
 \begin{definition}
+  \label{def:specialY1}
   A special point of $Y(1)$ is the $j$-invariant of an elliptic curve
   with complex multiplication. Equivalently: the set of special points
   of $Y(1)$ is $\{j(\tau) : \tau\in\IH \text{ and }[\IQ(\tau):\IQ]=2\}$. 
@@ -486,10 +487,23 @@ a Taylor series in $q$, the first few terms\footnote{There is some
 The set of special points is at most countable infinite and it is
 indeed infinite since $j$ is non-constant.
 
-The following theorem  extends
-the analogy between roots of unity and special points of $Y(1)$.
+The following theorem extends the analogy between roots of unity and
+special points of $Y(1)$. It is a consequence of class field theory. 
 \begin{theorem}
-  Special points  of $Y(1)$ are algebraic integers. 
+  Let $z\in \IC$ be a special point of $Y(1)$ with $z=j(\tau)$ where
+  $\tau\in \IH$. Let $F=\IQ(\tau)$.
+  \begin{enumerate}
+  \item [(i)] Then $z$ is an algebraic integer.
+  \item[(ii)] The field $F$ is
+    imaginary quadratic and   $\mathrm{End}(E)$ is an order
+    in $F$.
+  \item[(iii)] The extension $F(z)/F$ is Galois with abelian Galois
+    group.
+  \item[(iv)] If $\mathrm{End}(E)$ is the maximal order in $F$,
+    \textit{i.e.}, the ring of integers of $F$, then
+    the class group $H_F$ of $F$ is isomorphic to
+    $\mathrm{Gal}(F(z)/F)$ via the Artin homorphism. 
+  \end{enumerate}
 \end{theorem}
 
 The Conjecture of Andr\'e--Oort is the analog (and generalization) of
@@ -505,10 +519,95 @@ Which algebraic curves in $Y(1)^2$ contain infinitely many special
 points? There are some immediate classes.
 
 \begin{example}
-  Let $j_1$ be a special point of $Y(1)$.  Then the curves
-  $\{j_1\}\times Y(1)$ and $Y(1)\times \{j_1\}$ contain infinitely many
-  special points of $Y(1)^2$. 
+  \begin{enumerate}
+  \item[(i)] The diagonal  $\{(z,z) : z\in\IC\}$ contains infinitely
+    many special points of $Y(1)^2$. 
+  \item [(ii)]  Let $j_1$ be a special point of $Y(1)$.  Then the curves
+    $\{j_1\}\times Y(1)$ and $Y(1)\times \{j_1\}$ contain infinitely many
+    special points of $Y(1)^2$. 
+  \end{enumerate}
 \end{example}
+
+These are first candidates of special curves in $Y(1)^2$. 
+But there is collection of non-trivial.
+
+Recall that an isogeny of two elliptic curves $E_1$ and $E_2$, both
+defined over $\IC$, is a non-constant morphism $f\colon E_1\rightarrow
+E_2$ of algebraic varieties with $f(0)=0$. It turns out that $f$ must
+then be finite and has a finite kernel $\mathrm{ker}(f)$.
+We call $f$ a \emph{cyclic isogeny}, if $\mathrm{ker}(f)$ is a cycle
+group. The degree $\deg f$ of $f$ is the cardinality of $\mathrm{ker}(f)$. 
+
+In $E_i$ is represented by $\IC/(\IZ+\tau_i\IZ)$, for $i\in \{1,2\}$,
+then $f$ is represented by a $\IC$-linear map $\IC\rightarrow\IC$ that
+maps $\IZ+\tau_1\IZ$ to $\IZ+\tau_2\IZ$.
+
+Let $N\in\IN$. 
+It turns out that the set
+\begin{equation*}
+  \left\{ (j(\tau_1),j(\tau_2)) : \text{there is a cyclic isogeny 
+    $\IC/(\IZ+\tau_1\IZ)\rightarrow \IC/(\IZ+\tau_2\IZ)$ of degree $N$}\right\}
+\end{equation*}
+is an irreducible algebraic curve in $Y(1)^2$, \textit{i.e.}, it is
+the zero set of an irreducible polynomial $\Phi_N\in\IC[X,Y]$.
+Moreover, we have $\Phi_N\in\IZ[X,Y]$. 
+
+\begin{example}
+  For $N=1$ we recover the diagonal $\{(z,z) : z\in\IC\}$, so $\Phi_1
+  = X-Y$. 
+  Already for $N=2$ the polynomial is quite complicated. Indeed,
+  \begin{alignat*}1
+    \Phi_2 &= 
+    X^3 - X^2Y^2 + 1488X^2Y - 162000X^2 + 1488XY^2+ 40773375XY +
+    8748000000X + \\
+    &Y^3 - 162000Y^2 + 8748000000Y -157464000000000.    
+  \end{alignat*}
+  See Cohen's work~\cite{Cohen} where it is proved that the
+  coefficients of $\Phi_N$ grow superexponentially in $N$. 
+\end{example}
+
+\begin{lemma}
+  Let $N\in\IN$, then $\Phi_N(j(\tau),j(N\tau))=0$ for all
+  $\tau\in\IH$. 
+\end{lemma}
+\begin{proof}
+  The multiplication-by-$N$ map $\IC\rightarrow\IC$ factors through
+  $\IC/(\IZ+\tau\IZ) \rightarrow \IC/(\IZ+N\tau\IZ)$.
+  The kernel of the latter homomorphism is $\{\frac kN \IZ
+  +(\IZ+\tau\IZ) : k\in \{0,\ldots,N-1\}\}$ which is cyclic of order
+  $N$.  
+\end{proof}
+
+Suppose $j(\tau)$ is a special point of $Y(1)$, then so is $j(N\tau)$,
+see Definition~\ref{def:specialY1}.
+
+We conclude that for all $N\ge 1$, the algebraic  curve $Z(\Phi_N)
+\subset Y(1)^n$ contains infinitely many special points.
+
+\begin{definition}
+  An algebraic curve  $C\subset Y(1)^2$ is called a special curve of
+  $Y(1)^2$ 
+  \begin{enumerate}
+  \item [(i)] if $C = \{z\}\times Y(1)$ for a special point $z$, or
+\item [(ii)] if $C =  Y(1)\times \{z\}$ for a special point $z$, or
+\item[(iii)] if $C=Z(\Phi_N)$ for some $N\in\IN$. 
+\end{enumerate}
+\end{definition}
+
+The content of the Andr\'e--Oort Conjecture is the converse of the
+observations above.
+
+\begin{theorem}[Andr\'e--Oort for $Y(1)^2$, Andr\'e~\cite{Andre:AO},
+  Edixhoven~\cite{Edixhoven} under GRH, Pila~\cite{Pila:AO} for
+  subvarieties of $Y(1)^n$, effective versions by
+  Bilu--Masser--Zannier~\cite{} and K\"uhne~\cite{}]
+  Let $C\subset Y(1)^2$ be an irreducible curve. Then
+  \begin{equation*}
+    C \cap Y(1)^2_{\mathrm{special}}\text{ is
+      infinite}\quad\Longleftrightarrow\quad \text{$C$ is a special
+      curve of $Y(1)^2$}. 
+  \end{equation*}  
+\end{theorem}
 
 \section{Further Reading and Open Problems}
 
