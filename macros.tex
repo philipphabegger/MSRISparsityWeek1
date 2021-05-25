@@ -38,13 +38,6 @@
 \def\XX{\mathbb{X}}
 
 
-%\def\cal{\mathcal}
-\newcommand{\cal}{\mathcal}
-
-\newcommand{\scrZ}{\mathscr{Z}}
-\newcommand{\cA}{\cal{A}}
-\newcommand{\cB}{\cal{B}}
-
 %%% Philipp's macros
 
 \newcommand{\dom}[1]{{\mathrm {dom}}({#1})}
@@ -67,6 +60,7 @@
 \newcommand{\atopx}[2]{{\genfrac{}{}{0pt}{}{#1}{#2}}}
 \newcommand{\IP}{{\PP}}
 \newcommand{\IG}{{\GG}}
+\newcommand{\IH}{{\HH}}
 \newcommand{\IC}{{\CC}}
 \newcommand{\IR}{{\RR}}
 \newcommand{\IT}{{\TT}}
@@ -164,3 +158,24 @@
 \newcommand{\jac}{\mathrm{Jac}}
 
 \newcommand{\bfzeta}{{\boldsymbol{\zeta}}}
+
+\newcommand{\mattt}[4]
+{\left(
+  \begin{array}{cc}
+    {#1} & {#2} \\ {#3} & {#4} 
+  \end{array}
+\right)}
+
+\newcommand{\matto}[2]
+{\left(
+  \begin{array}{c}
+    {#1} \\ {#2}
+  \end{array}
+\right)}
+
+\newcommand{\matot}[2]
+{\left(
+  \begin{array}{cc}
+    {#1} & {#2}
+  \end{array}
+\right)}
