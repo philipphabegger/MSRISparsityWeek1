@@ -3,6 +3,7 @@
 \usepackage{datetime}
 \usepackage{csquotes}
 \usepackage{hyperref}
+%\usepackage{catchfile}
 
 \input{macros.tex}
 
@@ -12,6 +13,10 @@
 \author{Philipp~Habegger \\ Department of Mathematics and Computer
   Science \\ University of Basel \\ \texttt{philipp.habegger@unibas.ch}}
 \date{Last revision made on \today, \currenttime (CEST)}
+
+% \address{Department of Mathematics and Computer Science, University of Basel, Spiegelgasse 1, 4051 Basel, Switzerland}
+% \email{philipp.habegger@unibas.ch}
+
 
 \maketitle
 \tableofcontents
@@ -37,18 +42,6 @@
 \bibliographystyle{alpha}
 \bibliography{literature}
 
+\vfill\hfill\texttt{\input{.git/refs/heads/master}}
+
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
-
-
-

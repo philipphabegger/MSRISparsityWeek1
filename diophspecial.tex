@@ -40,8 +40,8 @@ special points:
     commutative ring for any elliptic curve defined over a field of
     characteristic $0$.}
   The  structure of $E$ as an algebraic group gives us for free
-  multiplication-by-$N$ endomorphisms $[N] \in \mathrm{End}(E)$ for
-  all $N\in\IZ$. So $\mathrm{End}(E) \supset \IZ$.
+  multiplication-by-$n$ endomorphisms $[n] \in \mathrm{End}(E)$ for
+  all $n\in\IZ$. So $\mathrm{End}(E) \supset \IZ$.
   We say that $E$ has complex multiplication if
   $\mathrm{End}(E)\not=\IZ$.
   Such an elliptic curve curve corresponds to a \textit{special point}
@@ -182,7 +182,7 @@ $(\IC^\times)^2_{\mathrm{tors}}\subset
 (\IQbar^\times)^2_{\mathrm{tors}}$ with $\IQbar$ the algebraic closure
 of $\IQ$ in $\IC$.
 
-\subsubsection{Reduction to the case $P \in \IQbar[X^{\pm
+\subsubsection{Reduction to the Case $P \in \IQbar[X^{\pm
     1},Y^{\pm 1}]$.}
 
 We show that $P$ lies in $\IQbar[X^{\pm 1},Y^{\pm 1}]$ up-to
@@ -214,7 +214,7 @@ Galois over $\IQ$. To keep the notation light we will assume for
 simplicity $K=\IQ$. The general case follows along similar lines with
 some extra bookkeeping.
 
-\subsubsection{Roots of unity and their Galois conjugates}
+\subsubsection{Roots of Unity and Their Galois Conjugates}
 
 Each root of unity $\zeta$ has an order, the minimal
 $n\in\IN=\{1,2,3,\ldots\}$
@@ -242,6 +242,22 @@ $X^n-1$. Some important facts:
   we find $P(\zeta^a,\xi^a)=0$. 
 \end{crucial}
 
+Given a single point in $Z(P)\cap\mu_\infty^2$ the action of the
+Galois group producs more points. How many more? The number is
+$\varphi(n)$ where $n$ is the order of $(\zeta,\xi)$. 
+
+\begin{lemma}[Large Galois Orbit Lemma]
+  We have $\varphi(n) \ge (n/2)^{1/2}$. 
+\end{lemma}
+\begin{proof}
+  Factor $n=p_1^{e_1}\cdots p_g^{e_g}$ into primes $p_1<p_2<\cdots <
+  p_g$ and $e_1,\ldots,e_g\in\IN$. Then $\varphi(n) = \prod_{i=1}^g
+  p_i^{e_i-1}(p_i-1)$. Then $p_i^{e_i-1}(p_i-1)\ge p_i^{e_i/2}$ except
+  if $p_i^{e_i}=2$, \textit{i.e.}, $p_i=2,e_i=1$, in which case we
+  need the factor $2^{-1/2}$. 
+\end{proof}
+
+
 \begin{lemma}[Galois Homothety Lemma]
   Say $(\zeta,\xi)\in \mu_\infty^2$ has order $n\ge 2$
   with $P(\zeta,\xi)=0$. There exists a prime number $\ell=O((\log
@@ -259,28 +275,20 @@ $X^n-1$. Some important facts:
   $P(\zeta^\ell,\xi^\ell)=0$. 
 \end{proof}
 
-Given a single point in $Z(P)\cap\mu_\infty^2$ the action of the
-Galois group producs more points. How many more? The number is
-$\varphi(n)$ where $n$ is the order of $(\zeta,\xi)$. 
-
-\begin{lemma}[Large Galois Orbit Lemma]
-  We have $\varphi(n) \ge (n/2)^{1/2}$. 
-\end{lemma}
-\begin{proof}
-  Factor $n=p_1^{e_1}\cdots p_g^{e_g}$ into primes $p_1<p_2<\cdots <
-  p_g$ and $e_1,\ldots,e_g\in\IN$. Then $\varphi(n) = \prod_{i=1}^g
-  p_i^{e_i-1}(p_i-1)$. Then $p_i^{e_i-1}(p_i-1)\ge p_i^{e_i/2}$ except
-  if $p_i^{e_i}=2$, \textit{i.e.}, $p_i=2,e_i=1$, in which case we
-  need the factor $2^{-1/2}$. 
-\end{proof}
-
 Now we can put things together. Let us again multiply $P$ by a
 monomial so that it becomes a polynomial.
 Let $(\zeta,\xi)\in \mu_\infty^2$ have order $n\ge 2$ with
-$P(\zeta,\xi)=0$. Let $\ell$ be a prime as in the Galois Homothety Lemma.
-Then $(\zeta,\xi)$ is a common zero of $P(X,Y)$ and
-$P(X^{\ell},Y^{\ell})$. By the Crucial Observation so is any Galois
-conjugate. By the Large Galois Orbit Lemma there are at least
+$P(\zeta,\xi)=0$. Let $\ell$ be a prime as in the Galois Homothety
+Lemma.
+Then
+\begin{equation}
+  \label{eq:intersectionGm}
+  (\zeta,\xi)\text{ lies on the zero set of $P(X,Y)$ and of 
+    $P(X^{\ell},Y^{\ell})$}.
+\end{equation}
+So does any Galois
+conjugate by the Crucial Observation.
+By the Large Galois Orbit Lemma there are at least
 $(n/2)^{1/2}$ common roots. If $P$ does not divide $P(X^\ell,Y^\ell)$,
 then B\'ezout's Theorem implies
 \begin{equation*}
@@ -388,9 +396,9 @@ identify
   \mathrm{End}(E) = \{ \alpha\in\IC : \alpha \Omega \subset \Omega \}
   = \{\alpha\in \IC : \alpha\in \Omega, \alpha\tau\in \Omega\}. 
 \end{equation*}
-Clearly,  $\IZ$ is contained in the right-hand side. For example  $N\in\IN$
-correspond to the multiplication-by-$N$ endomorphism $[N](P) =
-\underbrace{P+\cdots +P}_{N\text{ times}}$ of $E$.
+Clearly,  $\IZ$ is contained in the right-hand side. For example  $n\in\IN$
+correspond to the multiplication-by-$N$ endomorphism $[n](P) =
+\underbrace{P+\cdots +P}_{n\text{ times}}$ of $E$.
 
 \begin{lemma}
   Suppose $\mathrm{End}(E) \supsetneq \IZ$, then
@@ -451,23 +459,20 @@ We come to an important fact: Two elliptic curves over $\IC$ are
 isomorphic if and only if their $j$-invariants are equal.
 
 As each complex number is the $j$-invariant of an elliptic curve we
-find: The $j$-invariant allows us to identify  isomorphism classes of
+find: The $j$-invariant allows us to identify isomorphism classes of
 elliptic curves over $\IC$ with the set of complex points of the
-affine line.
-To emphasize this modular property of the affine line we will
-sometimes denote it by $Y(1)=\IA^1$, which is standard notation for a
-modular curve in a certain infinite family. 
+affine line. To emphasize this modular property of the affine line we
+will sometimes denote it by $Y(1)=\IA^1$, which is standard notation
+for a modular curve in a certain infinite family.
 
-
-So $j(E) = j(\IC/(\IZ+\tau\IZ))$ is a
-function in $\tau$ that is invariant under the action of
-$\mathrm{SL}_2(\IZ)$. So we obtain a function $j\colon \IH\rightarrow
-\IC$ determined by $j(\tau) = j(\IC/(\IZ+\tau\IZ))$ for all
-$\tau\in\IH$; it is sometimes called Klein's $j$-functions.
-Observe that $j(\tau)=j(\tau+1)$ and $j(\tau) =
-j(-1/\tau)$. The first equation shows that $j$ depends only on
-$q=e^{2\pi i \tau}$. It is sometimes useful to consider $j$ as a
-function in $q$. 
+So $j(E) = j(\IC/(\IZ+\tau\IZ))$ is a function in $\tau$ that is
+invariant under the action of $\mathrm{SL}_2(\IZ)$. So we obtain a
+function $j\colon \IH\rightarrow \IC$ determined by $j(\tau) =
+j(\IC/(\IZ+\tau\IZ))$ for all $\tau\in\IH$; it is sometimes called
+Klein's $j$-functions. Observe that $j(\tau)=j(\tau+1)$ and $j(\tau) =
+j(-1/\tau)$. So $j$ is a modular function of weight $0$. The first
+equation shows that $j$ depends only on $q=e^{2\pi i \tau}$. It is
+sometimes useful to consider $j$ as a function in $q$.
 
 It turns out that much more is true: Klein's $j$-function is
 holomorphic on $\IH$ and meromorphic at infinity. It has a famous 
@@ -490,6 +495,7 @@ indeed infinite since $j$ is non-constant.
 The following theorem extends the analogy between roots of unity and
 special points of $Y(1)$. It is a consequence of class field theory. 
 \begin{theorem}
+  \label{thm:galoisspecial}
   Let $z\in \IC$ be a special point of $Y(1)$ with $z=j(\tau)$ where
   $\tau\in \IH$. Let $F=\IQ(\tau)$.
   \begin{enumerate}
@@ -502,7 +508,8 @@ special points of $Y(1)$. It is a consequence of class field theory.
   \item[(iv)] If $\mathrm{End}(E)$ is the maximal order in $F$,
     \textit{i.e.}, the ring of integers of $F$, then
     the class group $H_F$ of $F$ is isomorphic to
-    $\mathrm{Gal}(F(z)/F)$ via the Artin homorphism. 
+    $\mathrm{Gal}(F(z)/F)$ via the Artin homorphism.
+    Moreover, $F(z)$ is the Hilbert Class Field of $F$. 
   \end{enumerate}
 \end{theorem}
 
@@ -562,7 +569,17 @@ Moreover, we have $\Phi_N\in\IZ[X,Y]$.
     8748000000X + \\
     &Y^3 - 162000Y^2 + 8748000000Y -157464000000000.    
   \end{alignat*}
-  See Cohen's work~\cite{Cohen} where it is proved that the
+
+  For general $N$, the degree of $\Phi_N$ as a polynomial in $X$
+  satisfies
+  \begin{equation*}
+    \deg_X \Phi_N = N\prod_{p\ell N}\left(1+\frac 1p\right). 
+  \end{equation*}
+  Moreover, $\Phi_N(X,Y) = \Phi_N(Y,X)$ for $N\ge 1$. In any case
+  $\deg_X \Phi_N = \deg_Y \Phi_N$.
+
+  The growth of the coefficients of $\Phi_N$ is described precisely in
+  work of Cohen~\cite{Cohen}. There it is proved that the
   coefficients of $\Phi_N$ grow superexponentially in $N$. 
 \end{example}
 
@@ -581,8 +598,8 @@ Moreover, we have $\Phi_N\in\IZ[X,Y]$.
 Suppose $j(\tau)$ is a special point of $Y(1)$, then so is $j(N\tau)$,
 see Definition~\ref{def:specialY1}.
 
-We conclude that for all $N\ge 1$, the algebraic  curve $Z(\Phi_N)
-\subset Y(1)^n$ contains infinitely many special points.
+We conclude that for all $N\ge 1$, the zero set $Z(\Phi_N)\subset
+Y(1)^2$ of $\Phi_N$ contains infinitely many special points.
 
 \begin{definition}
   An algebraic curve  $C\subset Y(1)^2$ is called a special curve of
@@ -601,6 +618,7 @@ observations above.
   Edixhoven~\cite{Edixhoven} under GRH, Pila~\cite{Pila:AO} for
   subvarieties of $Y(1)^n$, effective versions by
   Bilu--Masser--Zannier~\cite{} and K\"uhne~\cite{}]
+  \label{thm:ao}
   Let $C\subset Y(1)^2$ be an irreducible curve. Then
   \begin{equation*}
     C \cap Y(1)^2_{\mathrm{special}}\text{ is
@@ -609,7 +627,177 @@ observations above.
   \end{equation*}  
 \end{theorem}
 
+There are many different proofs of this theorem. We will later get to
+know Pila's approach much better. But first let us review the proof of
+Edixhoven. It is similar in spirit for the proof of Serre and Tate of
+Theorem~\ref{thm:ist}. In addition it is conditional on the Generalized
+Riemann Hypothesis (GRH).
+
+As we have seen above, the deep part of Theorem~\ref{thm:ao} is the
+implication
+``$\Longrightarrow$''.
+
+\subsubsection{Reduction to the Case $P \in \IQbar[X,Y]$.}
+This step works just as in the proof of Theorem~\ref{thm:ist}
+presented above.
+
+For simplicity we will assume that $P\in \in\IQ[X,Y]$ is irreducible
+in $\IC$. 
+
+\subsubsection{Special Points and their Galois Conjugates}
+
+Let $(z,w)$ be special point of $Y(1)^2$ with $P(z,w)=0$.
+
+Again, for any $\sigma\in \mathrm{Gal}(\IQbar/\IQ)$ the conjugate
+$(\sigma(z),\sigma(w))$ lies in $Z(P)$.
+
+How can we measure the orbit of our point? Observe that the
+endomorphism ring attached to $z$ is an order $\mathcal{O}$ in an imaginary
+quadratic number field $F$. We define the \emph{discriminant of $z$}
+to be 
+\begin{equation*}
+  \Delta_z = \mathrm{Disc}(\mathcal{O}) = [\mathcal{O}_F:\mathcal{O}] \Delta_F
+\end{equation*}
+where $\mathcal{O}_F$ is the maximal order of $F$, \textit{i.e.}, the
+ring of algebraic integers of $F$. 
+
+Let us assume for simplicity that the orders attached to 
+both $z$ and $w$ are maximal.\footnote{This assumption is made in
+  order to avoid technicalities when dealing with non-Dedekind
+  orders.}
+We also assume $\Delta =
+\Delta_z=\Delta_w$ are equal. \footnote{This second reduction step
+  somewhat more subtle.
+  Although Andr\'e and Edixhoven's proofs are different, they both use
+  this reduction step.}
+
+\begin{lemma}[Large Galois Orbit]
+  We have
+  \begin{equation*}
+    \# \mathrm{Gal}(\IQ(z,w)/\IQ) \gg_\epsilon
+    |\Delta|^{1/4}. 
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  The left-hand side is at least the order of the class group $H_F$ of $F$ by
+  Theorem~\ref{thm:galoisspecial}(iv). The Landau--Siegel Theorem
+  implies $\# H_F \gg_\epsilon |\Delta|^{1/2-\epsilon}$. 
+  The same estimates hold for $w$ and this concludes the proof.
+  The lemma follows with the choice $\epsilon =1/4$. 
+\end{proof}
+
+What is the analog of the Homothety Lemma? To find this out we need
+the analog of multiplication-by-$N$ for $Y(1)^2$. However, there is
+no group structure that is compatible with out moduli problem.
+However, we do have the Modular Transformation Polynomials $\Phi_N$
+and we can use them to transform our curve.
+
+\begin{definition}
+  Let $C\subset Y(1)^2$ be an algebraic curve defined over $\IC$. Then set
+  \begin{equation*}
+    T_N(C) = \{(z,w) : \text{there exists $(z',w')\in C$ with $\Phi_N(z,z')=\Phi_N(w,w')=0$}\}
+  \end{equation*}  
+\end{definition}
+
+One can show that $T_N(C)$ is possible reducible algebraic curve.
+Now we can formulate the Homothety Lemma in the modular case.
+
+\begin{lemma}[Galois Homothety Lemma]
+  Suppose the GRH.
+  Say $(z,w)\in Y(1)^2$ is a special point as above, so % with $P(z,w)=0$ 
+ $\Delta=\Delta_z=\Delta_w$ is a fundamental discriminant.
+  There exists a prime number $\ell=O((\log
+  |\Delta|)^3)$ and $\sigma\in \mathrm{Gal}(\IQbar/\IQ)$  with $\Phi_\ell(z,\sigma(z))=\Phi(w,\sigma(w))=0$. 
+\end{lemma}
+\begin{proof}[Proof sketch]
+  Let $K$ be the imaginary quadratic field of discriminant $\Delta$.
+  Suppose $\ell$ is split prime in $K$, \textit{i.e.}, $\ell\cO_K =
+  \mathfrak{p}\mathfrak{q}$ with $  \mathfrak{p},\mathfrak{q}$
+  distinct prime ideals of $\cO_K$.
+  If we think of $\IC/\cO_K$ as an elliptic curve,
+  then $\IC/\cO_K \rightarrow \IC/\mathfrak{p}$ is an isogeny of
+  elliptic curves. Its kernel has order $[\cO_K:\mathfrak{p}]=\ell$
+  and is hence cyclic. By the theory of complex multiplication of
+  elliptic curves, we may reduce to the case where $z$ is
+  represented by $\IC/\cO_K$ and $z'\in \IC$ is represented by
+  $\IC/\mathfrak{p}$. So $\Phi_{\ell}(z,z')=0$. 
+  Moreover, by Class Field Theory $\sigma(z)=z'$ for $\sigma \in
+  \mathrm{Gal}(F(z)/F)$ coming from the image of $\mathfrak{p}$ under
+  the Artin map. As $F(z)=F(w)$ by hypothesis, the same $\sigma$ works
+  for $w$ and produces $\sigma(w)=w'$.
+
+  So the goal is to find a small split prime in $F$. Approximately
+  have of all primes split in $F$. So
+  \begin{equation*}
+    \{\ell \le x : \ell \text{ splits in }F\} = \frac 12 \underbrace{\int_2^x
+      \frac{\mathrm{d} t}{\log t}}_{=\mathrm{Li}(x)} + o(\mathrm{Li}(x))
+    \quad\text{as}\quad x\rightarrow\infty. 
+  \end{equation*}
+  But the problem is that $K$ is
+  varying and we need a good dependency on $K$ in the error term
+  $o(\cdots)$.
+  A suitable version of GRH tells us that the error term can be taken
+  as
+  $\frac 16 \sqrt x (\log|\Delta| + 2\log(x))$ for $x$ large enough.
+  The claim follows as $\mathrm{Li}(x)\sim x/\log x$. 
+\end{proof}
+
+Let us again put things together. Under the various simplying
+assumptions made above (and GRH!) the Galois Homothety Lemma implies $P(z,w)=0, P(\sigma(z),\sigma(w))=0,$
+and $\Phi_\ell(z,\sigma(z))=\Phi_\ell(w,\sigma(w))=0$ for some
+$\sigma\in\mathrm{Gal}(\IQbar/\IQ)$ and some prime
+$\ell = O((\log|\Delta|)^3)$. We are now in a situation reminiscent of (\ref{eq:intersectionGm}), so
+\begin{equation*}
+  (z,w) \in C \cap T_\ell(C),  
+\end{equation*}
+indeed $C$ is defined by an integral polynomial and by the definition of
+$T_\ell$.
+On the other hand, any Galois conjugate of $(z,w)$ is a member of the
+intersection $C\cap T_\ell(C)$. The Large Galois Orbit Lemma in the
+modular case implies\footnote{"$\ll$" below means that the left-hand side is
+      at most the right-hand side up-to a fixed and positive
+      multiplicative constant.}
+\begin{equation}
+  \label{eq:intersectionlb}
+  \#|\Delta|^{1/4} \ll \# C\cap
+  T_\ell(C).
+\end{equation}
+
+Let us apply B\'ezout's Theorem to estimate the cardinality $\# C\cap
+T_\ell(C)$. For this we consider $C$ as fixed and $\ell$ as varying.
+Some basic degree estimates yields $\deg T_\ell(C) \ll \ell^2$.
+Therefore, B\'ezout's Theorem tells us $\#C\cap T_\ell(C)\ll \ell^2$.
+But $\ell$ is not too large by the Galois Homothety Lemma, so
+$\# C\cap T_\ell(C)\ll (\log|\Delta|)^6$. 
+We combine this with (\ref{eq:intersectionlb}) and conclude
+\begin{equation*}
+  \#|\Delta|^{1/24} \ll \log|\Delta|.
+\end{equation*}
+As a polynomial always  beats a logarithm  we conclude that $|\Delta|$
+is bounded and this means that $(z,w)$ is in a finite set that depends
+only on $C$. In other words, $C$ contains at most finitely many
+special points of $Y(1)^2$.
+
+But this cannot be correct! We never assumed that $C$ is not a special
+curve and we know that special curves contain infinitely many special
+points. So the argument above contains a gap. But where is it? It is
+in the application of B\'ezout's Theorem, we only get a cardinality
+bound if $C\not\subset T_\ell(C)$. This is final step, the functional
+Functional Transcendence argument, involves showing that $C\not\subset
+T_\ell(C)$ for all sufficiently large primes $\ell$ if $C$ is not a
+special curve. We skip Edixhoven's approach to this problem and will
+revisit it later after doing some o-minimal geometry. 
+
+
+
+
 \section{Further Reading and Open Problems}
+
+\begin{itemize}
+\item Elliptic Curves and Complex Multiplication \cite{Silverman:AEC,Silverman:Adv}
+\item Class Field Theory for imaginary quadratic fields \cite{Cox}
+\item Elliptic Functions, elliptic curves, complex multiplication \cite{Lang:elliptic}
+\end{itemize}
 
 
 %%% Local Variables:
