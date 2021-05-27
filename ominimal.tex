@@ -1,4 +1,258 @@
 \chapter{O-minimal Geometry}
+\section{Overview}
+
+O-minimal geometry was developed in the 1980s by various authors
+including Pillai, Steinhorn, and van den Dries. Some call it an
+incarnation of Grothendieck's vision of a ``tame topology'' described
+in his ``Esquisse d'un Programme''. It strives to generalize real
+semi-algebraic geometry to include also real (sub)-analytic sets.
+This makes it a powerful and robuts tool to study various problems
+including conjectures in diophantine geometry.
+
+O-minimal Geometry has strong ties mathematical logic and model
+theory. 
+
+The basic motivation is to carve out a class ``interesting'' subsets
+of $\IR^n$ that is stable under various basic observations. These sets
+will be called ``definable'' (in a given o-minimal structure). 
+
+For example, consider an algebraic curve $C\subset (\IC^\times)$ and
+the map $\be \colon\IR^2\rightarrow (\IC^\times)^2$ defined by
+\begin{equation*}
+  \be(x,y) = (e^{2\pi i x},e^{2\pi i y}). 
+\end{equation*}
+Consider the set $X = \be^{-1}(C) \cap [0,1)^2$. Then $C$ contains
+infinitely many torsion points of $(\IC^\times)^2$ if and only if $X$
+contains infinitely many rational points.
+We will see that $X$ is definable in a certain o-minimal structure.
+Note that $X$ is not necessarily real analytic (but it is real
+semi-analytic). 
+
+\section{O-minimal Structures}
+
+
+\begin{definition}
+  \label{def:structure}
+%  For each $m\in \IN_0$ consider the set of all subsets of $\IR^n$.
+  A \emph{structure} $\cS$ is a sequence $(S_m)_{m\in\IN_0}$
+  where each $S_m$ is a set of subsets of $\IR^m$ with the following
+  properties for all $m\in \IN_0$:
+  \begin{enumerate}
+  \item [(i)] Each $S_m$ is closed under boolean operations,
+    \textit{i.e.}, if $X,Y\in S_m$, then $X\cup Y\in S_m$ and
+    $\IR^m\ssm X\in S_m$.
+  \item[(ii)] If $X\in S_m$, then $\IR\times X\in S_m$ and $X\times
+    \IR\in S_m$.
+  \item[(iii)] If $X\in S_{m}$ and $\pi\colon
+    \IR^{m}\rightarrow\IR^k$ is the projection to $k$ distinct
+    coordinates, then 
+    $\pi(X)\in S_k$.
+  \item[(iv)] All real semi-algebraic subsets of $\IR^m$ are in
+    $S_m$.\footnote{A real semi-algebraic subsets of $\IR^m$ is a
+      finite union of sets each of which is set of 
+      solutions of a finite number of polynomial equalities and
+      strict inequalities.}    
+  \end{enumerate}
+  We say that a subset of  $\IR^m$ is \emph{definable} in $\cS$ if it
+  is a member of $S_m$.
+\end{definition}
+
+\begin{example} Let us consider the two extremes.
+  \begin{enumerate}
+  \item [(i)] Set $S_m$ to be the set of all subsets of $\IR^m$ for
+    all $m\ge 0$. Then $(S_m)_m$ is a structure. It is useless in this
+    context and will play no role
+    in what follows.
+  \item[(ii)]
+    Set $S_m$ to be the set of all real semi-algebraic subsets of $\IR^m$
+    for all $m\ge 0$. By definition each $S_m$ is closed under taking
+    unions. Moreover, each $S_m$ is closed under taking intersections.    
+    Say $X\in S_m$. Let us  verify that $\IR^m \ssm X$. Indeed, by
+    closedness under union and intersection we may assume that either 
+    \begin{equation*}
+      X = f^{-1}(0)=\{ x\in\IR^m : f(x) = 0\}
+      \quad\text{or}\quad       X = f^{-1}((0,\infty))=\{ (x)\in\IR^m : f(x) > 0\}
+    \end{equation*}
+    for a single $f\in\IR[X_1,\ldots,X_m]$. In the first case
+    we have $\IR\ssm X=\{x\in\IR^m : f(x)^2 > 0\}$ and in the second
+    case
+    $\IR\ssm X = \{x\in\IR^m : f(x)=0\} \cup \{x\in \IR^m: -f(x)^2 >
+    0\}$; both are real semi-algebraic.
+    Property (ii) in the definition of structure can be verified
+    directly. Property (iii) is also true, but harder to show. It
+    is called the Seidenberg--Tarski Theorem.
+  \end{enumerate}
+\end{example}
+
+
+
+\begin{exercise}
+  Find and understand a proof of Seidenberg--Tarski Theorem. For
+  example, one can be found in Chapter 2, \S 2~\cite{D:oMin}. This
+  proof runs via a cell-decomposition, a concept we will discuss
+  further down. 
+\end{exercise}
+
+Here are some direct consequences of the definition of a structure.  
+
+\begin{lemma}
+  \label{lem:structprops}
+  Let $\cS$ be a structure. Let $X\subset\IR^m$ and $Y\subset\IR^n$ be definable subsets of $\cS$.
+  \begin{enumerate}   
+  \item [(i)] Then $X\times Y$ is definable.
+  \item[(ii)] If $m=n$, then $X\cap Y$ is definable.
+  \item[(iii)] The image of $X$ under any polynomial map
+    $\IR^m\rightarrow \IR^n$ is definable. 
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  For (i) note that $X\times Y =  (X\times \IR^n)\cap (\IR^m\times
+  Y)$. For (ii) we need $X\cap Y = \IR^m\ssm ((\IR^m\ssm X)\cup (\IR^m
+  \ssm Y))$.
+  Let $p_1,\ldots,p_n\in\IR[X_1,\ldots,X_m]$ and consider the graph
+  \begin{equation*}
+    \Gamma = \{(x_1,\ldots,x_m,x_{m+1},\ldots,x_{m+n})\in\IR^{m+n} :
+    x_{m+i}-p_i(x_1,\ldots,x_m)= 0 \text{ for all }
+    i\} 
+  \end{equation*}
+  of $p=(p_1,\ldots,p_n)\colon \IR^m\rightarrow\IR^n$. Then $\Gamma$ is
+  semi-algebraic and it is definable in $\cS$. Now $p(X)$ is the
+  projection of $\Gamma \cap (X\times\IR^n)$ to $\IR^n$ and hence also
+  definable. This gives (iii). 
+\end{proof}
+
+\begin{definition}
+  Let $\cS$ be a structure and $X\subset\IR^m$ definable.
+  A map $f\colon X\rightarrow\IR^n$ is
+  called \emph{definable} in $\cS$, if its graph $\Gamma(f) =
+  \{(x,f(x)) : x\in X\}\subset\IR^{m+n}$ is definable.
+\end{definition}
+
+Domain $X$ and image $f(X)$ of a definable map must also be definable
+by an argument similar to the one in the proof of Lemma~\ref{lem:structprops}(iii).
+
+\begin{example}
+  Let $\cS$ be an arbitrary structure. 
+  On a definable domain, 
+  all polynomial functions, all rational functions without poles on the
+  domain, and all algebraic functions are definable.
+  In particular, $x\mapsto \sqrt{x}$ is definable on $X=[0,\infty)$.
+  The absolute value function $x\mapsto |x|$ is definable on $\IR$.
+\end{example}
+
+
+
+While structures are very flexible, the definition does not contain
+any clause that ``tempers'' the collection of sets.
+
+\begin{definition}
+  A {structure} $\cS=(S_m)_m$ is call \emph{o-minimal}
+  \begin{enumerate}
+  \item [(v)]  if each 
+  element in $S_1$ is a finite union of points and
+  intervals, that are possibly unbouded.
+  \end{enumerate}
+\end{definition}
+
+\begin{example}
+  By the Seidenberg--Tarski Theorem we already know that the real
+  semi-algebraic sets constitute a structure. Say $f\in\IR[X]$.
+  The zero locus of $f$ is finite or $\IR$. Moreover,
+  $f^{-1}((0,\infty))$ is open in $\IR$ and has only finitely many
+  boundary points. So it is a finite union of intervals. Thus this
+  structure is o-minimal, we will denote it by $\IRalg$. 
+\end{example}
+
+The final axiom (v) in does an excellent job in ``taming'' subsets of
+$\IR^m$. This will hopefully be apparent after seeing the
+applications. But the axiom comes at a heavy price.
+We immediately stake out the limits of o-minimality.
+
+\begin{nonexample}
+  Let $\cS$ be an o-minimal structure. Then $\IZ$ is not definable in
+  $\cS$. Moreover, the function $\sin \colon\IR\rightarrow\IR$
+  is not definable in any o-minimal structure.  
+\end{nonexample}
+%\begin{definition}
+%  Let 
+%\end{definition}
+
+\section{Structures and First-Order Logic}
+
+The various sets appearing in Definition~\ref{def:structure}(i) --
+(iv) can equivalently be described using first-order logic formulas. In fact, the
+terminology ``structure'' comes from mathematical logic. Our main
+emphasis will be on the geometry.  But we  take some time to give
+an informal overview of the connection to logic as it is equivalent
+and often very useful. 
+
+Say $\cS$ is a structure and suppose $X\subset\IR^m$ is definable.
+We think of the formula $x\in X$ as an $m$-ary relation signifying
+membership of the $m$-tuple $x$ in $X$. Subject to the usual rules we
+can combine two formulas using the logical symbols $\wedge$ (for
+``and'') and $\vee$ (for ``or''), we can negate them by using $\neg$
+(for ``not''), and we may use the existential ($\exists$) and
+universal ($\forall x$) quantifier.
+
+In the language of mathematical logic, $\IR$ is the universe of our
+structure. This is were any element lies ``by default'' in expressions
+such as $\exists x:\phi(x)$ and $\forall x:\phi(x,y)$. By abuse of
+notation we often also quantify over tuples in $\IR^m$.
+
+Let $Y\subset\IR^m$ be definable
+and let $\pi\colon\IR^m\rightarrow \IR^{m-1}$ project to the first
+$m-1$ coordinates (if $m\ge 1$). 
+
+\begin{center}
+\begin{tabular}{c|c|c}
+  $X\cap Y$ \text{ is definable} & $((x_1,\ldots,x_m)\in X)\wedge ((x_1,\ldots,x_m)\in Y)$ &
+                                                               $x_1,\ldots,x_m$  are free\\
+  $\IR^m\ssm X$ \text{ is definable} &  $\neg((x_1,\ldots,x_m)\in X)$ & $x_1,\ldots,x_m$ are free \\
+  $X\times\IR$ \text{ is definable} & $(x_1,\ldots,x_m)\in X$&
+                                                               $x_1,\ldots,x_{m+1}$
+                                                               are free\\
+  $\pi(X)$ \text{ is definable} &$\exists x_m : (x_1,\ldots,x_{m})\in
+                                  X$  & $x_1,\ldots,x_{m-1}$ are free
+  \\ \hline  &\text{Further examples} &  \\ \hline
+    $X\cup Y$ \text{ is definable} & $((x_1,\ldots,x_m)\in X)\vee ((x_1,\ldots,x_m)\in Y)$ &
+                                                               $x_1,\ldots,x_m$
+                                                                                             are free\\
+  $\IR\ssm \pi(\IR^2\ssm X)$ & $\forall y : \phi(x,y)$ & $\phi$ is a binary
+                                                 rel. defining
+                                                 $X\subset\IR^2$  
+\end{tabular}
+\end{center}
+
+\begin{warning}
+  It is not allowed to quantify over sets that are not definable in
+  the ambient structure. For example, if $\cS$ is an o-minimal
+  structure, then $\IZ$ is not definable in $\cS$. So a formula like
+  $\forall x \in\IZ:\forall y\in\IZ :\forall z\in \IZ :
+  (xyz=0) \vee \neg(x^n+y^n=z^n)$ is illegal.
+\end{warning}
+
+Here is an example how to apply this point of view to quickly show
+that the locus continuity of a definable function is definable.
+
+\begin{lemma}
+  Let $X$ be a definable set and $f\colon X\rightarrow\IR$ a definable
+  function. Then $\{ x \in X : f \text{ is continuous at }x\}$ is
+  definable. 
+\end{lemma}
+\begin{proof}
+  Let $\|(x_1,\ldots,x_n)\| = (x_1^2+\cdots+x_n^2)^{1/2}$.
+  The set in question is described by the formula
+  \begin{equation*}
+ \forall \epsilon : \exists \delta : (\epsilon \le 0)
+    \vee
+    (\forall y : \|x-y\|^2\ge \delta \vee |f(x)-f(y)|<\epsilon).\qedhere
+  \end{equation*}
+\end{proof}
+
+\section{Further Reading and Open Problems}
+
+% \begin{itemize}
+% \end{itemize}
 
 %%% Local Variables:
 %%% TeX-master: "main"

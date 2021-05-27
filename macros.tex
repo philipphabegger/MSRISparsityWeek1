@@ -11,8 +11,11 @@
 \newtheorem{theorem}[maincounter]{Theorem}
 \newtheorem{exercise}[excounter]{Exercise}
 \newtheorem{example}[maincounter]{Example}
+\newtheorem{nonexample}[maincounter]{Non-example}
+
 
 \newtheorem*{crucial}{Crucial Observation}
+\newtheorem*{warning}{Warning}
 
 \newtheorem{conjecture}[maincounter]{Conjecture}
 \newtheorem{definition}[maincounter]{Definition}
@@ -52,11 +55,6 @@
 \newcommand{\hgtexp}{S}
 
 \newcommand{\rank}{{\rm rank}\,}
-\newcommand{\Hpoly}[2]{{H^{}_{#1}({#2})}}
-\newcommand{\poly}[2]{{#1^{}({#2})}}
-\newcommand{\polyt}[2]{{#1^{\sim}({#2})}}
-\newcommand{\polytiso}[2]{{#1^{\sim,{\rm iso}}({#2})}}
-%\renewcommand{\graph}[1]{\Gamma({#1})}
 \newcommand{\atopx}[2]{{\genfrac{}{}{0pt}{}{#1}{#2}}}
 \newcommand{\IP}{{\PP}}
 \newcommand{\IG}{{\GG}}
@@ -64,11 +62,11 @@
 \newcommand{\IC}{{\CC}}
 \newcommand{\IR}{{\RR}}
 \newcommand{\IT}{{\TT}}
-\newcommand{\IRan}{{{\RR}_{\rm an}}}
-\newcommand{\IRanexp}{{{\RR}_{\rm an,exp}}}
+\newcommand{\IRan}{{{\RR}_{\mathrm{an}}}}
+\newcommand{\IRanexp}{{{\RR}_{\mathrm{an,exp}}}}
 \newcommand{\RRan}{{\IRan}}
 \newcommand{\RRanexp}{{\IRanexp}}
-\newcommand{\IRalg}{{\RR}_{\rm alg}}
+\newcommand{\IRalg}{{\RR}_{\mathrm{alg}}}
 \newcommand{\IQbar}{{\overline{\QQ}}}
 \newcommand{\Kbar}{{\overline{K}}}
 \newcommand{\IZ}{{\ZZ}}
@@ -79,6 +77,8 @@
 \newcommand{\IQp}{{\QQ_p}}
 \newcommand{\ts}[1]{{T}_0({#1})}
 
+\newcommand{\cS}{{\mathcal S}}
+\newcommand{\cA}{{\mathcal A}}
 \newcommand{\cC}{{\mathcal C}}
 \newcommand{\cE}{{\mathcal E}}
 \newcommand{\cF}{{\mathcal F}}
@@ -179,3 +179,7 @@
     {#1} & {#2}
   \end{array}
 \right)}
+
+\newcommand{\be}{\mathbf{e}}
+
+\let\emph\textbf
