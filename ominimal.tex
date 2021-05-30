@@ -102,7 +102,7 @@ Here are some direct consequences of the definition of a structure.
   \item [(i)] Then $X\times Y$ is definable.
   \item[(ii)] If $m=n$, then $X\cap Y$ is definable.
   \item[(iii)] The image of $X$ under any polynomial map
-    $\IR^m\rightarrow \IR^n$ is definable. 
+    $\IR^m\rightarrow \IR^n$ is definable.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
@@ -129,7 +129,9 @@ Here are some direct consequences of the definition of a structure.
 \end{definition}
 
 Domain $X$ and image $f(X)$ of a definable map must also be definable
-by an argument similar to the one in the proof of Lemma~\ref{lem:structprops}(iii).
+by an argument similar to the one in the proof of
+Lemma~\ref{lem:structprops}(iii). If $Y\subset \IR^n$ is definable,
+then so is the preimage $f^{-1}(Y)$. 
 
 \begin{example}
   Let $\cS$ be an arbitrary structure. 
@@ -150,7 +152,7 @@ any clause that ``tempers'' the collection of sets.
   \begin{enumerate}
   \item [(v)]  if each 
   element in $S_1$ is a finite union of points and
-  intervals, that are possibly unbouded.
+  open intervals, that are possibly unbounded.
   \end{enumerate}
 \end{definition}
 
@@ -231,23 +233,148 @@ $m-1$ coordinates (if $m\ge 1$).
   (xyz=0) \vee \neg(x^n+y^n=z^n)$ is illegal.
 \end{warning}
 
-Here is an example how to apply this point of view to quickly show
-that the locus continuity of a definable function is definable.
+Let us see this point of view in action. We will now prove that
+univariate functions that are definable in an o-minimal structure are
+not too wild.
 
-\begin{lemma}
-  Let $X$ be a definable set and $f\colon X\rightarrow\IR$ a definable
-  function. Then $\{ x \in X : f \text{ is continuous at }x\}$ is
-  definable. 
+\begin{lemma}[Constant/Injective Lemma]
+  \label{lem:piecewisecnstinjective}
+  Let $f\colon (0,1)\rightarrow\IR$ be definable in an o-minimal
+  structure. There exist $0=x_1<\cdots <x_n =1$
+  such that for all $i$ the restriction  $f|_{(x_i,x_{i+1})}$
+  is constant or injective. 
+%  is continuous and either constant or strictly monotone.
+  % Let $f \colon (0,1)\rightarrow \IR$ be definable in an o-minimal
+  % structure. Then there exist $a,b\in\IR$ with $0\le a<b\le 1$ such that
+  % that $f$ is either constant or injective on $(a,b)$.
+  % Moreover, we may assume that $f$ is continuous on $(a,b)$ and either
+  % continuous or strictly monotone.
 \end{lemma}
 \begin{proof}
-  Let $\|(x_1,\ldots,x_n)\| = (x_1^2+\cdots+x_n^2)^{1/2}$.
-  The set in question is described by the formula
+  For all $y\in\IR$ the preimage $f^{-1}(y)$ is a definable subset of
+  $\IR$. So it is a finite union of open intervals and points.
+  Therefore, we may assume that  $f^{-1}(y)$ is finite for all $y$.
+  In particular, $f([0,1])$ is an infinite and definable set. Again by
+  o-minimality it contains an interval $(c,d)$ with $c<d$.
+  We consider the formula 
   \begin{equation*}
- \forall \epsilon : \exists \delta : (\epsilon \le 0)
-    \vee
-    (\forall y : \|x-y\|^2\ge \delta \vee |f(x)-f(y)|<\epsilon).\qedhere
+    (c<y<d) \wedge (f(x)=y) \wedge \neg (\exists z : (z<x) \wedge (f(z)=y))
   \end{equation*}
+  in the two free variables $x$ and $y$. It describes the graph
+  of the map $g\colon (c,d)\rightarrow \IR$ determined by
+  $g(y) = \min\{z : f(z)=y\}$.\footnote{There is no need to take the
+    infimum as fibers are finite!} So  $g$ is
+  definable in the structure.\footnote{For this the o-minimal axiom
+    (v) is not needed.} Note that $f(g(y))=y$ and that $g$ is
+  injective. So $g((c,d))$, which is definable, must also be infinite.
+  Thus there exist $0\le a<b\le 1$ with $(a,b)\subset g((c,d))$ by the
+  o-minimal axiom. It follows that $f$ is injective on $(a,b)$.
+
+  Now consider the set
+  \begin{alignat*}1
+    X=\{ x\in (0,1): \quad &\text{there exist $a,b\in (0,1)$ with $a<x<b$}
+    \\ &\text{such
+      that
+      $f|_{(a,b)}$ is constant or injective}\}. 
+    % (0<x<1) \wedge (\exists a,b: (a<x<b) \wedge ((\forall s \forall t :
+    % (a<s<b)\wedge (a<t<b)\rightarrow f(s)=f(t))\vee (\forall s\forall
+    % t: (a<s<b)\wedge (a<t<b) f(s)=f(t)\rightarrow s=t
+  \end{alignat*}
+  This set is definable. By what we proved above $X$ is non-empty.
+  Moreover, if $\IR\ssm X$ cannot contain an open and non-empty
+  interval by applying the arguments above to a rescaled $f$.
+  
+  As $\cS$ is o-minimal $(0,1)\ssm X$ is a finite union of points and
+  open intervals. But we just established that the second possibility
+  cannot occur. So $(0,1)\ssm X$ is finite. This completes the proof. 
+%   !!!TODO
 \end{proof}
+
+As a corollary of the previous lemma we obtain a first glimpse at one
+of the most important features of o-minimal structures:
+\emph{uniformity}. More precisely, we show that fibers of a definable
+map $(0,1)\rightarrow\IR$ have \emph{finite} number of connected
+components, moreover this number is uniformily bounded. 
+
+\begin{corollary}
+  Let $\cS$ and  $f$ be as in Lemma~\ref{lem:piecewisecnstinjective}.
+  There exists a constant $B=B(f)$ such that the number of connected
+  components of $f^{-1}(y)$ is at most $B$. 
+\end{corollary}
+
+\begin{exercise}
+  Extend the corollary above to show that if $X\subset\IR$ is a
+  definable set and $f\colon X\rightarrow\IR$ is a definable function,
+  then the number of connected components of $f^{-1}(y)$ can be bounded
+  from above by a number that is independent of $y$.  
+\end{exercise}
+% Let us consider
+% \begin{equation*}
+%   X=\{x\in (0,1) : f \text{ is continuous an constant or strictly
+%     monotone on an open interval in $(0,1)$
+%     containing $x$}\},
+% \end{equation*}
+% which is definable in the ambient o-minimal structure. 
+% \begin{exercise}
+%   Write down this set as a formula in first-order logic. 
+% \end{exercise}
+% So $X$ is a finite union of points and open intervals. By applying the
+% previous lemma, suitably rescaled, we conclude that $X$ is a finite
+% set.
+
+% From this we can deduce that definable functions on $(0,1)$ are
+% piecewise continuous and either constant or strictly monotone on each piece.
+
+We cite here without proof a stronger version of the
+Constant/Injective Lemma.
+
+\begin{theorem}[Monotonity Theorem]
+  \label{thm:monotone}
+  Let $f\colon (0,1)\rightarrow\IR$ be definable in an o-minimal
+  structure. There exist $0=x_1<\cdots <x_n =1$
+  such that for all $i$ the restriction  $f|_{(x_i,x_{i+1})}$
+  is continuous and either constant or strictly monotone.
+\end{theorem}
+\begin{proof}
+  See Chapter 3.1, \cite{D:oMin}. 
+\end{proof}
+
+We conclude this section with several exercises.
+
+Here is an exercise how to apply this point of view to quickly show
+that the locus continuity of a definable function is definable.
+
+\begin{exercise}
+  Let $\cS$ be a structure. 
+  Let $X\subset\IR^m$  and $f\colon X\rightarrow\IR$ be definable in $\cS$.
+  Prove that $\{ x \in X : f \text{ is continuous at }x\}$ is
+  definable in $\cS$.
+\end{exercise}
+
+The following statement is useful in many applications. 
+
+\begin{exercise}
+  Let $\cS$ be an o-minimal structure. 
+  Let $X\subset\IR^m$ be definable in $\cS$ and suppose that the
+  cardinality of $X$ is at most countable infinite. Prove that $X$ is
+  finite. 
+\end{exercise}
+% \begin{proof}
+%   Let $\|(x_1,\ldots,x_n)\| = (x_1^2+\cdots+x_n^2)^{1/2}$.
+%   The set in question is described by the formula
+%   \begin{equation*}
+%  \forall \epsilon : \exists \delta : (\epsilon \le 0)
+%     \vee
+%     (\forall y : \|x-y\|^2\ge \delta \vee |f(x)-f(y)|<\epsilon).\qedhere
+%   \end{equation*}
+% \end{proof}
+
+
+\section{The Cell Decomposition Theorem}
+
+The Monotonicity Theorem is the first step towards the Cell
+Decomposition Theorem a powerful tool on the structure of definable
+functions and definable sets in o-minimal structures.
 
 \section{Further Reading and Open Problems}
 
