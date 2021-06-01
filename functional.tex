@@ -1,5 +1,124 @@
 \chapter{Functional Transcendence}
 
+\section{Overview}
+
+In this chapter we first state the Pila--Wilkie Theorem. This
+important tool gives us information on the distribution of rational
+points of bounded height on a definable set. We will see two
+applications of this theorem. The first is towards some cases of the
+Ax--Schanuel Theorem which is used to systematically treat situations
+that arose in Section~\ref{subsub:functrans}. The second application
+will come in a further chapter. 
+
+\section{The Pila--Wilkie Theorem}
+
+
+\begin{definition}
+  Let $x\in \IQ$. There exist coprime integers $p,q$ with
+  $q\ge 1$ and $x=p/q$. The (exponential) height of $x$ is $H(x)=\max\{|p|,q\}$.
+  Let $(x_1,\ldots,x_m)\in\IQ^m$. % There exist coprime integers
+  % $p_1,\ldots,p_m,q$ with $q\ge 1$ and $x_i = p_i/q$ for all $i\in
+  % \{1,\ldots,m\}$.
+  The exponential height of $(x_1,\ldots,x_m)$ is $H(x_1,\ldots,x_m)
+  =\max \{H(x_1),\ldots,H(x_m)\}$. 
+%  = \max_{1\le i\le m} \{|p_1|,\ldots,|p_m|,q\}$. 
+\end{definition}
+
+In Hector's lecture we will encouter heights that are normalized by
+taking $\log H(\cdots)$ in the case $m=1$. In the context of the
+Pila--Wilkie Theorem the exponential height is slightly more
+practical.
+
+
+\begin{example}\label{ex:heightcount1}\leavevmode
+  \begin{enumerate}
+  \item [(i)]
+  One fundamental feature of the height is the Northcott property: for
+  all $T\ge 1$ the set
+  \begin{equation*}
+    \{ x\in \IQ : H(x)\le T\}
+  \end{equation*}
+  is finite. In this statement we may replace $x\in\IQ$ by $x\in
+  \IQ^m$.
+
+  Let use define $a(T) = \#\{x\in\IQ : H(x)\le T\}$ which is
+  non-decreasing in $T$. How quickly does $a(T)$ grow in $T$?
+  If $T\ge 1$ is an integer, then $a(T) \ge 2T+1$ by considering
+  integers
+  $-T,-T+1,\ldots,0,\ldots,T-1,T$. But we have all rational numbers at
+  our disposal and $H(x)=H(-x)=H(1/x)=H(-1/x)$ for all
+  $x\in\IQ^\times$. So it suffices to count rational numbers in
+  $(0,1)$ of height at most $T$, quadruple this number, and add 3
+  (for $0,\pm 1$)
+  ,\textit{i.e.}, 
+  \begin{equation*}
+    a(T) = 3 + 4 \sum_{q=1}^T \# \{ p : 1\le p \le q-1 \text{ and
+    }\gcd(p,q)=1\} = -1+4\sum_{q=1}^T \varphi(q)
+  \end{equation*}
+  with $\varphi$ as in Section~\ref{sec:rootsof1}. By Lemma~\ref{lem:lgo}
+  $a(T)$ grows at least as $T^{3/2}$. In fact, it is known that
+  $a(T)\sim \frac{12}{\pi^2} T^2$ as $T\rightarrow\infty$.
+
+
+\item[(ii)] Let $d\ge 1$ be an integer and consider
+  $X = \{(x,x^d) : x\in \IR\}$. If $x\in\IQ$ then $H(x^d) = H(x)^d$.
+  So
+  \begin{equation*}
+    \#\{ (x,y) \in X\cap \IQ^2 : H(x,y)\le T\} \sim
+    \frac{12}{\pi^2}T^{2/d} 
+  \end{equation*}
+  as $T\rightarrow\infty$. 
+  
+  \item[(iii)] It follows from the Lindemann--Weierstrass Theorem that
+    if $x\in\IQ^\times$, then $e^x \not\in\IQ$. So the graph
+    $\{(x,e^x) : x\in\IR\}$ contains precisely $1$ rational point
+    $(0,1)$.
+
+  \item[(iv)] A transcendental graph can contain infinitely many
+    rational points. Consider the graph of $x\mapsto 2^x$ on $\IR$, so 
+    $X=\{(x,2^x) : x \in\IR\}$. This set is definable in $\IRexp$.
+    If $t\ge 1$ is an integer and $x\in \{1,\ldots,t\}$, then
+    $(x,2^x)$ is integral of height at most $T=2^t$. Therefore,
+    \begin{equation*}
+      \# \{(x,2^x)\in\IQ^2 : H(x,2^x)\le T\} \ge t= (\log T)/\log 2.
+    \end{equation*}
+    It is not difficult to prove an upper bound that is linear in
+    $\log T$. 
+\end{enumerate}
+\end{example}
+
+\begin{definition}
+  Let $X\subset\IR^m$ be any subset and $T\ge 1$. The \emph{counting
+    function} is 
+  \begin{equation*}
+    N(X,T) = \#\{ x\in X\cap \IQ^m : H(x)\le T\}. 
+  \end{equation*}
+\end{definition}
+
+In our applications we will usually take $X$ to be a  set definable in
+an o-minimal structure.
+
+\begin{example}
+  We revisit Example~\ref{ex:heightcount1} using the counting
+  function.
+  \begin{enumerate}
+  \item [(i)] We have $N(\IR,T)\sim \frac{12}{\pi^2}T^2$ as
+    $T\rightarrow\infty$.
+  \item [(ii)] Let $d\ge 1$ be an integer and $X= \{(x,x^d):
+    x\in\IR\}$. Then $N(X,T)\sim \frac{12}{\pi^2}T^{2/d}$ as
+    $T\rightarrow\infty$.
+  \item[(iii)] We have $N(\text{graph of }\exp,T) = 1$ for all $T\ge
+    1$.
+  \item [(iv)] We have $\log T \ll
+    N(\text{graph of }x\mapsto 2^x,T)\ll \log T$ for $T\rightarrow\infty$.\footnote{$\ll$
+      signifies that the left-hand side is bounded by a positive
+      constant times the right-hand side.}
+  \end{enumerate}
+\end{example}
+
+
+\section{Further Reading and Open Problems}
+
 %%% Local Variables:
 %%% TeX-master: "main"
 %%% End:

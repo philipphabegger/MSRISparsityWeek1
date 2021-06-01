@@ -32,8 +32,8 @@ special points:
 
 \item Finally, to any elliptic curve $E$ defined over $\IC$ we can
   attach its ring of endomorphisms
-  $$\mathrm{End}(E) = \{\varphi \colon E\rightarrow E : \varphi\text{
-    is a morphism of varieties and }\varphi(0)=0\},$$
+  $$\mathrm{End}(E) = \{\psi \colon E\rightarrow E : \psi\text{
+    is a morphism of varieties and }\psi(0)=0\},$$
   here $0\in E(\IC)$ is the neutral element.\footnote{Addition on
     $\mathrm{End}(E)$ is pointwise addition and multiplication is
     composition. It is a theorem that $\mathrm{End}(E)$ is a
@@ -215,7 +215,7 @@ simplicity $K=\IQ$. The general case follows along similar lines with
 some extra bookkeeping.
 
 \subsubsection{Roots of Unity and Their Galois Conjugates}
-
+\label{sec:rootsof1}
 Each root of unity $\zeta$ has an order, the minimal
 $n\in\IN=\{1,2,3,\ldots\}$
 with
@@ -229,7 +229,7 @@ $X^n-1$. Some important facts:
   and $\IQ(\zeta)/\IQ$ is a Galois extension. 
 \item The degree $\deg \phi_n = \varphi(n)= n \prod_{p\mid n}
   \left(1-\frac 1p\right)$, where the product runs over prime divisors
-  of $n$.
+  of $n$. Here $\varphi$ is also called Euler's totient function.
 \end{itemize}
 
 \begin{crucial}
@@ -247,6 +247,7 @@ Galois group producs more points. How many more? The number is
 $\varphi(n)$ where $n$ is the order of $(\zeta,\xi)$. 
 
 \begin{lemma}[Large Galois Orbit Lemma]
+  \label{lem:lgo}
   We have $\varphi(n) \ge (n/2)^{1/2}$. 
 \end{lemma}
 \begin{proof}
@@ -303,6 +304,7 @@ as large as we want and therefore $P$ must divide $P(X^\ell,Y^\ell)$.
 \end{exercise}
 
 \subsubsection{Functional Transcendence}
+\label{subsub:functrans}
 
 We return to a more geometric point of view in this final set.
 If $C=Z(P)$ contains a torsion point of large enough order $n$, then
@@ -615,7 +617,7 @@ The content of the Andr\'e--Oort Conjecture is the converse of the
 observations above.
 
 \begin{theorem}[Andr\'e--Oort for $Y(1)^2$, Andr\'e~\cite{Andre:AO},
-  Edixhoven~\cite{Edixhoven} under GRH, Pila~\cite{Pila:AO} for
+  Edixhoven~\cite{Edixhoven:AO} under GRH, Pila~\cite{Pila:AO} for
   subvarieties of $Y(1)^n$, effective versions by
   Bilu--Masser--Zannier~\cite{} and K\"uhne~\cite{}]
   \label{thm:ao}
