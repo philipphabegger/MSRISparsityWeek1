@@ -16,16 +16,16 @@ will come in a further chapter.
 \begin{definition}
   Let $x\in \IQ$. There exist coprime integers $p,q$ with
   $q\ge 1$ and $x=p/q$. The (exponential) height of $x$ is $H(x)=\max\{|p|,q\}$.
-  Let $(x_1,\ldots,x_m)\in\IQ^m$. % There exist coprime integers
-  % $p_1,\ldots,p_m,q$ with $q\ge 1$ and $x_i = p_i/q$ for all $i\in
-  % \{1,\ldots,m\}$.
+  Let $(x_1,\ldots,x_m)\in\IQ^m$. There exist coprime integers
+  $p_1,\ldots,p_m,q$ with $q\ge 1$ and $x_i = p_i/q$ for all $i\in
+  \{1,\ldots,m\}$.
   The exponential height of $(x_1,\ldots,x_m)$ is $H(x_1,\ldots,x_m)
-  =\max \{H(x_1),\ldots,H(x_m)\}$. 
-%  = \max_{1\le i\le m} \{|p_1|,\ldots,|p_m|,q\}$. 
+  = \max_{1\le i\le m} \{|p_1|,\ldots,|p_m|,q\}$.
+  %  =\max \{H(x_1),\ldots,H(x_m)\}$. 
 \end{definition}
 
 In Hector's lecture we will encouter heights that are normalized by
-taking $\log H(\cdots)$ in the case $m=1$. In the context of the
+taking $\log H(\cdots)$. In the context of the
 Pila--Wilkie Theorem the exponential height is slightly more
 practical.
 
@@ -61,7 +61,7 @@ practical.
 
 
 \item[(ii)] Let $d\ge 1$ be an integer and consider
-  $X = \{(x,x^d) : x\in \IR\}$. If $x\in\IQ$ then $H(x^d) = H(x)^d$.
+  $X = \{(x,x^d) : x\in \IR\}$. If $x\in\IQ$ then $H(x,x^d) = H(x)^d$.
   So
   \begin{equation*}
     \#\{ (x,y) \in X\cap \IQ^2 : H(x,y)\le T\} \sim
@@ -70,8 +70,8 @@ practical.
   as $T\rightarrow\infty$. 
   
   \item[(iii)] It follows from the Lindemann--Weierstrass Theorem that
-    if $x\in\IQ^\times$, then $e^x \not\in\IQ$. So the graph
-    $\{(x,e^x) : x\in\IR\}$ contains precisely $1$ rational point
+    if $x\in\IQ^\times$, then $\exp(x) \not\in\IQ$. So the graph
+    $\{(x,\exp(x)) : x\in\IR\}$ contains precisely $1$ rational point
     $(0,1)$.
 
   \item[(iv)] A transcendental graph can contain infinitely many
@@ -99,6 +99,7 @@ In our applications we will usually take $X$ to be a  set definable in
 an o-minimal structure.
 
 \begin{example}
+  \label{ex:heightcount2}
   We revisit Example~\ref{ex:heightcount1} using the counting
   function.
   \begin{enumerate}
@@ -116,6 +117,497 @@ an o-minimal structure.
   \end{enumerate}
 \end{example}
 
+The Pila--Wilkie Theorem states that on a definable set, an abundance of
+rational points implies the existence of a real-semi algebraic curve.
+
+\begin{definition}
+  Let $X\subset\IR^m$ be any subset. We define
+  \begin{equation*}
+    X^{\mathrm{alg}} = \bigcup_{\substack{\text{connected, real
+          semi-algebraic}\\ \text{curve }C\subset X}} C.
+  \end{equation*}
+\end{definition}
+
+\begin{example}
+  We revisit the four sets from Examples~\ref{ex:heightcount1} and
+  \ref{ex:heightcount2}.
+  \begin{enumerate}
+  \item [(i)] If $X=\IR$ then $X^{\mathrm{alg}}=\IR$.
+  \item[(ii)] Let $d\ge 1$ be an integer. If
+    $X\subset\IR^2$ is the graph of $x\mapsto x^d$, then
+    $X^{\mathrm{alg}}=X$.
+  \item[(iii)] If $X$ is the graph of $\exp\colon\IR\rightarrow\IR$, we
+    claim that $X^{\mathrm{alg}}=\emptyset$. Indeed, if
+    $X^{\mathrm{alg}}$ were non-empty, it would contain a connected
+    real semi-algebraic curve. Thus the components of $(x,\exp(x))$
+    would be algebraically dependent for $x$ in some non-empty open
+    interval and thus on all of $\IR$. But then there would exist
+    $P\in \IR[X,Y]\ssm\{0\}$ with $P(x,\exp(x))=0$ for all $x\in\IR$.
+    This can easily be ruled out as $\exp$
+    grows quicker than any polynomial. 
+    
+  \item[(iv)] If $X$ is the graph of $x\mapsto 2^x$, then
+    $X^{\mathrm{alg}}=\emptyset$.    
+  \end{enumerate}
+  Here are some further examples:
+  \begin{enumerate}
+  \item [(v)] Let $X = \{(y,x,y^x) : y\in (0,\infty), x\in\IR\}$. Then
+    $X$ is definable in $\IRanexp$ and $\dim X = 2$.
+    Observe that $X$ contains many real semi-algebraic curves,
+    \textit{e.g.}, $\{(y,x,y^x) : y\in (0,\infty)\}$ for all
+    $x\in\IQ$.
+    One can show that $X^{\mathrm{alg}}$ is not definable in
+    $\IRanexp$.
+
+  \item[(vi)] Let $C = \{(x,y) : 0<x<1 \text{ and } 0<y<\exp(x) \}$.
+    This is $(1,1)$-cell in the o-minimal structure $\IRan$ (and
+    $\IRanexp$). It is not definable in $\IRexp$ as the top boundary
+    is a portion of the graph of the exponential function. However,
+    $C^{\mathrm{alg}}=C$ since $C$ is open subset of $\IR^2$. 
+  \end{enumerate}
+\end{example}
+
+\begin{theorem}[Pila--Wilkie~\cite{PilaWilkie}]
+  Let $\cS$ be an o-minimal structure,  let $X\subset\IR^m$ be
+  definable in $\cS$, and let $\epsilon >0$.
+  There exists  $c=c(X,\epsilon)>0$ such that
+  \begin{equation*}
+    N(X\ssm X^{\mathrm{alg}},T)\le c T^\epsilon \quad\text{for
+      all}\quad T\ge 1.
+  \end{equation*}
+\end{theorem}
+
+So rational points can at most accumulate ``excessively'' on the
+algebraic locus of a definable set. In Hector's lecture we
+will see a conceptually related
+``exceptional'' subset of a projective variety in connection with
+Lang's Conjecture.
+
+The proof of the Pila--Wilkie Theorem automatically produces the
+following version that is uniform in families. 
+
+\begin{theorem}[Pila--Wilkie~\cite{PilaWilkie}]
+  Let $\cS$ be an o-minimal structure,  let $X\subset\IR^n\times \IR^m$ be
+  definable in $\cS$, and let $\epsilon >0$.
+  There exists  $c=c(X,\epsilon)>0$ such that
+  \begin{equation*}
+    N(X_y\ssm X_y^{\mathrm{alg}},T)\le c T^\epsilon \quad\text{for
+      all}\quad T\ge 1\text{ and all }y\in\IR^n. 
+  \end{equation*}
+\end{theorem}
+
+\section{Schanuel's Conjecture and Ax's Theorem}
+
+Schanuel's Conjecture is major open problem in transcendence theory.
+
+\begin{conjecture}[Schanuel]
+  Let $z_1,\ldots,z_m\in\IC$ be $\IQ$-linearly independent. Then
+  \begin{equation*}
+    \mathrm{trdeg}(\IQ(z_1,\ldots,z_m,\exp(z_1),\ldots,\exp(z_m)/\IQ) \ge
+    m. 
+  \end{equation*}
+\end{conjecture}
+
+\begin{example} What is known towards Schanuel's Conjecture?
+  \begin{enumerate}
+  \item [(i)]
+  If $m=1$ then the condition on $z=z_1$ is $z\not=0$ and the
+  conjecture predicts $\mathrm{trdeg}(z,\exp(z))\ge 1$.
+  For $m=1$ Schanuel's Conjecture is equivalent to the statement that
+  \begin{equation*}
+    \text{if}\quad z\in\IQbar^\times \quad\text{then}\quad \exp(z)\in \IC\ssm \IQbar.
+  \end{equation*}
+  This case is known, it is Lindemann's Theorem.
+  \item[(ii)] Say $m\ge 1$ and suppose $z_1,\ldots,z_m\in\IQbar$ are
+    $\IQ$-linearly independent. Then the Lindemann--Weierstrass
+    Theorem states that $\exp(z_1),\ldots,\exp(z_m)$ are algebraically
+    independent. So Schanuel's Conjecture is known for algebraic $z_1,\ldots,z_m$.
+  \item[(iii)] Say $m\ge 1$ and suppose $\exp(z_1),\ldots,\exp(z_m)$
+    are algebraic and that $z_1,\ldots,z_m$ are $\IQ$-linearly
+    independent. Then Baker's Theorem states that $z_1,\ldots,z_m$ are
+    $\IQbar$-linearly dependent. 
+\end{enumerate}
+\end{example}
+
+% \begin{exercise}
+%   Show that Schanuel's Conjecture implies that the iterated
+%   exponential $\exp^N(1)$ is
+%   transcendental for all $N\ge 1$.
+% \end{exercise}
+
+Schanuel's Conjecture seems well out of reach at the moment.
+But Ax showed that the functional version is true. 
+
+\begin{theorem}[Ax,~Theorem~3~\cite{AxSchanuel}]
+  \label{thm:Axmult}
+  Let $\Delta\subset\IC$ be a domain and suppose
+  $f_1,\ldots,f_m \colon\Delta \rightarrow\IC$ are holomorphic
+  functions that are $\IQ$-linearly independent \textbf{modulo
+    constants}. Then
+  \begin{equation*}
+    \mathrm{trdeg}(\IC(f_1,\ldots,f_m,\exp(f_1),\ldots,\exp(f_m))/\IC) \ge
+    m+1. 
+  \end{equation*}  
+\end{theorem}
+
+The following corollary will be of importance to us. 
+
+\begin{corollary}[Ax--Lindemann--Weierstrass]
+  \label{cor:alw}
+  Let $C\subset\IC^m$ be a real semi-algebraic curve.
+  After replacing $C$ by a non-empty open subset of itself
+ $\exp(C)=\{\exp(z) :z\in
+  C\}$\footnote{Here $\exp(z) = (\exp(z_1),\ldots,\exp(z_m))$ for
+    $z=(z_1,\ldots,z_m)\in\IC^m$.} is either Zariski dense in
+  $(\IC^\times)^m$ or contained in
+  the 
+  translate of a proper algebraic subgroup of $(\IC^\times)^m$.   
+\end{corollary}
+\begin{proof}  
+  Locally at some point of $C$ we can parametrize using a
+  semi-algebraic function $f=(f_1,\ldots,f_m)\colon (-1,1)\rightarrow C$. We may assume
+  that $f$ is real
+  analytic. Considering the Taylor series we can extend $f$ to a
+  non-constant  holomorphic map $\Delta\rightarrow\IC^m$. The
+  transcendence degree of
+  $\IR({f_1}|_{(-1,1)},\ldots,{f_m}|_{(-1,1)})/\IR$ is $1$ and this
+  remains true for $\IC(f_1,\ldots,f_m)/\IC$ by the Identity Theorem.
+  Let $V$ denote the Zariski closure of $\exp(C)$ in
+  $(\IC^\times)^m$. It is irreducible. 
+  Then $(\exp(f_1),\ldots,\exp(f_m))$ takes values in $V(\IC)$ by
+  the Identity Theorem.
+  Therefore,
+  \begin{alignat*}1
+    &\mathrm{trdeg}\,\IC(f_1,\ldots,f_m,\exp(f_1),\ldots,\exp(f_m))/\IC
+    \\
+    &\quad \le
+    \mathrm{trdeg}\,\IC(f_1,\ldots,f_m)/\IC+\mathrm{trdeg}\,\IC(\exp(f_1),\ldots,\exp(f_m))/\IC\\
+    &\quad \le
+    1+\dim V.
+  \end{alignat*}
+
+
+  If $\dim V=m$ then there is nothing to show. Otherwise we have $\dim
+  V \le m-1$ and 
+  Ax's Theorem implies that there exist
+  $(a_1,\ldots,a_m)\in\IZ^m\ssm\{0\}$ and $c\in\IC$ such that
+  $a_1f_1+\cdots+a_mf_m=c$ identically. It follows that the
+  multiplicative relation
+  $X_1^{a_1}\cdots X_m^{a_m} = \exp(c)$ holds identically on
+  $\exp(C)$. So it also holds on the Zariski closure $V$ of $\exp(C)$. 
+\end{proof}
+
+\begin{exercise}
+  Study the classification of algebraic subgroups of $(\IC^\times)^m$
+  and prove the following strengthening of Corollary~\ref{cor:alw2}.
+  See Chapters 3.1 and 3.2~\cite{BG} for background on algebraic
+  subgroups of $(\IC^\times)^m$. 
+\end{exercise}
+\begin{corollary}
+  \label{cor:alw2}
+  Let $C$ be as in Corollary~\ref{cor:alw}. After replacing $C$ by a
+  non-empty open subset of itself, the Zariski closure of $\exp(C)$ is
+  the translate of a proper algebraic subgroup of $(\IC^\times)^m$. 
+\end{corollary}
+
+\section{The Ax--Lindemann--Weierstrass Theorem for Abelian Varieties}
+
+Ax's Theorem~\ref{thm:Axmult} has an analog for abelian varieties,
+also proved by Ax.
+
+In this section we will see a proof of the Ax--Lindemann--Weierstrass
+Theorem, Corollaries~\ref{cor:alw} and \ref{cor:alw2}, using the
+Pila--Wilkie Theorem. The Pila--Wilkie Theorem was first used in this
+area in the influential paper~\cite{PilaZannier} by Pila and Zannier.
+There, the authors gave a new proof of the Manin--Mumford Conjecture.
+Our approach towards the Ax--Lindemann--Weierstrass theorem here is
+influenced by work of Orr, Pila, Ullmo, and Yafaev. !!!CHECK.
+% While Ax's original proof predates the work of Pila and Zannier, the
+% latter paved the way to further developments that had many
+% applications.
+
+We will use the setup introduced in Example~\ref{ex:thetafunc}. So $A$
+is a $g$-dimensional abelian variety defined over $\IC$ and embedded
+in projective space $\IP^n$. Moreover, we have a uniformizing map
+$u\colon \IC^g\rightarrow A(\IC)$ defined theta functions
+$\vartheta_0,\ldots,\vartheta_n$. Recall that $u$ is a surjective
+complex analytic group homomorphism with kernel $\Omega$. Let
+$(\omega_1,\ldots,\omega_{2g})$ denote a fixed basis of $\Omega$ and
+let $\cF$ denote the fundamental domain (\ref{eq:fdav}).
+We recall Convention~\ref{conv:identCCRR2}. 
+Recall that $\cF$ is real semi-algebraic and that the pre-image under
+$u|_{\cF}$ of an algebraic subvariety of $A$ is definable in $\IRan$.
+
+\begin{theorem}[Ax--Lindemann--Weierstrass for abelian varieties]
+  \label{thm:alwav}
+  Let $C\subset\IC^g$ be a real semi-algebraic curve. After replacing
+  $C$ by a non-empty open subset, the Zariski
+  closure of $u(C)$ in $A$ is the translate of an abelian subvariety
+  of $A$.
+\end{theorem}
+
+\subsubsection{Step 1: Complexifying a suitable open subset of $C$.}
+
+Let $z_1,\ldots,z_g$ be the complex coordinates of $\IC^g$ with real
+parts $x_1,\ldots,x_g$ and imaginary parts $y_1,\ldots,y_g$. By the
+Cell Decomposition Theorem applied to $C$, which is definable in
+$\IRalg$, there is an open subset $U$ of $C$ that is homeomorphic to
+$(0,1)$. One can arrange this homeomorphism to be real semi-algebraic
+and real analytic. All this essentially amounts to finding a smooth
+point of $C$. We consider $x_1|_{U},\ldots,{x_g}|_U,{y_1}|_U,\ldots
+y_g|_{U}$ as restricted coordinate functions; the $\IR$-algebra they
+generate is an integral domain by the Identity Theorem for real
+analytic functions. Then
+$\mathrm{trdeg}\,\IR({x_1}|_U,\ldots,{y_g}|_U)/\IR=1$ and so
+$\mathrm{trdeg}\,\IC({z_1}|_U,\ldots,{z_g}|_U)/\IC=1$. Therefore, $U$
+lies in a complex algebraic curve $C_{\IC}\subset\IC^g$. We can
+arrange that $C_\IC$ is irreducible.
+
+Let $V$ denote the Zariski closure of $u(C_\IC)$ in $A$. Let $Z$
+denote a maximal irreducible algebraic subset of $\IC^g$ that contains $C_{\IC}$
+and such that $Z(\IC)\subset u^{-1}(V(\IC))$. To
+simplify the notation we identify $Z$ with $Z(\IC)$ and $V$ with
+$V(\IC)$.
+
+
+\subsubsection{Step 2: Applying the Pila--Wilkie Theorem}
+
+
+\begin{definition}
+  \label{def:stabZ}
+  The stabilizer of $Z$ is the subgroup
+  \begin{equation*}
+    \mathrm{Stab}(Z) = \{v\in \IC^g : v+Z=Z\}
+  \end{equation*}
+  of $\IC^g$. 
+\end{definition}
+
+\begin{lemma}
+  The stabilizer $\mathrm{Stab}(Z)$ is infinite. 
+\end{lemma}
+
+At this stage we also do an $\IR$-linear change of coordinates and
+replace $\IC^g$ with $\IR^{2g}$ with the help of our period lattice
+basis $(\omega_1,\ldots,\omega_{2g})$.
+The period lattice $\Omega$ becomes $\IZ^{2g}$ and $\cF$ becomes
+$[0,1]^{2g}$. To avoid double counting it is useful to work with
+$[0,1)^{2g}$ which is also real semi-linear. 
+
+We now write down a set that is definable in $\IRan$. % In the formula below $x$ and
+% $y$ are understood as elements in $\IR^{2g}$. Let
+% \begin{equation*}
+%   (\exists y \in Z :
+%   y-x\in [0,1)^{2g})\wedge (\forall y \in Z : (y-x\not\in [0,1)^{2g}) \vee
+%   (y-x\in u|_{[0,1]^{2g}}^{-1}(V)))
+% \end{equation*}
+% where $x$ is free.
+Recall that
+ $u|_{[0,1]^{2g}}^{-1}(V)$ is definable in $\IRan$.
+% that this formula leads to a  set that is definable in $\IRan$.
+We set equals
+\begin{alignat*}1  
+  X =  \{x \in\IC^g : &\dim (Z-x)\cap[0,1)^{2g}\text{ contains an
+    non-empty open subset of $Z-x$}\\
+  % =2\dim Z
+  &\text{and } (Z-x)\cap [0,1)^{2g} \subset u|_{[0,1]^{2g}}^{-1}(V)\}. 
+\end{alignat*}
+
+% \begin{exercise}  
+%   The condition on the dimension is also a definable condition
+%   Convince yourself why using the Cell Decomposition.
+% \end{exercise}
+
+Let $\omega \in\IZ^{2g}$
+such that $\dim (Z-\omega)\cap [0,1)^{2g}$ contains a non-empty open
+subset of $Z$.
+% such that $Z$ contains a point $y \in \omega
+% + [0,1)^{2g}$. 
+We claim that $\omega\in X$.
+% Indeed, $(Z-\omega)\cap
+% [0,1)^{2g}\not=\emptyset$ as $y-\omega$ is a member.
+Indeed, say $y\in Z$ with $y-\omega\in [0,1)^{2g}$.
+Then $y\in u^{-1}(V)$, using $u(Z)\subset V$, and hence
+$y-\omega \in u^{-1}(V)$ as $u^{-1}(V)$ is periodic under the period
+lattice. So $y-\omega \in u|_{[0,1]^{2g}}^{-1}(V)$ as desired.
+
+We have showed
+$$\{\omega\in\IZ^{2g} :    (\omega+[0,1)^{2g})\cap
+Z\text{ contains a non-empty open subset of $Z$}\} \subset X.$$ The important observation is that
+$Z$ meets sufficiently many translates of $[0,1)^{2g}$ in top dimension. To see
+this 
+we briefly  return to the original complex
+coordinates and remember that $Z$ is a complex
+algebraic curve in $\IC^g$. The fundamental fact is that a complex
+algebraic variety in $\IC^g$ is either finite or not compact.
+
+\begin{exercise}
+  Let $Z$ be an infinite algebraic subset of $\IC^g$. Show that $Z$ is
+  not compact. 
+\end{exercise}
+
+As $Z$ is irreducible, its regular locus $Z^{\mathrm{reg}}$ is
+path-connected. 
+So there exists  a continuous function $\gamma : [0,\infty)\rightarrow
+Z^{\mathrm{reg}}$ such that $\lim_{t\rightarrow\infty} \|\gamma(t)\| = \infty$
+where $\|\cdot\|$ is the hermitian norm on $\IC^g$. 
+For all $t\in [0,\infty)$ the point $\gamma(t)$ is contained in
+$\omega(t)+[0,1)^{2g}$ for a unique period $\omega(t)\in\IZ^{2g}$.
+In the unlucky event
+that $(\omega(t)+[0,1)^{2g}) \cap Z$ has empty interior
+in $Z$, then $\gamma(t)$ must be on the boundary of $[0,1)^{2g}$ and
+$(\omega(t)+\omega')\cap Z$ has non-empty interior in $Z$
+for some $\omega' \in \{-1,0\}^{2g}$. In this case we replace
+$\omega(t)$ by $\omega(t)+\omega'$. 
+By
+what we showed above $\omega(t)\in X\cap\IZ^{2g}$.
+Recall that $H(\omega(t))$ is
+just the maximal entry of $\omega(t)$ in absolute value.
+Each time
+$\gamma$ enters a new translate of $[0,1)^{2g}$ the height
+$H(\omega(t))$ increases by a bounded amount.
+We see that $N(X,T)$ grows proportionally to the number of translates of
+$[0,1)^{2g}$ that $\gamma$ passes through. The image of $t\mapsto \omega(t)$ must be infinite as $\gamma$ is unbounded. 
+So we conclude that
+\begin{equation*}
+  N(X,T) \gg T\quad\text{as}\quad T\rightarrow\infty.
+\end{equation*}
+
+By the Pila--Wilkie Theorem, with $\epsilon=1/2$ say, we conclude
+$X^{\mathrm{alg}}\not=\emptyset$. So
+$X$ contains a connected, real semi-algebraic curve $R$. 
+
+In the Pila--Wilkie Theorem we can arrange for $R$ to contain some
+$\omega\in \IZ^{2g}$. Then $Z\subset Z-R+\omega$. If $x\in R$ then
+$Z-x\subset u^{-1}(V)$ as both sides are complex analytic and since
+$u^{-1}(V)$ contains a non-empty open subset of $Z-x$. 
+Since $u^{-1}(V)$ is periodic under the period lattice we find
+$Z-x+\omega\subset u^{-1}(V)$ for all $x\in R$. Therefore,
+\begin{equation*}
+  Z\subset Z-R+\omega \subset u^{-1}(V).
+\end{equation*}
+
+We can complexify $R$ just as above to obtain an irreducible
+complex algebraic $R_\IC$ variety containing finitely many points of
+$R$ and with $Z-R_{\IC} \subset u^{-1}(V)$.
+But recall that $Z$ was a maximal irreducible algebraic subset of
+$u^{-1}(V)$. We conclude $Z = Z - R_{\IC}+\omega$.
+
+
+\subsubsection{Completion of the Proof of Theorem~\ref{thm:alwav}}
+
+Under the hypothesis of Theorem~\ref{thm:alwav} we have showed that
+there exists an irreducible subvariety $Z\subset\IC^g$ that contains a
+non-empty open subset of $C$ such that the group $\mathrm{Stab}(Z)$ is infinite.
+
+% \begin{lemma}
+%   The group $\mathrm{Stab}(Z)$ is a vector subspace of $\IC^g$. 
+% \end{lemma}
+% \begin{proof}
+%   The stabilizer can be rewritten as
+%   $$G=\mathrm{Stab}(Z) = \bigcap_{z\in Z}(Z-z).$$
+
+%   As $Z$ is Zariski closed in $\IC^g$ we see that $G$
+%   is Zariski closed.
+
+%   Suppose $f\in\IC[X_1,\ldots,X_n]$ lies in the ideal of
+%   $G$. Let us decompose $f=\sum_{j=0}^d f_j$ where
+%   $f_j\in\IC[X_1,\ldots,X_n]$ is homogenous of degree $j$.
+%   Say $v\in G$. For all $l\in\IZ$ we have $lv \in G$ and so
+%   $0=f(lv) = \sum_{j=0}^d l^j f_j(v)$ for all $l\in\IZ$.
+%   It follows that $f_0(v)=\cdots=f_d(v)=0$.
+  
+%   So the ideal of $G$ is generated by homogeneous polynomials. In
+%   particular, $v\in G$ and $\lambda\in \IC$ imply $\lambda v\in G$.   
+% \end{proof}
+
+Recall that $u(Z)$ lies Zariski dense in the irreducible $V$. We must
+verify that $V$ is the translate of an abelian subvariety of $A$.
+
+We mimic here Definition~\ref{def:stabZ} for $A$. 
+\begin{definition}
+  The stabilizer of $V\subset A$ is
+  \begin{equation*}
+    \mathrm{Stab}(V) = \{x\in A(\IC) : x+V=V\}. 
+  \end{equation*}
+  It is a subgroup of $A(\IC)$. We let $\mathrm{Stab}^\circ(V)$ denote
+  the connected component of $\mathrm{Stab}(V)$ containing $0$. 
+\end{definition}
+
+
+\begin{lemma}
+  The stabilizer $\mathrm{Stab}(V)$ is an algebraic subgroup of $A$ of
+  positive dimension.
+\end{lemma}
+\begin{proof}
+  The Stabilizer equals
+  \begin{equation*}
+    \mathrm{Stab}(V) = \bigcup_{x \in Z} (Z-x).
+  \end{equation*}
+  In this presentation we see that it is Zariski closed in $A$.
+  
+  Let $z\in Z$ and $v\in G$ be arbitrary. Then $z+v\subset Z$,
+  so $u(z) \subset V-u(v)$. We find $V\subset V-u(v)$ and hence
+  $u(v)+V=V$ by considering the dimension.
+  It follows that 
+    $u(G) \subset\mathrm{Stab}(V)$.  
+\end{proof}
+
+\begin{proof}[End of proof of Theorem~\ref{thm:alwav}]
+  The connected component $B = \mathrm{Stab}^\circ(V)$ is an abelian
+  subvariety of $A$ of positive dimension.
+  If $A=B$ then $V=A$ and we are done. 
+  Consider the quotient homomorphism $q\colon A\rightarrow A/B$.
+
+  The fibers of $q|_V$ have dimension $\dim B$. So $\dim q(V) = \dim
+  V-\dim B$. The $q$ induces a $\IC$-linear map between the tangent
+  spaces $\mathrm{T}_0(A)\rightarrow\mathrm{T}_0(B)$. The image of $C$
+  under this map is a definable and semi-algebraic set in
+  $\mathrm{T}_0(B)$.
+
+  If the dimension of the image of $U\subset C$ is $1$, then by induction on
+  $\dim A$ the image $q(V)$ is the translate of an abelian subvariety
+  of $A/B$. As fibers of $q|_V$ are  translates of abelian
+  subvarieties of $A$ we conclude that $V$ is the translate of an
+  abelian subvariety of $A$. This completes the proof in the current
+  case.
+
+  Second, assume that the image of $U\subset C$ is finite. Then it is
+  a point. After translating we may arrange that $C$ is contained
+  $\mathrm{T}_0(B)$. But we are already assuming $\dim B \le \dim
+  A-1$. 
+  So we proceed by induction on $\dim A$ and conclude that $V$ is the
+  translate of an abelian subvariety of $B$ and thus also of $A$. This
+  conclude the proof in the second case.
+\end{proof}
+
+%\begin{exercise}
+%   Show that $\mathrm{Stab}(Z) = \bigcap_{v\in Z}(Z-v)$ and conclude
+%   that $\mathrm{Stab}(Z)$ is an algebraic subgroup of $\IC^g$. 
+% \end{exercise}
+
+
+
+
+
+
+% \begin{example}
+%   Let us investiage the connection with Section~\ref{subsub:functrans} in the
+%   proof of the Ihara--Serre--Tate Theorem. Let $P\in
+%   \IC[X,Y]$ be irreducible and let $\ell$ be a prime number with
+%   $P\mid P(X^\ell,Y^\ell)$. So $P\mid P(X^{\ell^r},Y^{\ell^e})$ for
+%   all $r\in\IN$.
+
+%   Let $V=\{(z_1,z_2)\in(\IC^\times)^2 : P(z_1,z_2)=0\}$. The pre-image
+%   $X = \{(w_1,w_2)\in\IC^2 : P(\exp(w_1),\exp(w_2))=0\}$ is a complex analytic
+%   subset of $\IC^2$ of (complex) dimension $1$.
+%   If $(w_1,w_2)\in X$, then $(\ell^rw_1,\ell^rw_2)\in X$ for all
+%   $r\in\IN$. 
+  
+%   Then $X$ has a smooth point, and so we can find a local
+%   parametrization
+%   $f=(f_1,f_2)\colon \Delta\rightarrow X$ where $\Delta = \{z\in\IC :
+%   |z|<1\}$.   
+% \end{example}
 
 \section{Further Reading and Open Problems}
 

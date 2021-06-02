@@ -630,9 +630,10 @@ also $\sin(1/x)$ on $(0,1)$.
   Chapter II.1~\cite{MumfordTataLectures}.
   That is, there is a function $f\colon \IC^g\times \Omega\rightarrow
   \IC^\times$ with 
-  \begin{equation*}
+  \begin{equation}
+    \label{eq:thetatransf}
     \vartheta_i(z+\omega) = f(z,\omega) \vartheta_i(z)
-  \end{equation*}
+  \end{equation}
   for all $i$, all $z\in\IC^g$, and all $\omega\in\Omega$. 
   
   Because of the (quasi-)periodic nature of $\varphi_i$ we cannot
@@ -645,8 +646,11 @@ also $\sin(1/x)$ on $(0,1)$.
   Let $(\omega_1,\ldots,\omega_{2g})$ be a basis of the $\IZ$-module
   $\Omega$. Then this is also a basis of $\IC^{g}$ taken as an
   $\IR$-vector space. Let us consider
-  $$ \cF = \{\lambda_1\omega_1+\cdots+\lambda_{2g}\omega_{2g} :
-  \lambda_1,\ldots,\lambda_{2g}\in [0,1]\}.$$
+  \begin{equation}
+    \label{eq:fdav}
+    \cF = \{\lambda_1\omega_1+\cdots+\lambda_{2g}\omega_{2g} :
+  \lambda_1,\ldots,\lambda_{2g}\in [0,1]\}.
+  \end{equation}
   This is a semi-algebraic set and therefore in particular definable
   in $\IRan$. It is homeomorphic to $[0,1]^{2g}$
   under an $\IR$-linear change of coordinates.
@@ -668,7 +672,19 @@ also $\sin(1/x)$ on $(0,1)$.
 
   Let $V$ be an algebraic subvariety of $\IP^n$. Then $V(\IC)$ is the
   vanishing locus of a finite collection of complex homogeneous
-  polynomial $p_1,\ldots,p_k\in \IC[X_0,\ldots,X_n]$. Then
+  polynomial $p_1,\ldots,p_k\in \IC[X_0,\ldots,X_n]$.
+  So
+  \begin{equation*}
+    u^{-1}(V) = \left\{ z \in \IC^g :
+      p_i(\vartheta_0(z),\ldots,\vartheta_n(z))=0 \text{ for all }i\in
+      \{1,\ldots,k\} \right\}
+  \end{equation*}
+  is periodic under the additive action of $\Omega$ by
+  (\ref{eq:thetatransf}).
+  We cannot expect
+  it to be definable in any o-minimal structure. So we restrict to the
+  compact fundamental domain $\cF$. 
+  Then
   \begin{equation*}
     u^{-1}(V) \cap \cF = \left\{ z \in \cF :
       p_i(\vartheta_0(z),\ldots,\vartheta_n(z))=0 \text{ for all }i\in
@@ -716,13 +732,12 @@ We have  following striking result.
 \end{example}
 
 \begin{exercise}
-  Let $m,n\in\IN_0$ be fixed. Show that the up-to homeomorphism there
-  are only finitely many sets of the form
-  $\{x\in (0,\infty)^m : f(x) =0\}$ when $f$ is allowed to vary over
+  Let $m,n\in\IN_0$ be fixed. Show that the number of connected
+  components of 
+  $\{x\in \IR^m : f(x) =0\}$ is bounded solely in terms of $m$ and $n$
+  when $f$ is allowed to vary over
   polynomials in $\IR[X_1,\ldots,X_n]$ with at most $n$ non-zero
-  terms.\footnote{Hint: see Proposition 3.2 in Chapter
-    9~\cite{D:oMin}. I don't think the Triangulation Theorem is
-    needed. Perhaps Cell Decomposition is enough. Please double check.}
+  terms.
 \end{exercise}
 
 \subsection{Restricted Analytic Functions and the Exponential Function}
