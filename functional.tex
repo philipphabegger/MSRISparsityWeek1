@@ -250,6 +250,8 @@ But Ax showed that the functional version is true.
   \end{equation*}  
 \end{theorem}
 
+
+
 The following corollary will be of importance to us. 
 
 \begin{corollary}[Ax--Lindemann--Weierstrass]
@@ -260,7 +262,7 @@ The following corollary will be of importance to us.
   C\}$\footnote{Here $\exp(z) = (\exp(z_1),\ldots,\exp(z_m))$ for
     $z=(z_1,\ldots,z_m)\in\IC^m$.} is either Zariski dense in
   $(\IC^\times)^m$ or contained in
-  the 
+  the
   translate of a proper algebraic subgroup of $(\IC^\times)^m$.   
 \end{corollary}
 \begin{proof}  
@@ -338,12 +340,21 @@ We recall Convention~\ref{conv:identCCRR2}.
 Recall that $\cF$ is real semi-algebraic and that the pre-image under
 $u|_{\cF}$ of an algebraic subvariety of $A$ is definable in $\IRan$.
 
+
+\begin{definition}
+  Let $A$ be an abelian variety. A \emph{coset} of $A$ is the translate of an
+  abelian subvariety of $A$. A \emph{torsion coset} of $A$ is a coset
+  that contains a point of finite order. Equivalently a torsion coset
+  of $A$ is the translate of an abelian subvariety by a point of
+  finite order. 
+\end{definition}
+
+
 \begin{theorem}[Ax--Lindemann--Weierstrass for abelian varieties]
   \label{thm:alwav}
   Let $C\subset\IC^g$ be a real semi-algebraic curve. After replacing
   $C$ by a non-empty open subset, the Zariski
-  closure of $u(C)$ in $A$ is the translate of an abelian subvariety
-  of $A$.
+  closure of $u(C)$ in $A$ is a coset of $A$.
 \end{theorem}
 
 \subsubsection{Step 1: Complexifying a suitable open subset of $C$.}
@@ -381,6 +392,15 @@ $V(\IC)$.
   \end{equation*}
   of $\IC^g$. 
 \end{definition}
+
+The structure of the subgroup $\mathrm{Stab}(Z)$ is well-behaved by
+the following exercise. We will not need it this result in our proof
+of Theorem~\ref{thm:alwav}.
+
+\begin{exercise}
+  Show that the group $\mathrm{Stab}(Z)$ is a vector subspace of
+  $\IC^g$. 
+\end{exercise}
 
 \begin{lemma}
   The stabilizer $\mathrm{Stab}(Z)$ is infinite. 
@@ -521,7 +541,7 @@ non-empty open subset of $C$ such that the group $\mathrm{Stab}(Z)$ is infinite.
 % \end{proof}
 
 Recall that $u(Z)$ lies Zariski dense in the irreducible $V$. We must
-verify that $V$ is the translate of an abelian subvariety of $A$.
+verify that $V$ is a coset of $A$. %the translate of an abelian subvariety of $A$.
 
 We mimic here Definition~\ref{def:stabZ} for $A$. 
 \begin{definition}
@@ -565,20 +585,66 @@ We mimic here Definition~\ref{def:stabZ} for $A$.
   $\mathrm{T}_0(B)$.
 
   If the dimension of the image of $U\subset C$ is $1$, then by induction on
-  $\dim A$ the image $q(V)$ is the translate of an abelian subvariety
-  of $A/B$. As fibers of $q|_V$ are  translates of abelian
-  subvarieties of $A$ we conclude that $V$ is the translate of an
-  abelian subvariety of $A$. This completes the proof in the current
+  $\dim A$ the image $q(V)$ is a coset
+  of $A/B$. As fibers of $q|_V$ are  cosets
+  of $A$ we conclude that $V$ is a coset of $A$. This completes the proof in the current
   case.
 
   Second, assume that the image of $U\subset C$ is finite. Then it is
   a point. After translating we may arrange that $C$ is contained
   $\mathrm{T}_0(B)$. But we are already assuming $\dim B \le \dim
   A-1$. 
-  So we proceed by induction on $\dim A$ and conclude that $V$ is the
-  translate of an abelian subvariety of $B$ and thus also of $A$. This
+  So we proceed by induction on $\dim A$ and conclude that $V$ is a
+  coset of $B$ and thus also of $A$. This
   conclude the proof in the second case.
 \end{proof}
+
+
+\section{Some consequences}
+\label{sec:conclusionft}
+
+We keep the notation of Example~\ref{ex:thetafunc}. 
+Let $A$ be an abelian variety defined over $\IC$ of dimension $g$. Suppose it is
+immersed in $\IP^n$ and let $u\colon \IC^{g}\rightarrow A(\IC)$ be a
+uniformizing map. Finally, fix a basis of $\Omega = \ker u$ and a
+fundamental domain $\cF \subset\IC^g$.
+
+We can now determine the structure of the algebraic locus of the
+preimage of a subvariety under the restricted uniformizing map. 
+
+\begin{definition}
+  In the setup above we define
+  \begin{equation*}
+    V^{\circ} = \bigcup_{\substack{\text{coset $C$ of $A$} \\\text{with $\dim
+          C\ge 1$ and $C\subset
+          V$}}} C(\IC).
+  \end{equation*}
+  Then $V^{\circ}$ is called the \emph{Ueno locus} of $V$. 
+\end{definition}
+
+\begin{theorem}
+  \label{thm:imagealg}
+  Let $V\subset A$ be an irreducible subvariety and set
+  $X = u|_{\cF}^{-1}(V(\IC))$. Then $u(X^{\mathrm{alg}}) = V^{\circ}$.
+\end{theorem}
+\begin{proof}
+  Each point of $X^{\mathrm{alg}}$ is contained in a connected real
+  semi-algebraic curve contained completely in
+  $u|_{\cF}^{-1}(V(\IC))$. So $u(X^{\mathrm{alg}}) \subset V^{\circ}$
+  follows from the
+  Ax--Lindemann--Weierstrass Theorem for $A$, Theorem~\ref{thm:alwav}.
+
+  Conversely, if $x\in V^{\circ}$, then there exists an abelian
+  subvariety $B\subset A$ with $x+B \subset V$ and $\dim B \ge 1$. The
+  tangent space $\mathrm{T}_0(B)$ is a vector subspace of
+  $\mathrm{T}_0(A)$ of positive dimension. So it is contains a real
+  semi-algebraic curve passing through the origin. This yields
+  $x\in u(X^{\mathrm{alg}})$. 
+\end{proof}
+
+
+
+
 
 %\begin{exercise}
 %   Show that $\mathrm{Stab}(Z) = \bigcap_{v\in Z}(Z-v)$ and conclude
@@ -610,6 +676,68 @@ We mimic here Definition~\ref{def:stabZ} for $A$.
 % \end{example}
 
 \section{Further Reading and Open Problems}
+We keep the notation from Section \ref{sec:conclusionft}.
+
+We have the following theorem. 
+\begin{theorem}[Abramovich, Kawamata, Ueno]
+  \begin{enumerate}
+  \item [(i)]   The Ueno locus $V^{\circ}$ is Zariski closed in $V$.
+  \item[(ii)] We have
+    $V^{\circ}=V$ if and only if  $\dim \mathrm{Stab}(V)\ge 1$.
+  \item[(iii)]
+    Moreover, there
+    exists a finite set $\cB$ of abelian subvarieties of $A$ with the
+    following property. If $C$ is a coset of $A$ with $C\subset V$, then
+    $C$ is contained in the translate of a member of $\cB$. 
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  See Theorems 1 and 2~\cite{abramovich} for (i) and (ii). 
+\end{proof}
+
+% \begin{theorem}
+%   Let $\varphi\colon \IC\rightarrow A(\IC)$ be a non-constant holomorphic map with
+%   image in $V(\IC)$.
+%   Then $\varphi(\IC)  \subset V^{\circ}(\IC)$. 
+% \end{theorem}
+
+In Hector's lectures we will get to know the notion of hyperbolicity
+and smooth varieties of general type.
+
+\begin{definition}
+  Let $V$ be an irreducible projective variety over $\IC$.
+  \begin{enumerate}
+  \item [(i)] We call $V$ \emph{hyperbolic} if
+    any holomorphic map $\IC \rightarrow A(\IC)$ with values in
+    $V(\IC)$ is
+    constant.
+  \item[(ii)] If $V$ is smooth we say it is of \emph{general type} if its
+    Kodaira dimension equals $\dim V$. 
+  \end{enumerate}
+\end{definition}
+
+\begin{theorem} Let $V$ be an irreducible subvariety of $A$. 
+  \begin{enumerate}
+  \item [(i)]  Then $V$ is hyperbolic if and only if
+    $V^{\circ}=\emptyset$. 
+  \item[(ii)] If $V$ is smooth, then
+    \begin{equation*}
+      V \text{ is of general type}\quad\Leftrightarrow \quad\dim
+      \mathrm{Stab}(V)=0 \quad\Leftrightarrow\quad
+      \text{$V^{\circ}$ is
+        not Zariski dense in $V$.}
+    \end{equation*}
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  For (i) we require that the image of any non-constant holomorphic
+  map $\IC\rightarrow A(\IC)$ with image in $V(\IC)$ has values in
+  $V^{\circ}$. The converse direction is easier, indeed, any coset of
+  an abelian variety is the target of a non-constant holomorphic map
+  on $\IC$.
+
+  
+\end{proof}
 
 %%% Local Variables:
 %%% TeX-master: "main"

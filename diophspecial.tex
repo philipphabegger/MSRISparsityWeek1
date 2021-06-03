@@ -522,8 +522,10 @@ the Theorem of Ihara--Serre--Tate in this modular side.
 
 For this let us just consider $Y(1)^2$ instead of $(\IC^\times)^2$.
 \begin{definition}
-  The set of special points of  $Y(1)^n$ is $Y(1)^n_{\mathrm{special}}=\{(z_1,\ldots,z_n) :
-  z_i\in Y(1)(\IC)\text{ is special} \}$. 
+  \label{def:specialY1m}
+  The set of special points of  $Y(1)^m$ is
+  $$Y(1)^m_{\mathrm{special}}=\{(z_1,\ldots,z_m) :
+  z_i\in Y(1)(\IC)\text{ is special} \}.$$
 \end{definition}
 
 Which algebraic curves in $Y(1)^2$ contain infinitely many special
@@ -553,15 +555,18 @@ In $E_i$ is represented by $\IC/(\IZ+\tau_i\IZ)$, for $i\in \{1,2\}$,
 then $f$ is represented by a $\IC$-linear map $\IC\rightarrow\IC$ that
 maps $\IZ+\tau_1\IZ$ to $\IZ+\tau_2\IZ$.
 
-Let $N\in\IN$. 
-It turns out that the set
-\begin{equation*}
-  \left\{ (j(\tau_1),j(\tau_2)) : \text{there is a cyclic isogeny 
-    $\IC/(\IZ+\tau_1\IZ)\rightarrow \IC/(\IZ+\tau_2\IZ)$ of degree $N$}\right\}
-\end{equation*}
-is an irreducible algebraic curve in $Y(1)^2$, \textit{i.e.}, it is
-the zero set of an irreducible polynomial $\Phi_N\in\IC[X,Y]$.
-Moreover, we have $\Phi_N\in\IZ[X,Y]$. 
+\begin{deflemma}
+  \label{deflem:modtranspoly}
+  Let $N\in\IN$. The set
+  \begin{equation*}
+    \left\{ (j(\tau_1),j(\tau_2)) : \text{there is a cyclic isogeny 
+        $\IC/(\IZ+\tau_1\IZ)\rightarrow \IC/(\IZ+\tau_2\IZ)$ of degree $N$}\right\}
+  \end{equation*}
+  is an irreducible algebraic curve in $Y(1)^2$, \textit{i.e.}, it is
+  the zero set of an irreducible polynomial $\Phi_N\in\IC[X,Y]$.
+  Moreover, we have $\Phi_N\in\IZ[X,Y]$. We call $\Phi_N$
+  \emph{modular transformation polynomial (of level $N$)}.
+\end{deflemma}
 
 \begin{example}
   For $N=1$ we recover the diagonal $\{(z,z) : z\in\IC\}$, so $\Phi_1

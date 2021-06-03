@@ -1,5 +1,124 @@
 \chapter{The Conjectures of Manin--Mumford and Andr\'e--Oort}
 
+\section{Overview}
+
+Let $A$ be an abelian variety defined over $\IC$.
+
+\begin{definition}
+  The torsion group $A_{\mathrm{tors}}$ of $A$ is the subgroup of points
+  of finite order of the abelian group $A(\IC)$.
+\end{definition}
+
+In this chapter we will sketch a proof of the following theorem,
+originally due to Raynaud.
+
+\begin{theorem}[Manin--Mumford Conjecture]
+  Let $V\subset A$ be an irreducible closed subvariety. Then
+  \begin{equation*}
+    V(\IC) \cap A_{\mathrm{tors}} \text{ lies Zariski dense in
+      $V$}\quad\Leftrightarrow \quad
+    \text{$V$ is a torsion coset of $A$.}
+  \end{equation*}
+\end{theorem}
+
+Recall that a torsion coset of $A$ is the translate of an abelian
+subvariety of $A$ by a point in $A_{\mathrm{tors}}$. 
+
+This is the generalization of the translation to abelian varieties of
+the Ihara--Serre--Tate Theorem, Theorem~\ref{thm:ist}. In view of this
+analogy it is reasonable to declare torsion cosets of $A$ as the
+special subvarieties of $A$.
+
+There are many proofs of Theorem~\ref{thm:mm}. We will follow the
+o-minimal route and use the Pila--Wilkie Theorem (a second time). The
+idea to use the Pila--Wilkie counting theorem in this context goes
+back to Zannier. We will follow the proof by Pila and
+Zannier~\ref{pilazannier}. The basic idea is to reinterpret torsion
+points of $A$ as points in $\mathrm{T}_0(\IC)$ that are rational with
+respect to a fixed period lattice basis.
+
+This powerful approach has many applications. For example, it led to
+the first condition proof of the Andr\'e--Oort Conjecture for
+subvarieties of $Y(1)^m$ by Pila~\ref{Pila:AO}. Later on, and after work of
+many people including Daw, Klingler, Pila, Orr, Ullmo, Yafaev the
+approach was extended to the moduli space of abelian varieties by
+Tsimerman. Here important work of
+Andreatta--Goren--Howard--Madapusi-Pera and Yuan--Zhang on the average
+Colmez conjecture and Peterzil--Starchenko on definability was used.
+
+We will stick to the case of subvarieties of $Y(1)^m$.
+Recall that we defined special points in
+Definition~\ref{def:specialY1m}. We will define special subvarieties
+of $Y(1)^m$ here. The modular transformation polynomials $\Phi_N$
+were introduced in Definition-Lemma~\ref{deflem:modtranspoly}. 
+
+\begin{definition}
+  An irreducible subvariety $V$ of $Y(1)^m$ is called special if it is
+  an irreducible component of the zero locus of
+  \begin{equation*}
+    \Phi_{N_j}(X_{i_j},X_{i'_j}) \quad (j\in \{1,\ldots,r\})
+  \end{equation*}
+  for some  $N_1\ldots,N_r\in\IN$ and $i_1,i'_1,\ldots,i_r,i'_r\in
+  \{1,\ldots,r\}$. 
+\end{definition}
+
+\begin{example}
+  For $m=3$ there is an irreducible component of the vanishing locus of
+  $\Phi_2(X_1,X_1)$ and $\Phi_3(X_2,X_3)$ of the form
+  \begin{alignat*}1
+    \{(1728,x_2,x_3) : \,\,&\text{there is a degree $3$ isogeny between
+      the elliptic curves over $\IC$}\\ &\text{with $j$-invariants $x_2$ and $x_3$}\}
+  \end{alignat*}
+  as the elliptic curve over $\IC$  of $j$-invariant 1728
+  admits an endomorphisms of degree $2$. This endomorphism arises as
+  $2 = (1+i)(1-i)$ in $\IZ[i]$. The other possible $X_1$ 
+  coordinates are $8000$ (endomorphism ring $\IZ[\sqrt{-2}]$) and
+  $-3375$ (endomorphism ring $\IZ[\sqrt{-7}/2+1/2]$).
+
+  So allowing $i_j=i'_j$ in the definition of special subvariety of
+  $Y(1)^m$ leads to constant coordinates. 
+\end{example}
+
+\begin{theorem}[Andr\'e--Oort Conjecture for $Y(1)^m$, Pila's Theorem~\cite{Pila:AO}]
+  Let $V\subset Y(1)^m$ be an irreducible closed subvariety. Then
+  \begin{equation*}
+    V(\IC) \cap Y(1)^m_{\mathrm{special}} \text{ lies Zariski dense in
+      $V$}\quad\Leftrightarrow \quad
+    \text{$V$ is special.}
+  \end{equation*}    
+\end{theorem}
+
+\section{Arithmetic of Torsion Points}
+
+\section{The Manin--Mumford Conjecture}
+
+Let $A$ be an abelian variety defined over $\IC$. We return again to
+the notation introduced in Example~\ref{ex:thetafunc}.
+\begin{itemize}
+\item We have an immersion $A\rightarrow\IP^n$
+\item We have a uniformizing map $u\colon T_0(A)\rightarrow
+  A(\IC)$  with the tangent space
+  $\mathrm{T}_0(A)$. The map $u$ is a holomorphic, surjective group
+  homomorphism.
+\item The kernel $\ker u$ is a discrete subgroup $\Omega\subset\IC^g$
+  of rank $2g$, the period lattice. We fix a basis $(\omega_1,\ldots,\omega_{2g})$ of
+  $\Omega$ and obtain a fundamental domain.
+\end{itemize}
+
+In this setup it has already proved useful to work in 2 distinct
+coordinate systems in $T_0(A)$.
+
+\begin{itemize}
+\item \textbf{Complex coordinates:} We fix an isomorphism
+  $\mathrm{T}_0(A)\rightarrow\IC^g$ of $\IC$-vector spaces. 
+\item \textbf{Period coordinates:} We fix the isomorphism
+  $\mathrm{T}_0(A)\rightarrow \IR^{2g}$ of $\IR$-vector spaces
+  induced by the basis $(\omega_1,\ldots,\omega_{2g})$. 
+\end{itemize}
+\section{Further Reading and Open Problems}
+
+
+
 %%% Local Variables:
 %%% TeX-master: "main"
 %%% End:
