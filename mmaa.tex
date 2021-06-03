@@ -14,13 +14,14 @@ originally due to Raynaud (who proved it without assume that the
 everything in sight is defined over a number field).
 
 \begin{theorem}[Manin--Mumford Conjecture]
+  \label{thm:mmav}
   Suppose $K\subset\IC$ is a number field and $A$ is an abelian
   variety defined over $K$. 
   Let $V\subset A$ be an irreducible closed subvariety, also defined over a
   number field $K$. Then
   \begin{equation*}
     V(\IC) \cap A_{\mathrm{tors}} \text{ lies Zariski dense in
-      $V$}\quad\Leftrightarrow \quad
+      $V$}\quad\Longleftrightarrow \quad
     \text{$V$ is a torsion coset of $A$.}
   \end{equation*}
 \end{theorem}
@@ -33,7 +34,7 @@ the Ihara--Serre--Tate Theorem, Theorem~\ref{thm:ist}. In view of this
 analogy it is reasonable to declare torsion cosets of $A$ as the
 special subvarieties of $A$.
 
-There are many proofs of Theorem~\ref{thm:mm}. We will follow the
+There are many proofs of Theorem~\ref{thm:mmav}. We will follow the
 o-minimal route and use the Pila--Wilkie Theorem (a second time). The
 idea to use the Pila--Wilkie counting theorem in this context goes
 back to Zannier. We will follow the proof by Pila and
@@ -93,6 +94,7 @@ were introduced in Definition-Lemma~\ref{deflem:modtranspoly}.
 \end{theorem}
 
 \section{Arithmetic of Torsion Points}
+\label{sec:galoistorsionav}
 
 Here we collect some fundamental facts about the torsion points of an
 abelian variety $A$ defined over a number field $K\subset \IC$ of dimension $g$. We will
@@ -103,36 +105,53 @@ $\mathrm{T}_0(A)/\Omega$ where $\Omega$ is the period lattice, a
 discrete subgroup of $\mathrm{T}_0(A)$ of rank $2g$. So the group
 $A(\IC)$ is isomorphic to $(\IR/\IZ)^{2g}$.
 
-Say $N\in\IN$ and let $A[N] =  \ker[N] = \{x\in A(\IC) : [N](x) = 0\}$, here
+Say $N\in\IN$ and let $A[N] =  \ker[N] = \{P\in A(\IC) : [N](P) = 0\}$, here
 $[N]$ is the multiplication-by-$N$ morphism.
 As a group we have $A[N] \cong (\IZ/N\IZ)^{2g}$ and in particular
 $\#A[N] = N^{2g}$.
 
 Let $\overline K$ be the algebraic closure of $K$ in $\IC$.
-Then $A[N] = \{x\in A(\overline K) : [N](x)=0}$. In fact, all torsion
-points of $A$ are $K$-valued points.
+Then $A[N] = \{P\in A(\overline K) : [N](P)=0\}$. In fact, all torsion
+points of $A$ are $\overline K$-valued points, \textit{i.e.},
+$A_{\mathrm{tors}}\subset A(\overline K)$. 
 
 %Now suppose that $A$ is defined over a number field $K\subset\IC$.
 Let $\absgalk$ denote the absolute Galois group of $K$. Let
-$[x_0:\cdots:x_n]\in \IP^n(\overline{K})$ with $(x_0,\ldots,x_n) \in
-\overline{K}^{n+1}\ssm\{0\}$. Say $\sigma\in \absgalk$, then
+$P\in \IP^n(\overline{K})$. Fix  $(x_0,\ldots,x_n) \in
+\overline{K}^{n+1}\ssm\{0\}$ with
+ $P=[x_0:\cdots:x_n]$. Say $\sigma\in \absgalk$, then
 \begin{equation*}
-  \sigma([x_0:\cdots:x_n]) = [\sigma(x_0):\cdots:\sigma(x_m)]
+\sigma(P)=  \sigma([x_0:\cdots:x_n]) = [\sigma(x_0):\cdots:\sigma(x_m)]
 \end{equation*}
-defines a well-defined action of $\absgalk$ on $\IP^n(\overline K)$.
+defines an action of $\absgalk$ on $\IP^n(\overline K)$; the point
+$\sigma(P)$ is independent of the choice of projective coordinates. 
 
-\begin{exercise}\leavevmode
-  \begin{enumerate}
-  \item [(i)]
-    Assume $x\in \IP^n(\overline K)$. Show that $x\in \IP^n(K)$ if and
-    only if  $\sigma(x)=x$ for all
-    $x\in \absgalk$.
-  \item[(ii)] Let $W\subset\IP^n$ be an irreducible subvariety defined
-    over $\overline K$. Find a sensible definition for $\sigma(W)$,
-    for $\sigma\in \absgalk$.  Show that $W$ is the zero set of
-    polynomials with coefficients in $K$ if and only if $\sigma(W)=W$
-    for all $\sigma\in \absgalk$.
-  \end{enumerate}
+Clearly, $\sigma(P)=P$ for all $\sigma$ if $P\in \IP^n( K)$. If
+conversely, $P\in \IP^n(K)$ with $\sigma(P)=P$ for all $\sigma$ then
+we have $P\in \IP^n(K)$; indeed, we may assume that one projective
+coordinate equals $1$.
+
+\begin{definition}
+  For $P\in \IP^n(\overline K)$. 
+  We set $K(P)$ to be the fixed field of the stabilizer
+  $\{\sigma\in \absgalk : \sigma(P)=P\}$. 
+\end{definition}
+
+We have
+\begin{equation*}
+  [K(P):K]  = \#\{\sigma(P) : \sigma\in\absgalk \}. 
+\end{equation*}
+
+If $P=[x_0:\cdots:x_n] \in \IP^n(\overline K)$ with
+$x_0,\ldots,x_n\in\overline K$ and $x_i=1$ for some
+$i$, then $K(P) = K(x_0,\ldots,x_n)$. 
+
+\begin{exercise}
+  Let $W\subset\IP^n$ be an irreducible subvariety defined
+  over $\overline K$. Find a sensible definition for $\sigma(W)$,
+  for $\sigma\in \absgalk$.  Show that $W$ is the zero set of
+  polynomials with coefficients in $K$ if and only if $\sigma(W)=W$
+  for all $\sigma\in \absgalk$.
 \end{exercise}
 
 
@@ -155,14 +174,18 @@ $$\sigma([N](P)) = [f_{N0}(\sigma(P)):\cdots:f_{Nn}(\sigma(P))] =
 holds for \textit{all} $P\in A(\overline K)$.
 
 
-\begin{lemma}\leavevmode
+\begin{lemma}\label{lem:galoisactionav}\leavevmode
   \begin{enumerate}
   \item [(i)]
     The
     action of $\absgalk$ on $A(\overline K)$ restricts to an action on
     $A[N]$ for all $N\in\IN$.
-    Let us denote it by
-      $\rho_N\colon \absgalk\rightarrow \mathrm{Aut}(A[N])$.
+  \end{enumerate}
+  In particular, $\absgalk$ restricts to
+  an action on $A_{\mathrm{tors}}$. 
+  Let us denote this action by
+  $\rho_N\colon \absgalk\rightarrow \mathrm{Aut}(A[N])$.
+  \begin{enumerate}
   \item[(ii)]
     The extension $K(A[N])/K$ is Galois
     of degree at most $N^{4g^2}$.
@@ -174,7 +197,7 @@ holds for \textit{all} $P\in A(\overline K)$.
   Part (i) has proved before the lemma.  For part (ii) observe that
   $A[N]\cong
   (\IZ/N\IZ)^{2g}$ implies
-  $\#\mathrm{Aut}(A[N])\le \mat{2g}(\IZ/N\IZ)$.
+  $\#\mathrm{Aut}(A[N])\le \mat{2g}{\IZ/N\IZ}$.
   So  $\rho_N$ has finite image with order at most $N^{4g^2}$. The kernel
   of $\rho_N$ is the Galois group $\mathrm{Gal}(\overline K/K(A[N]))$.
   So $K(A[N])/K$ is normal of degree at most $N^{4g^2}$.
@@ -185,32 +208,94 @@ This is just the analog of the action of the Galois group $\mathrm{Gal}(\IQbar/\
 on roots of unity in $\IC^\times$ that we investigate in
 Section~\ref{sec:rootsof1}.
 
-However, there are some notable important. First, the in contrast to
-the multiplicative setting, there is no reason to believe that
-$K(A[N])/K$ is an abelian extension and in general it is not.
-Moreover, in general there is no simple formula for the degree of the
-extension $K(A(P))/K$ if $P$ has order $N$. In general, $K(A(P))/K$ is
-not Galois.
 
 For the sake of completeness let us state here a theorem of Serre for
 elliptic curves.
 
 \begin{theorem}[Serre]
-  Suppose $E$ is an elliptic curve. There exists $c(E)>0$ such that
-  if $p\ge c(E)$ is prime number, then 
+  Suppose $E$ is an elliptic curve defined over $K$ such that $E$,
+  taken as defined over $\overline K$ does
+  not have complex multiplication. There exists $c(E)>0$ such that
+  if $p\ge c(E)$ is prime number, then $\rho_p \colon
+  \absgalk\rightarrow \mathrm{Aut}(E[p]) \cong \mathrm{Gal}_2(\IF_p)$
+  is surjective.  
 \end{theorem}
+
+This theorem illustrates some some notable differences between the
+arithmetic of roots of unity and torsion points on abelian varieties.
+First, in contrast to the multiplicative setting, there is no reason
+to believe that $K(A[N])/K$ is an abelian extension and in general it
+is not. In general, $K(A(P))/K$ is not Galois. In the context of
+Serre's Theorem and for all $p$ large enough, the stabilizer of $P \in
+E[p] \ssm\{0\}$ in $\mathrm{Gal}(K(E[p])/K)\cong \mathrm{GL}_2(\IF_p)$
+is a group of upper triangular matrices. It is not normal in
+$\mathrm{Gal}(K(E[p])/K)$.
+
+\begin{exercise}
+  \begin{enumerate}
+  \item [(i)]  Let $p$ be a sufficiently large prime and let $E$ be
+    an elliptic curve as in Serre's Theorem. Say $P\in E(\overline K)$ has
+    order $p$. Show that $[K(P):K] = p(p-1)$.
+  \item[(ii)] Show why Serre's Theorem fails if $E$ has complex
+    multiplication.
+  \item[(iii)] Let $E$ be an elliptic curve defined over $K$  with
+    complex multiplication. Let $c>0$ and $\delta>0$ with
+    $[K(P):K]\ge c N^{\delta}$ for all points $P\in E(\overline K)$ of
+    finite order $N$. Show that $\delta \le 1$. 
+  \end{enumerate}
+\end{exercise}
+
+But in general there is no simple formula for the degree of the
+extension $K(A(P))/K$ if $P$ has order $N$. At least Serre's Theorem
+suggests that the degree $[K(P):K]$ of a point of order $N$ grows
+polynomially in terms of $N$.
+
+Using methods from transcendence theory, Masser proved the following
+estimate.
+
+\begin{theorem}[Masser~Corollary~\cite{Masser:smallvalues}]
+  \label{thm:masser}
+  Let $A$ be an abelian variety defined over a number field $K$. There
+  exist $c=c(A)>0$ and $\delta=\delta(A)>0$ with the following
+  property. If $P \in A_{\mathrm{tor}}$ has order $N$, then
+  $[K(P):K]\ge c N^{\delta}$. 
+\end{theorem}
+
+
 Now suppose $V$ is an  subvariety of $A$ defined over $K$. We can
 think of $V$ as the zero set on $A(\overline K)$ of homogeneous
 polynomials with coefficients in $K$. 
 
 It is important to distinguish between $A[N]$ and the subgroup
-$A(K)[N] = \{x\in A(K) : [N](x)=0\}$. Indeed, the subgroup $A(K)[N]$ may be
+$A(K)[N] = \{P\in A(K) : [N](P)=0\}$. Indeed, the subgroup $A(K)[N]$ may be
 smaller than $A(K)$.
 
 
 \section{Proof of the Manin--Mumford Conjecture}
 
-Let $A$ be an abelian variety defined over $\IC$. We return again to
+Let $A$ be an abelian variety defined over a number field
+$K\subset\IC$.
+
+The direction ``$\Longrightarrow$'' of Theorem~\ref{thm:mmav} is covered in
+the following lemma.
+
+\begin{lemma}
+  Suppose $V\subset A$ is a torsion coset. Then $V(\overline K)\cap
+  A_{\mathrm{tors}}$ lies Zariski dense in $V$. 
+\end{lemma}
+\begin{proof}
+  Let $B$ be an abelian subvariety of $A$. 
+  As a topological group, $B(\IC)$ is isomorphic to
+  $(\IR/\IZ)^{2\dim B}$. The torsion $B_{\mathrm{tors}}$ is identified
+  with $(\IQ/\IZ)^{2\dim B}$ under an isomorphism. In particular,
+  $B_{\mathrm{tors}}$ lies dense in $B(\IC)$ equipped with the
+  archimedean topology. So in particular, $B_{\mathrm{tors}}$ lies
+  Zariski dense in $B$. If $P\in A(\IC)$ has finite order, then
+  $p+B_{\mathrm{tors}}$ lies Zariski dense in $p+B$. 
+\end{proof}
+
+The converse is the deep part. 
+We return again to
 the notation introduced in Example~\ref{ex:thetafunc}.
 \begin{itemize}
 \item We have an immersion $A\rightarrow\IP^n$
@@ -223,21 +308,154 @@ the notation introduced in Example~\ref{ex:thetafunc}.
   $\Omega$ and obtain a fundamental domain.
 \end{itemize}
 
-In this setup it has already proved useful to work in 2 distinct
-coordinate systems in $T_0(A)$.
+% In this setup it has already proved useful to work in 2 distinct
+% coordinate systems in $T_0(A)$.
 
 \bigskip
 \noindent The \textbf{complex coordinates} arise via an isomorphism
 $\mathrm{T}_0(A)\rightarrow\IC^g$ of $\IC$-vector spaces. 
 
+
+
 \bigskip
-\noindent The \textbf{period coordinates} arise via an isomorphism
+\noindent The \textbf{period coordinates} arise via the isomorphism
 $\mathrm{T}_0(A)\rightarrow \IR^{2g}$ of $\IR$-vector spaces
 induced by the basis $(\omega_1,\ldots,\omega_{2g})$. 
 
+Let us see how to go back and forth between these two coordinates.
+
+\begin{lemma}
+  \label{lem:rationalpreimage}
+  Let $P\in A(\IC)$ be a torsion point of order $N$.
+  There exist $x\in \IQ^{2g}$ with $H(x)=N$ and $u(x)=P$. 
+\end{lemma}
+\begin{proof}
+  Let $\lambda_1,\ldots,\lambda_{2g}\in [0,1)$ with
+  $u(\lambda_1\omega_1+\cdots+\lambda_{2g}\omega_{2g}) = P$.
+  As $[N](P)=0$ we have
+  $u(N\lambda_1\omega_1+\cdots +N\lambda_{2g}\omega_{2g})=0$.
+  So $N\lambda_1\omega_1+\cdots +N\lambda_{2g}\omega_{2g}$ lies in the
+  period lattice $\Omega$. Thus there exist $p_j\in \IZ$ with
+  $\lambda_j\in p_j/N$ for all $j\in\{1,\ldots,2g\}$.
+  In period coordinates the point
+  $\lambda_1\omega_1+\cdots+\lambda_{2g}\omega_{2g}$ becomes
+  $x=(\lambda_1,\ldots,\lambda_{2g})\in \IQ^{2g}\cap [0,1)$.
+  Because the order of $P$ is $N$ we find $\gcd(p_1,\ldots,p_{2g})=N$
+  and so $H(x)=N$. 
+\end{proof}
+
+
+Let $V\subset A$ be an irreducible subvariety defined over $K$. Recall
+that the Ueno locus $V^{\circ}$ was introduced  in Definition~\ref{def:ueno}.
+
+\begin{lemma}
+  \label{lem:apppw}
+  There exists $N_0(V,A)$ with the following property. If
+  $P\in V(\overline K)\cap A_{\mathrm{tors}}$ has order $N$
+  and $N\ge N_0(V,A)$, then $P\in V^{\circ}$.
+\end{lemma}
+\begin{proof}
+  % We will assume that $V(\IC)\cap A_{\mathrm{tors}}$ lies Zariski dense
+  % in $V$. We will also assume that $\dim V\ge 1$ as the result is
+  % trivial for $V$ a point.
+
+  Working in period coordinates, we set
+  \begin{equation*}
+    X = u^{-1}|_{[0,1)^{2g}}(V(\IC)) \subset \IR^{2g}.
+  \end{equation*}
+  As we have seen in Example \ref{ex:thetafunc},
+  the set $X$ is definable in $\IRan$. 
+
+
+  Next we may use of the Galois action introduced in
+  Section~\ref{sec:galoistorsionav}.
+
+  Let $\sigma\in \absgalk$. As $V$ is ultimately defined by the
+  vanishing of homogeneous polynomials, we find that $\sigma(P)\in
+  V(\overline K)$ for all $P\in V(\overline K)$.
+
+  Let $P\in V(\overline K) \cap A_{\mathrm{tors}}$ be a point of order
+  $N$. As torsion points lie Zariski dense in $V$ by assumption and as
+  $V(\overline K)$ is infinite, we may assume that $N$ is large in terms
+  of any quantity derived from $V$.
+
+  Say $\sigma\in \absgalk$ then $\sigma(P)\in V(\overline K)$ by the
+  comment above. Moreover, $\sigma(P)\cap A_{\mathrm{tors}}$ by
+  Lemma~\ref{lem:galoisactionav}(i). So $\sigma(P) \in V(\overline
+  K)\cap A_{\mathrm{tors}}$ for all $\sigma\in \absgalk$. The number of
+  Galois conjugates is $[K(P):K]\ge c(A) N^{\delta(A)}$ by
+  Theorem~\ref{thm:masser}. 
+
+  For any $\sigma$, Lemma~\ref{lem:rationalpreimage} provides $x_\sigma
+  \in X\cap\IQ^{2g}$ of height $N$ with $u(x_\sigma) = \sigma(P)$. The
+  number of rational points we obtain in this way is at least
+  \begin{equation}
+    \label{eq:rtlptub}
+    c(N) N^{\delta(A)}. 
+  \end{equation}
+
+  Now we are ready to apply the Pila--Wilkie Theorem,
+  Theorem~\ref{thm:pilawilkie}. It states
+  \begin{equation}
+    \label{eq:rtlptlb}
+    N(X\ssm X^{\mathrm{alg}},N) \le
+    c(X,\epsilon)N^\epsilon 
+  \end{equation}
+  for all $N\ge 1$, here $c(X,\epsilon)$ depends on $X$ and on $\epsilon
+  > 0$.
+
+  We set $\epsilon = \delta/2$, which is an invariant that depends only
+  on $A$. We compare (\ref{eq:rtlptub}) and (\ref{eq:rtlptlb}). As we
+  may assume that $N$ is large we must have $x_\sigma \in
+  X^{\mathrm{alg}}$ for some $\sigma\in \absgalk$. 
+  So $\sigma(P) = u(x_\sigma)  \in u(X^{\mathrm{alg}})$.
+
+  Now we apply Theorem~\ref{thm:imagealg}, a consequence of the
+  Ax--Lindemann--Weierstrass. It follows that $\sigma(P)$ lies in a
+  coset $\sigma(P)+B$ here $B$ is an abelian subvariety of $A$ with
+  $\dim B\ge 1$. As $P$ and also $\sigma(P)$ are torsion points we see
+  that $\sigma(P)+B$ is a torsion coset.
+\end{proof}
+
+
+\begin{proof}[Proof of ``$\Longrightarrow$'' in
+  Theorem~\ref{thm:mmav}]
+  The proof is by induction on $\dim A$. The case $A=0$ is trivial. 
+  We may also assume that $\dim V\ge 1$.
+
+  All but finitely many torsion
+  points in $A_{\mathrm{tors}}$ have order at least $N(A,V)$, the
+  constant from Lemma~\ref{lem:apppw}.
+  Say $V(\overline K)\cap A_{\mathrm{tors}}$ lies Zariski dense in
+  $V$. By Lemma~\ref{lem:apppw} 
+  the Ueno locus $V^{\circ}$ lies Zariski dense in $V$.
+
+  By Theorem~\ref{thm:ueno}(ii) we have $V^{\circ}=V$ and part (iii)
+  yields $\dim \mathrm{Stab}(V) \ge 1$.
+
+  Let $B$ be the connected component of $\mathrm{Stab}(V)^{\circ}$
+  containing $0$. Then $B$ is an abelian subvariety of $A$, defined
+  over $\overline K$. 
+  Let $\varphi\colon A\rightarrow A/B$ denote the quotient morphism.
+  After replacing $K$ by a larger number field we may assume that
+  everything is defined over $K$.
+  The image $\varphi(V)$ is a subvariety of $A/B$. It contains a
+  Zariski dense set of torsion points, the image of $V(\overline
+  K)\cap A_{\mathrm{tors}}$ in $(A/B)(\overline K)$.
+  Now $\dim A/B = \dim A-\dim B<\dim A$. So by induction on $\dim A$,
+  we conclude that $\varphi(V)$ is a torsion coset of $A/B$.
+  But as the fibers of $\varphi|_V$ are translates of $B$ we conclude
+  that $V$ is a torsion coset of $A$. This concludes the proof. 
+\end{proof}
 
 \section{Further Reading and Open Problems}
 
+In the context of Masser's Theorem, is admissible in
+Theorem~\ref{thm:masser}, it is an interesting problem to determine
+the supremum of all possible exponents $\delta>0$ for which there
+exists $c(A,\delta)>0$ with $[K(P):K]\ge c N^{\delta}$. Masser, in an
+unpublished letter to Daniel Bertrand, showed that the supremum is at
+least $1/\dim A$ if $A\not=0$. 
 
 
 %%% Local Variables:

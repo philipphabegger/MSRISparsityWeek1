@@ -142,7 +142,7 @@ rational points implies the existence of a real-semi algebraic curve.
     real semi-algebraic curve. Thus the components of $(x,\exp(x))$
     would be algebraically dependent for $x$ in some non-empty open
     interval and thus on all of $\IR$. But then there would exist
-    $P\in \IR[X,Y]\ssm\{0\}$ with $P(x,\exp(x))=0$ for all $x\in\IR$.
+    $A\in \IR[X,Y]\ssm\{0\}$ with $A(x,\exp(x))=0$ for all $x\in\IR$.
     This can easily be ruled out as $\exp$
     grows quicker than any polynomial. 
     
@@ -168,6 +168,7 @@ rational points implies the existence of a real-semi algebraic curve.
 \end{example}
 
 \begin{theorem}[Pila--Wilkie~\cite{PilaWilkie}]
+  \label{thm:pilawilkie}
   Let $\cS$ be an o-minimal structure,  let $X\subset\IR^m$ be
   definable in $\cS$, and let $\epsilon >0$.
   There exists  $c=c(X,\epsilon)>0$ such that
@@ -413,7 +414,8 @@ The period lattice $\Omega$ becomes $\IZ^{2g}$ and $\cF$ becomes
 $[0,1]^{2g}$. To avoid double counting it is useful to work with
 $[0,1)^{2g}$ which is also real semi-linear. 
 
-We now write down a set that is definable in $\IRan$. % In the formula below $x$ and
+We now write down a set that is definable in $\IRan$.
+% In the formula below $x$ and
 % $y$ are understood as elements in $\IR^{2g}$. Let
 % \begin{equation*}
 %   (\exists y \in Z :
@@ -547,7 +549,7 @@ We mimic here Definition~\ref{def:stabZ} for $A$.
 \begin{definition}
   The stabilizer of $V\subset A$ is
   \begin{equation*}
-    \mathrm{Stab}(V) = \{x\in A(\IC) : x+V=V\}. 
+    \mathrm{Stab}(V) = \{P\in A(\IC) : P+V=V\}. 
   \end{equation*}
   It is a subgroup of $A(\IC)$. We let $\mathrm{Stab}^\circ(V)$ denote
   the connected component of $\mathrm{Stab}(V)$ containing $0$. 
@@ -561,7 +563,7 @@ We mimic here Definition~\ref{def:stabZ} for $A$.
 \begin{proof}
   The Stabilizer equals
   \begin{equation*}
-    \mathrm{Stab}(V) = \bigcup_{x \in Z} (Z-x).
+    \mathrm{Stab}(V) = \bigcup_{P \in Z} (Z-P).
   \end{equation*}
   In this presentation we see that it is Zariski closed in $A$.
   
@@ -613,6 +615,7 @@ We can now determine the structure of the algebraic locus of the
 preimage of a subvariety under the restricted uniformizing map. 
 
 \begin{definition}
+  \label{def:ueno}
   In the setup above we define
   \begin{equation*}
     V^{\circ} = \bigcup_{\substack{\text{coset $C$ of $A$} \\\text{with $\dim
@@ -634,16 +637,101 @@ preimage of a subvariety under the restricted uniformizing map.
   follows from the
   Ax--Lindemann--Weierstrass Theorem for $A$, Theorem~\ref{thm:alwav}.
 
-  Conversely, if $x\in V^{\circ}$, then there exists an abelian
-  subvariety $B\subset A$ with $x+B \subset V$ and $\dim B \ge 1$. The
+  Conversely, if $P\in V^{\circ}$, then there exists an abelian
+  subvariety $B\subset A$ with $P+B \subset V$ and $\dim B \ge 1$. The
   tangent space $\mathrm{T}_0(B)$ is a vector subspace of
   $\mathrm{T}_0(A)$ of positive dimension. So it is contains a real
   semi-algebraic curve passing through the origin. This yields
-  $x\in u(X^{\mathrm{alg}})$. 
+  $P\in u(X^{\mathrm{alg}})$. 
 \end{proof}
 
 
+\begin{definition}
+  Let $V$ be an irreducible subvariety of $A$. A coset $C$ of $A$ is
+  called a \emph{maximal coset of $V$} if $C\subset V$ and if it is
+  the maximal coset of $A$ with respect to inclusion that is contained
+  in $V$. 
+\end{definition}
 
+Let $C_1,\ldots,C_r$ be cosets of $A$ contained in $V$ with
+$C_1\subsetneq \cdots\subsetneq C_r$. Then $r-1\le \dim C_r\le V$. So
+any coset of $A$ that is contained in $V$ is contained in a maximal
+coset of $V$.
+
+\begin{theorem}
+  \label{thm:ueno}
+  Let $V$ be an irreducible subvariety of $A$.
+  \begin{enumerate}
+  \item [(i)] There is a finite set $\cB$ of abelian subvarieties of
+    $A$ such that any maximal coset of $A$ is the translate of a
+    member of  $\cB$.
+  \item[(ii)] The Ueno locus $V^{\circ}$ is Zariski closed in $V$.
+  \item[(iii)] We have $V^{\circ} = V\Longleftrightarrow \dim\mathrm{Stab}(V)\ge
+    1$. 
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  We sketch the proof for (i) by following the argument  of Lemma
+  2~\cite{BombieriZannier:algptsav}. 
+
+  Let $P\in V(\IC)$ and let $B$ be an abelian subvariety of $A$ such
+  that $P+B$ is a maximal coset of $V$.
+
+  Let $V_0=V$
+  We inductively construct $r\in\IN_0$ and a nested sequence of irreducible subvarieties
+  $V=V_0\supsetneq  V_1\supsetneq \cdots \supsetneq V_r$ such that
+  \begin{itemize}
+  \item [(i)] we have $P+B \subset V_i$ for all $i$ and
+  \item[(ii)] for each $i\in \{0,\ldots,r-1\}$ there exists $b=b_i\in B(\IC)$
+    such that $V_{i+1}$ is an irreducible component of $V_{i}\cap (V_{i}-b)$.
+  \end{itemize}
+  Moreover, $B = \mathrm{Stab}(V_r)$. 
+
+  Clearly, $V=V_0$ already satisfies (i) and (ii). Suppose $i\ge 0$
+  and 
+  $V_0,\ldots,V_{i}$ have already been constructed.
+
+  First, assume  $b+V_{i} = V_{i}$ for all $b\in B(\IC)$. Then $B\subset
+  \mathrm{Stab}(V_{i})$. In particular,
+  $P+B\subset P+\mathrm{Stab}(V_{i}) \subset V_{i}\subset V$ as $P\in
+  V_{i}(\IC)$. Since $P+B$ is a maximal coset of $V$ we conclude
+  $B=\mathrm{Stab}(V_i)$. We set $i=r$ and terminate the construction.
+  
+  Second, assume $b+V_i\not=V_i$ for some $b\in B(\IC)$.
+  Then $P+B \subset V_i\cap (b+V_i)$ and so there exists an
+  irreducible component $V_{i+1}$ of $V_i\cap (b+V_i)$ containing
+  $P+B$. We note that $V_{i+1}\subsetneq V_i$.
+
+  As the dimension of the $V_i$ is strictly decreasing the
+  construction must terminate after finitely many steps.
+
+  We  require $\deg(b+V_i)=\deg V_i$; the degree is with respect to the immersion
+  $A\rightarrow\IP^n$. 
+  B\'ezout's Theorem implies $\deg V_{i+1} \le (\deg
+  V_i)^2$. So $\deg V_r= \deg B$ is bounded from above solely in terms
+  of $r\le \dim V$ and $\deg V_0=\deg V$. So $\deg B$ is bounded
+  from above solely in terms of $A$ and $V$. 
+
+  Now it is known that $A$ contains at most finitely many abelian
+  subvarieties of bounded degree. This implies (i).
+
+  By (i) we only need to consider finitely many different $B$ in the
+  definition of the Ueno locus. Given an abelian subvariety $B\subset
+  A$ we have $P+B\subset V$ if and only if $\dim_P
+  \varphi|_V^{-1}(\varphi(P)) \ge \dim B$. By dimension theory in the
+  set
+  $\{ P \in V(\IC) : \dim_P
+  \varphi|_V^{-1}(\varphi(P)) \ge \dim B\}$ is Zariski closed in $V$.
+  As $V^{\circ}$ is a finite union of such sets it must also be
+  Zariski closed. This is (ii).
+
+  Finally, suppose $V=V^{\circ}$.  Then by (ii) and since $V$ is
+  irreducible, a single culprit is responsible. There exists an
+  abelian subvariety $B\subset A$ with $\dim B\ge 1$ with $P+B\subset
+  V$ for all $P\in V(\IC)$. But then $B\subset \mathrm{Stab}(V)$ and
+  so ``$\Longrightarrow$'' follows. The converse direction is
+  immediate from the definition. 
+\end{proof}
 
 
 %\begin{exercise}
@@ -678,22 +766,25 @@ preimage of a subvariety under the restricted uniformizing map.
 \section{Further Reading and Open Problems}
 We keep the notation from Section \ref{sec:conclusionft}.
 
-We have the following theorem. 
-\begin{theorem}[Abramovich, Kawamata, Ueno]
-  \begin{enumerate}
-  \item [(i)]   The Ueno locus $V^{\circ}$ is Zariski closed in $V$.
-  \item[(ii)] We have
-    $V^{\circ}=V$ if and only if  $\dim \mathrm{Stab}(V)\ge 1$.
-  \item[(iii)]
-    Moreover, there
-    exists a finite set $\cB$ of abelian subvarieties of $A$ with the
-    following property. If $C$ is a coset of $A$ with $C\subset V$, then
-    $C$ is contained in the translate of a member of $\cB$. 
-  \end{enumerate}
-\end{theorem}
-\begin{proof}
-  See Theorems 1 and 2~\cite{abramovich} for (i) and (ii). 
-\end{proof}
+Abramovich's paper~\cite{abramovich} contains some history and a
+generalization of Theorem~\ref{thm:ueno}.
+
+% We have the following theorem. 
+% \begin{theorem}[Abramovich, Kawamata, Ueno]
+%   \begin{enumerate}
+%   \item [(i)]   The Ueno locus $V^{\circ}$ is Zariski closed in $V$.
+%   \item[(ii)] We have
+%     $V^{\circ}=V$ if and only if  $\dim \mathrm{Stab}(V)\ge 1$.
+%   \item[(iii)]
+%     Moreover, there
+%     exists a finite set $\cB$ of abelian subvarieties of $A$ with the
+%     following property. If $C$ is a coset of $A$ with $C\subset V$, then
+%     $C$ is contained in the translate of a member of $\cB$. 
+%   \end{enumerate}
+% \end{theorem}
+% \begin{proof}
+%   See Theorems 1 and 2 for (i) and (ii). 
+% \end{proof}
 
 % \begin{theorem}
 %   Let $\varphi\colon \IC\rightarrow A(\IC)$ be a non-constant holomorphic map with
@@ -729,15 +820,13 @@ and smooth varieties of general type.
     \end{equation*}
   \end{enumerate}
 \end{theorem}
-\begin{proof}
-  For (i) we require that the image of any non-constant holomorphic
-  map $\IC\rightarrow A(\IC)$ with image in $V(\IC)$ has values in
-  $V^{\circ}$. The converse direction is easier, indeed, any coset of
-  an abelian variety is the target of a non-constant holomorphic map
-  on $\IC$.
-
-  
-\end{proof}
+% \begin{proof}
+%   For (i) we require that the image of any non-constant holomorphic
+%   map $\IC\rightarrow A(\IC)$ with image in $V(\IC)$ has values in
+%   $V^{\circ}$. This is a theorem, !!!REF. The converse direction is easier, indeed, any coset of
+%   an abelian variety is the target of a non-constant holomorphic map
+%   on $\IC$.  
+% \end{proof}
 
 %%% Local Variables:
 %%% TeX-master: "main"
