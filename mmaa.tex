@@ -10,10 +10,14 @@ Let $A$ be an abelian variety defined over $\IC$.
 \end{definition}
 
 In this chapter we will sketch a proof of the following theorem,
-originally due to Raynaud.
+originally due to Raynaud (who proved it without assume that the
+everything in sight is defined over a number field).
 
 \begin{theorem}[Manin--Mumford Conjecture]
-  Let $V\subset A$ be an irreducible closed subvariety. Then
+  Suppose $K\subset\IC$ is a number field and $A$ is an abelian
+  variety defined over $K$. 
+  Let $V\subset A$ be an irreducible closed subvariety, also defined over a
+  number field $K$. Then
   \begin{equation*}
     V(\IC) \cap A_{\mathrm{tors}} \text{ lies Zariski dense in
       $V$}\quad\Leftrightarrow \quad
@@ -33,7 +37,7 @@ There are many proofs of Theorem~\ref{thm:mm}. We will follow the
 o-minimal route and use the Pila--Wilkie Theorem (a second time). The
 idea to use the Pila--Wilkie counting theorem in this context goes
 back to Zannier. We will follow the proof by Pila and
-Zannier~\ref{pilazannier}. The basic idea is to reinterpret torsion
+Zannier~\cite{PilaZannier}. The basic idea is to reinterpret torsion
 points of $A$ as points in $\mathrm{T}_0(\IC)$ that are rational with
 respect to a fixed period lattice basis.
 
@@ -90,7 +94,121 @@ were introduced in Definition-Lemma~\ref{deflem:modtranspoly}.
 
 \section{Arithmetic of Torsion Points}
 
-\section{The Manin--Mumford Conjecture}
+Here we collect some fundamental facts about the torsion points of an
+abelian variety $A$ defined over a number field $K\subset \IC$ of dimension $g$. We will
+assume that $A$ is presented as a subvariety of $\IP^n$. 
+
+As a complex Lie group $A(\IC)$ is isomorphic to
+$\mathrm{T}_0(A)/\Omega$ where $\Omega$ is the period lattice, a
+discrete subgroup of $\mathrm{T}_0(A)$ of rank $2g$. So the group
+$A(\IC)$ is isomorphic to $(\IR/\IZ)^{2g}$.
+
+Say $N\in\IN$ and let $A[N] =  \ker[N] = \{x\in A(\IC) : [N](x) = 0\}$, here
+$[N]$ is the multiplication-by-$N$ morphism.
+As a group we have $A[N] \cong (\IZ/N\IZ)^{2g}$ and in particular
+$\#A[N] = N^{2g}$.
+
+Let $\overline K$ be the algebraic closure of $K$ in $\IC$.
+Then $A[N] = \{x\in A(\overline K) : [N](x)=0}$. In fact, all torsion
+points of $A$ are $K$-valued points.
+
+%Now suppose that $A$ is defined over a number field $K\subset\IC$.
+Let $\absgalk$ denote the absolute Galois group of $K$. Let
+$[x_0:\cdots:x_n]\in \IP^n(\overline{K})$ with $(x_0,\ldots,x_n) \in
+\overline{K}^{n+1}\ssm\{0\}$. Say $\sigma\in \absgalk$, then
+\begin{equation*}
+  \sigma([x_0:\cdots:x_n]) = [\sigma(x_0):\cdots:\sigma(x_m)]
+\end{equation*}
+defines a well-defined action of $\absgalk$ on $\IP^n(\overline K)$.
+
+\begin{exercise}\leavevmode
+  \begin{enumerate}
+  \item [(i)]
+    Assume $x\in \IP^n(\overline K)$. Show that $x\in \IP^n(K)$ if and
+    only if  $\sigma(x)=x$ for all
+    $x\in \absgalk$.
+  \item[(ii)] Let $W\subset\IP^n$ be an irreducible subvariety defined
+    over $\overline K$. Find a sensible definition for $\sigma(W)$,
+    for $\sigma\in \absgalk$.  Show that $W$ is the zero set of
+    polynomials with coefficients in $K$ if and only if $\sigma(W)=W$
+    for all $\sigma\in \absgalk$.
+  \end{enumerate}
+\end{exercise}
+
+
+As $A$ is cut out in $\IP^n$ by homogeneous polynomials with
+coefficients in $K$ we find that the action of $\absgalk$ restricts to
+an action on
+$A(\overline K)$ that fixes $A(K)$.
+
+The $[N]\colon A\rightarrow A$ is, at least Zariski-locally, presented
+by a collection of homogeneous polynomials. That is, in a Zariski
+neighborhood of any point $P_0\in A(\overline K)$ there exist
+$f_{N,0},\ldots,f_{N,n}\in K[X_0,\ldots,X_n]$, all homogeneous of the
+same degree, such that 
+$[N](P) = [f_{N0}(P):\cdots:f_{Nn}(P)]$ for all $\overline K$-points  $P$ in the said
+neighborhood.
+Patching together neighborhoods yields
+We have
+$$\sigma([N](P)) = [f_{N0}(\sigma(P)):\cdots:f_{Nn}(\sigma(P))] =
+[N](\sigma(P))$$
+holds for \textit{all} $P\in A(\overline K)$.
+
+
+\begin{lemma}\leavevmode
+  \begin{enumerate}
+  \item [(i)]
+    The
+    action of $\absgalk$ on $A(\overline K)$ restricts to an action on
+    $A[N]$ for all $N\in\IN$.
+    Let us denote it by
+      $\rho_N\colon \absgalk\rightarrow \mathrm{Aut}(A[N])$.
+  \item[(ii)]
+    The extension $K(A[N])/K$ is Galois
+    of degree at most $N^{4g^2}$.
+  \item[(iii)] Suppose $P\in A[N]$, then $K(P)/K$ has degree at most
+    $N^2$. 
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  Part (i) has proved before the lemma.  For part (ii) observe that
+  $A[N]\cong
+  (\IZ/N\IZ)^{2g}$ implies
+  $\#\mathrm{Aut}(A[N])\le \mat{2g}(\IZ/N\IZ)$.
+  So  $\rho_N$ has finite image with order at most $N^{4g^2}$. The kernel
+  of $\rho_N$ is the Galois group $\mathrm{Gal}(\overline K/K(A[N]))$.
+  So $K(A[N])/K$ is normal of degree at most $N^{4g^2}$.
+  Part (iii) follows from (i) and as $\#A[N]=N^2$  
+\end{proof}
+
+This is just the analog of the action of the Galois group $\mathrm{Gal}(\IQbar/\IQ)$
+on roots of unity in $\IC^\times$ that we investigate in
+Section~\ref{sec:rootsof1}.
+
+However, there are some notable important. First, the in contrast to
+the multiplicative setting, there is no reason to believe that
+$K(A[N])/K$ is an abelian extension and in general it is not.
+Moreover, in general there is no simple formula for the degree of the
+extension $K(A(P))/K$ if $P$ has order $N$. In general, $K(A(P))/K$ is
+not Galois.
+
+For the sake of completeness let us state here a theorem of Serre for
+elliptic curves.
+
+\begin{theorem}[Serre]
+  Suppose $E$ is an elliptic curve. There exists $c(E)>0$ such that
+  if $p\ge c(E)$ is prime number, then 
+\end{theorem}
+Now suppose $V$ is an  subvariety of $A$ defined over $K$. We can
+think of $V$ as the zero set on $A(\overline K)$ of homogeneous
+polynomials with coefficients in $K$. 
+
+It is important to distinguish between $A[N]$ and the subgroup
+$A(K)[N] = \{x\in A(K) : [N](x)=0\}$. Indeed, the subgroup $A(K)[N]$ may be
+smaller than $A(K)$.
+
+
+\section{Proof of the Manin--Mumford Conjecture}
 
 Let $A$ be an abelian variety defined over $\IC$. We return again to
 the notation introduced in Example~\ref{ex:thetafunc}.
@@ -108,13 +226,16 @@ the notation introduced in Example~\ref{ex:thetafunc}.
 In this setup it has already proved useful to work in 2 distinct
 coordinate systems in $T_0(A)$.
 
-\begin{itemize}
-\item \textbf{Complex coordinates:} We fix an isomorphism
-  $\mathrm{T}_0(A)\rightarrow\IC^g$ of $\IC$-vector spaces. 
-\item \textbf{Period coordinates:} We fix the isomorphism
-  $\mathrm{T}_0(A)\rightarrow \IR^{2g}$ of $\IR$-vector spaces
-  induced by the basis $(\omega_1,\ldots,\omega_{2g})$. 
-\end{itemize}
+\bigskip
+\noindent The \textbf{complex coordinates} arise via an isomorphism
+$\mathrm{T}_0(A)\rightarrow\IC^g$ of $\IC$-vector spaces. 
+
+\bigskip
+\noindent The \textbf{period coordinates} arise via an isomorphism
+$\mathrm{T}_0(A)\rightarrow \IR^{2g}$ of $\IR$-vector spaces
+induced by the basis $(\omega_1,\ldots,\omega_{2g})$. 
+
+
 \section{Further Reading and Open Problems}
 
 
