@@ -756,7 +756,11 @@ The following lemma is the analog of Lemma~\ref{lem:apppw}.
 
 \begin{proof}[Sketch of Proof of Theorem~\ref{thm:ao} for $m=2$]
   Let $V$ be an irreducible curve in $Y(1)^2$ defined over a number
-  field $K\subset\IC$. Suppose $V$ contains infinitely many special points.
+  field $K\subset\IC$. Suppose $V$ contains infinitely many special
+  points.
+  We may assume that $V$ is neither horizontal
+  $Y(1)\times\{\text{point}\}$ nor vertical $\{\text{point}\}\times
+  Y(1)$. 
 
   We keep the notation of Lemma~\ref{lem:apppwao}. For given
   $\Delta_i$ there are only finitely many possible $z_i$. So we may
@@ -771,22 +775,65 @@ The following lemma is the analog of Lemma~\ref{lem:apppw}.
   possible.
   After complexifying a real semi-algebraic curve in
   $X^{\mathrm{alg}}$ we find that, for dimesion reasons, 
-  $j|_{\cF}^{-1}(V(\IC))$ is the intersection of a complex algebraic
+  $j|_{\cF}^{-1}(V(\IC))$ is the intersection of an irreducible
+  complex algebraic
   curve $C$ in $\IC^2$ with $\IH^2$. We must have
-  $C \subset j^{-1}(V(\IC))$. 
+  $C(\IC) \subset j^{-1}(V(\IC))$. 
 
-  We can proceed as in Section~\ref{sec:alwav}. That is, we find many 
-  $\gamma\in \mathrm{SL}_2(\IZ)$ such that $\gamma (C\cap \IH^2)$
-  meets $C\cap\IH^2$ in a sufficiently large set.  
-  Using the Pila--Wilkie Theorem in a similar manner as in
-  Section~\ref{sec:alwav} one can then that the stabilizer 
+  We can proceed as in Section~\ref{sec:alwav} with some
+  simplification made possible by $m=2$. We will only sketch the argument.
+
+  One can also show that $C(\IC)$ passes through  ``many'' translates
+  $\gamma\cF^2 = (\gamma_1\cF)\times (\gamma_2\cF)$ of the  fundamental domain
+  $\cF^2$; here $\gamma=(\gamma_1,\gamma_2)\in \mathrm{SL}_2(\IZ)^2$.
+  For example, if $\gamma_1\in \mathrm{SL}_2(\IZ)$ is arbitrary, then
+  there exists $\gamma_2\in \mathrm{SL}_2(\IZ)$ such that 
+  $C(\IC)\cap (\gamma_1,\gamma_2) \cF^2$ contains a neighborhood in
+  $C(\IC)$. 
+  
+  The pre-image $j^{-1}(V(\IC))$ is invariant under the action of
+  $\mathrm{SL}_2(\IZ)^2$ since $j$ is a modular function. 
+  So $\gamma^{-1}C(\IC)\cap \cF^2 \subset j^{-1}(V(\IC))$. Both
+  $\gamma^{-1}C(\IC)$ and $j^{-1}(V(\IC))$ are complex analytic
+  subsets of $\IH^2$ of dimension $1$. So $\gamma^{-1}C(\IC) \subset
+  j^{-1}(V(\IC))$.  Because $j^{-1}(V(\IC))\cap\cF^2$ has only finitely
+  many connected component we find ``many'' $\gamma$ with
+  $\gamma^{-1} C(\IC) = C(\IC)$. Many means that we can arrange the
+  first component of $(\gamma_1,\gamma_2)$ to come from a finite index
+  subgroup $\Gamma_1\subset\mathrm{SL}_2(\IZ)$.
+
+  It follows that the image of
+  $\Gamma_1$ lies in the projection of
   \begin{equation*}
-    \{\gamma \in \mathrm{SL}_2(\IR) : \gamma (C\cap\IH^2) = C\cap
-    \IH^2 \}
+    \mathrm{Stab}(C) = \{\gamma= (\gamma_1,\gamma_2) \in \mathrm{PSL}_2(\IR) :
+    \gamma^{-1}C(\IC) = C(\IC) \}
   \end{equation*}
-  is sufficiently large. 
+  to the first component. 
+  By symmetry this works for the second component as well. So the
+  projection of $\mathrm{Stab}(C)$ to the second component contains 
+  the image of a finite index subgroup of $\mathrm{SL}_2(\IZ)$.
   
-  
+  To complete the proof we recall a special case of Goursat's Lemma
+  from group theory.
+
+  \begin{lemma}[Goursat -- special case]
+    Let $G$ be a simple group and let $H$ be a subgroup of $G^2$ that
+    projects surjectively to both factors. Then $H$ is the graph of an
+    automorphism $G\rightarrow G$. 
+  \end{lemma}
+
+  One can show that $\mathrm{Stab}(C)$ surjects to both factors, for
+  this we need that finite index subgroups of $\mathrm{SL}_2(\IZ)$ are
+  Zariski dense in $\mathrm{SL}_2$.\footnote{This is a
+    consequence of the fact that $\mathrm{SL}_2(\IZ)$ itself is
+    Zariski dense in $\mathrm{SL}_2$.}  Moreover, $\mathrm{PSL}_2(\IR)$ is
+  a simple group.
+
+  !!!TODO: finish this
+  % From this one can eventually conclude that $C(\IC)=\{\text{point}\} \times\IC$
+  % or $C(\IC)=\IC\times\{\text{point}\}$ or the two coordinates on $C$
+  % are related by a fractional linear transformation in
+  % $\mathrm{GL}_2^+(\IQ)$. As $j(C)=V$ we see that $V$ must be special.  
 \end{proof}
 \section{Further Reading and Open Problems}
 

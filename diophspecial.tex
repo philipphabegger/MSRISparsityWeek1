@@ -476,9 +476,18 @@ invariant under the action of $\mathrm{SL}_2(\IZ)$. So we obtain a
 function $j\colon \IH\rightarrow \IC$ determined by $j(\tau) =
 j(\IC/(\IZ+\tau\IZ))$ for all $\tau\in\IH$; it is sometimes called
 Klein's $j$-functions. Observe that $j(\tau)=j(\tau+1)$ and $j(\tau) =
-j(-1/\tau)$. So $j$ is a modular function of weight $0$. The first
-equation shows that $j$ depends only on $q=e^{2\pi i \tau}$. It is
-sometimes useful to consider $j$ as a function in $q$.
+j(-1/\tau)$. So $j$ is a modular function (of weight $0$),
+\textit{i.e.}, 
+\begin{equation*}
+  j\left(\mattt{a}{b}{c}{d} \tau\right) = j\left(\frac{a\tau + b}{c\tau +d}\right) =
+    \tau 
+\end{equation*}
+for all $\tau\in\IH$ and all $\mattt{a}{b}{c}{d}\in
+\mathrm{SL}_2(\IZ)$.
+
+The function equation $j(\tau)=j(\tau+1)$ shows that $j$ depends only
+on $q=e^{2\pi i \tau}$. It is sometimes useful to consider $j$ as a
+function in $q$.
 
 It turns out that much more is true: Klein's $j$-function is
 holomorphic on $\IH$ and meromorphic at infinity. It has a famous 
@@ -487,6 +496,8 @@ a Taylor series in $q$, the first few terms\footnote{There is some
 \begin{equation*}
   j(q) = \frac 1q + 744 + 196884q +\cdots. 
 \end{equation*}
+Moreover, any modular function that is meromorphic at $\infty$ is a
+rational function in $j$.
 
 \begin{definition}
   \label{def:specialY1}

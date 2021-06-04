@@ -1,4 +1,172 @@
-\chapter{Unlikely Intersections}
+\chapter{Unlikely Intersections: Relative Manin--Mumford}
+
+One striking feature of abelian varieties is that they deform
+algebraically in families. This is already apparent in the case of
+elliptic curves.
+
+\begin{example}
+  \label{ex:relmm}
+  Let $\lambda\in \IC\ssm\{0,1\}$. The (long) Weierstrass equation
+  \begin{equation*}
+    y^2 = x(x-1)(x-\lambda)
+  \end{equation*}
+  determines an elliptic curve. We may consider
+  $Y(2) = \IP^1\ssm\{0,1,\infty\}$ as the base of a family of elliptic
+  curves. This family is called the \emph{Legendre family of elliptic
+  curves}. More precisely, it is given by
+  \begin{equation*}
+    \cE=\{([x:y:z], [\lambda:1]) \in \IP^2 \times B : y^2z =
+    x(x-z)(x-\lambda z)\}
+  \end{equation*}
+  and the structure morphism $\cE\rightarrow Y(2)$ induced by
+  projecting.\footnote{The base curve $Y(2)$ is the modular curve of full level-$2$
+  structure.} 
+  We denote the fiber above $\lambda\in Y(2)(\IC)$  by $\cE_\lambda
+  \subset\IP^2$.
+  Of course, $\cE$ is a quasi-projective surface defined over $\IQ$.
+  
+  We define
+  \begin{equation*}
+    \cE_{\mathrm{tors}} = \bigcup_{\lambda\in Y(2)(\IC)}
+    \cE_{\lambda,\mathrm{tors}}. 
+  \end{equation*}
+
+  Observe that $\cE_{\mathrm{tors}}$ is not a group in any sensible
+  way. It is not possible to add two points in different fibers of
+  $\cE\rightarrow Y(2)$.
+  
+  Suppose we are given a curve $C\subset \mathcal{E}$. Does a
+  Manin--Mumford type statement hold for $C\cap
+  \mathcal{E}_{\mathrm{tors}}$? In other words, is this intersection
+  finite ``most of the time''?
+
+  The answer is \textbf{no}! But why?
+
+  Here are some very simple  heuristics. For $N\in\IZ$,  multiplication-by-$N$ is an
+  morphism
+  $[N]\colon \cE\rightarrow\cE$ over $Y(2)$.
+  Let us denote $\ker [N] = \{P \in \cE(\IC): [N](P)=0\}$. 
+  We can also write
+  $\cE_{\mathrm{tors}}$ as a infinite union
+  $\bigcup_{N\in\IN}\ker[N]$.
+  For $N\in\IN$ the kernel  $\ker[N]$ is a (possibly reducible) curve
+  in $\cE$. For example,
+  \begin{equation*}
+    \ker [1] = \{[0:1:0]\}\times Y(2)
+  \end{equation*}
+  and
+  \begin{equation*}
+    \ker[2] = \bigl(\{[0:0:1],[1:0:1],[0:1:0]\}\times Y(2)\bigr)\cup
+    \{([\lambda:0:1],\lambda) : \lambda \in Y(2)(\IC)\}. 
+  \end{equation*}
+
+  Heuristically we would expect that the two curves $C$ and $\ker[N]$
+  inside the ambient space $\cE$ have non-empty intersection. As we
+  vary over infinitely many $N$ we would heuristically expect
+  infinitely many points in $\bigcup_{N\in\IN}C(\IC)\cap \ker[N]$.
+
+  Of course, there are two difficulties making this  argument precise.
+  First, we would have to verify that $\ker[N]\cap C$ is non-empty, at
+  least for infinitely many $N$. Second, we would need to rule out
+  excessive double counting when taking the union over all $N$. Below,
+  we
+  will give a different argument that shows $C(\IC)\cap\cE_{\mathrm{tors}}$
+  is infinite.
+
+  The heuristic argument becomes invalid if we consider a curve in the
+  fibered power $\cE\times_{Y(2)} \cE =\cE^2$ instead. Indeed, here $\ker[N]$
+  are still one-dimensional. But the ambient variety $\cE^2$ is now
+  three-dimensional. So it is unlikely that a curve $C$ and $\ker[N]$
+  should intersect.
+\end{example}
+
+\begin{definition}  Let $m\in\IN$.
+  \begin{enumerate}
+  \item [(i)] The $m$-fold fibered power of $\cE\rightarrow Y(2)$
+    is denoted by $\cE^m = \cE\times_{Y(2)}\cdots\times_{Y(2)}\cE$.
+    Let $\pi\colon\cE^m\rightarrow Y(2)$ be the natural projection.
+  \item[(ii)] For $a=(a_1,\ldots,a_m)\in\IZ^m$ we have a morphism
+    $\varphi_a \colon \cE^m\rightarrow \cE$ over $Y(2)$
+    determined  by $P\mapsto
+    [a_1](P_1)+\cdots +[a_m](P_m)$. We also defined $H_a =
+    \{(P_1,\ldots,P_m) \cE^m(\IC) : \varphi_a(P_1,\ldots,P_m)=0\}$. 
+  \item[(iii)]  We write $\cE^m_{\mathrm{tors}} = \bigcup_{\lambda\in Y(2)(\IC)}
+    \cE^m_{\mathrm{tors}}$. 
+  \end{enumerate}
+\end{definition}
+
+Then $\cE^m$ is a family of abelian varieties. Each fiber
+$\cE^m_\lambda$ is the $m$-th power of an elliptic curve.
+
+The following Conjecture was stated by Pink~\cite{Pink} and later by
+Masser--Zannier~\cite{MZ:AJM10}, but in the more general setting of
+abelian schemes.
+
+\begin{conjecture}[Relative Manin--Mumford in $\cE^m$]
+  \label{conj:relmmEm}
+  Let $V$ be an irreducible subvariety of $\cE^m$ with $\pi(V)=Y(2)$.
+  Suppose that  
+  \begin{equation*}
+    C\not\subset H_a
+  \end{equation*}
+  for all $a\in\IZ^{m}\ssm\{0\}$.
+  Then $V\cap \cE^m_{\mathrm{tors}}$ is not Zariski dense.
+\end{conjecture}
+
+
+
+This conjecture is part of a much more general conjecture posed by
+Pink~\cite{Pink} and studied in special cases by
+Bombieri--Masser--Zannier~\cite{BMZ,BMZgeometric} and
+Zilber~\cite{Zilber}. We refer to Zannier's volume~\cite{ZannierBook}
+for more background. 
+
+Conjecture~\ref{conj:relmmEm} was proved by Masser and
+Zannier~\cite{MZ:AJM10} for $\dim V = 1$. We explicitly mention the
+case $m=2$ and $\dim V=1$ here.
+
+\begin{theorem}
+  Let $C$ be an irreducible curve in $\cE^2$ with $\pi(V)=Y(2)$. 
+  Suppose that $C\not\subset H_{(a,b)}$ for all
+  $(a,b)\in\IZ^2\ssm\{0\}$. Then $C\cap \cE^2_{\mathrm{tors}}$ is
+  finite. 
+\end{theorem}
+
+\begin{remark}
+  \begin{enumerate}
+  \item [(i)]In the theorem and the conjecture we imposed the condition
+    $\pi(V)=Y(2)$ for the following reason. The morphism $\pi$ is proper.
+    So we  have either $\pi(V)=Y(2)$ or $\pi(V)$ is a point. In the second
+    case, $V$ is a subvariety of the constant abelian variety above the
+    singleton $\pi(V)$. The intersection of $V$ with the torsion happens
+    in a single abelian variety and we  are reduced to the (known!)
+    Manin--Mumford  Conjecture. 
+  \item[(ii)] Why do we impose $V\not\subset H_a$ resp. $C\not\subset
+    H_{(a,b)}$? In the case of curves suppose  $C\subset H_{(a,b)}$ with
+    $(a,b)\not=0$.
+    Then $C$ is contained, up-to torsion, in
+    a family of abelian subvarieties of $\cE^2$. So the additional
+    coordinate that was introduced in rule out the heuristic in the
+    end of example~\ref{ex:relmm} was a red herring. And indeed, in this case
+    an updated heuristic  suggests that  $C\cap
+    \cE^2_{\mathrm{tors}}$ should be infinite. 
+  \end{enumerate} 
+\end{remark}
+
+
+\begin{exercise} 
+  Formulate a conjecture akin to Conjecture \ref{conj:relmmEm} including a
+  a necessary and  sufficient condition from when $V(\IC)\cap
+  \mathrm{E}^m_{\mathrm{tors}}$ is Zariski dense in $V$. Hint: look at
+  the Manin--Mumford Conjecture. 
+\end{exercise}
+% \begin{lemma}
+%   Let $C\subset \cE$ be an algebraic curve defined over $\IQ$. Then
+%   $C(\IC)\cap\cE_{\mathrm{tors}}$ is infinite.
+% \end{lemma}
+% \begin{proof}
+%   We follow the argument of Masser and Zannier~\cite{}. 
+% \end{proof}
 
 %%% Local Variables:
 %%% TeX-master: "main"
