@@ -805,31 +805,134 @@ The following lemma is the analog of Lemma~\ref{lem:apppw}.
   It follows that the image of
   $\Gamma_1$ lies in the projection of
   \begin{equation*}
-    \mathrm{Stab}(C) = \{\gamma= (\gamma_1,\gamma_2) \in \mathrm{PSL}_2(\IR) :
-    \gamma^{-1}C(\IC) = C(\IC) \}
+    \mathrm{Stab}(C) = \{\gamma= (\gamma_1,\gamma_2) \in \mathrm{SL}_2(\IR) :
+    \gamma C(\IC) =  C(\IC) \}
   \end{equation*}
   to the first component. 
   By symmetry this works for the second component as well. So the
   projection of $\mathrm{Stab}(C)$ to the second component contains 
   the image of a finite index subgroup of $\mathrm{SL}_2(\IZ)$.
   
-  To complete the proof we recall a special case of Goursat's Lemma
-  from group theory.
-
-  \begin{lemma}[Goursat -- special case]
-    Let $G$ be a simple group and let $H$ be a subgroup of $G^2$ that
-    projects surjectively to both factors. Then $H$ is the graph of an
-    automorphism $G\rightarrow G$. 
+  % To complete the proof we recall a special case of Goursat's Lemma
+  % from group theory.
+  To complete the proof we need to lemmas from group theory.
+  
+  \begin{lemma}
+    Let $H$ be a subgroup of $\mathrm{PSL}_2(\IR)^2$ that
+    project surjectively to both factors. Suppose
+    $\mathrm{PSL}_2(\IR)\times\{1\}\not\subset H$
+    and $\{1\}\times \mathrm{PSL}_2(\IR)\not\subset H$. Then
+    $H$ is the graph of an automorphism
+    $\varphi\colon \mathrm{PSL}_2(\IR)\rightarrow \mathrm{PSL}_2(\IR)$. Moreover,
+    there exists $\alpha\in \mathrm{GL}_2(\IR)$ with
+    $\varphi(\gamma) = \alpha\gamma\alpha^{-1}$ for all
+    $\gamma\in\mathrm{PSL}_2(\IR)$.
+    % Let $H$ be a subgroup of $\mathrm{SL}_2(\IR)^2$ that
+    % projects surjectively to both factors. Then $H$ is the graph of an
+    % automorphism $G\rightarrow G$. 
+    % Let $G$ be a group and let $H$ be a subgroup of $G^2$ that
+    % projects surjectively under both projections $\pi_1$ and $\pi_2$.
+    % The image of $H$ in $G/\ker({\pi_2}|_H) \times G/\ker({\pi_1}|_H)$
+    % is the graph of an
+    % isomorphism $G/\ker({\pi_2}|_H)\rightarrow G/\ker({\pi_1}|_H)$. 
   \end{lemma}
+  \begin{proof}
+    This is a consequence of Goursat's Lemma and the fact that
+    $\mathrm{PSL}_2(\IR)$ is a simple group. Finally, any automorphism of
+    $\mathrm{PSL}_2(\IR)$ is induced by conjugation by an element of
+    $\mathrm{GL}_2(\IR)$ !!!CITE.
+  \end{proof}
 
-  One can show that $\mathrm{Stab}(C)$ surjects to both factors, for
+  We apply this lemma to the image of $\mathrm{Stab}(C)$ in
+  $\mathrm{PSL}_2(\IR)^2$; indeed
+  $\mathrm{PSL}_2(\IR)$ is
+  a simple group.
+  One can show that the image of $\mathrm{Stab}(C)$ surjects to both factors, for
   this we need that finite index subgroups of $\mathrm{SL}_2(\IZ)$ are
   Zariski dense in $\mathrm{SL}_2$.\footnote{This is a
     consequence of the fact that $\mathrm{SL}_2(\IZ)$ itself is
-    Zariski dense in $\mathrm{SL}_2$.}  Moreover, $\mathrm{PSL}_2(\IR)$ is
-  a simple group.
+    Zariski dense in $\mathrm{SL}_2$.}
+  Moreover, the image of $\mathrm{Stab}(C)$ does not contain $\{1\}\times
+  \mathrm{PSL}_2(\IR)$ or  $\mathrm{PSL}_2(\IR) \times\{1\}$ because $C$
+  is not a  vertical or horizonal curve. 
 
-  !!!TODO: finish this
+  It follows that the unit component $\mathrm{Stab}^\circ(C)$ of
+  $\mathrm{Stab}(C)$
+  contains
+  $\{(\gamma,\alpha\gamma\alpha^{-1}) : \gamma \in\mathrm{SL}_2(\IR)
+  \}$.
+
+  Here is the second lemma which establishes that $\alpha$ has
+  rational entries. 
+
+  \begin{lemma}
+    \label{lem:ratlmatrix}
+    Let $\Gamma$ be a finite index subgroup of $\mathrm{SL}_2(\IZ)$
+    and let $\alpha=\mattt{a}{b}{c}{d}\in \mathrm{GL}_2(\IC)$ with
+    $\alpha\gamma\alpha^{-1}\in\mathrm{SL}_2(\IZ)$ for all
+    $\gamma\in\Gamma$. Then $a-d,b,c\in\IQ$. 
+  \end{lemma}
+  \begin{proof}
+    Write $n=[\mathrm{SL}_2(\IZ):\Gamma]!$. By the
+    Pigeonhole Principle $A^n\in\Gamma$ and $B^n\in\Gamma$ for the  matrices
+    \begin{equation*}
+      A=\mattt{1}{1}{0}{1}
+      \quad\text{and}\quad
+      B=\mattt{1}{0}{1}{1}
+    \end{equation*}
+    lie in $\Gamma$. Observe
+    $A^n = \mattt{1}{n}{0}{1}$ and $B^n=\mattt{1}{0}{n}{1}$.
+    Now writing down the equalities 
+    $\alpha A^n= A^n\alpha$ and $\alpha B^n=B^n\alpha$ leads to
+    $nc,n(a-d)\in\IZ$ and $nb\in\IZ$, respectively, as desired. 
+  \end{proof}
+
+  We may scale $\alpha$ by a non-zero real number and therefore assume
+  that the upper-left entry of $\alpha$ is $0$ or $1$. So $\alpha\in
+  \mathrm{GL}_2(\IQ)$ by Lemma~\ref{lem:ratlmatrix}.
+  After rescaling
+  $\alpha$ again we may assume that it has integral and coprime
+  coefficients.
+
+  Let us assume for simplicity that $\det \alpha \ge 1$. 
+
+  Fix an auxiliary point $(\tau_1,\tau_2)\in C(\IC)\cap \IH^2$. Its
+  orbit under $\mathrm{Stab}(C)$ lies in $C$. So by our arguments
+  above we have
+  \begin{equation}
+    \label{eq:stabilizerincurve}
+    \{(\gamma\tau_1,\alpha\gamma\alpha^{-1}\tau_2) : \gamma \in \mathrm{SL}_2(\IR)\}
+    \subset C(\IC). 
+  \end{equation}
+
+  As $\mathrm{SL}_2(\IR)$ acts transitive on $\IH$ we find
+  $\eta_1,\eta_2$ in this group with $\tau_j = \eta_j \sqrt{-1}$ for
+  both $j$. The stabilizer of $\sqrt{-1}$ is  $\mathrm{SO}_2(\IR)$ and
+  the stabilizer of $\tau_1$ is $\eta_1\mathrm{SO}_2(\IR)\eta_1^{-1}$. So
+  $\alpha \eta_1\mathrm{SO}_2(\IR) \eta_1^{-1} \alpha^{-1}$ must stabilize
+  $\tau_2$. So it equals $\eta_2\mathrm{SO}_2(\IR)\eta_2^{-1}$.
+  We conclude $\eta_2^{-1}\alpha\eta_1 \mathrm{SO}_2(\IR)
+  (\eta_2^{-1}\alpha\eta_1)^{-1} = \mathrm{SO}_2(\IR)$. From this one can
+  show that $\eta_2^{-1}\alpha\eta_1=\beta\in \mathrm{SO}_2(\IR)$.
+  
+  In (\ref{eq:stabilizerincurve})  we can rewrite
+  \begin{equation*}
+    (\gamma \tau_1, \alpha \gamma(\eta_1
+    \beta^{-1}\eta_2^{-1})\tau_2) =
+    (\gamma\tau_1,\alpha\gamma \eta_1\beta^{-1}\sqrt{-1})
+    =
+        (\gamma\tau_1,\alpha\gamma \eta_1\sqrt{-1})=
+    (\gamma\tau_1, \alpha \gamma\tau_1).
+  \end{equation*}
+  Thus
+  $$    \{j(\gamma\tau_1,\alpha\gamma\tau_1) : \gamma \in \mathrm{SL}_2(\IR)\}
+  \subset V(\IC). $$
+  
+  The elliptic curves $\IC/(\IZ+\gamma\tau_1\IZ)$ and
+  $\IC/(\IZ+\alpha\gamma\tau_2)$ are related by a cyclic isogeny of degree
+  $N=\det\alpha\in\IN$ for all $\gamma$. It follows that $V$ and meets
+  the zero set of $\Phi_N$ in infinitely many points. Therefore $V$
+  equals the zero set of $\Phi_N$.   So it follows that $V$ is special.
   % From this one can eventually conclude that $C(\IC)=\{\text{point}\} \times\IC$
   % or $C(\IC)=\IC\times\{\text{point}\}$ or the two coordinates on $C$
   % are related by a fractional linear transformation in
