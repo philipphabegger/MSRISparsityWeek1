@@ -93,6 +93,7 @@ practical.
 \end{example}
 
 \begin{definition}
+  \label{def:countingfunc}
   Let $X\subset\IR^m$ be any subset and $T\ge 1$. The \emph{counting
     function} is 
   \begin{equation*}
@@ -174,11 +175,11 @@ rational points implies the existence of a real-semi algebraic curve.
 
 \begin{theorem}[Pila--Wilkie~\cite{PilaWilkie}]
   \label{thm:pilawilkie}
-  Let $\cS$ be an o-minimal structure,  let $X\subset\IR^m$ be
-  definable in $\cS$, and let $\epsilon >0$.
-  There exists  $c=c(X,\epsilon)>0$ such that
+  Let $\cS$ be an o-minimal structure,  let $\epsilon>0$, and let $X\subset\IR^m$ be
+  definable in $\cS$.
+  There exists  $c(\epsilon,X)>0$ such that
   \begin{equation*}
-    N(X\ssm X^{\mathrm{alg}},T)\le c T^\epsilon \quad\text{for
+    N(X\ssm X^{\mathrm{alg}},T)\le c(\epsilon,X) T^\epsilon \quad\text{for
       all}\quad T\ge 1.
   \end{equation*}
 \end{theorem}
@@ -319,6 +320,7 @@ The following corollary will be of importance to us.
 \end{corollary}
 
 \section{The Ax--Lindemann--Weierstrass Theorem for Abelian Varieties}
+\label{sec:alwav}
 
 Ax's Theorem~\ref{thm:Axmult} has an analog for abelian varieties,
 also proved by Ax.
@@ -445,21 +447,21 @@ We set equals
 % \end{exercise}
 
 Let $\omega \in\IZ^{2g}$
-such that $\dim (Z-\omega)\cap [0,1)^{2g}$ contains a non-empty open
+such that $\dim Z\cap (\omega+[0,1)^{2g})$ contains a non-empty open
 subset of $Z$.
 % such that $Z$ contains a point $y \in \omega
 % + [0,1)^{2g}$. 
 We claim that $\omega\in X$.
 % Indeed, $(Z-\omega)\cap
 % [0,1)^{2g}\not=\emptyset$ as $y-\omega$ is a member.
-Indeed, say $y\in Z$ with $y-\omega\in [0,1)^{2g}$.
+Indeed, say $y\in Z$ with $y\in \omega+[0,1)^{2g}$.
 Then $y\in u^{-1}(V)$, using $u(Z)\subset V$, and hence
-$y-\omega \in u^{-1}(V)$ as $u^{-1}(V)$ is periodic under the period
-lattice. So $y-\omega \in u|_{[0,1]^{2g}}^{-1}(V)$ as desired.
+$y \in \omega+u^{-1}(V)$ as $u^{-1}(V)$ is periodic under the period
+lattice. So $y \in \omega+u|_{[0,1]^{2g}}^{-1}(V)$
+for all $y$ with $y\in Z\cap (\omega+[0,1)^{2g})$. 
 
 We have showed
-$$\{\omega\in\IZ^{2g} :    (\omega+[0,1)^{2g})\cap
-Z\text{ contains a non-empty open subset of $Z$}\} \subset X.$$ The important observation is that
+$$\{\omega\in\IZ^{2g} :    Z\cap (\omega+[0,1)^{2g})\text{ contains a non-empty open subset of $Z$}\} \subset X.$$ The important observation is that
 $Z$ meets sufficiently many translates of $[0,1)^{2g}$ in top dimension. To see
 this 
 we briefly  return to the original complex
@@ -496,15 +498,20 @@ We see that $N(X,T)$ grows proportionally to the number of translates of
 $[0,1)^{2g}$ that $\gamma$ passes through. The image of $t\mapsto \omega(t)$ must be infinite as $\gamma$ is unbounded. 
 So we conclude that
 \begin{equation*}
-  N(X,T) \gg T\quad\text{as}\quad T\rightarrow\infty.
+  N(X,T) \ge \# \{\omega(t) : H(\omega(t)) \le T\}  \gg T\quad\text{as}\quad T\rightarrow\infty.
 \end{equation*}
 
 By the Pila--Wilkie Theorem, with $\epsilon=1/2$ say, we conclude
-$X^{\mathrm{alg}}\not=\emptyset$. So
-$X$ contains a connected, real semi-algebraic curve $R$. 
+$$
+N(X\ssm X^{\mathrm{alg}})  \le c(X) T^{1/2}.
+$$
+So $X$ contains a connected, real semi-algebraic curve $R$ that
+ contains some $\omega(t)\in\IZ^{2g}$. 
 
-In the Pila--Wilkie Theorem we can arrange for $R$ to contain some
-$\omega\in \IZ^{2g}$. Then $Z\subset Z-R+\omega$. If $x\in R$ then
+% In the Pila--Wilkie Theorem we can arrange for $R$ to contain some
+% $\omega\in \IZ^{2g}$.
+
+Then $Z\subset Z-R+\omega$. If $x\in R$ then
 $Z-x\subset u^{-1}(V)$ as both sides are complex analytic and since
 $u^{-1}(V)$ contains a non-empty open subset of $Z-x$. 
 Since $u^{-1}(V)$ is periodic under the period lattice we find

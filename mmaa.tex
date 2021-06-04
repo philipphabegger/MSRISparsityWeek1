@@ -63,25 +63,31 @@ were introduced in Definition-Lemma~\ref{deflem:modtranspoly}.
   \begin{equation*}
     \Phi_{N_j}(X_{i_j},X_{i'_j}) \quad (j\in \{1,\ldots,r\})
   \end{equation*}
-  for some  $N_1\ldots,N_r\in\IN$ and $i_1,i'_1,\ldots,i_r,i'_r\in
+  for some  $N_1\ldots,N_r\in\IN_0$ and $i_1,i'_1,\ldots,i_r,i'_r\in
   \{1,\ldots,r\}$. 
 \end{definition}
 
 \begin{example}
-  For $m=3$ there is an irreducible component of the vanishing locus of
-  $\Phi_2(X_1,X_1)$ and $\Phi_3(X_2,X_3)$ of the form
-  \begin{alignat*}1
-    \{(1728,x_2,x_3) : \,\,&\text{there is a degree $3$ isogeny between
-      the elliptic curves over $\IC$}\\ &\text{with $j$-invariants $x_2$ and $x_3$}\}
-  \end{alignat*}
-  as the elliptic curve over $\IC$  of $j$-invariant 1728
-  admits an endomorphisms of degree $2$. This endomorphism arises as
-  $2 = (1+i)(1-i)$ in $\IZ[i]$. The other possible $X_1$ 
-  coordinates are $8000$ (endomorphism ring $\IZ[\sqrt{-2}]$) and
-  $-3375$ (endomorphism ring $\IZ[\sqrt{-7}/2+1/2]$).
+  \begin{enumerate}
+  \item [(i)]
+    For $m=3$ there is an irreducible component of the vanishing locus of
+    $\Phi_2(X_1,X_1)$ and $\Phi_3(X_2,X_3)$ of the form
+    \begin{alignat*}1
+      \{(1728,x_2,x_3) : \,\,&\text{there is a degree $3$ isogeny between
+        the elliptic curves over $\IC$}\\ &\text{with $j$-invariants $x_2$ and $x_3$}\}
+    \end{alignat*}
+    as the elliptic curve over $\IC$  of $j$-invariant 1728
+    admits an endomorphisms of degree $2$. This endomorphism arises as
+    $2 = (1+i)(1-i)$ in $\IZ[i]$. The other possible $X_1$ 
+    coordinates are $8000$ (endomorphism ring $\IZ[\sqrt{-2}]$) and
+    $-3375$ (endomorphism ring $\IZ[\sqrt{-7}/2+1/2]$).
 
-  So allowing $i_j=i'_j$ in the definition of special subvariety of
-  $Y(1)^m$ leads to constant coordinates. 
+    So allowing $i_j=i'_j$ in the definition of special subvariety of
+    $Y(1)^m$ leads to constant coordinates. 
+  \item[(ii)] The special points of $Y(1)^m$ are, taken as singletons,
+    precisely the special subvarieties of dimension $0$.
+  \item[(iii)] Note that $Y(1)^m$ is a special subvariety of $Y(1)^m$. 
+  \end{enumerate}
 \end{example}
 
 \begin{theorem}[Andr\'e--Oort Conjecture for $Y(1)^m$, Pila's
@@ -450,7 +456,7 @@ that the Ueno locus $V^{\circ}$ was introduced  in Definition~\ref{def:ueno}.
   that $V$ is a torsion coset of $A$. This concludes the proof. 
 \end{proof}
 
-\section{Conditional Andr\'e--Oort for $Y(1)^2$}
+\section{Unconditional Andr\'e--Oort for $Y(1)^2$}
 
 Here we sketch a proof of Theorem~\ref{thm:ao} for $m=2$. Here $\cF
 \subset\IH$ is the fundamental domain introduced in
@@ -458,19 +464,12 @@ Example~\ref{ex:jfunction}. The special points of $Y(1)^2$ were
 defined in Definition~\ref{def:specialY1m}. We recall
 Convention~\ref{conv:identCCRR2}. 
 
-Let $V\subset Y(1)^2$ be an irreducible curve defined over a number
-field $K\subset \IC$.
 
-We set
-\begin{equation*}
-  X = \{(\tau_1,\tau_2) \in \cF^2 : (j(\tau_1),j(\tau_2)) \in V(\IC) \} =
-  j|_{\cF^2}^{-1}(V(\IC)). 
-\end{equation*}
-where we sometimes use $j$ to denote the product
-$j\times j\colon \IH^2\rightarrow\IC^2$.
-
-The special points correspond to point in $X$ with imaginary quadratic
-entries. We will require an appropriate version of the Pila--Wilkie
+The special points of $Y(1)^m$ are images of points in $\IH^m$ with
+imaginary quadratic coordinest.
+% correspond to point in $X$ with imaginary quadratic
+% entries. 
+We will require an appropriate version of the Pila--Wilkie
 Theorem for algebraic points of higher degree.
 
 Let us define the height of an algebraic number.
@@ -497,9 +496,10 @@ Let us define the height of an algebraic number.
 \end{definition}
 
 \begin{remark}
+  \label{rmk:heightprops}
   \begin{enumerate}
   \item [(i)] The exponent $1/d$ is there for normalization purposes.
-    It is irrelevant for the  applications below.
+
   \item[(ii)] If $m=1$ and $x_1\in\IQ$ then the height in part (i) of
     Definition~\ref{def:height2} is equivalent to the height from
     Definition~\ref{def:height1}(i). But for $m\ge 2$ we \textbf{do not} in
@@ -509,30 +509,68 @@ Let us define the height of an algebraic number.
     However, both heights are
     bounded in terms of another by a positive multiplicative factor that may
     depend on $m$.
-    The disrepancy is harmless in the context of our applications. 
+    The disrepancy is harmless in the context of our applications.
+
+  \item[(iii)] The height is Galois invariant, \textit{i.e.}, if
+    algebraic numbers $x$
+    and $x'$ are Galois conjugate, then $H(x)=H(x')$.
+
+  \item[(iv)] We record two inequalities that help to bound from above
+    the height. For algebraic numbers
+    $x$ and $x'$ we have
+    \begin{equation*}
+      H(x+x')\le 2H(x)H(x')\quad\text{and}\quad H(xx')\le H(x)H(x').
+    \end{equation*}
+    We refer to Chapter 1.5~\cite{BG} for proofs.     
   \end{enumerate}
 \end{remark}
 
 \begin{example}
   \begin{enumerate}
-  \item [(i)] We have $H(2^{1/d})=2^{1/d}$.
+  \item [(i)] We have $H(2^{1/d})=2^{1/d}$. So clearly, the are
+    infinitely many algebraic numbers of height at most $2$. 
 
   \item[(ii)] If $\zeta$ is a root of unity, then $H(\zeta)=1$.
   \end{enumerate}
 \end{example}
 
+While  there are infinitely many algebraic numbers of
+bounded height we obtain finiteness after imposing a bound on the
+degree.
+
+\begin{theorem}[Northcott's Theorem]
+  \label{thm:northcott}
+  Let $d\ge 1$ and $T\ge 1$. The set
+  \begin{equation*}
+    \{x\in \IC : x \text{ is algebraic with }[\IQ(x):\IQ]\le d\text{
+      and }H(x)\le T\}
+  \end{equation*}
+  is finite. 
+\end{theorem}
+\begin{proof}
+  Let $P$ be the polynomial in Definition~\ref{def:height2} of an
+  algebraic $x$ with $[\IQ(x):\IQ]\le d$ and $H(x)\le T$.
+
+  The leading term of $P$ is at most $T^d$. We can bound the remaining
+  terms of $P$ by observing that $\max\{1,|x'|\}$
+  is also at most $T^d$ for all complex roots of $x'$.
+  Finally, the coefficients of $P$ are, up-to the lead term, symmetric
+  functions in the complex roots. So we get a bound for the absolute
+  value of all coefficients of $P$ in terms of $T$ and $d$. As these
+  coefficients are integers there are at most finitely many $P$ in
+  question. So there are at most finitely many $x$. 
+\end{proof}
+
 Next we make the statement of Lemma~\ref{lem:tauimagquad} on $\tau$
-quantitative.
-This allows us to bounde the height of $\tau$. 
+quantitative. This allows us to bounde the height of $\tau$.
 
 \begin{lemma}
   \label{lem:heighttaubound}
   Let $j(\tau)$ be a special point of $Y(1)$.
   Let $\Delta$ be the discriminant of
   the endomorphism ring of the elliptic curve attached to $j(\tau)$.
-  % Then there are integers $a,b,c\in\IZ$ with $a\tau^2+b\tau+c=0,$
-  % and $1\le a \le \sqrt{|\Delta|/3}$. Moreover, $|\tau|\le 2|\Delta|$.
-  Then $H(\tau)\le 2 |\Delta|^{5/4}$. 
+  Then $\tau$ is imaginary quadratic. Moreover, if $\tau =x+yi$ with
+  $x,y\in\IR$ then $[\IQ(x,y):\IQ]\le 4$ and $H(x,y)\le 16|\Delta|^{5/2}$.
 \end{lemma}
 \begin{proof}  
   Let $E$ be the elliptic curve with $j$-invariant $z$. Then
@@ -540,6 +578,9 @@ This allows us to bounde the height of $\tau$.
   \frac{\sqrt{D}+D}{2}$ and $D$ is the discriminant of the field of
   fractions of $\mathrm{End}(E)$ and $f\in\IN$ is its conductor.
 
+  We already know from Lemma~\ref{lem:tauimagquad} that $\tau$ is
+  imaginary quadratic.
+  
   Then $\Delta = f^2D$. Observe that
   \begin{equation*}
     \mathrm{Re}(\omega) = f\frac{D}{2} \quad\text{and}\quad
@@ -571,31 +612,182 @@ This allows us to bounde the height of $\tau$.
   The polynomial $bX^2+(a-d)X+c$ is an integral multiple of the
   polynomial $P$ of Definition~\ref{def:height2} applied to $\tau$.
   So $H(\tau)^2 \le b\max\{1,|\tau|\}^2 \le |\Delta/3|^{1/2}
-  (2|\Delta|)^2 \le 4|\Delta|^{5/2}$. 
-  %
-  % \item[(iii)] Let $\tau\in\IN$ and $a,b,c\in\IZ$ with $a\ge 1$ and
-  %   $a\tau^2+b\tau+c=0$. As $\tau\not\in\IQ$  the polynomial $aX^2+bX+c$
-  %   is an integral of the polynomial $P$ from
-  %   Definition~\ref{def:height2}. So $H(\tau) \le a
-  %   \max\{1,|\tau\|\}^2$.
-  %  
-  % Let $\tau,\Delta,a,b,$ and $c$ be as in
-  % Lemma~\ref{lem:heighttaubound}. Then $H(\tau) \le
-  % 4|\Delta|^{5/4}$. 
-  % 
-  % On the other hand, $\omega\tau =c+d\tau$ for some $c,d\in\IZ$.
-  % We estimate
-  % $|\Delta|^2\ge |\omega\tau| \ge \mathrm{Im}(\omega\tau) =
-  % d\mathrm{Im}(\tau)\ge \sqrt{3}d/2$. So $|d|=d\le
-  % 2|\Delta|^2/\sqrt{3}$.
-  % Finally, $|c|\le |\omega\tau|+|d\tau| \le |\Delta|^2
-  % +\frac{2}{\sqrt{3}} |\Delta|^2(2|\Delta|)\le 4|\Delta|^3$.
-  % 
+  (2|\Delta|)^2 \le 4|\Delta|^{5/2}$.
+  
+  Finally, note that if $\tau=x+yi$ with $x,y\in\IR$, then $x =
+  (\tau+\overline\tau)/2$ and $y = (\tau-\overline \tau)/(2i)$. 
+  Thus $\IQ(x,y)\subset \IQ(\tau,i)$ and thus $[\IQ(x,y):\IQ]\le 4$. 
+  We use Remarks~\ref{rmk:heightprops}(iii) and (iv) to estimate
+  \begin{equation*}
+    H(x) = H((\tau+\overline\tau)/2)\le 2H(\tau+\overline\tau)\le
+    4H(\tau)H(\overline\tau) = 4H(\tau)^2.
+  \end{equation*}
+  A similar computation yields $H(y)\le 4H(\tau)^2$. So
+  $H(x,y)\le 4H(\tau)^2 \le 16 |\Delta|^{5/2}$, as desired. 
 \end{proof}
 
-Suppose that $V$ contains infinitely many
-special points of $Y(1)^2$.
 
+Next let us formula the Pila--Wilkie Theorem for algebraic numbers in
+$\IR^m$. For this we need to extend the definition of the counting
+function in Definition~\ref{def:countingfunc} to algebraic points of
+given degree.
+
+\begin{definition}
+  \label{def:countingfunc2}
+  Let $X\subset\IR^m$ be any subset, let $d\ge 1$, and $T\ge 1$.
+  The \emph{counting
+    function} is 
+  \begin{equation*}
+    N_d (X,T) = \#\{ x\in X\cap \IQ^m : [\IQ(x):\IQ]\le d
+    \quad\text{and}\quad
+    H(x)\le T\};
+  \end{equation*}
+  note that $N_d(X,T)<\infty$ by Northcott's Theorem. 
+\end{definition}
+
+The Pila--Wilkie Theorem holds verbatim for algebraic points of
+bounded degree. 
+
+\begin{theorem}[Pila, Theorem 1.6~\cite{Pila:AlgPoints}]
+  \label{thm:pilaalg}
+  Let $\cS$ be an o-minimal structure, let $d\ge 1$, let $\epsilon
+  >0$, and   let $X\subset\IR^m$ be
+  definable in $\cS$. 
+  There exists  $c(\epsilon,d,X)>0$ such that
+  \begin{equation*}
+    N_d(X\ssm X^{\mathrm{alg}},T)\le c(\epsilon,d,X) T^\epsilon \quad\text{for
+      all}\quad T\ge 1.
+  \end{equation*}
+\end{theorem}
+
+We now  sketch a proof  of Theorem~\ref{thm:ao} for $m=2$.
+We will only prove the deeper direction ``$\Longrightarrow$''.
+If $V$ is a point or if $V=Y(1)^2$ the conclusion is clear.
+
+So suppose that $V$ is a curve that  contains infinitely many special points
+of $Y(1)^2$. As special points are algebraic numbers we find as in Section~\ref{sec:ist} that
+$V$ is defined over a number field $K$, \textit{i.e.}, it is the
+zero set of a polynomial $A \in K[X,Y]$.
+
+We set
+\begin{equation}
+  \label{def:Xao}
+  X = \{(\tau_1,\tau_2) \in \cF^2 : (j(\tau_1),j(\tau_2)) \in V(\IC) \} =
+  j|_{\cF^2}^{-1}(V(\IC)),
+\end{equation}
+where we sometimes use $j$ to denote the product $j\times j\colon
+\IH^2\rightarrow\IC^2$. The set $X$ is definable in $\IRanexp$, see
+Example~\ref{ex:jfunction}.
+As is usual we identify $\IH$ with $\IR \times (0,\infty)$. 
+
+The following lemma is the analog of Lemma~\ref{lem:apppw}. 
+\begin{lemma}
+  \label{lem:apppwao}
+  Let $V\subset Y(1)^2$ be a geometrically irreducible curve defined
+  over a number field $K$.
+  Let $(z_1,z_2)\in V(\IC)$ and let $\Delta_i$ denote the discriminant
+  of the endmorphismring of the elliptic curve attached to $z_i$.
+  If $\max\{|\Delta_1|,|\Delta_2|\}$ is sufficiently large in terms of
+  $V$, then there exists $\sigma\in \absgalk$ with
+  $\sigma(z_1,z_2)\in j(X^{\mathrm{alg}})$.   
+\end{lemma}
+\begin{proof}%[]    
+  We fix $(\tau_1,\tau_2) \in X$ with $j(\tau_1,\tau_2)=(z_1,z_2)$.
+  In real coordinates $(\tau_1,\tau_2)$ corresponds to
+  $(x_1,y_1,x_2,y_2) \in (\IR\times(0,\infty))^2$ where
+  \begin{equation*}
+    [\IQ(x_1,y_1,x_2,y_1):\IQ]\le 16
+    \quad\text{and}\quad
+    H(x_1,y_1,x_2,y_2) \le 16 \max\{|\Delta_1|,|\Delta_2|\}^{5/2}
+  \end{equation*}
+  by Lemma~\ref{lem:heighttaubound}.
+
+  As in the proof of Theorem~\ref{thm:mmav} we can exploit the action of the
+  Galois group to obtain new special points on $V$. Indeed, for all
+  $\sigma\in \absgalk$ we have $\sigma(z_1,z_2) \in
+  V(\IC)\cap Y(1)^2_{\mathrm{special}}$. We also find
+  $(x_{1,\sigma},y_{1,\sigma},x_{2,\sigma},y_{2,\sigma})\in(\IR\times(0,\infty))^2$
+  of degree at most $16$, height at most
+  $16\max\{|\Delta_1|,|\Delta_2|\}^{5/2}$, and   
+  that correspond to points in $\cF^2$.
+  The number of points we obtain is
+  \begin{equation*}
+    [K(z_1,z_2):K] \ge \frac{[\IQ(z_1,z_2):\IQ]}{[K:\IQ]} \ge
+    \frac{\max\{[\IQ(z_1):\IQ],[\IQ(z_2):\IQ]}{[K:\IQ]}
+    \ge \frac{c_1}{[K:\IQ]}  \max\{|\Delta_1|,|\Delta_2|\}^{1/4},
+  \end{equation*}
+  the last bound is a suitable generalization of the Large Galois
+  Orbit Lemma~\ref{lem:lgocm}
+  to possibly non-maximal orders. The exponent $1/4$ can be increased
+  to any value below $1/2$ at the cost of increasing the
+  multiplicative constant $c_1$. But $1/4$, just as any fixed and
+  positive exponent, is good enough for our purposes.
+
+
+  We conclude
+  \begin{equation}
+    \label{eq:aonlb}
+    N_{16}(X,T) \ge \frac{c_1}{[K:\IQ]} \max\{|\Delta_1|,|\Delta_2|\}^{1/4}
+  \end{equation}
+  for $T = 16 \max\{|\Delta_1|,|\Delta_2|\}^{5/2}\ge 1$. 
+
+  We apply Pila's strengthening, Theorem~\ref{thm:pilaalg},  of the
+  Pila--Wilkie Theorem to $d=16$ this $T$ and conclude
+  \begin{equation}
+    \label{eq:aonub}
+    N_{16}(X\ssm X^{\mathrm{alg}}) \le c(X,\epsilon) T^\epsilon
+    = c(X,\epsilon) (16\max\{|\Delta_1|,|\Delta_2|\}^{5\epsilon/2}.
+  \end{equation}
+
+  On comparing (\ref{eq:aonlb}) and (\ref{eq:aonub}) we want to 
+  choose $\epsilon$ such that $5\epsilon/2
+  <1/4$, say $\epsilon = 1/20$.
+  So
+  \begin{equation*}
+    N_{16}(X\ssm X^{\mathrm{alg}}) \le
+     c(X,\epsilon) (16\max\{|\Delta_1|,|\Delta_2|\}^{1/8}.
+   \end{equation*}
+   
+  Thus if
+  $\max\{|\Delta_1|,|\Delta_2|\}$ is sufficiently large in terms of
+  $c_1,c(X,1/20),$ and $[K:\IQ]$, then  $\sigma(z_1,z_2) \in
+  j(X^{\mathrm{alg}})$ for some $\sigma\in \absgalk$.  
+\end{proof}
+
+\begin{proof}[Sketch of Proof of Theorem~\ref{thm:ao} for $m=2$]
+  Let $V$ be an irreducible curve in $Y(1)^2$ defined over a number
+  field $K\subset\IC$. Suppose $V$ contains infinitely many special points.
+
+  We keep the notation of Lemma~\ref{lem:apppwao}. For given
+  $\Delta_i$ there are only finitely many possible $z_i$. So we may
+  assume that $\max\{|\Delta_1|,|\Delta_2|\}$ is sufficiently large.
+  Then some Galois conjugate of $(z_1,z_2)$ lies in
+  $j(X^{\mathrm{alg}})$ where $X$ is as in (\ref{def:Xao}). In
+  particular, $X^{\mathrm{alg}}\not=\emptyset$. 
+
+  Now we need an Ax--Lindemann--Weierstrass theorem  for the
+  $j$-function.
+  In this low dimension ($m=2$) some extra simplifications are
+  possible.
+  After complexifying a real semi-algebraic curve in
+  $X^{\mathrm{alg}}$ we find that, for dimesion reasons, 
+  $j|_{\cF}^{-1}(V(\IC))$ is the intersection of a complex algebraic
+  curve $C$ in $\IC^2$ with $\IH^2$. We must have
+  $C \subset j^{-1}(V(\IC))$. 
+
+  We can proceed as in Section~\ref{sec:alwav}. That is, we find many 
+  $\gamma\in \mathrm{SL}_2(\IZ)$ such that $\gamma (C\cap \IH^2)$
+  meets $C\cap\IH^2$ in a sufficiently large set.  
+  Using the Pila--Wilkie Theorem in a similar manner as in
+  Section~\ref{sec:alwav} one can then that the stabilizer 
+  \begin{equation*}
+    \{\gamma \in \mathrm{SL}_2(\IR) : \gamma (C\cap\IH^2) = C\cap
+    \IH^2 \}
+  \end{equation*}
+  is sufficiently large. 
+  
+  
+\end{proof}
 \section{Further Reading and Open Problems}
 
 In the context of Masser's Theorem, is admissible in
