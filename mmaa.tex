@@ -157,7 +157,7 @@ $i$, then $K(P) = K(x_0,\ldots,x_n)$.
 \begin{exercise}
   Let $W\subset\IP^n$ be an irreducible subvariety defined
   over $\overline K$. Find a sensible definition for $\sigma(W)$,
-  for $\sigma\in \absgalk$.  Show that $W$ is the zero set of
+  for $\sigma\in \absgalk$.  Show that $W$ is the zero locus of
   polynomials with coefficients in $K$ if and only if $\sigma(W)=W$
   for all $\sigma\in \absgalk$.
 \end{exercise}
@@ -271,7 +271,7 @@ estimate.
 
 
 Now suppose $V$ is an  subvariety of $A$ defined over $K$. We can
-think of $V$ as the zero set on $A(\overline K)$ of homogeneous
+think of $V$ as the zero locus on $A(\overline K)$ of homogeneous
 polynomials with coefficients in $K$. 
 
 It is important to distinguish between $A[N]$ and the subgroup
@@ -667,7 +667,7 @@ If $V$ is a point or if $V=Y(1)^2$ the conclusion is clear.
 So suppose that $V$ is a curve that  contains infinitely many special points
 of $Y(1)^2$. As special points are algebraic numbers we find as in Section~\ref{sec:ist} that
 $V$ is defined over a number field $K$, \textit{i.e.}, it is the
-zero set of a polynomial $A \in K[X,Y]$.
+zero locus of a polynomial $A \in K[X,Y]$.
 
 We set
 \begin{equation}
@@ -806,7 +806,7 @@ The following lemma is the analog of Lemma~\ref{lem:apppw}.
   $\Gamma_1$ lies in the projection of
   \begin{equation*}
     \mathrm{Stab}(C) = \{\gamma= (\gamma_1,\gamma_2) \in \mathrm{SL}_2(\IR) :
-    \gamma C(\IC) =  C(\IC) \}
+    \gamma (C(\IC)\cap\IH^2) =  C(\IC)\cap\IH^2 \}
   \end{equation*}
   to the first component. 
   By symmetry this works for the second component as well. So the
@@ -905,15 +905,18 @@ The following lemma is the analog of Lemma~\ref{lem:apppw}.
     \subset C(\IC). 
   \end{equation}
 
-  As $\mathrm{SL}_2(\IR)$ acts transitive on $\IH$ we find
+  As $\mathrm{SL}_2(\IR)$ acts transitively on $\IH$ we find
   $\eta_1,\eta_2$ in this group with $\tau_j = \eta_j \sqrt{-1}$ for
   both $j$. The stabilizer of $\sqrt{-1}$ is  $\mathrm{SO}_2(\IR)$ and
   the stabilizer of $\tau_1$ is $\eta_1\mathrm{SO}_2(\IR)\eta_1^{-1}$. So
   $\alpha \eta_1\mathrm{SO}_2(\IR) \eta_1^{-1} \alpha^{-1}$ must stabilize
   $\tau_2$. So it equals $\eta_2\mathrm{SO}_2(\IR)\eta_2^{-1}$.
-  We conclude $\eta_2^{-1}\alpha\eta_1 \mathrm{SO}_2(\IR)
-  (\eta_2^{-1}\alpha\eta_1)^{-1} = \mathrm{SO}_2(\IR)$. From this one can
-  show that $\eta_2^{-1}\alpha\eta_1=\beta\in \mathrm{SO}_2(\IR)$.
+  We conclude $\beta \mathrm{SO}_2(\IR)
+  \beta^{-1} = \mathrm{SO}_2(\IR)$ with
+  $\beta = \eta_2^{-1}\alpha\eta_1$. From this one can
+  show that $\beta\sqrt{-1}=\sqrt{-1}$.
+
+  %\eta_2^{-1}\alpha\eta_1=\beta\in \mathrm{SO}_2(\IR)$.
   
   In (\ref{eq:stabilizerincurve})  we can rewrite
   \begin{equation*}
@@ -929,10 +932,10 @@ The following lemma is the analog of Lemma~\ref{lem:apppw}.
   \subset V(\IC). $$
   
   The elliptic curves $\IC/(\IZ+\gamma\tau_1\IZ)$ and
-  $\IC/(\IZ+\alpha\gamma\tau_2)$ are related by a cyclic isogeny of degree
+  $\IC/(\IZ+\alpha\gamma\tau_2\IZ)$ are related by a cyclic isogeny of degree
   $N=\det\alpha\in\IN$ for all $\gamma$. It follows that $V$ and meets
-  the zero set of $\Phi_N$ in infinitely many points. Therefore $V$
-  equals the zero set of $\Phi_N$.   So it follows that $V$ is special.
+  the zero locus of $\Phi_N$ in infinitely many points. Therefore $V$
+  equals the zero locus of $\Phi_N$.   So it follows that $V$ is special.
   % From this one can eventually conclude that $C(\IC)=\{\text{point}\} \times\IC$
   % or $C(\IC)=\IC\times\{\text{point}\}$ or the two coordinates on $C$
   % are related by a fractional linear transformation in

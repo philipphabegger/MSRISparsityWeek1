@@ -2,55 +2,15 @@
 
 \section{Overview}
 
-One of the most classical areas in mathematics, dating back to ancient
-times, is the study of solutions of polynomials equations in integer
-or rational unknowns. These \textit{diophantine equations} have
-provided a rich source of new mathematics in the last 2000 years.
-Number fields, \textit{i.e.}, finite extensions of the field of
-rational numbers, entered the picture in the 19th century. They are
-tools in studying diophantine equations. But it also makes sense to
-investigate solutions of diophantine equations with values in number
-fields or the ring of integers.
-
-%One theme that we will explore in this week is the observation that
-More recently, we began studying solutions of polynomial equations in
-a further class of numbers, so-called \textit{special points}. Special
-points is not a precise term but rather refers to complex numbers, or
-more general points on certain varieties, that have rich arithmetic
-properties.
-
-In this one week course we will be interested in three classes of
-special points:
-\begin{itemize}
-\item Roots of unity, \textit{i.e.}, complex numbers of the form
-  $e^{2\pi i q}$ with $q$ a rational number. These are precisely the
-  points of finite order of the multiplicative group $\IC^\times$. 
-
-\item Consider an elliptic curve $E$ defined over a number field
-  $K\subset\IC$. We regarding points in $E(\IC)$ of finite order as
-  special points.
-
-\item Finally, to any elliptic curve $E$ defined over $\IC$ we can
-  attach its ring of endomorphisms
-  $$\mathrm{End}(E) = \{\psi \colon E\rightarrow E : \psi\text{
-    is a morphism of varieties and }\psi(0)=0\},$$
-  here $0\in E(\IC)$ is the neutral element.\footnote{Addition on
-    $\mathrm{End}(E)$ is pointwise addition and multiplication is
-    composition. It is a theorem that $\mathrm{End}(E)$ is a
-    commutative ring for any elliptic curve defined over a field of
-    characteristic $0$.}
-  The  structure of $E$ as an algebraic group gives us for free
-  multiplication-by-$n$ endomorphisms $[n] \in \mathrm{End}(E)$ for
-  all $n\in\IZ$. So $\mathrm{End}(E) \supset \IZ$.
-  We say that $E$ has complex multiplication if
-  $\mathrm{End}(E)\not=\IZ$.
-  Such an elliptic curve curve corresponds to a \textit{special point}
-  on the parameter space of all elliptic curves.   
-\end{itemize}
-
-As we will see, all three cases have an important similarity: special
-points are images of certain algebraic points under an analytic map.
-We will discuss all three cases in more detail during the next week. 
+In this chapter we consider two classes of special points. First,
+points of finite order in $(\IC^\times)^2$ and their distribution on
+algebraic curves in $(\IC^\times)^2$. This will lead us to the
+Ihara--Serre--Tate Theorem and later to the Manin--Mumford Conjecture.
+Second, we look a moduli problems. Special points here are tuples of
+$j$-invariants of elliptic curves with complex multiplication. This
+will lead us to the Andr\'e--Oort Conjecture, but more specifically to
+a theorem of Andr\'e and Edixhoven that treats the first interesting
+case. 
 
 \section{The Ihara--Serre--Tate Theorem}
 \label{sec:ist}
