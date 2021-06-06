@@ -3,8 +3,9 @@
 \section{Overview}
 
 In this chapter we consider two classes of special points. First,
-points of finite order in $(\IC^\times)^2$ and their distribution on
-algebraic curves in $(\IC^\times)^2$. This will lead us to the
+points of finite order in $\IG_m^2(\IC)=(\IC^\times)^2$ and their distribution on
+algebraic curves in $\IG_m^2$; here $\IG_m$ denotes the multiplicative
+group. This will lead us to the
 Ihara--Serre--Tate Theorem and later to the Manin--Mumford Conjecture.
 Second, we look a moduli problems. Special points here are tuples of
 $j$-invariants of elliptic curves with complex multiplication. This
@@ -30,19 +31,18 @@ proved by Raynaud~\cite{Raynaud:MM} and it will be a guiding principle of this
 course. 
 
 Before moving on to Jacobians let us attempt to translate this question
-from the world of jacobians to that  of the algebraic group $(\IC^\times)^2$. By
+from the world of jacobians to that  of the algebraic group $\IG_m^2$. By
 curve we consider an irreducible algebraic curve $C\subset
-(\IC^\times)^2$ defined over $\IC$. Then $C$ is given by zero set of
+\IG_m^2$ defined over $\IC$. Then $C$ is given by the zero set of
 an almost uniquely determined polynomial $P\in \IC[X,Y]$.
 In fact, it is more natural to work with the ring of
 Laurent polynomials $\IC[X^{\pm 1},Y^{\pm 1}]$, this is the ring of
-regular functions of $(\IC^\times)^2$ considered as an algebraic
-variety.
-What is the analog of the points of finite period in $(\IC^\times)$?
+regular functions of $\IG_m^2$.
+What is the analog of the points of finite period in $\IG_m^2$?
 These are just the pairs of roots of unity
-$$ (\IC^\times)^2_{\mathrm{tors}}= \mu_\infty^2  \text{ where
-}\mu_\infty = \{\zeta : \text{there is $n\in\{1,2,3,\ldots\}$
-  with }\zeta^n \}.$$
+$$ \IG^2_{m,\mathrm{tors}}= \mu_\infty^2  \text{ where
+}\mu_\infty = \{\zeta\in\IC : \text{there is $n\in\{1,2,3,\ldots\}$
+  with }\zeta^n=1 \}.$$
 Finally, we need to translate ``genus'' to this setting. First let us
 look at some examples.
 
@@ -57,39 +57,39 @@ look at some examples.
     (z,w) \in \left\{ (e^{2\pi i/6},e^{-2\pi i/6}),(e^{-2\pi
         i/6},e^{2\pi i/6})\right\}.
     $$
-    So $C\cap (\IC^\times)^2_{\mathrm{tors}}$ has two elements and is
-    finite.
+    So $C\cap \IG^2_{m,\mathrm{tors}}$ has two elements.
 
   \item[(ii)] Consider the curve $C$ defined by
     $P=X^{2021}Y^{-2022}-1$. Then
     $P(z,w)=0$ for all $(z,w)\in \{(e^{4044\pi iq},e^{4042\pi i
       q}) : q\in\IQ\}$.
-    So here we have infinitely many solutions in $(\IC^\times)^2$.
+    So here we have infinitely many solutions in $\mu^2$.
   \end{itemize}
 \end{example}
 
 The second example suggests that curves of large degree may contain
-infinitely many points of $(\IC^\times)^2$. But observe that the zero
-set of $X^{r}Y^{s}-1$ in $(\IC^\times)^2$ is a subgroup for all
+infinitely many torsion points of $\IG_m^2$. But observe that the zero
+set of $X^{r}Y^{s}-1$ in $\IG_m^2$ determines an algebraic subgroup for all
 $r,s\in\IZ$. 
 
 \begin{exercise}
   \label{exer:infinitemany}
   Let $\gamma\in \IC^\times$ and $(r,s)\in\IZ^2\ssm
-  \{0\}$. Show that $P=X^rY^s-\gamma$ is irreducible in $\IC[X^{\pm
-    1},Y^{\pm 1}]$ and show that its zero set $Z(P)$ is a coset in
-  $(\IC^\times)^2$. Show that $Z(P)$ contains a point in
-  $(\IC^\times)^2$ if and only if $\gamma$ is a root of unity. 
+  \{0\}$.  Show that $P=X^rY^s-\gamma$ is irreducible in $\IC[X^{\pm
+    1},Y^{\pm 1}]$ if $\gcd(r,s)=1$. Show that its zero set $Z(P)$ is a coset in
+  $\IG_m^2(\IC)$. Show that $Z(P)$ contains a point in
+  $\IG^2_{m,\mathrm{tors}}$ if and only if $\gamma$ is a root of unity. 
 \end{exercise}
 
 \begin{definition}
-  An algebraic curve in $(\IC^\times)^2$
-  is called special if it is the translate of an algebraic subgroup by
+  An algebraic curve in $\IG_m^2$
+  is called \emph{special} or a \emph{torsion coset}
+  if it is the translate of an algebraic subgroup by
   a point of finite order. 
 \end{definition}
 
 We have the following classical characterization of special curves,
-presented here without proof. For a reference see !!!REF. 
+presented here without proof. For a reference see Chapter 3.2~\cite{BG}.
 
 \begin{lemma}
   \label{lem:specialGm2}
@@ -98,10 +98,9 @@ presented here without proof. For a reference see !!!REF.
   and $\zeta$ a root of unity. 
 \end{lemma}
 
-
 In the first example, the set $\{(z,w) \in S^1\times S^1 : z+w=1\}$
 was finite. Write $Z(P) = \{(z,w) \in (\IC^\times)^2 : P(z,w)=0\}$. If
-$Z(P)\cap (S^1)^2$ is finite, then so is $Z(P) \cap (\IC^\times)^2$.
+$Z(P)\cap (S^1)^2$ is finite, then so is $Z(P) \cap \IG^2_{m,\mathrm{tors}}$.
 
 \begin{exercise}
   \label{exer:toralpoly}
@@ -116,10 +115,10 @@ attributes to Ihara, Serre, and Tate.
 
 \begin{theorem}
   \label{thm:ist}
-  Let $C\subset (\IC^\times)^2$ be an irreducible algebraic curve.
+  Let $C\subset \IG_m^2$ be an irreducible algebraic curve.
   Then
   \begin{equation*}
-    C \cap (\IC^\times)^2_{\mathrm{tors}}\text{ is infinite}\quad\Longleftrightarrow\quad \text{$C$ is special}. 
+    C \cap \IG^2_{m,\mathrm{tors}}\text{ is infinite}\quad\Longleftrightarrow\quad \text{$C$ is special}. 
   \end{equation*}
 \end{theorem}
 
@@ -133,7 +132,8 @@ the approach of Tate (which is similar to Serre's).
 \end{exercise}
 
 We we split the proof sketch up into several steps. We assume that
-$C=Z(P)$ intersects $(\IC^\times)^2$ in an infinite set where $P\in
+$C=Z(P)$ intersects $\IG^2_{m,\mathrm{tors}}=\mu_\infty^2$
+in an infinite set where $P\in
 \IC[X^{\pm 1},Y^{\pm 1}]$ is irreducible.
 Our aim is to show that $C$ is special, in other words, $P$ is up-to a
 monomial factor of the form $X^rY^s-\zeta$ with $\zeta$ a root of
@@ -141,8 +141,8 @@ unity.
 
 The theorem is ultimately of arithmetic nature and Tate's proof uses
 input from number theory. The basic observation is that
-$(\IC^\times)^2_{\mathrm{tors}}\subset
-(\IQbar^\times)^2_{\mathrm{tors}}$ with $\IQbar$ the algebraic closure
+$\mathrm{G}_{m,\mathrm{tors}}\subset
+(\IQbar^\times)^2$ with $\IQbar$ the algebraic closure
 of $\IQ$ in $\IC$.
 
 \subsubsection{Reduction to the Case $P \in \IQbar[X^{\pm
@@ -225,18 +225,23 @@ $\varphi(n)$ where $n$ is the order of $(\zeta,\xi)$.
 \begin{lemma}[Galois Homothety Lemma]
   Say $(\zeta,\xi)\in \mu_\infty^2$ has order $n\ge 2$
   with $P(\zeta,\xi)=0$. There exists a prime number $\ell=O((\log
-  n)^2)$ with $P(\zeta^\ell,\xi^\ell)=0$. 
+  n)^2)$ with $P(\zeta^\ell,\xi^\ell)=0$.
+  Moreover, we can arrange that $\ell \ge c (\log n)^2$ for some
+  absolute constant $c>0$. 
 \end{lemma}
 \begin{proof}
   The Prime Number Theorem states that the number of primes $\le x$ is
   asymptotically equal to $x/\log x$ for $x\ge 2$.
-  We will only need that this number
-  is $\ge \delta x/\log x$, for fixed $\delta >0$. 
+  % We will only need that this number
+  % is $\ge \delta x/\log x$, for fixed $\delta >0$. 
   The number of
   distinct prime divisors of $n$ is at most $(\log n)/\log 2$.
-  So the least prime number $\ell$ that does not divide $n$ satisfies $\ell =
+  So there is a  prime number $\ell$ that does not divide $n$
+  that satisfies $\ell =
   O((\log n)^2)$. By the crucial observation we conclude
-  $P(\zeta^\ell,\xi^\ell)=0$. 
+  $P(\zeta^\ell,\xi^\ell)=0$.
+  We can arrange that $\ell\ge c(\log\ell)^2$ by exploiting the
+  asymptotical lower bound in the Prime Number Theorem.
 \end{proof}
 
 Now we can put things together. Let us again multiply $P$ by a
@@ -266,17 +271,17 @@ as large as we want and therefore $P$ must divide $P(X^\ell,Y^\ell)$.
   $\ell$. 
 \end{exercise}
 
-\subsubsection{Functional Transcendence}
+\subsubsection{Concluding the Proof}
 \label{subsub:functrans}
 
 We return to a more geometric point of view in this final set.
 If $C=Z(P)$ contains a torsion point of large enough order $n$, then
 $P \mid P(X^\ell,Y^\ell)$ for some prime $\ell$.
 Geometrically, $C \subset [\ell]^{-1}(C)$ where $[\ell]$ denotes the $\ell$-th
-power endomorphism of $(\IC^\times)^2$.
+power endomorphism of $\IG_m^2$.
 If $\bfzeta\in (\IC^\times)^2$ with $\bfzeta^\ell=1$, then the
 translation $\bfzeta C\subset [\ell]^{-1}(C)$. These $\bfzeta C$ are
-irreducible components of $[\ell]^{-1}(C)$; their total number is
+irreducible components of $[\ell]^{-1}(C)$. The number of $\bfzeta$ is
 $\ell^2$. But the degree of $[\ell]^{-1}(C)$ is $\ell \deg C$. As soon
 as $\ell > \deg C$ the Pigeonhole Principle provides distinct
 $\bfzeta',\bfzeta''\in \mu_\infty$ with $\bfzeta' C = \bfzeta''C$.
@@ -285,26 +290,32 @@ Hence $\bfzeta C=C$ with $\bfzeta = \bfzeta'{\bfzeta''}^{-1}$ of order
 $\ell$.
 
 Let us now check that $C$ is the translate of an algebraic subgroup of
-$(\IC^\times)^2$ by a point of finite order. % After translating we may
+$\IG_m^2$ by a point of finite order. % After translating we may
 % assume $1=(1,1)\in C$ and then it suffices to show that $C$ is a
 % subgroup of $(\IC^\times)^2$.
 
 To this end consider
 \begin{equation*}
-  G = \bigcap_{P\in C} P^{-1} C.
+  G = \bigcap_{Q\in C} Q^{-1} C.
 \end{equation*}
 
-As a set, $G$ is a subgroup of $(\IC^\times)^2$. But it is also Zariski
+As a set, $G$ is an algebraic subgroup of $\IG_m^2$. But it is also Zariski
 closed and of dimension at most $1$. So it is either finite or a
 curve. Observe that $\bfzeta C = C$ implies $\bfzeta\in G$. As
-$\bfzeta$ has order $\ell$. Although $\ell = O((\log n)^2)$ the proof
-can easily be modified to produce $\ell$ that is larger than any
-prescribed constant that depends on $C$. Therefore, $G$ must be
+$\bfzeta$ has order $\ell$. Although $\ell = O((\log n)^2)$, the
+Galois Homothety lemma also implies that $\ell$ is unbounded as $n$
+grows.
+Therefore, $G$ must be
 infinite and thus equal to a translate of $C$.
 
 Therefore, $C$ is special, and this completes the proof of
 Theorem~\ref{thm:ist}.
 
+\begin{exercise}
+  Prove that
+  $\bigcap_{Q\in C} Q^{-1} C = \{Q\in (\IC^\times)^2 : QC=C\}$.
+  This group is called the \emph{stabilizer} of $C$.
+\end{exercise}
 
 
 % So $P(\zeta_1 X,\zeta_2 Y)$ and $P(X,Y)$ define the same curve.
@@ -347,9 +358,19 @@ image is all of $E(\IC)$. After a normalization we may assume that
   \Omega = \mathrm{ker}(u) = \IZ+\tau\IZ
 \end{equation*}
 where $\tau\in \IH = \{z\in \IC : \mathrm{Im}(z)>0\}$. We call
-$\Omega$ a period lattice for $E$. The complex number $\tau$ is
-uniquely determined up-to the action of $\mathrm{SL}_2(\IZ)$ on $\IH$
-by fractional linear transformations. 
+$\Omega$ a period lattice for $E$.
+The complex number $\tau$ is uniquely determined up-to the action of
+$\mathrm{SL}_2(\IZ)$ on $\IH$ by a \emph{fractional linear transformation}.
+
+What is a fractional linear transformation?
+Let $\mattt{a}{b}{c}{d}\in\mathrm{GL}^+_2(\IR) = \{\gamma \in
+\mathrm{Mat}_2(\IR) : \det \gamma > 0\}$, then
+\begin{equation*}
+  \mattt{a}{b}{c}{d} \tau = \frac{a\tau+b}{c\tau +d}
+\end{equation*}
+where $\tau\in\IH$; this 
+is a $\IH\rightarrow\IH$.
+
 
 Any endomorphism of $E$ is a morphism $f\colon E\rightarrow E$ of
 algebraic varieties with $f(0)=0$. Let $\mathrm{End}(E)$ denote all
@@ -361,9 +382,10 @@ identify
   \mathrm{End}(E) = \{ \alpha\in\IC : \alpha \Omega \subset \Omega \}
   = \{\alpha\in \IC : \alpha\in \Omega, \alpha\tau\in \Omega\}. 
 \end{equation*}
-Clearly,  $\IZ$ is contained in the right-hand side. For example  $n\in\IN$
-correspond to the multiplication-by-$N$ endomorphism $[n](P) =
-\underbrace{P+\cdots +P}_{n\text{ times}}$ of $E$.
+Clearly,  $\IZ$ is contained in the right-hand side. For example  $N\in\IN$
+correspond to the multiplication-by-$N$ endomorphism $[N](P) =
+\underbrace{P+\cdots +P}_{N\text{ times}}$ of $E$.
+If $-N\in\IN$, then $[N](P) = -[-N](P)$ and finally $[0](P)=0$.  
 
 \begin{lemma}
   \label{lem:tauimagquad}
@@ -398,20 +420,22 @@ correspond to the multiplication-by-$N$ endomorphism $[n](P) =
 
 \begin{exercise}
   Show the following statement. If $\tau \in\IH$  with
-  $[\IQ(\tau):\IQ]$, then $\mathrm{End}(\IC/(\IZ+\tau \IZ))\supsetneq
+  $[\IQ(\tau):\IQ]=2$, then $\mathrm{End}(\IC/(\IZ+\tau \IZ))\supsetneq
   \IZ$. 
 \end{exercise}
 
 \begin{definition}
-  We say that $E$ has complex multiplication if
+  We say that $E$ has \emph{complex multiplication} if
   $\mathrm{End}(E)\supsetneq \IZ$. 
 \end{definition}
 
-If $E$ is presented algebraically via an Weierstrass equation $y^2 =
-x^3+ax+b$ with $a,b\in\IC$. Then the $j$-invariant $j(E)$ of $E$ equals
-\begin{equation*}
-  j(E) = 2^8 3^3 \frac{a^3}{4a^3+27b^2}. 
-\end{equation*}
+\begin{definition}
+  If $E$ is presented algebraically via an Weierstrass equation $y^2 =
+  x^3+ax+b$ with $a,b\in\IC$. Then the \emph{$j$-invariant} $j(E)$ of $E$ equals
+  \begin{equation*}
+    j(E) = 2^8 3^3 \frac{a^3}{4a^3+27b^2}. 
+  \end{equation*}  
+\end{definition}
 
 \begin{example}
   The elliptic curve $E$ presented by $y^2=x^3+x$ has the additional
@@ -421,8 +445,11 @@ x^3+ax+b$ with $a,b\in\IC$. Then the $j$-invariant $j(E)$ of $E$ equals
   \IZ)$. 
 \end{example}
 
-We come to an important fact: Two elliptic curves over $\IC$ are
-isomorphic if and only if their $j$-invariants are equal.
+We come to an important fact:
+\begin{theorem}
+  Two elliptic curves over $\IC$ are
+  isomorphic if and only if their $j$-invariants are equal.
+\end{theorem}
 
 As each complex number is the $j$-invariant of an elliptic curve we
 find: The $j$-invariant allows us to identify isomorphism classes of
@@ -431,26 +458,35 @@ affine line. To emphasize this modular property of the affine line we
 will sometimes denote it by $Y(1)=\IA^1$, which is standard notation
 for a modular curve in a certain infinite family.
 
-So $j(E) = j(\IC/(\IZ+\tau\IZ))$ is a function in $\tau$ that is
-invariant under the action of $\mathrm{SL}_2(\IZ)$. So we obtain a
-function $j\colon \IH\rightarrow \IC$ determined by $j(\tau) =
-j(\IC/(\IZ+\tau\IZ))$ for all $\tau\in\IH$; it is sometimes called
-Klein's $j$-functions. Observe that $j(\tau)=j(\tau+1)$ and $j(\tau) =
-j(-1/\tau)$. So $j$ is a modular function (of weight $0$),
-\textit{i.e.}, 
+\begin{definition}
+  The \emph{Klein's modular} $j$-function is the map
+  $j\colon\IH\rightarrow\IC$ given by  $j(\tau) =
+  j$-invariant of the elliptic curve $\IC/(\IZ+\tau\IZ)$. 
+\end{definition}
+So $j(\tau)$  invariant under the action of $\mathrm{SL}_2(\IZ)$.
+% So we obtain a
+% function $j\colon \IH\rightarrow \IC$ determined by $j(\tau) =
+% j(\IC/(\IZ+\tau\IZ))$ for all $\tau\in\IH$; it is sometimes called
+% Klein's $j$-functions.
+\textit{I.e.}, 
 \begin{equation*}
   j\left(\mattt{a}{b}{c}{d} \tau\right) = j\left(\frac{a\tau + b}{c\tau +d}\right) =
     \tau 
 \end{equation*}
 for all $\tau\in\IH$ and all $\mattt{a}{b}{c}{d}\in
 \mathrm{SL}_2(\IZ)$.
+In particular,  $j(\tau)=j(\tau+1)$ and $j(\tau) =
+j(-1/\tau)$. 
+
 
 The function equation $j(\tau)=j(\tau+1)$ shows that $j$ depends only
 on $q=e^{2\pi i \tau}$. It is sometimes useful to consider $j$ as a
 function in $q$.
 
 It turns out that much more is true: Klein's $j$-function is
-holomorphic on $\IH$ and meromorphic at infinity. It has a famous 
+holomorphic on $\IH$ and meromorphic at infinity.
+So $j$ is a modular function of weight $0$.
+It has a famous 
 a Taylor series in $q$, the first few terms\footnote{There is some
   dispute about where the constant terms $744$ is the ``right'' one.} of which are 
 \begin{equation*}
@@ -461,7 +497,7 @@ rational function in $j$.
 
 \begin{definition}
   \label{def:specialY1}
-  A special point of $Y(1)$ is the $j$-invariant of an elliptic curve
+  A \emph{special point} of $Y(1)$ is the $j$-invariant of an elliptic curve
   with complex multiplication. Equivalently: the set of special points
   of $Y(1)$ is $\{j(\tau) : \tau\in\IH \text{ and }[\IQ(\tau):\IQ]=2\}$. 
 \end{definition}
@@ -493,7 +529,7 @@ special points of $Y(1)$. It is a consequence of class field theory.
 The Conjecture of Andr\'e--Oort is the analog (and generalization) of
 the Theorem of Ihara--Serre--Tate in this modular side.
 
-For this let us just consider $Y(1)^2$ instead of $(\IC^\times)^2$.
+For this let us just consider $Y(1)^2$ instead of the algebraic group $\IG_m^2$.
 \begin{definition}
   \label{def:specialY1m}
   The set of special points of  $Y(1)^m$ is
@@ -517,16 +553,23 @@ points? There are some immediate classes.
 These are first candidates of special curves in $Y(1)^2$. 
 But there is collection of non-trivial.
 
-Recall that an isogeny of two elliptic curves $E_1$ and $E_2$, both
-defined over $\IC$, is a non-constant morphism $f\colon E_1\rightarrow
-E_2$ of algebraic varieties with $f(0)=0$. It turns out that $f$ must
-then be finite and has a finite kernel $\mathrm{ker}(f)$.
-We call $f$ a \emph{cyclic isogeny}, if $\mathrm{ker}(f)$ is a cycle
-group. The degree $\deg f$ of $f$ is the cardinality of $\mathrm{ker}(f)$. 
+\begin{definition}
+  An \emph{isogeny} $f\colon E_1\rightarrow E_2$ of elliptic curves,
+  both defined over $\IC$, is a non-constant morphism of algebraic
+  varieties with $f(0)=0$. If $E_i$ is represented by
+  $\IC/(\IZ+\tau_i\IZ)$, for $i\in \{1,2\}$, then $f$ descends from the
+  multiplication-by-$\alpha$ map $\IC\rightarrow\IC$ where
+  $\alpha\in\IC^\times$ satisfies $\alpha(\IZ+\tau_1\IZ)\subset
+  \IZ+\tau_2\IZ$.
+  We call $f$ a \emph{cyclic isogeny}, if $\mathrm{ker}(f)$ is a cycle
+  group.
+\end{definition}
 
-In $E_i$ is represented by $\IC/(\IZ+\tau_i\IZ)$, for $i\in \{1,2\}$,
-then $f$ is represented by a $\IC$-linear map $\IC\rightarrow\IC$ that
-maps $\IZ+\tau_1\IZ$ to $\IZ+\tau_2\IZ$.
+An isogeny $f$ is necessarily a finite morphism
+that induces a homomorphism $E_1(\IC)\rightarrow E_2(\IC)$ 
+with a finite kernel $\mathrm{ker}(f)$.
+The degree $\deg f$ of $f$ is the order of $\mathrm{ker}(f)$. 
+
 
 \begin{deflemma}
   \label{deflem:modtranspoly}
@@ -555,10 +598,10 @@ maps $\IZ+\tau_1\IZ$ to $\IZ+\tau_2\IZ$.
   For general $N$, the degree of $\Phi_N$ as a polynomial in $X$
   satisfies
   \begin{equation*}
-    \deg_X \Phi_N = N\prod_{p\ell N}\left(1+\frac 1p\right). 
+    \deg_X \Phi_N = N\prod_{p\mid N}\left(1+\frac 1p\right). 
   \end{equation*}
-  Moreover, $\Phi_N(X,Y) = \Phi_N(Y,X)$ for $N\ge 1$. In any case
-  $\deg_X \Phi_N = \deg_Y \Phi_N$.
+  Moreover, $\Phi_N(X,Y) = \Phi_N(Y,X)$ for $N\ge 2$. And
+  $\deg_X \Phi_N = \deg_Y \Phi_N$ for all $N\ge 1$. 
 
   The growth of the coefficients of $\Phi_N$ is described precisely in
   work of Cohen~\cite{Cohen}. There it is proved that the
@@ -584,13 +627,13 @@ We conclude that for all $N\ge 1$, the zero set $Z(\Phi_N)\subset
 Y(1)^2$ of $\Phi_N$ contains infinitely many special points.
 
 \begin{definition}
-  An algebraic curve  $C\subset Y(1)^2$ is called a special curve of
+  An algebraic curve  $C\subset Y(1)^2$ is called a \emph{special curve} of
   $Y(1)^2$ 
   \begin{enumerate}
   \item [(i)] if $C = \{z\}\times Y(1)$ for a special point $z$, or
-\item [(ii)] if $C =  Y(1)\times \{z\}$ for a special point $z$, or
-\item[(iii)] if $C=Z(\Phi_N)$ for some $N\in\IN$. 
-\end{enumerate}
+  \item [(ii)] if $C =  Y(1)\times \{z\}$ for a special point $z$, or
+  \item[(iii)] if $C=Z(\Phi_N)$ for some $N\in\IN$. 
+  \end{enumerate}
 \end{definition}
 
 The content of the Andr\'e--Oort Conjecture is the converse of the
@@ -598,7 +641,7 @@ observations above.
 
 \begin{theorem}[Andr\'e--Oort for $Y(1)^2$, Andr\'e~\cite{Andre:AO},
   Edixhoven~\cite{Edixhoven:AO} under GRH, Pila~\cite{Pila:AO} for
-  subvarieties of $Y(1)^n$, effective versions by
+  subvarieties of $Y(1)^m$, effective versions by
   Bilu--Masser--Zannier~\cite{} and K\"uhne~\cite{}]
   \label{thm:ao}
   Let $C\subset Y(1)^2$ be an irreducible curve. Then
