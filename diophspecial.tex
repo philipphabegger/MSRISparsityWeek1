@@ -30,11 +30,12 @@ And so was born the Manin--Mumford Conjecture. The conjecture was
 proved by Raynaud~\cite{Raynaud:MM} and it will be a guiding principle of this
 course. 
 
-Before moving on to Jacobians let us attempt to translate this question
-from the world of jacobians to that  of the algebraic group $\IG_{\mathrm{m}}^2$. By
-curve we consider an irreducible algebraic curve $C\subset
-\IG_{\mathrm{m}}^2$ defined over $\IC$. Then $C$ is given by the zero set of
-an almost uniquely determined polynomial $P\in \IC[X,Y]$.
+First, let us attempt to translate this question
+from the world of Jacobians to that  of the algebraic group $\IG_{\mathrm{m}}^2$. By
+curve we mean an irreducible algebraic curve $C\subset
+\IG_{\mathrm{m}}^2$ defined over $\IC$. Then $C(\IC)$ is
+the zero set of
+an almost uniquely determined irreducible polynomial $P\in \IC[X,Y]$.
 In fact, it is more natural to work with the ring of
 Laurent polynomials $\IC[X^{\pm 1},Y^{\pm 1}]$, this is the ring of
 regular functions of $\IG_{\mathrm{m}}^2$.
@@ -52,18 +53,18 @@ look at some examples.
     $(z,w)\in(\IC^\times)^2$ has finite order with $P(z,w)=0$, then
     both $z$ and $1-z=w$ lie on the unit circle $S^1= \{z\in\IC :
     |z|=1\}\supset\mu_\infty$. 
-    Considering a picture we find exactly two possibilities    
+    After drawing a picture we find exactly two possibilities    
     $$
     (z,w) \in \left\{ (e^{2\pi i/6},e^{-2\pi i/6}),(e^{-2\pi
         i/6},e^{2\pi i/6})\right\}.
     $$
-    So $C\cap \IG^2_{{\mathrm{m}},\mathrm{tors}}$ has two elements.
+    So $C(\IC)\cap \IG^2_{{\mathrm{m}},\mathrm{tors}}$ has two elements.
 
   \item[(ii)] Consider the curve $C$ defined by
     $P=X^{2021}Y^{-2022}-1$. Then
     $P(z,w)=0$ for all $(z,w)\in \{(e^{4044\pi iq},e^{4042\pi i
       q}) : q\in\IQ\}$.
-    So here we have infinitely many solutions in $\mu^2$.
+    There are infinitely many solutions in $\mathbb{G}_{\mathrm{m}}^2$.
   \end{itemize}
 \end{example}
 
@@ -95,7 +96,8 @@ presented here without proof. For a reference see Chapter 3.2~\cite{BG}.
   \label{lem:specialGm2}
   If $Z(P)$ is special, then up-to a monomial factor
   $P=X^rY^s-\zeta$ where $(r,s)\in\IZ^2\ssm\{0\}$
-  and $\zeta$ a root of unity. 
+  satisfies $\gcd(r,s)=1$ 
+  and $\zeta$ is a root of unity. 
 \end{lemma}
 
 In the first example, the set $\{(z,w) \in S^1\times S^1 : z+w=1\}$
@@ -110,21 +112,22 @@ $Z(P)\cap (S^1)^2$ is finite, then so is $Z(P) \cap \IG^2_{{\mathrm{m}},\mathrm{
 \end{exercise}
 %% Hint: Blaschke products
 
-Lang's paper contains a proof of the follow theorem which he
-attributes to Ihara, Serre, and Tate.
+Lang's paper contains a proof of the follow theorem. He
+attributes it to Ihara, Serre, and Tate who independently found
+proofs. 
 
 \begin{theorem}
   \label{thm:ist}
   Let $C\subset \IG_{\mathrm{m}}^2$ be an irreducible algebraic curve.
   Then
   \begin{equation*}
-    C \cap \IG^2_{{\mathrm{m}},\mathrm{tors}}\text{ is infinite}\quad\Longleftrightarrow\quad \text{$C$ is special}. 
+    C(\IC) \cap \IG^2_{{\mathrm{m}},\mathrm{tors}}\text{ is infinite}\quad\Longleftrightarrow\quad \text{$C$ is special}. 
   \end{equation*}
 \end{theorem}
 
 The direction ``$\Longleftarrow$'' is the content of
-Exercise~\ref{exer:infinitemany} combined with
-Lemma~\ref{lem:specialGm2}. We will prove ``$\Longrightarrow$'' follow
+Lemma~\ref{lem:specialGm2}. 
+ We will prove ``$\Longrightarrow$'' follow
 the approach of Tate (which is similar to Serre's).
 
 \begin{exercise}
@@ -132,16 +135,16 @@ the approach of Tate (which is similar to Serre's).
 \end{exercise}
 
 We we split the proof sketch up into several steps. We assume that
-$C=Z(P)$ intersects $\IG^2_{{\mathrm{m}},\mathrm{tors}}=\mu_\infty^2$
-in an infinite set where $P\in
-\IC[X^{\pm 1},Y^{\pm 1}]$ is irreducible.
+$C(\IC)$ intersects $\IG^2_{{\mathrm{m}},\mathrm{tors}}=\mu_\infty^2$
+in an infinite set where $C$ is determined by an irreducible $P\in
+\IC[X^{\pm 1},Y^{\pm 1}]$.
 Our aim is to show that $C$ is special, in other words, $P$ is up-to a
 monomial factor of the form $X^rY^s-\zeta$ with $\zeta$ a root of
 unity. 
 
 The theorem is ultimately of arithmetic nature and Tate's proof uses
 input from number theory. The basic observation is that
-$\mathrm{G}_{m,\mathrm{tors}}\subset
+$\mathbb{G}^2_{m,\mathrm{tors}}\subset
 (\IQbar^\times)^2$ with $\IQbar$ the algebraic closure
 of $\IQ$ in $\IC$.
 
@@ -153,8 +156,9 @@ multiplication by a non-zero complex number. To do this we may assume
 that $P$ is a polynomial of degree $d\ge 1$.
 
 Consider a polynomial $Q\in
-\IQbar[X,Y]$ of degree $e\ge 1$ whose coefficients are unknowns. So
-$Q$ has a total of $N = \frac 12 e(e+1)$ coefficients. 
+\IQbar[X,Y]$ of degree $e\ge 1$ whose coefficients are treated for the
+moment unknowns. So
+$Q$ has a total of $N = \frac 12 (e+1)(e+2)$ coefficients. 
 By hypothesis there are infinitely many distinct
 $\zeta_1,\zeta_2,\ldots \in Z(P)\cap (\IC^\times)^2$.
 The equations $Q(\zeta_1) = \cdots = Q(\zeta_{N-1})=0$
@@ -165,17 +169,17 @@ there exists $Q\in \IQ[X,Y]$ with $Q\not=0$  and $\deg Q \le e$ that vanishes at
 $\zeta_1,\ldots,\zeta_{N-1}$. But $P$ vanishes at these same points.
 If $P$ does not divide $Q$, then B\'ezout's Theorem implies
 \begin{equation*}
-  \frac 12 e(e+1)-1=  N-1 \le \text{number of common zeros of $P$ and $Q$} \le de.
+  \frac 12 (e+1)(e+2)-1=  N-1 \le \text{number of common zeros of $P$ and $Q$} \le de.
 \end{equation*}
-As the right-hand side grows quicker in $e$ than the left-hand side we obtain a
+As the left-hand side eventually surpasses  the right-hand side we obtain a
 contradiction for $e$ large enough. So $P$ is a divisor of $Q$ and
-therefore must have coefficients in $\IQbar$ by multiplying by a non-zero
+therefore must have coefficients in $\IQbar$ after multiplying with a non-zero
 scalar. 
 
-So $P \in K[X^{\pm 1},Y^{\pm 1}]$ where $K$ is a number field that we may assume is
-Galois over $\IQ$. To keep the notation light we will assume for
-simplicity $K=\IQ$. The general case follows along similar lines with
-some extra bookkeeping.
+So $P \in K[X^{\pm 1},Y^{\pm 1}]$ where $K$ is a number field. To keep
+our notation light we will assume for simplicity
+$K=\IQ$. The general case follows along similar lines with some extra
+bookkeeping.
 
 \subsubsection{Roots of Unity and Their Galois Conjugates}
 \label{sec:rootsof1}
@@ -190,7 +194,7 @@ $X^n-1$. Some important facts:
 \item The roots of $\phi_n$ are $\{\zeta^a : a\in
   (\IZ/n\IZ)^\times\}$. In particular, $\phi_n$ depends only on $n$
   and $\IQ(\zeta)/\IQ$ is a Galois extension. 
-\item The degree $\deg \phi_n = \varphi(n)= n \prod_{p\mid n}
+\item The degree $\deg \phi_n = \#(\IZ/n\IZ)^\times = \varphi(n)= n \prod_{p\mid n}
   \left(1-\frac 1p\right)$, where the product runs over prime divisors
   of $n$. Here $\varphi$ is also called Euler's totient function.
 \end{itemize}
@@ -217,8 +221,9 @@ $\varphi(n)$ where $n$ is the order of $(\zeta,\xi)$.
   Factor $n=p_1^{e_1}\cdots p_g^{e_g}$ into primes $p_1<p_2<\cdots <
   p_g$ and $e_1,\ldots,e_g\in\IN$. Then $\varphi(n) = \prod_{i=1}^g
   p_i^{e_i-1}(p_i-1)$. Then $p_i^{e_i-1}(p_i-1)\ge p_i^{e_i/2}$ except
-  if $p_i^{e_i}=2$, \textit{i.e.}, $p_i=2,e_i=1$, in which case we
-  need the factor $2^{-1/2}$. 
+  if $p_i^{e_i}=2$, \textit{i.e.}, $p_i=2,e_i=1$. This edge case if
+  responsible for the
+  factor $2^{-1/2}$. 
 \end{proof}
 
 
@@ -226,7 +231,7 @@ $\varphi(n)$ where $n$ is the order of $(\zeta,\xi)$.
   Say $(\zeta,\xi)\in \mu_\infty^2$ has order $n\ge 2$
   with $P(\zeta,\xi)=0$. There exists a prime number $\ell=O((\log
   n)^2)$ with $P(\zeta^\ell,\xi^\ell)=0$.
-  Moreover, we can arrange that $\ell \ge c (\log n)^2$ for some
+  Moreover, we can arrange $\ell \ge c (\log n)^2$ for some
   absolute constant $c>0$. 
 \end{lemma}
 \begin{proof}
@@ -238,15 +243,15 @@ $\varphi(n)$ where $n$ is the order of $(\zeta,\xi)$.
   distinct prime divisors of $n$ is at most $(\log n)/\log 2$.
   So there is a  prime number $\ell$ that does not divide $n$
   that satisfies $\ell =
-  O((\log n)^2)$. By the crucial observation we conclude
+  O((\log n)^2)$. By the Crucial Observation we conclude
   $P(\zeta^\ell,\xi^\ell)=0$.
   We can arrange that $\ell\ge c(\log\ell)^2$ by exploiting the
   asymptotical lower bound in the Prime Number Theorem.
 \end{proof}
 
-Now we can put things together. Let us again multiply $P$ by a
+Now we can put things together. Let us again multiply $P$ by with
 monomial so that it becomes a polynomial.
-Let $(\zeta,\xi)\in \mu_\infty^2$ have order $n\ge 2$ with
+Suppose $(\zeta,\xi)\in \mu_\infty^2$ has order $n\ge 2$ with
 $P(\zeta,\xi)=0$. Let $\ell$ be a prime as in the Galois Homothety
 Lemma.
 Then
@@ -296,7 +301,7 @@ $\IG_{\mathrm{m}}^2$ by a point of finite order. % After translating we may
 
 To this end consider
 \begin{equation*}
-  G = \bigcap_{Q\in C} Q^{-1} C.
+  G = \bigcap_{Q\in C(\IC)} Q^{-1} C.
 \end{equation*}
 
 As a set, $G$ is an algebraic subgroup of $\IG_{\mathrm{m}}^2$. But it is also Zariski
@@ -306,7 +311,11 @@ $\bfzeta$ has order $\ell$. Although $\ell = O((\log n)^2)$, the
 Galois Homothety lemma also implies that $\ell$ is unbounded as $n$
 grows.
 Therefore, $G$ must be
-infinite and thus equal to a translate of $C$.
+infinite and thus $\dim G=1$.
+
+Now fix any $\bfzeta\in C(\IC)\cap \IG_{\mathrm{m,tors}}^2$. By definition
+of $G$ we have $\bfzeta G \subset C$ and so $\bfzeta G = C$ for
+dimension reasons. 
 
 Therefore, $C$ is special, and this completes the proof of
 Theorem~\ref{thm:ist}.
@@ -348,12 +357,12 @@ multiplication.
 
 Let us regard an elliptic curve $E$ defined over $\IC$ from the
 complex analytic point of view. Thus $E(\IC)$ carries the structure of
-a complex Lie group and there is a holomorphic uniformation map
+a complex Lie group and there is a surjective, holomorphic map
 \begin{equation*}
   u \colon \IC \rightarrow E(\IC)
 \end{equation*}
-whose kernel equals rank $2$ discrete subgroup of $\IC$ and whose
-image is all of $E(\IC)$. After a normalization we may assume that
+whose kernel is a rank $2$ discrete subgroup of $\IC$.
+After a normalization we may assume that
 \begin{equation*}
   \Omega = \mathrm{ker}(u) = \IZ+\tau\IZ
 \end{equation*}
@@ -368,16 +377,21 @@ Let $\mattt{a}{b}{c}{d}\in\mathrm{GL}^+_2(\IR) = \{\gamma \in
 \begin{equation*}
   \mattt{a}{b}{c}{d} \tau = \frac{a\tau+b}{c\tau +d}
 \end{equation*}
-where $\tau\in\IH$; this 
-is a $\IH\rightarrow\IH$.
+where $\tau\in\IH$; so the $2\times 2$ matrix induces a map $\IH\rightarrow\IH$.
 
+\begin{definition}
+  Any \emph{endomorphism} of $E$ is a morphism $f\colon E\rightarrow E$ of
+  algebraic varieties with $f(0)=0$. Let $\mathrm{End}(E)$ denote all
+  endomorphisms of $E$.   
+\end{definition}
 
-Any endomorphism of $E$ is a morphism $f\colon E\rightarrow E$ of
-algebraic varieties with $f(0)=0$. Let $\mathrm{End}(E)$ denote all
-endomorphisms of $E$. Any $f\in \mathrm{End}(E)$ is
+Endomorphisms of elliptic curves are automatically homomorphism of
+algebraic groups. 
+
+Any $f\in \mathrm{End}(E)$ is
 induced by a unique $\IC$-linear map
 $\IC\rightarrow \IC$ that maps $\Omega$ to itself. In other words, we
-identify
+may identify
 \begin{equation*}
   \mathrm{End}(E) = \{ \alpha\in\IC : \alpha \Omega \subset \Omega \}
   = \{\alpha\in \IC : \alpha\in \Omega, \alpha\tau\in \Omega\}. 
@@ -431,7 +445,7 @@ If $-N\in\IN$, then $[N](P) = -[-N](P)$ and finally $[0](P)=0$.
 
 \begin{definition}
   If $E$ is presented algebraically via an Weierstrass equation $y^2 =
-  x^3+ax+b$ with $a,b\in\IC$. Then the \emph{$j$-invariant} $j(E)$ of $E$ equals
+  x^3+ax+b$ with $a,b\in\IC$,  then the \emph{$j$-invariant} $j(E)$ of $E$ equals
   \begin{equation*}
     j(E) = 2^8 3^3 \frac{a^3}{4a^3+27b^2}. 
   \end{equation*}  
@@ -440,8 +454,8 @@ If $-N\in\IN$, then $[N](P) = -[-N](P)$ and finally $[0](P)=0$.
 \begin{example}
   The elliptic curve $E$ presented by $y^2=x^3+x$ has the additional
   endormorphism
-  $(x,y)\mapsto (-x, i y)$. Its $j$-invariant equals $1728$. The
-  complex picture goes as follows, we have $E(\IC)\cong \IC/(\IZ+i
+  $(x,y)\mapsto (-x, i y)$. Its $j$-invariant equals $1728$. On the
+  complex side we have $E(\IC)\cong \IC/(\IZ+i
   \IZ)$. 
 \end{example}
 
@@ -454,9 +468,9 @@ We come to an important fact:
 As each complex number is the $j$-invariant of an elliptic curve we
 find: The $j$-invariant allows us to identify isomorphism classes of
 elliptic curves over $\IC$ with the set of complex points of the
-affine line. To emphasize this modular property of the affine line we
-will sometimes denote it by $Y(1)=\IA^1$, which is standard notation
-for a modular curve in a certain infinite family.
+affine line $\IA^1$. To emphasize this modular property we use $Y(1)$
+to denote $\IA^1$ in the context of the Andr\'e--Oort Conjecture. This
+is standard notation for a modular curve in a certain infinite family.
 
 \begin{definition}
   The \emph{Klein's modular} $j$-function is the map
@@ -506,7 +520,8 @@ The set of special points is at most countable infinite and it is
 indeed infinite since $j$ is non-constant.
 
 The following theorem extends the analogy between roots of unity and
-special points of $Y(1)$. It is a consequence of class field theory. 
+special points of $Y(1)$. It is closely related to class field theory.
+
 \begin{theorem}
   \label{thm:galoisspecial}
   Let $z\in \IC$ be a special point of $Y(1)$ with $z=j(\tau)$ where
@@ -527,9 +542,12 @@ special points of $Y(1)$. It is a consequence of class field theory.
 \end{theorem}
 
 The Conjecture of Andr\'e--Oort is the analog (and generalization) of
-the Theorem of Ihara--Serre--Tate in this modular side.
+the Theorem of Ihara--Serre--Tate in this modular side. Its most
+general formalization involves Shimura and even mixed Shimura
+varieties. It remains a conjecture in this up-most generality. 
 
-For this let us just consider $Y(1)^2$ instead of the algebraic group $\IG_{\mathrm{m}}^2$.
+But we will consider the case $Y(1)^2$ instead of the algebraic group
+$\IG_{\mathrm{m}}^2$.
 \begin{definition}
   \label{def:specialY1m}
   The set of special points of  $Y(1)^m$ is
@@ -550,8 +568,8 @@ points? There are some immediate classes.
   \end{enumerate}
 \end{example}
 
-These are first candidates of special curves in $Y(1)^2$. 
-But there is collection of non-trivial.
+These are the first candidates of special curves in $Y(1)^2$. 
+But there are more.
 
 \begin{definition}
   An \emph{isogeny} $f\colon E_1\rightarrow E_2$ of elliptic curves,
@@ -561,8 +579,9 @@ But there is collection of non-trivial.
   multiplication-by-$\alpha$ map $\IC\rightarrow\IC$ where
   $\alpha\in\IC^\times$ satisfies $\alpha(\IZ+\tau_1\IZ)\subset
   \IZ+\tau_2\IZ$.
-  We call $f$ a \emph{cyclic isogeny}, if $\mathrm{ker}(f)$ is a cycle
-  group.
+  We call $f$ a \emph{cyclic isogeny}, if the (necessarily finite)
+  group
+  $\mathrm{ker}(f)$ is a cycle.
 \end{definition}
 
 An isogeny $f$ is necessarily a finite morphism
@@ -585,7 +604,7 @@ The degree $\deg f$ of $f$ is the order of $\mathrm{ker}(f)$.
 \end{deflemma}
 
 \begin{example}
-  For $N=1$ we recover the diagonal $\{(z,z) : z\in\IC\}$, so $\Phi_1
+  For $N=1$ we recover the diagonal $\{(z,z) : z\in\IC\}$, here $\Phi_1
   = X-Y$. 
   Already for $N=2$ the polynomial is quite complicated. Indeed,
   \begin{alignat*}1
@@ -598,15 +617,17 @@ The degree $\deg f$ of $f$ is the order of $\mathrm{ker}(f)$.
   For general $N$, the degree of $\Phi_N$ as a polynomial in $X$
   satisfies
   \begin{equation*}
-    \deg_X \Phi_N = N\prod_{p\mid N}\left(1+\frac 1p\right). 
+    \deg_X \Phi_N = \deg_Y\Phi_N= N\prod_{p\mid N}\left(1+\frac 1p\right). 
   \end{equation*}
-  Moreover, $\Phi_N(X,Y) = \Phi_N(Y,X)$ for $N\ge 2$. And
-  $\deg_X \Phi_N = \deg_Y \Phi_N$ for all $N\ge 1$. 
+  Moreover, $\Phi_N(X,Y) = \Phi_N(Y,X)$ for $N\ge 2$.
 
   The growth of the coefficients of $\Phi_N$ is described precisely in
   work of Cohen~\cite{Cohen}. There it is proved that the
-  coefficients of $\Phi_N$ grow superexponentially in $N$. 
+  coefficients of $\Phi_N$ grow superexponentially in $N$ in absolute value. 
 \end{example}
+
+The modular transformation polynomials provide even more functional
+equations for Klein's modular $j$-function. 
 
 \begin{lemma}
   Let $N\in\IN$, then $\Phi_N(j(\tau),j(N\tau))=0$ for all
@@ -642,7 +663,7 @@ observations above.
 \begin{theorem}[Andr\'e--Oort for $Y(1)^2$, Andr\'e~\cite{Andre:AO},
   Edixhoven~\cite{Edixhoven:AO} under GRH, Pila~\cite{Pila:AO} for
   subvarieties of $Y(1)^m$, effective versions by
-  Bilu--Masser--Zannier~\cite{} and K\"uhne~\cite{}]
+  Bilu--Masser--Zannier~\cite{BMZ:effectiveAO} and K\"uhne~\cite{Kuehne:effectiveAO}]
   \label{thm:ao}
   Let $C\subset Y(1)^2$ be an irreducible curve. Then
   \begin{equation*}
@@ -653,21 +674,22 @@ observations above.
 \end{theorem}
 
 There are many different proofs of this theorem. We will later get to
-know Pila's approach much better. But first let us review the proof of
+know the Pila--Zannier counting strategy that leads to a proof.
+But first let us review the proof of
 Edixhoven. It is similar in spirit for the proof of Serre and Tate of
-Theorem~\ref{thm:ist}. In addition it is conditional on the Generalized
+Theorem~\ref{thm:ist}. It is conditional on the Generalized
 Riemann Hypothesis (GRH).
 
 As we have seen above, the deep part of Theorem~\ref{thm:ao} is the
 implication
-``$\Longrightarrow$''.
+``$\Longrightarrow$''. We will sketch a proof of this implication. 
 
 \subsubsection{Reduction to the Case $P \in \IQbar[X,Y]$.}
 This step works just as in the proof of Theorem~\ref{thm:ist}
 presented above.
 
-For simplicity we will assume that $P\in \in\IQ[X,Y]$ is irreducible
-in $\IC$. 
+For simplicity we will assume that $P \in\IQ[X,Y]$ is irreducible
+in $\IC[X,Y]$. 
 
 \subsubsection{Special Points and their Galois Conjugates}
 
@@ -686,15 +708,20 @@ to be
 where $\mathcal{O}_F$ is the maximal order of $F$, \textit{i.e.}, the
 ring of algebraic integers of $F$. 
 
-Let us assume for simplicity that the orders attached to 
-both $z$ and $w$ are maximal.\footnote{This assumption is made in
-  order to avoid technicalities when dealing with non-Dedekind
-  orders.}
-We also assume $\Delta =
-\Delta_z=\Delta_w$ are equal. \footnote{This second reduction step
-  somewhat more subtle.
-  Although Andr\'e and Edixhoven's proofs are different, they both use
-  this reduction step.}
+Let us make two simplifying assumptions:
+\begin{itemize}
+\item We assume that the orders attached to 
+  both $z$ and $w$ are maximal, so they are both the ring of integers in
+  the respective imaginary quadratic number field.\footnote{This assumption is made in
+    order to avoid technicalities when dealing with non-Dedekind
+    orders.}
+\item We also assume that 
+  $\Delta =
+  \Delta_z=\Delta_w$ are equal.  \footnote{This second reduction step
+    somewhat more subtle.
+    Although Andr\'e and Edixhoven's proofs are different, they both use
+    this reduction step.}
+\end{itemize}
 
 \begin{lemma}[Large Galois Orbit]
   \label{lem:lgocm}
@@ -714,7 +741,7 @@ We also assume $\Delta =
 What is the analog of the Homothety Lemma? To find this out we need
 the analog of multiplication-by-$N$ for $Y(1)^2$. However, there is
 no group structure that is compatible with out moduli problem.
-However, we do have the Modular Transformation Polynomials $\Phi_N$
+However, we do have the modular transformation polynomials $\Phi_N$
 and we can use them to transform our curve.
 
 \begin{definition}
@@ -751,19 +778,22 @@ Now we can formulate the Homothety Lemma in the modular case.
   the Artin map. As $F(z)=F(w)$ by hypothesis, the same $\sigma$ works
   for $w$ and produces $\sigma(w)=w'$.
 
-  So the goal is to find a small split prime in $F$. Approximately
-  have of all primes split in $F$. So
+  So the goal is to find a small split prime in $F$. Approximately,
+  half of all rational primes split in $F$. More precisely,
   \begin{equation*}
     \{\ell \le x : \ell \text{ splits in }F\} = \frac 12 \underbrace{\int_2^x
       \frac{\mathrm{d} t}{\log t}}_{=\mathrm{Li}(x)} + o(\mathrm{Li}(x))
-    \quad\text{as}\quad x\rightarrow\infty. 
+    \quad\text{as}\quad x\rightarrow\infty
   \end{equation*}
+  by the Chebotarev Density Theorem.
+
   But the problem is that $K$ is
   varying and we need a good dependency on $K$ in the error term
   $o(\cdots)$.
   A suitable version of GRH tells us that the error term can be taken
   as
-  $\frac 16 \sqrt x (\log|\Delta| + 2\log(x))$ for $x$ large enough.
+  $\frac 16 \sqrt x (\log|\Delta| + 2\log(x))$ for $x$ large enough,
+  see~\cite{Serre:chebotareveff}. 
   The claim follows as $\mathrm{Li}(x)\sim x/\log x$. 
 \end{proof}
 
@@ -803,15 +833,23 @@ is bounded and this means that $(z,w)$ is in a finite set that depends
 only on $C$. In other words, $C$ contains at most finitely many
 special points of $Y(1)^2$.
 
-But this cannot be correct! We never assumed that $C$ is not a special
-curve and we know that special curves contain infinitely many special
-points. So the argument above contains a gap. But where is it? It is
-in the application of B\'ezout's Theorem, we only get a cardinality
-bound if $C\not\subset T_\ell(C)$. This is final step, the functional
-Functional Transcendence argument, involves showing that $C\not\subset
-T_\ell(C)$ for all sufficiently large primes $\ell$ if $C$ is not a
-special curve. We skip Edixhoven's approach to this problem and will
-revisit it later after doing some o-minimal geometry. 
+But this cannot be correct! We
+know that special curves contain infinitely many special
+points. So there must be a gap if we go through the argument starting
+out with a special curve. But where is the gap?
+
+It is
+in the application of B\'ezout's Theorem. We only get a cardinality
+bound if $C\not\subset T_\ell(C)$. This is final step.
+
+\begin{theorem}[Edixhoven]
+  Suppose $C\subset Y(1)^2$ is an irreducible curve with $C\subset
+  T_\ell(C)$ for a sufficiently large prime $\ell$. Then $C$ is a
+  special curve. 
+\end{theorem}
+
+We skip Edixhoven's approach to this problem and will
+revisit it at later point.
 
 
 

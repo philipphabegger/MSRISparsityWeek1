@@ -75,7 +75,7 @@
   \IG_m^2$ determined  by the zero set $Z(P)$ of
   some $P\in \IC[X^{\pm 1},Y^{\pm 1}]$.
 
-  The  torsion points are
+  The ``points of finite period'' or  torsion points are
   $$ \IG_{m,\mathrm{tors}}^2= \mu_\infty^2  \text{ where
   }\mu_\infty = \{\zeta :\exists n\in\IN=\{1,2,3,\ldots\}: \zeta^n=1 \}.$$
 \end{frame}
@@ -84,7 +84,7 @@
   \begin{example}
     \begin{itemize}
     \item [(i)] Say $P = X+Y-1$. As $\mu_\infty \subset \{|z|=1\}$, 
-      there are two torsion points:
+      the zero set $Z(P)$ contains two torsion points
       $$
       (z,w) \in \left\{ (e^{2\pi i/6},e^{-2\pi i/6}),(e^{-2\pi
           i/6},e^{2\pi i/6})\right\}.
@@ -101,11 +101,12 @@
   \end{example}
 
   \begin{definition}
-    An algebraic curve $C\subset \IG_m^2$
+    An irreducible algebraic curve $C\subset \IG_m^2$
     is called \alert{special} or a \alert{torsion coset} if it is the translate of an algebraic subgroup by
-    a point of finite order. Equivalently,
-    $C$  is the zero set of    $P=X^rY^s-\eta$ where $(r,s)\in\IZ^2\ssm\{0\}$
-    and $\eta$ a root of unity. 
+    a point of finite order. Equivalently${}^*$,
+    $C$  is the zero set of    $P=X^rY^s-\eta$ where
+    $\gcd(r,s)=1$ 
+    and $\eta$ is a root of unity. 
   \end{definition}
 \end{frame}
 
@@ -114,7 +115,7 @@
     Let $C\subset \IG_m^2$ be an irreducible algebraic curve.
     Then
     \begin{equation*}
-      C \cap \mu_\infty^2\text{ is infinite}\quad\Longleftrightarrow\quad \text{$C$ is special}. 
+      C(\IC) \cap \mu_\infty^2\text{ is infinite}\quad\Longleftrightarrow\quad \text{$C$ is special}. 
     \end{equation*}
   \end{theorem}
 
@@ -165,9 +166,9 @@
   % algebraic after rescaling.
   For $e\in\IN$  linear algebra gives us
   $Q\in\IQbar[X,Y]\ssm\{0\}$ of degree $\le e$ vanishing at 
-  $e(e+1)/2$  points of $\mu_\infty^2$. If $Z(P)\cap Z(Q)$ is finite, then
+  $(e+1)(e+2)/2$  points of $\mu_\infty^2$. If $Z(P)\cap Z(Q)$ is finite, then
   $$
-  \frac{e(e+1)}{2} \le \# Z(P)\cap Z(Q) \ll e
+  \frac{(e+1)(e+2)}{2} \le \# Z(P)\cap Z(Q) \ll e
   $$
   by  B\'ezout. So $P \mid Q$ for large enough $e$. So $P$ has
   algebraic coefficients after rescaling. 
@@ -178,8 +179,8 @@
 \end{frame}
 
 \begin{frame}{Roots of Unity}
-  Let $\zeta\in\mu_\infty$ have order $n$.
   \begin{theorem}
+    Let $\zeta\in\mu_\infty$ have order $n$.
     \begin{enumerate}
     \item [(i)] The Galois conjugates over $\IQ$ of $\zeta$  are $\{\zeta^a : a\in
       (\IZ/n\IZ)^\times\}$. In particular,
@@ -206,25 +207,27 @@
     constant $c>0$. 
   \end{lemma}
   \begin{proof}
-    The Prime Number Theorem states that the number of primes $\le x$ is
-    asymptotically equal to $x/\log x$ for $x\ge 2$.
-    The number of
-    distinct prime divisors of $n$ is at most $(\log n)/\log 2$.
-    So the least prime number $\ell$ that does not divide $n$ satisfies $\ell =
-    O((\log n)^2)$.
+    \vspace{4.5cm}
+    % The Prime Number Theorem states that the number of primes $\le x$ is
+    % asymptotically equal to $x/\log x$ for $x\ge 2$.
+    % The number of
+    % distinct prime divisors of $n$ is at most $(\log n)/\log 2$.
+    % So the least prime number $\ell$ that does not divide $n$ satisfies $\ell =
+    % O((\log n)^2)$.
 
-    So there exists $\sigma\in\mathrm{Gal}(\IQ(\zeta,\xi)/\IQ)$ with
-    $\sigma(\zeta)=\zeta^\ell$ and
-    $\sigma(\xi)=\xi^\ell$.
-    $$0=P(\zeta,\xi)\Rightarrow
-    0=\sigma(P(\zeta,\xi))=P(\sigma(\zeta),\sigma(\xi)) =
-    P(\zeta^\ell,\xi^\ell).\qedhere$$
+    % So there exists $\sigma\in\mathrm{Gal}(\IQ(\zeta,\xi)/\IQ)$ with
+    % $\sigma(\zeta)=\zeta^\ell$ and
+    % $\sigma(\xi)=\xi^\ell$.
+    % $$0=P(\zeta,\xi)\Rightarrow
+    % 0=\sigma(P(\zeta,\xi))=P(\sigma(\zeta),\sigma(\xi)) =
+    % P(\zeta^\ell,\xi^\ell).\qedhere$$
   \end{proof}
 \end{frame}
 
 \begin{frame}{Summary up to here}
   Let $(\zeta,\xi)\in \mu_\infty^2$ have order $n\ge 2$ with
-  $P(\zeta,\xi)=0$. By the \alert{Galois Homothety Lemma} is a prime  $\ell = O((\log n)^2)$ such that
+  $P(\zeta,\xi)=0$. By the \alert{Galois Homothety Lemma} there
+  is a prime  $\ell = O((\log n)^2)$ such that
   \begin{equation}
     (\zeta,\xi)\text{ lies on the zero set of $P(X,Y)$ \alert{and} 
       $P(X^{\ell},Y^{\ell})$}.
@@ -280,7 +283,7 @@
 
   As a set, $G$ is a subgroup of $(\IC^\times)^2$. But it is also Zariski
   closed and of dimension at most $1$. So it is either finite or a
-  curve. But if contains  $\bfzeta$ of order at least $c(\log n)^2$.
+  curve. But it contains  $\bfzeta$ of order at least $c(\log n)^2$.
   So $G$ must have dimension $1$ and
    thus  equals a translate of $C$.\qed
 \end{frame}
@@ -301,7 +304,7 @@
   \begin{equation*}
     u \colon \IC \rightarrow E(\IC)
   \end{equation*}
-  with
+  such that
   \begin{equation*}
     \mathrm{ker}(u) =\Omega = \IZ+\tau\IZ
   \end{equation*}
@@ -356,7 +359,7 @@
 
   \begin{definition}
     If $E$ is presented algebraically via an Weierstrass equation $y^2 =
-    x^3+ax+b$ with $a,b\in\IC$. Then the \alert{$j$-invariant} $j(E)$ of $E$ equals
+    x^3+ax+b$ with $a,b\in\IC$, then the \alert{$j$-invariant} $j(E)$ of $E$ equals
     \begin{equation*}
       j(E) = 2^8 3^3 \frac{a^3}{4a^3+27b^2}. 
     \end{equation*}  
@@ -365,9 +368,9 @@
   \begin{example}
     The elliptic curve $E$ presented by $y^2=x^3+x$ has the additional
     endormorphism
-    $(x,y)\mapsto (-x, i y)$. Its $j$-invariant equals $1728$. The
-    complex picture goes as follows, we have $E(\IC)\cong \IC/(\IZ+i
-    \IZ)$. 
+    $(x,y)\mapsto (-x, i y)$. Its $j$-invariant equals $1728$. On the
+    complex side we have $$E(\IC)\cong \IC/(\IZ+i
+    \IZ).$$
   \end{example}
 \end{frame}
 
@@ -382,29 +385,43 @@
   is the coarse moduli space of elliptic curves.
 
   \begin{definition}
-    The Klein's modular $j$-function is the map $j(\tau) =
-    j$-invariant of the elliptic curve $\IC/(\IZ+\tau\IZ)$, here
-    $\tau\in\IH$. 
-  \end{definition}
-  
-  \begin{equation*}
-  \Rightarrow  j\left(\mattt{a}{b}{c}{d} \tau\right) = j\left(\frac{a\tau + b}{c\tau +d}\right) =
-    \tau 
-  \end{equation*}
-  for all $\tau\in\IH$ and all $\mattt{a}{b}{c}{d}\in
-  \mathrm{SL}_2(\IZ)$.
+    The \alert{Klein's modular $j$-function} is the map
+    $j\colon\IH\rightarrow\IC$ given by
+    $$j(\tau) =
+    \text{$j$-invariant of the elliptic curve $\IC/(\IZ+\tau\IZ)$}$$
+  \end{definition}  
 \end{frame}
 
-\begin{frame}
-  Klein's $j$-function is
+\begin{frame}{A Modular Function}
+  Klein's modular $j$-function is invariant under the action of
+  $\mathrm{SL}_2(\IZ)$ on $\IH$ via fractional linear transformations.
+  That is, 
+$$j\left(\mattt{a}{b}{c}{d} \tau\right) = j\left(\frac{a\tau + b}{c\tau +d}\right) =
+    \tau$$
+  for all $\tau\in\IH$ and all $\mattt{a}{b}{c}{d}\in
+  \mathrm{SL}_2(\IZ)$.
+
+  \begin{minipage}{0.4\linewidth}
+    \begin{center}
+    \includegraphics[width=\textwidth]{400px-KleinInvariantJ.jpg}
+    {\tiny Image source: Jan Homann (wikipedia)}
+  \end{center}
+\end{minipage}
+  \begin{minipage}{0.58\linewidth}
+      Klein's $j$-function is
   holomorphic on $\IH$ and meromorphic at infinity.
-  The function equation $j(\tau)=j(\tau+1)$ shows that $j$ depends only
-  on $q=e^{2\pi i \tau}$. The $q$-expansion is
+
+  It satisfies  $j(\tau)=j(\tau+1)$, so $j(\tau)$ depends only
+  on $q=e^{2\pi i \tau}$. 
   \begin{equation*}
     j(q) = \frac 1q + 744 + 196884q +\cdots. 
   \end{equation*}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}
   \begin{definition}    
-    A special point of $Y(1)$ is the $j$-invariant of an elliptic curve
+    A \alert{special point} of $Y(1)$ is the $j$-invariant of an elliptic curve
     with complex multiplication; equivalently a member of 
     $\{j(\tau) : \tau\in\IH \text{ and }[\IQ(\tau):\IQ]=2\}$.
 
@@ -488,7 +505,7 @@
   Cohen: coefficients of $\Phi_N$ grow superexponentially in $N$.
   
   \begin{definition}
-    The $\Phi_N$ are called \alert{Modular Transformation Polynomials}.
+    The $\Phi_N$ are called \alert{modular transformation polynomials}.
   \end{definition}
 \end{frame}
 
@@ -529,8 +546,7 @@
       in $F$.
     \item[(iii)] The extension $F(z)/F$ is Galois with abelian Galois
       group.
-    \item[(iv)] If $\mathrm{End}(E)$ is the maximal order in $F$,
-      \textit{i.e.}, the ring of integers of $F$, then
+    \item[(iv)] If $\mathrm{End}(E)$ is the ring of integers of $F$, then
       the class group $H_F$ of $F$ is isomorphic to
       $\mathrm{Gal}(F(z)/F)$.
       Moreover, $F(z)$ is the Hilbert Class Field of $F$. 
@@ -584,7 +600,7 @@
   Write $z_1=j(\tau_1)$ and $z_2=j(\tau_2)$ with $\tau_{1,2}\in\IH$
   and $E_{1,2} = \IC/(\IZ+\tau_{1,2}\IZ)$.
   
-  \textbf{Two simplifying assumptions:}
+  \textbf{We make two simplifying assumptions:}
   
 
   \begin{enumerate}
@@ -616,7 +632,7 @@
 \begin{frame}{Galois Homothety}
   The analog of the Galois Homothety Lemma is more subtle because
   there is no natural group law.
-  For all $N\in\IN$
+  But for all $N\in\IN$
   we have \alert{Hecke correspondences}:
   \begin{equation*}
     \begin{tikzcd}[ampersand replacement=\&,column sep=small, row sep=small] 
@@ -682,7 +698,7 @@
   contain only finitely many special points, \textit{e.g.}, special
   curves.  Where did it go wrong?
 
-  When applying B\'ezout's Theorem we assume that $C\cap T_\ell(C)$
+  When applying B\'ezout's Theorem we assumed that $C\cap T_\ell(C)$
   was finite.
 
   What happens when $C\subset T_\ell(C)$? This situation corresponds
@@ -706,18 +722,19 @@
     torsion points of $(\IC^\times)^2$, \textit{i.e.},  the image
     of $\IQ^2$ under $$(q_1,q_2)\mapsto (\exp(2\pi i
     q_1),\exp(2\pi iq_2)).$$ 
-    Ihara--Serre--Tate: The only algebraic curves in $\IG_{\mathrm{m}}^2$ that
+    Ihara--Serre--Tate Theorem: The only algebraic curves in $\IG_{\mathrm{m}}^2$ that
     contain infinitely many special points are translates of algebraic
     subgroups by torsion points.
 
-  \item The set of special points of $Y(1)^2$ are points corresponding
-    to a product of elliptic curves with complex multiplication,
-    \textit{i.e.}, the image of all imaginary quadratic elements in
+  \item Special points of $Y(1)^2$  correspond
+    to products of elliptic curves with complex multiplication. The
+    set of special points also equals 
+    the image of all imaginary quadratic elements in
     $\IH^2$ under
     $$ (\tau_1,\tau_2) \mapsto (j(\tau_1),j(\tau_2)).$$
     Andr\'e--Edixhoven: The only algebraic curves in $Y(1)^2$ that
     contain infinitely many special points are horizonal, vertical, or
-    come from the Modular Transformation Polynomials $\Phi_N$. 
+    come from the modular transformation polynomials $\Phi_N$. 
   \end{itemize}
 \end{frame}
 
