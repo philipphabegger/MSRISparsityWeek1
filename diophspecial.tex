@@ -3,8 +3,8 @@
 \section{Overview}
 
 In this chapter we consider two classes of special points. First,
-points of finite order in $\IG_m^2(\IC)=(\IC^\times)^2$ and their distribution on
-algebraic curves in $\IG_m^2$; here $\IG_m$ denotes the multiplicative
+points of finite order in $\IG_{\mathrm{m}}^2(\IC)=(\IC^\times)^2$ and their distribution on
+algebraic curves in $\IG_{\mathrm{m}}^2$; here $\IG_{\mathrm{m}}$ denotes the multiplicative
 group. This will lead us to the
 Ihara--Serre--Tate Theorem and later to the Manin--Mumford Conjecture.
 Second, we look a moduli problems. Special points here are tuples of
@@ -31,16 +31,16 @@ proved by Raynaud~\cite{Raynaud:MM} and it will be a guiding principle of this
 course. 
 
 Before moving on to Jacobians let us attempt to translate this question
-from the world of jacobians to that  of the algebraic group $\IG_m^2$. By
+from the world of jacobians to that  of the algebraic group $\IG_{\mathrm{m}}^2$. By
 curve we consider an irreducible algebraic curve $C\subset
-\IG_m^2$ defined over $\IC$. Then $C$ is given by the zero set of
+\IG_{\mathrm{m}}^2$ defined over $\IC$. Then $C$ is given by the zero set of
 an almost uniquely determined polynomial $P\in \IC[X,Y]$.
 In fact, it is more natural to work with the ring of
 Laurent polynomials $\IC[X^{\pm 1},Y^{\pm 1}]$, this is the ring of
-regular functions of $\IG_m^2$.
-What is the analog of the points of finite period in $\IG_m^2$?
+regular functions of $\IG_{\mathrm{m}}^2$.
+What is the analog of the points of finite period in $\IG_{\mathrm{m}}^2$?
 These are just the pairs of roots of unity
-$$ \IG^2_{m,\mathrm{tors}}= \mu_\infty^2  \text{ where
+$$ \IG^2_{{\mathrm{m}},\mathrm{tors}}= \mu_\infty^2  \text{ where
 }\mu_\infty = \{\zeta\in\IC : \text{there is $n\in\{1,2,3,\ldots\}$
   with }\zeta^n=1 \}.$$
 Finally, we need to translate ``genus'' to this setting. First let us
@@ -57,7 +57,7 @@ look at some examples.
     (z,w) \in \left\{ (e^{2\pi i/6},e^{-2\pi i/6}),(e^{-2\pi
         i/6},e^{2\pi i/6})\right\}.
     $$
-    So $C\cap \IG^2_{m,\mathrm{tors}}$ has two elements.
+    So $C\cap \IG^2_{{\mathrm{m}},\mathrm{tors}}$ has two elements.
 
   \item[(ii)] Consider the curve $C$ defined by
     $P=X^{2021}Y^{-2022}-1$. Then
@@ -68,8 +68,8 @@ look at some examples.
 \end{example}
 
 The second example suggests that curves of large degree may contain
-infinitely many torsion points of $\IG_m^2$. But observe that the zero
-set of $X^{r}Y^{s}-1$ in $\IG_m^2$ determines an algebraic subgroup for all
+infinitely many torsion points of $\IG_{\mathrm{m}}^2$. But observe that the zero
+set of $X^{r}Y^{s}-1$ in $\IG_{\mathrm{m}}^2$ determines an algebraic subgroup for all
 $r,s\in\IZ$. 
 
 \begin{exercise}
@@ -77,12 +77,12 @@ $r,s\in\IZ$.
   Let $\gamma\in \IC^\times$ and $(r,s)\in\IZ^2\ssm
   \{0\}$.  Show that $P=X^rY^s-\gamma$ is irreducible in $\IC[X^{\pm
     1},Y^{\pm 1}]$ if $\gcd(r,s)=1$. Show that its zero set $Z(P)$ is a coset in
-  $\IG_m^2(\IC)$. Show that $Z(P)$ contains a point in
-  $\IG^2_{m,\mathrm{tors}}$ if and only if $\gamma$ is a root of unity. 
+  $\IG_{\mathrm{m}}^2(\IC)$. Show that $Z(P)$ contains a point in
+  $\IG^2_{{\mathrm{m}},\mathrm{tors}}$ if and only if $\gamma$ is a root of unity. 
 \end{exercise}
 
 \begin{definition}
-  An algebraic curve in $\IG_m^2$
+  An algebraic curve in $\IG_{\mathrm{m}}^2$
   is called \emph{special} or a \emph{torsion coset}
   if it is the translate of an algebraic subgroup by
   a point of finite order. 
@@ -100,7 +100,7 @@ presented here without proof. For a reference see Chapter 3.2~\cite{BG}.
 
 In the first example, the set $\{(z,w) \in S^1\times S^1 : z+w=1\}$
 was finite. Write $Z(P) = \{(z,w) \in (\IC^\times)^2 : P(z,w)=0\}$. If
-$Z(P)\cap (S^1)^2$ is finite, then so is $Z(P) \cap \IG^2_{m,\mathrm{tors}}$.
+$Z(P)\cap (S^1)^2$ is finite, then so is $Z(P) \cap \IG^2_{{\mathrm{m}},\mathrm{tors}}$.
 
 \begin{exercise}
   \label{exer:toralpoly}
@@ -115,10 +115,10 @@ attributes to Ihara, Serre, and Tate.
 
 \begin{theorem}
   \label{thm:ist}
-  Let $C\subset \IG_m^2$ be an irreducible algebraic curve.
+  Let $C\subset \IG_{\mathrm{m}}^2$ be an irreducible algebraic curve.
   Then
   \begin{equation*}
-    C \cap \IG^2_{m,\mathrm{tors}}\text{ is infinite}\quad\Longleftrightarrow\quad \text{$C$ is special}. 
+    C \cap \IG^2_{{\mathrm{m}},\mathrm{tors}}\text{ is infinite}\quad\Longleftrightarrow\quad \text{$C$ is special}. 
   \end{equation*}
 \end{theorem}
 
@@ -132,7 +132,7 @@ the approach of Tate (which is similar to Serre's).
 \end{exercise}
 
 We we split the proof sketch up into several steps. We assume that
-$C=Z(P)$ intersects $\IG^2_{m,\mathrm{tors}}=\mu_\infty^2$
+$C=Z(P)$ intersects $\IG^2_{{\mathrm{m}},\mathrm{tors}}=\mu_\infty^2$
 in an infinite set where $P\in
 \IC[X^{\pm 1},Y^{\pm 1}]$ is irreducible.
 Our aim is to show that $C$ is special, in other words, $P$ is up-to a
@@ -278,7 +278,7 @@ We return to a more geometric point of view in this final set.
 If $C=Z(P)$ contains a torsion point of large enough order $n$, then
 $P \mid P(X^\ell,Y^\ell)$ for some prime $\ell$.
 Geometrically, $C \subset [\ell]^{-1}(C)$ where $[\ell]$ denotes the $\ell$-th
-power endomorphism of $\IG_m^2$.
+power endomorphism of $\IG_{\mathrm{m}}^2$.
 If $\bfzeta\in (\IC^\times)^2$ with $\bfzeta^\ell=1$, then the
 translation $\bfzeta C\subset [\ell]^{-1}(C)$. These $\bfzeta C$ are
 irreducible components of $[\ell]^{-1}(C)$. The number of $\bfzeta$ is
@@ -290,7 +290,7 @@ Hence $\bfzeta C=C$ with $\bfzeta = \bfzeta'{\bfzeta''}^{-1}$ of order
 $\ell$.
 
 Let us now check that $C$ is the translate of an algebraic subgroup of
-$\IG_m^2$ by a point of finite order. % After translating we may
+$\IG_{\mathrm{m}}^2$ by a point of finite order. % After translating we may
 % assume $1=(1,1)\in C$ and then it suffices to show that $C$ is a
 % subgroup of $(\IC^\times)^2$.
 
@@ -299,7 +299,7 @@ To this end consider
   G = \bigcap_{Q\in C} Q^{-1} C.
 \end{equation*}
 
-As a set, $G$ is an algebraic subgroup of $\IG_m^2$. But it is also Zariski
+As a set, $G$ is an algebraic subgroup of $\IG_{\mathrm{m}}^2$. But it is also Zariski
 closed and of dimension at most $1$. So it is either finite or a
 curve. Observe that $\bfzeta C = C$ implies $\bfzeta\in G$. As
 $\bfzeta$ has order $\ell$. Although $\ell = O((\log n)^2)$, the
@@ -529,7 +529,7 @@ special points of $Y(1)$. It is a consequence of class field theory.
 The Conjecture of Andr\'e--Oort is the analog (and generalization) of
 the Theorem of Ihara--Serre--Tate in this modular side.
 
-For this let us just consider $Y(1)^2$ instead of the algebraic group $\IG_m^2$.
+For this let us just consider $Y(1)^2$ instead of the algebraic group $\IG_{\mathrm{m}}^2$.
 \begin{definition}
   \label{def:specialY1m}
   The set of special points of  $Y(1)^m$ is
@@ -707,8 +707,7 @@ We also assume $\Delta =
 \begin{proof}
   The left-hand side is at least the order of the class group $H_F$ of $F$ by
   Theorem~\ref{thm:galoisspecial}(iv). The Landau--Siegel Theorem
-  implies $\# H_F \gg_\epsilon |\Delta|^{1/2-\epsilon}$. 
-  The same estimates hold for $w$ and this concludes the proof.
+  implies $\# H_F \gg_\epsilon |\Delta|^{1/2-\epsilon}$ for all $\epsilon>0$. 
   The lemma follows with the choice $\epsilon =1/4$. 
 \end{proof}
 
@@ -733,7 +732,7 @@ Now we can formulate the Homothety Lemma in the modular case.
   Say $(z,w)\in Y(1)^2$ is a special point as above, so % with $P(z,w)=0$ 
  $\Delta=\Delta_z=\Delta_w$ is a fundamental discriminant.
   There exists a prime number $\ell=O((\log
-  |\Delta|)^3)$ and $\sigma\in \mathrm{Gal}(\IQbar/\IQ)$  with $\Phi_\ell(z,\sigma(z))=\Phi(w,\sigma(w))=0$. 
+  |\Delta|)^3)$ and $\sigma\in \mathrm{Gal}(\IQbar/\IQ)$  with $\Phi_\ell(z,\sigma(z))=\Phi_\ell(w,\sigma(w))=0$. 
 \end{lemma}
 \begin{proof}[Proof sketch]
   Let $K$ be the imaginary quadratic field of discriminant $\Delta$.
@@ -797,7 +796,7 @@ But $\ell$ is not too large by the Galois Homothety Lemma, so
 $\# C\cap T_\ell(C)\ll (\log|\Delta|)^6$. 
 We combine this with (\ref{eq:intersectionlb}) and conclude
 \begin{equation*}
-  \#|\Delta|^{1/24} \ll \log|\Delta|.
+  |\Delta|^{1/24} \ll \log|\Delta|.
 \end{equation*}
 As a polynomial always  beats a logarithm  we conclude that $|\Delta|$
 is bounded and this means that $(z,w)$ is in a finite set that depends

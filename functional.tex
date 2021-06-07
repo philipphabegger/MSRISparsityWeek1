@@ -236,11 +236,15 @@ Schanuel's Conjecture is major open problem in transcendence theory.
 \end{enumerate}
 \end{example}
 
-% \begin{exercise}
-%   Show that Schanuel's Conjecture implies that the iterated
-%   exponential $\exp^N(1)$ is
-%   transcendental for all $N\ge 1$.
-% \end{exercise}
+\begin{exercise}
+  \begin{enumerate}
+  \item [(i)]  Show that Schanuel's Conjecture implies that the iterated
+    exponential $\exp^N(1)$ is
+    transcendental for all $N\ge 1$.
+  \item[(ii)] Show that Schanuel's Conjecture implies that
+    $\pi^{\pi^{\pi^\pi}}$ is transcendental.
+  \end{enumerate}
+\end{exercise}
 
 Schanuel's Conjecture seems well out of reach at the moment.
 But Ax showed that the functional version is true. 
@@ -257,9 +261,8 @@ But Ax showed that the functional version is true.
   \end{equation*}  
 \end{theorem}
 
-
-
-The following corollary will be of importance to us. 
+The following corollary will be of importance to us. We will prove it
+assuming Theorem~\ref{thm:Axmult}. 
 
 \begin{corollary}[Ax--Lindemann--Weierstrass]
   \label{cor:alw}
@@ -270,7 +273,7 @@ The following corollary will be of importance to us.
     $z=(z_1,\ldots,z_m)\in\IC^m$.} is either Zariski dense in
   $(\IC^\times)^m$ or contained in
   the
-  translate of a proper algebraic subgroup of $(\IC^\times)^m$.   
+  translate of a proper algebraic subgroup of $\IG_{\mathrm{m}}^m$.   
 \end{corollary}
 \begin{proof}  
   Locally at some point of $C$ we can parametrize using a
@@ -282,7 +285,7 @@ The following corollary will be of importance to us.
   $\IR({f_1}|_{(-1,1)},\ldots,{f_m}|_{(-1,1)})/\IR$ is $1$ and this
   remains true for $\IC(f_1,\ldots,f_m)/\IC$ by the Identity Theorem.
   Let $V$ denote the Zariski closure of $\exp(C)$ in
-  $(\IC^\times)^m$. It is irreducible. 
+  $\IG_{\mathrm{m}}^m$. It is irreducible. 
   Then $(\exp(f_1),\ldots,\exp(f_m))$ takes values in $V(\IC)$ by
   the Identity Theorem.
   Therefore,
@@ -295,7 +298,6 @@ The following corollary will be of importance to us.
     1+\dim V.
   \end{alignat*}
 
-
   If $\dim V=m$ then there is nothing to show. Otherwise we have $\dim
   V \le m-1$ and 
   Ax's Theorem implies that there exist
@@ -307,16 +309,16 @@ The following corollary will be of importance to us.
 \end{proof}
 
 \begin{exercise}
-  Study the classification of algebraic subgroups of $(\IC^\times)^m$
+  Study the classification of algebraic subgroups of $\IG_{\mathrm{m}}^m$
   and prove the following strengthening of Corollary~\ref{cor:alw2}.
   See Chapters 3.1 and 3.2~\cite{BG} for background on algebraic
-  subgroups of $(\IC^\times)^m$. 
+  subgroups of $\IG_{\mathrm{m}}^m$. 
 \end{exercise}
 \begin{corollary}
   \label{cor:alw2}
   Let $C$ be as in Corollary~\ref{cor:alw}. After replacing $C$ by a
   non-empty open subset of itself, the Zariski closure of $\exp(C)$ is
-  the translate of a proper algebraic subgroup of $(\IC^\times)^m$. 
+  the translate of a proper algebraic subgroup of $\IG_{\mathrm{m}}^m$. 
 \end{corollary}
 
 \section{The Ax--Lindemann--Weierstrass Theorem for Abelian Varieties}
@@ -613,7 +615,10 @@ We mimic here Definition~\ref{def:stabZ} for $A$.
   conclude the proof in the second case.
 \end{proof}
 
-
+\begin{exercise}
+  Formulate an Ax--Lindemann--Weierstrass Theorem for
+  $\IG_{\mathrm{m}}^m$. Prove this using the method in Theorem~\ref{thm:alwav}.  
+\end{exercise}
 \section{Some consequences}
 \label{sec:conclusionft}
 
@@ -661,7 +666,7 @@ preimage of a subvariety under the restricted uniformizing map.
 \begin{definition}
   Let $V$ be an irreducible subvariety of $A$. A coset $C$ of $A$ is
   called a \emph{maximal coset of $V$} if $C\subset V$ and if it is
-  the maximal coset of $A$ with respect to inclusion that is contained
+  a maximal coset of $A$ with respect to inclusion that is contained
   in $V$. 
 \end{definition}
 
@@ -834,6 +839,13 @@ and smooth varieties of general type.
     \end{equation*}
   \end{enumerate}
 \end{theorem}
+
+The following problem is related to Schanuel's Conjecture.\footnote{It is
+  open as far as I know.}
+
+\begin{exercise}
+  Prove $\pi^{\pi^{\pi^\pi}}\not\in\IZ$.    
+\end{exercise}
 % \begin{proof}
 %   For (i) we require that the image of any non-constant holomorphic
 %   map $\IC\rightarrow A(\IC)$ with image in $V(\IC)$ has values in

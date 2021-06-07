@@ -2,7 +2,7 @@
 \section{Overview}
 
 O-minimal geometry was developed in the 1980s by various authors
-including Pillai, Steinhorn, and van den Dries. Some call it an
+including Pillay, Steinhorn, and van den Dries. Some call it an
 incarnation of Grothendieck's vision of a ``tame topology'' described
 in his ``Esquisse d'un Programme''. It strives to generalize real
 semi-algebraic geometry to include also real (sub)-analytic sets.
@@ -16,13 +16,13 @@ The basic motivation is to carve out a class ``interesting'' subsets
 of $\IR^n$ that is stable under various basic observations. These sets
 will be called ``definable'' (in a given o-minimal structure). 
 
-For example, consider an algebraic curve $C\subset (\IC^\times)$ and
+For example, consider an algebraic curve $C\subset \IG_{\mathrm{m}}^2$ and
 the map $\be \colon\IR^2\rightarrow (\IC^\times)^2$ defined by
 \begin{equation*}
   \be(x,y) = (e^{2\pi i x},e^{2\pi i y}). 
 \end{equation*}
-Consider the set $X = \be^{-1}(C) \cap [0,1)^2$. Then $C$ contains
-infinitely many torsion points of $(\IC^\times)^2$ if and only if $X$
+Consider the set $X = \be^{-1}(C(\IC)) \cap [0,1)^2$. Then $C$ contains
+infinitely many torsion points of $\IG_{\mathrm{m}}^2$ if and only if $X$
 contains infinitely many rational points.
 We will see that $X$ is definable in a certain o-minimal structure.
 Note that $X$ is not necessarily real analytic (but it is real
@@ -30,16 +30,24 @@ semi-analytic).
 
 \section{O-minimal Structures}
 
+\begin{definition}
+  Let $m\in\IN_0$. 
+  A \emph{real semi-algebraic} subset of $\IR^m$ is a finite union
+  of sets    
+  \begin{equation*}
+    \{x\in\IR^m :f_1(x) =\cdots = f_k(x) = 0 \text{ and }
+    g_1(x)>0,\ldots,g_l(x)>0\}
+  \end{equation*}
+  where $f_1,\ldots,f_k,g_1,\ldots,g_l\in \IR[X_1,\ldots,X_m]$.
+\end{definition}
 
 \begin{definition}
   \label{def:structure}
-%  For each $m\in \IN_0$ consider the set of all subsets of $\IR^n$.
   A \emph{structure} $\cS$ is a sequence $(S_m)_{m\in\IN_0}$
   where each $S_m$ is a set of subsets of $\IR^m$ with the following
   properties for all $m\in \IN_0$:
   \begin{enumerate}
-  \item [(i)] Each $S_m$ is closed under boolean operations,
-    \textit{i.e.}, if $X,Y\in S_m$, then $X\cup Y\in S_m$ and
+  \item [(i)] If $X,Y\in S_m$, then $X\cup Y\in S_m$ and
     $\IR^m\ssm X\in S_m$.
   \item[(ii)] If $X\in S_m$, then $\IR\times X\in S_m$ and $X\times
     \IR\in S_m$.
@@ -100,7 +108,8 @@ Here are some direct consequences of the definition of a structure.
   Let $\cS$ be a structure. Let $X\subset\IR^m$ and $Y\subset\IR^n$ be definable subsets of $\cS$.
   \begin{enumerate}   
   \item [(i)] Then $X\times Y$ is definable.
-  \item[(ii)] If $m=n$, then $X\cap Y$ is definable.
+  \item[(ii)] If $m=n$, then $X\cap Y$ is definable. In particular,
+    $S_m$ is closed under Boolean operations.
   \item[(iii)] The image of $X$ under any polynomial map
     $\IR^m\rightarrow \IR^n$ is definable.
   \end{enumerate}
@@ -116,16 +125,16 @@ Here are some direct consequences of the definition of a structure.
     i\} 
   \end{equation*}
   of $p=(p_1,\ldots,p_n)\colon \IR^m\rightarrow\IR^n$. Then $\Gamma$ is
-  semi-algebraic and it is definable in $\cS$. Now $p(X)$ is the
+  real semi-algebraic and it is definable in $\cS$. Now $p(X)$ is the
   projection of $\Gamma \cap (X\times\IR^n)$ to $\IR^n$ and hence also
   definable. This gives (iii). 
 \end{proof}
 
 \begin{definition}
-  Let $\cS$ be a structure and $X\subset\IR^m$ definable.
+  Let $\cS$ be a structure and let $X\subset\IR^m$ be a subset.
   A map $f\colon X\rightarrow\IR^n$ is
   called \emph{definable} in $\cS$, if its graph $\Gamma(f) =
-  \{(x,f(x)) : x\in X\}\subset\IR^{m+n}$ is definable.
+  \{(x,f(x)) : x\in X\}\subset\IR^{m+n}$ is definable in $\cS$.
 \end{definition}
 
 Domain $X$ and image $f(X)$ of a definable map must also be definable
@@ -175,9 +184,6 @@ We immediately stake out the limits of o-minimality.
   $\cS$. Moreover, the function $\sin \colon\IR\rightarrow\IR$
   is not definable in any o-minimal structure.  
 \end{nonexample}
-%\begin{definition}
-%  Let 
-%\end{definition}
 
 \section{Structures and First-Order Logic}
 
@@ -188,15 +194,24 @@ emphasis will be on the geometry.  But we  take some time to give
 an informal overview of the connection to logic as it is equivalent
 and often very useful. 
 
-Say $\cS$ is a structure and suppose $X\subset\IR^m$ is definable.
-We think of the formula $x\in X$ as an $m$-ary relation signifying
-membership of the $m$-tuple $x$ in $X$. Subject to the usual rules we
+
+Say $\cS$ is a structure.
+Here is a list of valid formulas: 
+Suppose $X\subset\IR^m$ is definable. We think of the formula $x\in X$
+as an $m$-ary relation signifying membership of the $m$-tuple $x$ in
+$X$.
+In order to refect that real semi-algebraic sets are definable in
+$\cS$ we are allowed to use the basic field operations $+,\cdot,-,/$
+and the constants $0,1$, and $=$ and $>$ in formulas. Some variables
+are free and some are bound. 
+
+Subject to the usual rules we
 can combine two formulas using the logical symbols $\wedge$ (for
 ``and'') and $\vee$ (for ``or''), we can negate them by using $\neg$
 (for ``not''), and we may use the existential ($\exists$) and
 universal ($\forall x$) quantifier.
 
-In the language of mathematical logic, $\IR$ is the universe of our
+In the terminology of mathematical logic, $\IR$ is the universe of our
 structure. This is were any element lies ``by default'' in expressions
 such as $\exists x:\phi(x)$ and $\forall x:\phi(x,y)$. By abuse of
 notation we often also quantify over tuples in $\IR^m$.
@@ -207,21 +222,21 @@ $m-1$ coordinates (if $m\ge 1$).
 
 \begin{center}
 \begin{tabular}{c|c|c}
-  $X\cap Y$ \text{ is definable} & $((x_1,\ldots,x_m)\in X)\wedge ((x_1,\ldots,x_m)\in Y)$ &
+  $X\cap Y$  & $((x_1,\ldots,x_m)\in X)\wedge ((x_1,\ldots,x_m)\in Y)$ &
                                                                $x_1,\ldots,x_m$  are free\\
-  $\IR^m\ssm X$ \text{ is definable} &  $\neg((x_1,\ldots,x_m)\in X)$ & $x_1,\ldots,x_m$ are free \\
-  $X\times\IR$ \text{ is definable} & $(x_1,\ldots,x_m)\in X$&
+  $\IR^m\ssm X$  &  $\neg((x_1,\ldots,x_m)\in X)$ & $x_1,\ldots,x_m$ are free \\
+  $X\times\IR$  & $(x_1,\ldots,x_m)\in X$&
                                                                $x_1,\ldots,x_{m+1}$
                                                                are free\\
-  $\pi(X)$ \text{ is definable} &$\exists x_m : (x_1,\ldots,x_{m})\in
+  $\pi(X)$  &$\exists x_m : (x_1,\ldots,x_{m})\in
                                   X$  & $x_1,\ldots,x_{m-1}$ are free
   \\ \hline  &\text{Further examples} &  \\ \hline
-    $X\cup Y$ \text{ is definable} & $((x_1,\ldots,x_m)\in X)\vee ((x_1,\ldots,x_m)\in Y)$ &
+    $X\cup Y$  & $((x_1,\ldots,x_m)\in X)\vee ((x_1,\ldots,x_m)\in Y)$ &
                                                                $x_1,\ldots,x_m$
                                                                                              are free\\
-  $\IR\ssm \pi(\IR^2\ssm X)$ & $\forall y : \phi(x,y)$ & $\phi$ is a binary
-                                                 rel. defining
-                                                 $X\subset\IR^2$  
+  $\IR\ssm \pi(\IR^2\ssm X)$ & $\forall y : (x,y)\in X$ &
+                                                          $X\subset\IR^2$,
+                                                          $x$ is free
 \end{tabular}
 \end{center}
 
@@ -276,9 +291,6 @@ not too wild.
     \\ &\text{such
       that
       $f|_{(a,b)}$ is constant or injective}\}. 
-    % (0<x<1) \wedge (\exists a,b: (a<x<b) \wedge ((\forall s \forall t :
-    % (a<s<b)\wedge (a<t<b)\rightarrow f(s)=f(t))\vee (\forall s\forall
-    % t: (a<s<b)\wedge (a<t<b) f(s)=f(t)\rightarrow s=t
   \end{alignat*}
   This set is definable. By what we proved above $X$ is non-empty.
   Moreover, if $\IR\ssm X$ cannot contain an open and non-empty
@@ -389,7 +401,7 @@ Let us define cells.
 
 \begin{definition}
   Let $\cS$ be an o-minimal structure. 
-  A $(0)$-cell is a singleton in $\IR$. A $(1)$-cell is an open
+  A \emph{$(0)$-cell} is a singleton in $\IR$. A \emph{$(1)$-cell} is an open
   interval in $\IR$, \textit{i.e.}, a set for the form $(a,b)$ with
   $a,b\in \IR\cup\{\pm\infty\}$ with $a<b$.
 
@@ -398,7 +410,7 @@ Let us define cells.
   (with $i_1,\ldots,i_m\in
   \{0,1\}$).  
   \begin{itemize}
-  \item A $(i_1,\ldots,i_m,0)$-cell is a the graph of a function
+  \item A \emph{$(i_1,\ldots,i_m,0)$-cell} is a the graph of a function
     $f\colon C\rightarrow \IR$ that is definable in $\cS$.
   \item Let $f,g\in \{\text{functions }C\rightarrow \IR \text{ definable
       in $\cS$}\}\cup\{\pm\infty\}$  with $f(x) < g(x)$ for all $x\in C$. 
@@ -407,7 +419,7 @@ Let us define cells.
       \{(x,y)\in C\times \IR : f(x) < y <
       g(x)  \}
     \end{equation*}
-    is a $(i_1,\ldots,i_m,1)$-cell.
+    is a \emph{$(i_1,\ldots,i_m,1)$-cell}.
   \end{itemize}
 \end{definition}
 
@@ -473,7 +485,8 @@ $i_1+\cdots+i_m$. This observation allows us to define the dimension
 of a definable set.
  
 \begin{definition}
-  Let $X\subset\IR^m$ be definable in $\cS$ and non-empty. We set
+  Let $X\subset\IR^m$ be definable in $\cS$ and non-empty. The
+  \emph{dimension} of $X$ is
   \begin{equation*}
     \dim X = \max \{i_1+\cdots+i_m: X\text{ contains an
     }(i_1,\ldots,i_m)-cell\}
@@ -517,7 +530,7 @@ of a definable set.
 We have already seen that the structure of real semi-algebraic sets
 $\IRalg$ is an o-minimal structure. This is the smallest possible
 o-minimal structure according to our definition. For applications to
-number theory it is often not enough. So we present two of the most
+number theory it is often not enough. So we present three of the most
 important o-minimal structures.
 
 
@@ -527,7 +540,7 @@ established o-minimal structures.
 We introduce some terminology.
 
 \begin{definition}
-  Let $\mathscr{X}$ and $\mathscr{F}$ be set with the following
+  Let $\mathscr{X}$ and $\mathscr{F}$ be sets with the following
   properties. For all $X\in \mathscr{X}$ there exists $m\in\IN_0$ with
   $X\subset\IR^m$. For all $f\in \mathscr{F}$ there exists $m\in\IN_0$
   and $X\subset\IR^m$ such that $f$ is a function $X\rightarrow\IR$. The
@@ -568,7 +581,8 @@ We would like to a o-minimal structure with transcendental functions.
 But at the same time we need to avoid  Example~\ref{ex:adjoinsin}.
 
 \begin{definition}
-  Consider the structure $\IRan$ obtained where $\mathscr{X} = \emptyset$ and
+  Consider the structure $\IRan$ obtained by adjoining
+  $\mathscr{X} = \emptyset$ and
   \begin{alignat*}1
     \mathscr{F} = \{f \colon [0,1]^m\rightarrow\IR:  \,\,&\text{$f$ is the
       restriction of a real analytic function $U\rightarrow \IR$}\\
@@ -616,8 +630,9 @@ also $\sin(1/x)$ on $(0,1)$.
   We come to an important example. Consider an abelian variety $A$
   defined over the field of complex numbers and immersed in some
   projective space $\IP^n$.
-  The $A(\IC)$ is a compact complex Lie group. As such there is a
-  complex analytic uniformation map $u\colon \mathrm{T}_0(A) \rightarrow
+  Then $A(\IC)$ is a complex Lie group. As such there is a
+  holomorphic, surjective, group homomorphism
+  $u\colon \mathrm{T}_0(A) \rightarrow
   A(\IC)$
   where $\mathrm{T}_0(A)$ is the tangent space of $A$ at $0$.
   We fix an isomorphism $\mathrm{T}_0(A)\rightarrow\IC^g$ as
@@ -636,7 +651,7 @@ also $\sin(1/x)$ on $(0,1)$.
   \end{equation}
   for all $i$, all $z\in\IC^g$, and all $\omega\in\Omega$. 
   
-  Because of the (quasi-)periodic nature of $\varphi_i$ we cannot
+  Because of the (quasi-)periodic nature of $\vartheta_i$ we cannot
   expect them to be defined in any o-minimal structure. Indeed, if
   $\vartheta_i(z)=0$, then $\vartheta_i(z+\omega)=0$ for all
   $\omega\in\Omega$. Compare this to Exercise~\ref{exer:periodic}.
@@ -651,10 +666,10 @@ also $\sin(1/x)$ on $(0,1)$.
     \cF = \{\lambda_1\omega_1+\cdots+\lambda_{2g}\omega_{2g} :
   \lambda_1,\ldots,\lambda_{2g}\in [0,1]\}.
   \end{equation}
-  This is a semi-algebraic set and therefore in particular definable
+  This is a real semi-algebraic set and therefore in particular definable
   in $\IRan$. It is homeomorphic to $[0,1]^{2g}$
   under an $\IR$-linear change of coordinates.
-  Therefore, each $\vartheta_i$ is definable in $\IRan$ using
+  Therefore, each restriction $\vartheta_i|_{\cF}$ is definable in $\IRan$ using
   Convention~\ref{conv:identCCRR2}. 
   
   Any point in $\IC^g$ is modulo the additive action
@@ -770,7 +785,7 @@ $j$-function.
   Because of the periodicity $j(\tau+1)=j(\tau)$, the function
   $j$ is not definable in any o-minimal structure.
 
-  The action of $\mathrm{SL}_2(\IZ)$ on $\IH$ admits a semi-algebraic
+  The action of $\mathrm{SL}_2(\IZ)$ on $\IH$ admits a real semi-algebraic
   fundamental domain %, see~\ref{fig:modfd}. 
   \begin{equation*}
     \cF = \{ \tau\in \IH: |\tau|\ge 1 \text{ and
@@ -802,7 +817,8 @@ $j$-function.
   Let $m\in\IN$ and consider the product $(\tau_1,\ldots,\tau_m)\mapsto
   (j(\tau_1),\ldots,j(\tau_m))$ which we also denote by
   $j\colon\IH^m\rightarrow\IC^m$. We find that
-  $j|_{\cF^m}\colon \cF^m\rightarrow\IC^m=Y(1)(\IC)$ is definable in $\IRanexp$.
+  $j|_{\cF^m}\colon \cF^m\rightarrow\IC^m=Y(1)^m(\IC)$
+  is definable in $\IRanexp$.
 
   As in Example~\ref{ex:thetafunc} we can consider the preimage of an
   algebraic subvariety $V\subset Y(1)^m$ defined over $\IC$.
