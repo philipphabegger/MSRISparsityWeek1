@@ -68,10 +68,10 @@ elliptic curves.
   Of course, there are two difficulties making this  argument precise.
   First, we would have to verify that $\ker[N]\cap C$ is non-empty, at
   least for infinitely many $N$. Second, we would need to rule out
-  excessive double counting when taking the union over all $N$. Below,
-  we
-  will give a different argument that shows $C(\IC)\cap\cE_{\mathrm{tors}}$
-  is infinite.
+  excessive double counting when taking the union over all $N$. % Below,
+  % we
+  % will give a different argument that shows $C(\IC)\cap\cE_{\mathrm{tors}}$
+  % is infinite.
 
   The heuristic argument becomes invalid if we consider a curve in the
   fibered power $\cE\times_{Y(2)} \cE =\cE^2$ instead. Indeed, here $\ker[N]$
@@ -126,9 +126,10 @@ Zannier~\cite{MZ:AJM10} for $\dim V = 1$. We explicitly mention the
 case $m=2$ and $\dim V=1$ here.
 
 \begin{theorem}
-  Let $C$ be an irreducible curve in $\cE^2$ with $\pi(V)=Y(2)$. 
-  Suppose that $C\not\subset H_{(a,b)}$ for all
-  $(a,b)\in\IZ^2\ssm\{0\}$. Then $C\cap \cE^2_{\mathrm{tors}}$ is
+  \label{thm:relmm2}
+  Let $V$ be an irreducible curve in $\cE^2$ defined over $\IQ$ with $\pi(V)=Y(2)$. 
+  Suppose that $V\not\subset H_{(a,b)}$ for all
+  $(a,b)\in\IZ^2\ssm\{0\}$. Then $V\cap \cE^2_{\mathrm{tors}}$ is
   finite. 
 \end{theorem}
 
@@ -157,17 +158,280 @@ case $m=2$ and $\dim V=1$ here.
 \begin{exercise} 
   Formulate a conjecture akin to Conjecture \ref{conj:relmmEm} including a
   a necessary and  sufficient condition from when $V(\IC)\cap
-  \mathrm{E}^m_{\mathrm{tors}}$ is Zariski dense in $V$. Hint: look at
+  \mathcal{E}^m_{\mathrm{tors}}$ is Zariski dense in $V$. Hint: look at
   the Manin--Mumford Conjecture. 
 \end{exercise}
 
-% \begin{lemma}
-%   Let $C\subset \cE$ be an algebraic curve defined over $\IQ$. Then
-%   $C(\IC)\cap\cE_{\mathrm{tors}}$ is infinite.
-% \end{lemma}
-% \begin{proof}
-%   We follow the argument of Masser and Zannier~\cite{}. 
-% \end{proof}
+\section{A Uniformization of the Legendre Family}
+\label{sec:unilegendre}
+Our goal is find a suitable uniformization of $\cE(\IC)$ and then
+to adapt the Pila--Zannier strategy to prove Theorem~\ref{thm:relmm2}.
+
+The analog for $Y(2)$ of Klein's modular $j$-function is the modular
+$\lambda$-function. This is a holomorphic map $\lambda\colon
+\IH\rightarrow\IC\ssm\{0,1\}=Y(2)(\IC)$ that satisfies
+\begin{equation*}
+  \lambda\left(\frac{a\tau+b}{c\tau +d}\right) = \lambda(\tau)
+\end{equation*}
+for all $\tau\in\IN$ and all
+\begin{equation*}
+  \mattt{a}{b}{c}{d}  \in \Gamma(2) = \{\gamma \in
+  \mathrm{SL}_{2}(\IZ) : \gamma\equiv I \mod 2\}.
+\end{equation*}
+
+In particular, $\lambda(\tau+2)=\lambda(\tau)$ and so there is a
+development in $q = e^{\pi i \tau}$. The first few terms are
+\begin{equation*}
+  \lambda(\tau) = 16q - 128q^2 + 704q^3 +\cdots. 
+\end{equation*}
+The function is connected to Klein's $j$-function via
+\begin{equation*}
+  j(\tau) = 2^8
+  \frac{(\lambda(\tau)^2-\lambda(\tau)+1)^3}{\lambda(\tau)^2(\lambda(\tau)-1)^2}. 
+\end{equation*}
+And $\lambda(\tau)$ is the $j$-invariant of the elliptic curve
+determined by $y^2 = x(x-1)(x-\lambda(\tau))$.
+
+Let $\cF_{\mathrm{pure}}$ be a fundamental domain for the action of $\Gamma(2)$ on
+$\IH$. As in the case of the action of the full modular group, we can
+take $\cF_{\mathrm{pure}}$ to be real semi-algebraic.
+
+For definiability of $\lambda$ restricted to $\cF_{\mathrm{pure}}$  in
+$\IRanexp$ we refer to work of Peterzil--Starchenko~\cite{PS:Duke13}.
+However, for it turns out that we can work on some compact box in
+$\IH$ and ultimately $\IRan$ can do the job. 
+
+The function $\lambda$ uniformizes the base $Y(2)$. 
+Using theta functions we can uniformize the fibers. In other words,
+and after doubling coordinates,
+there is a holomorphic map $u$ with
+\begin{equation*}
+  \begin{tikzcd}[column sep=small, row sep=small] 
+    & \IC^2\times\IH  \arrow{dd}{} \arrow{r}{u} & \cE^2(\IC)\arrow{dd}{}\\
+    &  &\\
+    &    \IH \arrow{r}{\lambda}  & Y(2)(\IC).
+  \end{tikzcd}
+\end{equation*}
+
+Each fiber $\cE_{\lambda(\tau)}$ of $\cE\rightarrow Y(2)$ is
+uniformized by $\IC\rightarrow \cE_{\lambda(\tau)}(\IC)$ with kernel
+$\IZ+\tau\IZ$.
+We also obtain a relative fundamental domain
+\begin{equation*}
+  \cF_{\mathrm{mixed}} = \{(z_1,z_2,\tau) \in
+  \IC^2\times \cF_{\mathrm{pure}} \text{ with }z_i=a_i+b_i\tau\text{
+    where }a_1,b_1,a_2,b_2\in [0,1]  \}. 
+\end{equation*}
+So $\cF_{\mathrm{mixed}}$
+is a real semi-algebraic set in $\IR^4\times \IH$ where, as
+usual, we identify $\IC\times \IH$ with $\IR^4\times\IR\times(0,\infty)$.
+
+In our original uniformization we to a real change of coordinates as
+follows. 
+For $(a_1,b_1,a_2,b_2,\tau)\in [0,1]^4\times \cF_{\mathrm{mixed}}$ we define
+\begin{equation*}
+   u_{\mathrm{Betti}}(a_1,b_1,a_2,b_2,\tau) = u(a_1+b_1\tau,a_2+b_2\tau,\tau)
+\end{equation*}
+and get a map $u_{\mathrm{Betti}}\colon\cF\rightarrow\cE(\IC^2)$
+where
+\begin{equation*}
+  \cF = [0,1]^4\times \cF_{\mathrm{pure}}. 
+\end{equation*}
+
+Let $V$ be an irreducible curve in $\cE^2$. Then
+\begin{equation*}
+  X = u_{\mathrm{Betti}}|_{\cF}^{-1}(V(\IC)) \subset \cF
+\end{equation*}
+is definable in $\IRanexp$.
+
+
+Suppose $P\in V(\IC)\cap\cE_{\mathrm{tors}}^2$ and let
+$z=(a_1,b_1,a_2,b_2,\tau)\in \cF$ with $u(z)=P$.
+Now it will become clear why we did the real change of coordinates:
+Since $P$ is torsion in $\cE^2_{\lambda(\tau)}$, any preimage under
+the
+uniformization $\IC\rightarrow \IC/(\IZ+\tau\IZ)$ lies in
+$\IQ+\tau\IQ$. This means that $(a_1,b_1,a_2,b_2)\in \IQ^4$. Moreover,
+$H(a_1,b_1,a_2,b_2)\le N$ where $N$ is the order of $P$. 
+
+Suppose $V$ is defined over $\IQ$. 
+We would like to apply the Pila--Wilkie Theorem. However, we must deal
+with two issues, one old, with a twist, and a new one.
+
+\begin{enumerate}
+\item [(Old)] We need a lower bound for $[\IQ(P):\IQ]$ that grows like
+  some small but fixed power of $N$. The added difficulty here when
+  compare to the absolute Manin--Mumford Conjecture is that the
+  elliptic curve $\cE_{\lambda(\tau)}$ is varying. So we cannot allude
+  to Masser's Theorem~\ref{thm:masser} for a fixed abelian variety.
+  We will handle this issue in
+  Section~\ref{sec:lbdegrel}. 
+  
+\item[(New)] The point $z\in \IR^4\times\IH$ produced form $P$ is
+  \emph{not} a rational point. Indeed, only the first four
+  coordinates $(a_1,b_1,a_2,b_2)$ are rational, but there is no
+  reason to believe that $\tau$ is algebraic.\footnote{Indeed,
+    expect if $\cE_{\lambda(\tau)}$ has complex multiplication, a
+    theorem of Schneider implies that $\tau$ is transcendental.}
+  So  $z$ is merely \textit{semi-rational}. We will present a
+  semi-rational version of the Pila--Wilkie Theorem in
+  Section~\ref{sec:semirational}. 
+\end{enumerate}
+
+\section{A Lower Bound for the Degree}
+\label{sec:lbdegrel}
+
+Next we need to make Masser's result, Theorem~\ref{thm:masser},
+quantitative in terms of the elliptic curve.
+
+\begin{theorem}[David]
+  There exists $c>0$ with the following property. 
+  Let $E=\cE_\lambda$ with $\lambda\in\IQbar\ssm\{0,1\}$. If $P\in
+  E(K)$ has finite order $N$ where $K$ is a number field, then
+  \begin{equation}
+    \label{eq:davidKQlb}
+    [K:\IQ] \ge c \frac{N^{1/2}}{\max\{1,\log H(\lambda)\}}.
+  \end{equation}    
+\end{theorem}
+\begin{proof}
+  This follows from Th\'eor\`eme 1.2~\cite{DavidPetiteHauteur}.
+  Indeed, one can bound
+  the height of the $j$-invariant of $E$ from above polynomially in
+  terms of $H$. 
+\end{proof}
+
+We need the following consequence of a theorem of Silverman. Roughly,
+it tells us that we can safely ignore the height that appears in the
+denominator of (\ref{eq:davidKQlw}). Recall that $\pi\colon
+\cE^2\rightarrow Y(2)$ is a family of squares of Legendre elliptic
+curves.
+
+\begin{theorem}
+  Let $V\subset \cE^2$ be a curve defined over $\IQ$. There exists 
+  $c(V)>0$ such that if $P\in V\cap\mathcal{E}^2_{\mathrm{tors}}$  has
+  order $>c(V)$, then $\pi(P)\in \IQbar\ssm\{0,1\}$ and $H(\pi(P))\le c(V)$. 
+\end{theorem}
+\begin{proof}
+  The intersection $C\cap \ker[N]$ has dimension $0$ except if $C$ is
+  an irreducible component of $\ker[N]$. In this case, all points on
+  $C$ have some fixed order. So we may assume $C\cap \ker[N]$ finite
+  for all $N\in\IN$. In particular, any point in this intersection is
+  algebraic. We can then apply Silverman's Theorem \cite{Silverman}. 
+\end{proof}
+
+Observe that Silverman's Theorem only tells us that the height of
+$\pi(P)$ is bounded from above. This does not imply that the set of
+$\pi(P)$ is finite. The point is that  $\pi(P)$ could have
+\textit{degree} over $\IQ$,
+just as in the sequence $2^{1/d}$ whose members have height
+$H(2^{1/d})=2^{1/d}\le 2$. 
+
+
+\begin{corollary}
+  \label{cor:davidsilverman}
+  Let $V\subset \cE^2$ be a curve defined over $\IQ$. There exists 
+  $c(V)>0$ such that if $P\in V(\IC)\cap\mathcal{E}^2_{\mathrm{tors}}$  has
+  order $N>c(V)$, then $P$ is algebraic and 
+  $[\IQ(P):\IQ] \ge c(V) N^{1/2}$. 
+\end{corollary}
+
+\begin{exercise}
+  Let $B>0$ and  let $\epsilon > 0$. Show that there exists
+  $\delta =\delta(B,\epsilon)>0$ with the following property. If
+  $\alpha\in\IC\ssm\{0,1\}$ is algebraic with Galois conjugates
+  $\alpha_1,\ldots,\alpha_d\in\IC$ (so $d=[\IQ(\alpha):\IQ]$), then 
+  \begin{equation*}
+    \#\{ i : |\alpha_i|> \epsilon \text{ and
+    }|\alpha_i-1|>\epsilon\text{ and }|\alpha_i|<\epsilon^{-1}\} \le
+    \delta d.
+  \end{equation*}
+  So a positive proportion of all Galois conjugates of $\alpha$ are
+  not too close to one of the three cusps $0,1,\infty$ of $Y(2)$. This
+  also us to work in the o-minimal structure $\IRan$ and use simpler
+  definability states when uniformizing $Y(2)$ and ultimately $\cE$. 
+\end{exercise}
+
+\section{Semi-rational Pila--Wilkie}
+\label{sec:semirational}
+
+Our approach to the Relative Manin--Mumford Conjecture for a curve in
+$\cE$ has led to a set $X\subset \IR^m\times\IR^n$
+definable in $\IRanexp$
+(where $m=4$ and $n=2$). We have points in this set where the
+first $m$ coordinates are rational, but the final $n$ most likely not.
+
+Write $\pi_1\colon\IR^m\times\IR^n\rightarrow\IR^m$ for the projection
+to the first $m$ coordinates and
+$\pi_2\colon\IR^m\times\IR^n\rightarrow\IR^n$ for the projection to
+the last $n$ coordinates. 
+
+\begin{theorem}[Corollary 7.2~\cite{HabeggerPilaENS}]
+  \label{thm:semirationalpw}
+  Let $\epsilon>0$, there exists $c(X,\epsilon)$ with the following.
+  Let $T\ge 1$ and let $\Sigma\subset X$ be a subset such that
+  $$(x,y)\in
+  \Sigma\Rightarrow x\in \IQ^m \text{ and }H(x)\le T.$$
+  If
+  $$\#\pi_2(\Sigma)>cT^\epsilon$$
+  then there exists a continuous and definable function $\beta\colon
+  [0,1]\rightarrow X$ with the following properties:
+  \begin{enumerate}
+  \item [(i)] $\pi_1\circ\beta$ is real semi-algebraic,
+  \item[(ii)] $\pi_2\circ\beta$ is non-constant,
+  \item[(iii)] $\pi_2(\beta(0))\in \pi(\Sigma)$, and
+  \item[(iv)] $\beta|_{(0,1)}$ is real analytic. 
+  \end{enumerate}
+\end{theorem}
+
+\section{Putting Everything Together}
+
+The strategy is now familiar.
+Let $V\subset\cE^2$ be an irreducible curve defined over $\IQ$ with
+$\pi(V)=Y(2)$.
+
+We uniformize $u_{\mathrm{Betti}}\colon \IR^4\times\IH \rightarrow
+\cE^{2}(\IC)$ as in Section~\ref{sec:unilegendre}.
+
+
+We assume that $V(\IC)$ contains infinitely many torsion points.
+If the torsion order is uniformly bounded, then $V$ is an irreducible
+component of $\ker[N]$ for some $N\in\IN$.
+In this case, $V\subset H_{(N,0)}$ and we are done. 
+
+So let $P\in V(\IC)$ be of sufficiently large order $N$. Then $u(x) = P$
+for some $z=(x,\tau)\in [0,1]^4\times\cF_{\mathrm{pure}}$
+where $x\in\IQ^4$ satisfies $H(x)\le N$.
+
+It follows from Corollary~\ref{cor:davidsilverman} that $\pi(P)$ and thus $P$ are
+algebraic and
+$$[\IQ(P):\IQ]\gg N^{1/2}.$$
+
+Letting the Galois group $\mathrm{Gal}(\IQbar/\IQ)$ act produces
+roughly $N^{1/2}$ new points in $V(\IQbar)\cap
+\mathcal{E}_{\mathrm{tors}}$. They also come from points
+$(x_\sigma,\tau_\sigma)$ where $x_\sigma$ is still rational of height
+at most $N$.
+
+Now the semi-rational Pila--Wilkie Theorem,
+Theorem~\ref{thm:semirationalpw}, applies with $T=N$ and $\epsilon
+=1/4$, say. Indeed, $\pi|_V\colon V\rightarrow Y(2)$ has finite
+fibers of uniformly bounded cardinality.
+So the number of distinct $\tau_\sigma$ is at least
+proportional to the number of Galois conjugates of $P$.
+
+
+We find a definable curve  in $X$ whose
+first four components are parametrized by a real semi-algebraic
+function, the final two
+coordinates are parametrized by a  non-constant definable map. 
+
+There is a suitable Ax--Lindemann Weierstrass Theorem here. But in low
+dimension an \textit{ad hoc} approach as in the work of
+Masser--Zannier, Section 4~\cite{MZ:AJM10} suffices. They directly
+exploit monodromy properties of the family $\cE\rightarrow Y(2)$. The
+conclusion is that $V\subset H_{(a,b)}$ for some
+$(a,b)\in\IZ^2\ssm\{0\}$. This is precisely the conclusion of Theorem~\ref{thm:relmm2}.
+
 
 %%% Local Variables:
 %%% TeX-master: "main"

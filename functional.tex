@@ -1,4 +1,4 @@
-\chapter{Functional Transcendence}
+\chapter{The Pila--Wilkie Theorem and Functional Transcendence}
 
 \section{Overview}
 
@@ -11,7 +11,6 @@ that arose in Section~\ref{subsub:functrans}. The second application
 will come in a further chapter. 
 
 \section{The Pila--Wilkie Theorem}
-
 
 \begin{definition}
   \label{def:height1}
@@ -34,6 +33,10 @@ taking $\log H(\cdots)$. In the context of the
 Pila--Wilkie Theorem the exponential height is slightly more
 practical.
 
+\begin{exercise}
+  Show that $H(xy)\le H(x)H(y)$ and $H(x+y)\le 2H(x)H(y)$ for all
+  $x,y\in\IQ$. 
+\end{exercise}
 
 \begin{example}\label{ex:heightcount1}
   \begin{enumerate}
@@ -46,9 +49,9 @@ practical.
   is finite. In this statement we may replace $x\in\IQ$ by $x\in
   \IQ^m$.
 
-  Let use define $a(T) = \#\{x\in\IQ : H(x)\le T\}$ which is
-  non-decreasing in $T$. How quickly does $a(T)$ grow in $T$?
-  If $T\ge 1$ is an integer, then $a(T) \ge 2T+1$ by considering
+  Let use define $N(T) = \#\{x\in\IQ : H(x)\le T\}$ which is
+  non-decreasing in $T$. How quickly does $N(T)$ grow in $T$?
+  If $T\ge 1$ is an integer, then $N(T) \ge 2T+1$ by considering
   integers
   $-T,-T+1,\ldots,0,\ldots,T-1,T$. But we have all rational numbers at
   our disposal and $H(x)=H(-x)=H(1/x)=H(-1/x)$ for all
@@ -57,12 +60,12 @@ practical.
   (for $0,\pm 1$)
   ,\textit{i.e.}, 
   \begin{equation*}
-    a(T) = 3 + 4 \sum_{q=1}^T \# \{ p : 1\le p \le q-1 \text{ and
+    N(T) = 3 + 4 \sum_{q=1}^T \# \{ p : 1\le p \le q-1 \text{ and
     }\gcd(p,q)=1\} = -1+4\sum_{q=1}^T \varphi(q)
   \end{equation*}
   with $\varphi$ as in Section~\ref{sec:rootsof1}. By Lemma~\ref{lem:lgo}
-  $a(T)$ grows at least as $T^{3/2}$. In fact, it is known that
-  $a(T)\sim \frac{12}{\pi^2} T^2$ as $T\rightarrow\infty$.
+  $N(T)$ grows at least as $T^{3/2}$. In fact, it is known that
+  $N(T)\sim \frac{12}{\pi^2} T^2$ as $T\rightarrow\infty$.
 
 
 \item[(ii)] Let $d\ge 1$ be an integer and consider
@@ -123,6 +126,11 @@ an o-minimal structure.
   \end{enumerate}
 \end{example}
 
+\begin{exercise}
+  Let $C\subset [0,1]$ be the Cantor set. What can we say about the
+  growth of $N(C,T)$?\footnote{I don't know.}
+\end{exercise}
+
 The Pila--Wilkie Theorem states that on a definable set, an abundance of
 rational points implies the existence of a real-semi algebraic curve.
 
@@ -173,9 +181,15 @@ rational points implies the existence of a real-semi algebraic curve.
   \end{enumerate}
 \end{example}
 
+% \begin{exercise}
+%   Find a subset $X\subset\IR^2$ that
+%   is \emph{not} real semi-algebraic with $X^{\mathrm{alg}}=X$.   
+% \end{exercise}
+
 \begin{theorem}[Pila--Wilkie~\cite{PilaWilkie}]
   \label{thm:pilawilkie}
-  Let $\cS$ be an o-minimal structure,  let $\epsilon>0$, and let $X\subset\IR^m$ be
+  Let $\cS$ be an o-minimal structure,
+  let $\epsilon>0$, and let $X\subset\IR^m$ be
   definable in $\cS$.
   There exists  $c(\epsilon,X)>0$ such that
   \begin{equation*}
@@ -185,23 +199,69 @@ rational points implies the existence of a real-semi algebraic curve.
 \end{theorem}
 
 So rational points can at most accumulate ``excessively'' on the
-algebraic locus of a definable set. In Hector's lecture we
-will see a conceptually related
-``exceptional'' subset of a projective variety in connection with
-Lang's Conjecture.
+algebraic locus of a definable set. In Hector's lecture we will see a
+conceptually related ``exceptional'' subset of a projective variety in
+connection with Lang's Conjecture.
 
 The proof of the Pila--Wilkie Theorem automatically produces the
-following version that is uniform in families. 
+following version that is uniform in families.
 
 \begin{theorem}[Pila--Wilkie~\cite{PilaWilkie}]
   Let $\cS$ be an o-minimal structure,  let $X\subset\IR^n\times \IR^m$ be
   definable in $\cS$, and let $\epsilon >0$.
-  There exists  $c=c(X,\epsilon)>0$ such that
+  There exists  $c(X,\epsilon)>0$ such that
   \begin{equation*}
-    N(X_y\ssm X_y^{\mathrm{alg}},T)\le c T^\epsilon \quad\text{for
+    N(X_y\ssm X_y^{\mathrm{alg}},T)\le c(X,\epsilon) T^\epsilon \quad\text{for
       all}\quad T\ge 1\text{ and all }y\in\IR^n. 
   \end{equation*}
 \end{theorem}
+
+Let us finish this section with a historical remark on the
+\textit{Determinant Method}. This is the ``arithmetic core'' of the
+proof. The method was introduced by Bombieri and
+Pila~\cite{BombieriPila} at a time when the connection between
+o-minimal geometry and diophantine approximation had not been made.
+So their results were confined to low dimension (essentially $\le 2$).
+
+\begin{theorem}[Bombieri--Pila, Theorem~1~\cite{BombieriPila}]
+  Let $I = [a,b]$ with real numbers $a<b$ an d suppose $f\colon
+  I\rightarrow \IR$ is the restriction of a real analytic function to
+  $I$. Suppose that $f$ is no algebraic and let $\Gamma(f)\subset
+  I\times \IR$ denote the graph of $f$. For all $\epsilon > 0$ there
+  exists $c(f,\epsilon)> 0$ with
+  \begin{equation*}
+    \# (\Gamma \cap T^{-1}\IZ^2) \le c(f,\epsilon)T^\epsilon
+    \quad\text{for all}\quad T\ge 1. 
+  \end{equation*}
+\end{theorem}
+
+This result can after earlier work of Jarn\'ik and Swinnerton-Dyer,
+\cite{PilaWilkie} contains a brief historical account. 
+
+\begin{exercise}
+  \begin{enumerate}
+  \item [(i)]  Deduce the Bombieri--Pila Theorem from the Pila--Wilkie Theorem.
+    What o-minimal structure do you need? 
+  \item[(ii)] Read the proof of the Bombieri--Pila Theorem.
+  \item[(iii)] Show that in general, the growth rate
+    $c(X,\epsilon)T^\epsilon$ in Theorem~\ref{thm:pilawilkie}
+    cannot be improved in the following sense.
+    Let $\epsilon \colon [1,\infty)\rightarrow (0,\infty)$ be strictly
+    decreasing with $\lim_{T\rightarrow\infty}\epsilon(T)=0$. 
+    Find a function $f\colon [0,1]\rightarrow \IR$ that is the
+    restriction of a real analytic function defined on an open
+    neighborhood of $[0,1]$ such that
+    $$
+    N(\Gamma,T) \ge T^{\epsilon(T)}
+    $$
+    for infinitely many $T\in\IN$; here $\Gamma$ is the graph of $f$.
+    (Hint: See Example 7.5~\cite{Pila:Subanalytic} or \cite{Surroca:IMRN}). 
+  \end{enumerate}
+\end{exercise}
+
+In dimension 2, Pila~\cite{Pila:Subanalytic}, was able prove
+results towards the Pila--Wilkie Theorem before the introduction of
+o-minimal geometry. 
 
 \section{Schanuel's Conjecture and Ax's Theorem}
 
@@ -314,6 +374,11 @@ assuming Theorem~\ref{thm:Axmult}.
   See Chapters 3.1 and 3.2~\cite{BG} for background on algebraic
   subgroups of $\IG_{\mathrm{m}}^m$. 
 \end{exercise}
+
+
+The following corollary can be proved using Corollary~\ref{cor:alw}
+in combination with an induction argument. 
+
 \begin{corollary}
   \label{cor:alw2}
   Let $C$ be as in Corollary~\ref{cor:alw}. After replacing $C$ by a
@@ -333,7 +398,7 @@ Pila--Wilkie Theorem. The Pila--Wilkie Theorem was first used in this
 area in the influential paper~\cite{PilaZannier} by Pila and Zannier.
 There, the authors gave a new proof of the Manin--Mumford Conjecture.
 Our approach towards the Ax--Lindemann--Weierstrass theorem here is
-influenced by work of Orr, Pila, Ullmo, and Yafaev. !!!CHECK.
+influenced by work of Orr, Pila, Ullmo, and Yafaev. 
 % While Ax's original proof predates the work of Pila and Zannier, the
 % latter paved the way to further developments that had many
 % applications.
@@ -393,10 +458,9 @@ $V(\IC)$.
 
 \subsubsection{Step 2: Applying the Pila--Wilkie Theorem}
 
-
 \begin{definition}
   \label{def:stabZ}
-  The stabilizer of $Z$ is the subgroup
+  The \emph{stabilizer} of $Z$ is the subgroup
   \begin{equation*}
     \mathrm{Stab}(Z) = \{v\in \IC^g : v+Z=Z\}
   \end{equation*}
@@ -423,44 +487,21 @@ The period lattice $\Omega$ becomes $\IZ^{2g}$ and $\cF$ becomes
 $[0,1]^{2g}$. To avoid double counting it is useful to work with
 $[0,1)^{2g}$ which is also real semi-linear. 
 
-We now write down a set that is definable in $\IRan$.
-% In the formula below $x$ and
-% $y$ are understood as elements in $\IR^{2g}$. Let
-% \begin{equation*}
-%   (\exists y \in Z :
-%   y-x\in [0,1)^{2g})\wedge (\forall y \in Z : (y-x\not\in [0,1)^{2g}) \vee
-%   (y-x\in u|_{[0,1]^{2g}}^{-1}(V)))
-% \end{equation*}
-% where $x$ is free.
-Recall that
- $u|_{[0,1]^{2g}}^{-1}(V)$ is definable in $\IRan$.
-% that this formula leads to a  set that is definable in $\IRan$.
-We set
+We now write down a set that is definable in $\IRan$. Recall that
+$u|_{[0,1]^{2g}}^{-1}(V)$ is definable in $\IRan$. We set
 \begin{alignat*}1  
-  X =  \{x \in\IC^g : &\dim Z\cap(x+[0,1)^{2g})\text{ contains an
-    non-empty open subset of $Z$}\\
-  % =2\dim Z
+  X =  \{x \in\IR^{2g} : & Z\cap(x+[0,1)^{2g})\text{ contains a neighborhood
+    of $Z$}\\
   &\text{and } (Z-x)\cap [0,1)^{2g} \subset u|_{[0,1]^{2g}}^{-1}(V)\}. 
 \end{alignat*}
 
-% \begin{exercise}  
-%   The condition on the dimension is also a definable condition
-%   Convince yourself why using the Cell Decomposition.
-% \end{exercise}
-
-Let $\omega \in\IZ^{2g}$
-such that $\dim Z\cap (\omega+[0,1)^{2g})$ contains a non-empty open
-subset of $Z$.
-% such that $Z$ contains a point $y \in \omega
-% + [0,1)^{2g}$. 
-We claim that $\omega\in X$.
-% Indeed, $(Z-\omega)\cap
-% [0,1)^{2g}\not=\emptyset$ as $y-\omega$ is a member.
-Indeed, say $y\in Z$ with $y\in \omega+[0,1)^{2g}$.
-Then $y\in u^{-1}(V)$, using $u(Z)\subset V$, and hence
-$y \in \omega+u^{-1}(V)$ as $u^{-1}(V)$ is periodic under the period
-lattice. So $y \in \omega+u|_{[0,1]^{2g}}^{-1}(V)$
-for all $y$ with $y\in Z\cap (\omega+[0,1)^{2g})$. 
+Let $\omega \in\IZ^{2g}$ such that $\dim Z\cap (\omega+[0,1)^{2g})$
+contains a non-empty open subset of $Z$. We claim that $\omega\in X$.
+Indeed, say $y\in Z$ with $y\in \omega+[0,1)^{2g}$. Then $y\in
+u^{-1}(V)$, using $u(Z)\subset V$, and hence $y \in \omega+u^{-1}(V)$
+as $u^{-1}(V)$ is periodic under the period lattice. So $y \in
+\omega+u|_{[0,1]^{2g}}^{-1}(V)$ for all $y$ with $y\in Z\cap
+(\omega+[0,1)^{2g})$.
 
 We have showed
 $$\{\omega\in\IZ^{2g} :    Z\cap (\omega+[0,1)^{2g})\text{ contains a non-empty open subset of $Z$}\} \subset X.$$ The important observation is that
@@ -508,18 +549,17 @@ $$
 N(X\ssm X^{\mathrm{alg}})  \le c(X) T^{1/2}.
 $$
 So $X$ contains a connected, real semi-algebraic curve $R$ that
- contains some $\omega(t)\in\IZ^{2g}$. 
+contains some $\omega(t)\in\IZ^{2g}$.
 
 % In the Pila--Wilkie Theorem we can arrange for $R$ to contain some
 % $\omega\in \IZ^{2g}$.
 
-Then $Z\subset Z-R+\omega$. If $x\in R$ then
-$Z-x\subset u^{-1}(V)$ as both sides are complex analytic and since
-$u^{-1}(V)$ contains a non-empty open subset of $Z-x$. 
-Since $u^{-1}(V)$ is periodic under the period lattice we find
-$Z-x+\omega\subset u^{-1}(V)$ for all $x\in R$. Therefore,
-\begin{equation*}
-  Z\subset Z-R+\omega \subset u^{-1}(V).
+Then $Z\subset Z-R+\omega$. If $x\in R$ then $Z-x\subset u^{-1}(V)$ as
+both sides are complex analytic and since $u^{-1}(V)$ contains a
+non-empty open subset of $Z-x$. Since $u^{-1}(V)$ is periodic under
+the period lattice we find $Z-x+\omega\subset u^{-1}(V)$ for all $x\in
+R$. Therefore,
+\begin{equation*} Z\subset Z-R+\omega \subset u^{-1}(V).
 \end{equation*}
 
 We can complexify $R$ just as above to obtain an irreducible
@@ -575,9 +615,9 @@ We mimic here Definition~\ref{def:stabZ} for $A$.
   positive dimension.
 \end{lemma}
 \begin{proof}
-  The Stabilizer equals
+  The stabilizer equals
   \begin{equation*}
-    \mathrm{Stab}(V) = \bigcup_{P \in Z} (Z-P).
+    \mathrm{Stab}(V) = \bigcup_{P \in V} (V-P).
   \end{equation*}
   In this presentation we see that it is Zariski closed in $A$.
   
@@ -619,6 +659,7 @@ We mimic here Definition~\ref{def:stabZ} for $A$.
   Formulate an Ax--Lindemann--Weierstrass Theorem for
   $\IG_{\mathrm{m}}^m$. Prove this using the method in Theorem~\ref{thm:alwav}.  
 \end{exercise}
+
 \section{Some consequences}
 \label{sec:conclusionft}
 
@@ -635,9 +676,9 @@ preimage of a subvariety under the restricted uniformizing map.
   \label{def:ueno}
   In the setup above we define
   \begin{equation*}
-    V^{\circ} = \bigcup_{\substack{\text{coset $C$ of $A$} \\\text{with $\dim
-          C\ge 1$ and $C\subset
-          V$}}} C(\IC).
+    V^{\circ} = \bigcup_{\substack{\text{coset $K$ of $A$} \\\text{with $\dim
+          K\ge 1$ and $K\subset
+          V$}}} K(\IC).
   \end{equation*}
   Then $V^{\circ}$ is called the \emph{Ueno locus} of $V$. 
 \end{definition}
@@ -664,14 +705,14 @@ preimage of a subvariety under the restricted uniformizing map.
 
 
 \begin{definition}
-  Let $V$ be an irreducible subvariety of $A$. A coset $C$ of $A$ is
-  called a \emph{maximal coset of $V$} if $C\subset V$ and if it is
+  Let $V$ be an irreducible subvariety of $A$. A coset $K$ of $A$ is
+  called a \emph{maximal coset} of $V$ if $K\subset V$ and if it is
   a maximal coset of $A$ with respect to inclusion that is contained
   in $V$. 
 \end{definition}
 
-Let $C_1,\ldots,C_r$ be cosets of $A$ contained in $V$ with
-$C_1\subsetneq \cdots\subsetneq C_r$. Then $r-1\le \dim C_r\le V$. So
+Let $K_1,\ldots,K_r$ be cosets of $A$ contained in $V$ with
+$K_1\subsetneq \cdots\subsetneq K_r$. Then $r-1\le \dim K_r\le V$. So
 any coset of $A$ that is contained in $V$ is contained in a maximal
 coset of $V$.
 
@@ -680,7 +721,7 @@ coset of $V$.
   Let $V$ be an irreducible subvariety of $A$.
   \begin{enumerate}
   \item [(i)] There is a finite set $\cB$ of abelian subvarieties of
-    $A$ such that any maximal coset of $A$ is the translate of a
+    $A$ such that any maximal coset of $V$ is the translate of a
     member of  $\cB$.
   \item[(ii)] The Ueno locus $V^{\circ}$ is Zariski closed in $V$.
   \item[(iii)] We have $V^{\circ} = V\Longleftrightarrow \dim\mathrm{Stab}(V)\ge
@@ -815,18 +856,18 @@ In Hector's lectures we will get to know the notion of hyperbolicity
 and smooth varieties of general type.
 
 \begin{definition}
-  Let $V$ be an irreducible projective variety over $\IC$.
+  Let $V$ be a smooth, irreducible projective variety defined over $\IC$.
   \begin{enumerate}
   \item [(i)] We call $V$ \emph{hyperbolic} if
     any holomorphic map $\IC \rightarrow A(\IC)$ with values in
     $V(\IC)$ is
     constant.
-  \item[(ii)] If $V$ is smooth we say it is of \emph{general type} if its
+  \item[(ii)] We say $V$ is of \emph{general type} if its
     Kodaira dimension equals $\dim V$. 
   \end{enumerate}
 \end{definition}
 
-\begin{theorem} Let $V$ be an irreducible subvariety of $A$. 
+\begin{theorem} Let $V$ be an smooth  irreducible subvariety of $A$. 
   \begin{enumerate}
   \item [(i)]  Then $V$ is hyperbolic if and only if
     $V^{\circ}=\emptyset$. 
@@ -846,7 +887,20 @@ The following problem is related to Schanuel's Conjecture.\footnote{It is
 \begin{exercise}
   Prove $\pi^{\pi^{\pi^\pi}}\not\in\IZ$.    
 \end{exercise}
-% \begin{proof}
+
+The following conjecture due to Wilkie remains open. It predicts that
+in $\IRexp$, one can obtain a poly-logarithmic upper bound for the
+number of rational points of bounded height. 
+
+\begin{conjecture}[Wilkie]
+  Let $X$ be definable in $\IRexp$. There exist $c_1(X)>0$ and $c_2(X)>0$
+  such that
+  \begin{equation*}
+    N(X\ssm X^{\mathrm{alg}},T) \le c_1(X) (\log T)^{c_2(X)}
+  \end{equation*}
+  for all $T\ge e$.
+\end{conjecture}
+%\begin{proof}
 %   For (i) we require that the image of any non-constant holomorphic
 %   map $\IC\rightarrow A(\IC)$ with image in $V(\IC)$ has values in
 %   $V^{\circ}$. This is a theorem, !!!REF. The converse direction is easier, indeed, any coset of
