@@ -12,7 +12,7 @@ including conjectures in diophantine geometry.
 O-minimal Geometry has strong ties mathematical logic and model
 theory. 
 
-The basic motivation is to carve out a class ``interesting'' subsets
+The basic motivation is to carve out a class of ``interesting'' subsets
 of $\IR^n$ that is stable under various basic observations. These sets
 will be called ``definable'' (in a given o-minimal structure). 
 
@@ -67,12 +67,13 @@ semi-analytic).
 
 \begin{example} Let us consider the two extremes.
   \begin{enumerate}
-  \item [(i)] Set $S_m$ to be the set of all subsets of $\IR^m$ for
-    all $m\ge 0$. Then $(S_m)_m$ is a structure. It is useless in this
-    context and will play no role
+  \item [(i)] Let $S_m$  be the set of all subsets of $\IR^m$ for
+    all $m\ge 0$. Then $(S_m)_m$ is a structure. It is useless for
+    applications to diophantine geometry 
+    and will play no role
     in what follows.
   \item[(ii)]
-    Set $S_m$ to be the set of all real semi-algebraic subsets of $\IR^m$
+    Let $S_m$  be the set of all real semi-algebraic subsets of $\IR^m$
     for all $m\ge 0$. By definition each $S_m$ is closed under taking
     unions. Moreover, each $S_m$ is closed under taking intersections.    
     Say $X\in S_m$. Let us  verify that $\IR^m \ssm X$. Indeed, by
@@ -161,7 +162,7 @@ any clause that ``tempers'' the collection of sets.
   \begin{enumerate}
   \item [(v)]  if each 
   element in $S_1$ is a finite union of points and
-  open intervals, that are possibly unbounded.
+  open, possibly unbounded, intervals.
   \end{enumerate}
 \end{definition}
 
@@ -177,7 +178,7 @@ any clause that ``tempers'' the collection of sets.
 The final axiom (v) in does an excellent job in ``taming'' subsets of
 $\IR^m$. This will hopefully be apparent after seeing the
 applications. But the axiom comes at a heavy price.
-We immediately stake out the limits of o-minimality.
+We now stake out the limits of o-minimal geometry.
 
 \begin{nonexample}
   Let $\cS$ be an o-minimal structure. Then $\IZ$ is not definable in
@@ -196,14 +197,13 @@ and often very useful.
 
 
 Say $\cS$ is a structure.
-Here is a list of valid formulas: 
-Suppose $X\subset\IR^m$ is definable. We think of the formula $x\in X$
+%Here is a list of valid formulas: 
+Suppose $X\subset\IR^m$ is definable. We think of the formula ``$x\in X$''
 as an $m$-ary relation signifying membership of the $m$-tuple $x$ in
 $X$.
 In order to refect that real semi-algebraic sets are definable in
 $\cS$ we are allowed to use the basic field operations $+,\cdot,-,/$
-and the constants $0,1$, and $=$ and $>$ in formulas. Some variables
-are free and some are bound. 
+and the constants $0,1$, and $=$ and $>$ in formulas. 
 
 Subject to the usual rules we
 can combine two formulas using the logical symbols $\wedge$ (for
@@ -245,11 +245,12 @@ $m-1$ coordinates (if $m\ge 1$).
   the ambient structure. For example, if $\cS$ is an o-minimal
   structure, then $\IZ$ is not definable in $\cS$. So a formula like
   $\forall x \in\IZ:\forall y\in\IZ :\forall z\in \IZ :
-  (xyz=0) \vee \neg(x^n+y^n=z^n)$ is illegal.
+  (xyz=0) \vee \neg(x^n+y^n=z^n)$ is illegal and does not described a
+  definable set.
 \end{warning}
 
 Let us see this point of view in action. We will now prove that
-univariate functions that are definable in an o-minimal structure are
+a  univariate function that is definable in an o-minimal structure is
 not too wild.
 
 \begin{lemma}[Constant/Injective Lemma]
@@ -266,10 +267,13 @@ not too wild.
   % continuous or strictly monotone.
 \end{lemma}
 \begin{proof}
-  For all $y\in\IR$ the preimage $f^{-1}(y)$ is a definable subset of
+  We first show that there is a non-empty open subinterval of $(0,1)$
+  on which $f$ is either constant or injective. 
+
+  Indeed, for all $y\in\IR$ the preimage $f^{-1}(y)$ is a definable subset of
   $\IR$. So it is a finite union of open intervals and points.
   Therefore, we may assume that  $f^{-1}(y)$ is finite for all $y$.
-  In particular, $f([0,1])$ is an infinite and definable set. Again by
+  In particular, $f((0,1))$ is an infinite and definable set. Again by
   o-minimality it contains an interval $(c,d)$ with $c<d$.
   We consider the formula 
   \begin{equation*}
@@ -353,8 +357,8 @@ Constant/Injective Lemma.
 
 We conclude this section with several exercises.
 
-Here is an exercise how to apply this point of view to quickly show
-that the locus continuity of a definable function is definable.
+% Here is an exercise how to apply this point of view to quickly show
+% that the locus continuity of a definable function is definable.
 
 \begin{exercise}
   Let $\cS$ be a structure. 
@@ -385,10 +389,10 @@ The following statement is useful in many applications.
 \section{The Cell Decomposition Theorem}
 
 The Monotonicity Theorem is the first step towards the Cell
-Decomposition Theorem a powerful tool on the structure of definable
+Decomposition Theorem, a powerful tool on the structure of definable
 functions and definable sets in o-minimal structures.
 
-Consider a given o-minimal structure $\cS$. Cells are certain class of
+Consider a given o-minimal structure $\cS$. Cells are certain classes of
 particularly simple definable sets. They are build blocks of definable
 sets in $\cS$ in the sense that any definable set is a finite disjoint
 union of cells.
@@ -480,7 +484,7 @@ Decomposition Theorem.
 
 A $(0)$-cell is a topological manifold of dimension $1$, a $(1)$-cell
 is a manifold topological of dimension $1$. By induction, an
-$(i_1,\ldots,i_m)$-cell is a topological manifold of dimension
+$(i_1,\ldots,i_m)$-cell is a manifold topological  of dimension
 $i_1+\cdots+i_m$. This observation allows us to define the dimension
 of a definable set.
  
@@ -489,7 +493,7 @@ of a definable set.
   \emph{dimension} of $X$ is
   \begin{equation*}
     \dim X = \max \{i_1+\cdots+i_m: X\text{ contains an
-    }(i_1,\ldots,i_m)-cell\}
+    }(i_1,\ldots,i_m)\text{-cell}\}
   \end{equation*}
   and $\dim \emptyset=-\infty$. 
 \end{definition}
@@ -521,7 +525,10 @@ of a definable set.
 \begin{exercise}
   A priori the notion of $\dim$ depends on the ambient o-minimal
   structure. Let $\cS$ and $\cS'$ be two o-minimal structures and
-  suppose that $X$ is definable in both. Show that $\dim_{\cS} X =
+  suppose that $X$ is definable in both.
+  Let $\dim_cS$ be the dimension of $X$ as a definable set of $\cS$
+  and let $\dim_{\cS'}$ be the dimension of $X$ as a definable set of $\cS$.
+  Show that $\dim_{\cS} X =
   \dim_{\cS'} X$.
 \end{exercise}
 
@@ -535,7 +542,7 @@ important o-minimal structures.
 
 
 The basic approach to obtain  new o-minimal structures is two
-``adjoint'' new definable sets and definable functions to previously
+``adjoin'' new definable sets and definable functions to previously
 established o-minimal structures.
 We introduce some terminology.
 
@@ -545,11 +552,11 @@ We introduce some terminology.
   $X\subset\IR^m$. For all $f\in \mathscr{F}$ there exists $m\in\IN_0$
   and $X\subset\IR^m$ such that $f$ is a function $X\rightarrow\IR$. The
   \emph{structure generated} by $\mathscr{X},\mathscr{F}$ is the small
-  structure in which all elements of $\mathcal{X}$ and $\mathscr{F}$ are
+  structure in which all elements of $\mathscr{X}$ and $\mathscr{F}$ are
   definable.
 \end{definition}
 
-For this definition to make sense we need to observe that intersecting
+For this definition to make sense we need to prove that intersecting
 two structures makes sense. Indeed, for 
 structures $\cS=(S_m)_{m\in\IN_0}$ and $\cS'=(S'_m)_{m\in\IN_0}$, the tuple
 $(\{X\cap Y : X\in S_m, Y\in S'_m\})_{m\in\IN_0}$ is a structure.
@@ -577,7 +584,7 @@ sets.
 
 \subsection{Restricted Real Analytic Functions}
 
-We would like to a o-minimal structure with transcendental functions.
+We would like  to have a o-minimal structure with transcendental functions.
 But at the same time we need to avoid  Example~\ref{ex:adjoinsin}.
 
 \begin{definition}

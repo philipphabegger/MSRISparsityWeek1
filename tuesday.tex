@@ -47,11 +47,11 @@
 
   ``O'' stands for ``order'',  ``minimal'' is a concept from model
   theory.
-
-  O-minimal geometry generalizes real semi-algebaic geometry. 
 \end{frame}
 
 \begin{frame}{Real semi-algebraic sets} 
+  O-minimal geometry generalizes real semi-algebaic geometry. 
+
   \begin{definition}
     A \alert{real semi-algebraic} subset of $\IR^m$ is a finite union
     of sets    
@@ -77,13 +77,12 @@
 
 \section{O-minimal Structures}
 
-\begin{frame}{O-minimal Geometry}
+\begin{frame}{Structures}
   There are two equivalent
-  points of view to o-minimal geometry. We work exclusively
-  over the reals,  there more general versions.
+  points of view to o-minimal geometry.
 
-  An o-minimal structure is a class of
-    ``nice'' subsets of $\IR^m$ \ldots
+  A \alert{structure} is a class of
+    subsets of $\IR^m$ \ldots
   \begin{itemize}
   \item \ldots  that are stable under basic operations
     such as: \alert{intersection} $X\cap Y$, \alert{complement}
@@ -99,9 +98,11 @@
     $(x,y)\in\IR^2$ that satisfy both formulas $\phi(x,y)$ and
     $\psi(x,y)$. 
   \end{itemize}
-
   We will cover both points of view, but will provide only an informal
-  approach to first-order logic. 
+  approach to first-order logic.
+  
+  We work exclusively
+  over the reals,  there more general versions.
 \end{frame}
 
 \begin{frame}{Definition of a Structure}
@@ -155,20 +156,16 @@
   \begin{example}[Continued]
     \begin{enumerate}
     \item [(ii)]
-      If $X\subset \IR^m$ is semi-algebraic, then
-      so is $X\times \IR$ and $\IR\times X$. Indeed, just write down equalities and
-      inequalities for $X$ and introduce a dummy  coordinate for
-      $\IR$.
-      So
-      (ii) is satisfied.
+      If $X\subset \IR^m$ is semi-algebraic, then so is $X\times \IR$
+      and $\IR\times X$. Indeed, just write down equalities and inequalities
+      for $X$ and introduce a dummy coordinate for the extra copy of $\IR$.
+      So (ii) is satisfied.
 
       Clearly, (iv) is satisfied.
       
       What about (iii)? The projection of $\{(x,y) \in\IR^2 :
       x^2+y^2=1\}$ to $\IR$ is $[-1,1] = \{1,-1\}\cup
       \{x\in \IR : x+1>0\text{ and }-x+1>0\}$.
-
-      but harder to show.
     \end{enumerate}
   \end{example}
   
@@ -177,7 +174,7 @@
     $\IR^n$ (with $n\le m$) is real semi-algebraic. 
   \end{theorem}
 
-  $\Longrightarrow$ The set of all real semi-algebraic sets is a structure.
+  $\Longrightarrow$ The  real semi-algebraic sets constitute a structure.
 \end{frame}
 
 \begin{frame}
@@ -273,13 +270,13 @@
   \end{example}
 \end{frame}
 
-\section{Structures and First-Order Logic}
+%\section{Structures and First-Order Logic}
 \begin{frame}
-  Informally, a formula is an expression ``$x\in X$'' where $X$ is definable
-  in the structure.
-  Or,   in order to refect that real semi-algebraic sets are definable in
-  $\cS$ we are allowed to use the basic field operations $+,\cdot,-,/$
-  and the constants $0,1$, and $>$ in formulas.
+  Informally, a formula constructed inductively from  an expression
+  such as ``$x\in X$'' where $X$ is definable
+  in the structure, or involves
+  the basic field operations $+,\cdot,-,/$
+  and the constants $0,1$, as well as $>$.
   
   We can combine two formulas $\phi(x)$ and $\psi(x)$:
   \begin{equation*}
@@ -291,6 +288,9 @@
      \forall \phi(x) &\text{for all $x$ the expression is $\phi(x)$ true}
     \end{array}
   \end{equation*}
+
+  The free variable $x$ is understood as tuple of elements in the
+  \alert{universe}, which equals $\IR$ in our treatment. 
 \end{frame}
 
 \begin{frame}{First-Order Logic}
@@ -302,11 +302,12 @@
       $x : \exists y : (x,y)\in X$ is definable in $\IRalg$, it
       describes the projection of $X$ to the first coordinate. 
     \item[(iii)]
-      It is not \alert{allowed} to quantify over sets that are not definable in
+      We are not \alert{allowed} to quantify over sets that are not definable in
       the ambient structure. If $\cS$ is any o-minimal
-      structure, then $\IZ$ is not definable in $\cS$. So
-      $\forall x \in\IZ:\forall y\in\IZ :\forall z\in \IZ :
-      (xyz=0) \vee \neg(x^n+y^n=z^n)$ is illegal.
+      structure, then $\IZ$ is not definable in $\cS$. So 
+      $$\forall n\ge 3: \forall x \in\IZ:\forall y\in\IZ :\forall z\in \IZ :
+      (xyz=0) \vee \neg(x^n+y^n=z^n)$$
+      does not describe a definable set.
       
     \end{enumerate}
   \end{example}
@@ -323,18 +324,19 @@
       $X\times\IR$  & $x\in X$&
                                                                    $(x,t)$
                                                                     free\\
-      $\pi(X)$  &$\exists t : (x,t)\in
+      $\pi(X)$  &$\exists y : (x,y)\in
                                       X$  & $x$  free
       \\  
       $X\cup Y$ & $( x\in X)\vee (x\in Y)$ &
                                                                                                $x$
                                              free\\
-      $\IR\ssm \pi(\IR^2\ssm X)$ & $\forall y : (x,y)\in X$ & $x$ free
+      $\IR\ssm \pi(\IR^2\ssm X)$ & $\forall y : (x,y)\in X$ & $x$
+                                                              free,
+                                                              here $X\subset\IR^2$
                                              
     \end{tabular}
   \end{center}
-  In the terminology of mathematical logic, $\IR$ is the \alert{universe} of our
-  structure. This is were any element lies ``by default'' in expressions
+  Remember:  any element  lies in the universe $\IR$  ``by default'' in expressions
   such as $\exists x:\phi(x)$ and $\forall x:\phi(x,y)$.
 \end{frame}
 
@@ -395,13 +397,14 @@
     \{0,1\}$).  
     \begin{itemize}
     \item A \emph{$(i_1,\ldots,i_m,0)$-cell} is a the graph of a function
-      $f\colon C\rightarrow \IR$ that is definable in $\cS$.
+      $f\colon C\rightarrow \IR$ that is definable in $\cS$. In
+      particular, it lies in $\IR^{m+1}$.
     \item Let $f,g\in \{\text{functions }C\rightarrow \IR \text{ definable
         in $\cS$}\}\cup\{\pm\infty\}$  with $f(x) < g(x)$ for all $x\in C$. 
       Then
       \begin{equation*}
         \{(x,y)\in C\times \IR : f(x) < y <
-        g(x)  \}
+        g(x)  \}\subset\IR^{m+1}
       \end{equation*}
       is a \emph{$(i_1,\ldots,i_m,1)$-cell}.
     \end{itemize}
@@ -465,7 +468,7 @@
   \end{definition}
 
   \vspace{-0.2cm}
-  The dimension is well-behaved. Immediate properties:
+  The dimension is \alert{well-behaved}. Immediate properties:
   \begin{itemize}
     \vspace{-0.2cm}
   \item $\dim X = 0  \Leftrightarrow \text{$X$
@@ -517,7 +520,7 @@
 \begin{frame}{Restricted Real Analytic Functions}
 
   \begin{definition}
-    The structure  from $\IRalg$ by adjoining
+    The structure obtained from $\IRalg$ by adjoining
     \begin{alignat*}1
       \mathscr{F} = \{f \colon [0,1]^m\rightarrow\IR:  \,\,&\text{$f$ is the
         restriction of a real analytic}\\&\text{function $U\rightarrow
@@ -566,7 +569,7 @@
   \end{example}
 \end{frame}
 
-\begin{frame}{Abelian Varieties}
+\begin{frame}{Intermezzo on Abelian Varieties}
   We come to an important example in our later applications. 
 
   Consider an abelian variety $A$
@@ -674,9 +677,8 @@ This definition involves the exponential function on \alert{full}
     The structure $\IRanexp$ is o-minimal.
   \end{theorem}
 
-  Now $\IRanexp$ is ``big enough'' to treat the Klein's
+  $\IRanexp$ is ``big enough'' to treat the Klein's
   modular $j$-function. 
-
 \end{frame}
 
 \begin{frame}{Klein's Modular $j$-function}
@@ -701,8 +703,8 @@ This definition involves the exponential function on \alert{full}
   (almost uniquely determined point in)
   $\cF$.  
   
-  Note $\tau\in \cF \Rightarrow |q| \le e^{-\pi \sqrt{3}}<1$ and $|2\pi
-  i \tau| \le \pi$. 
+  Note $\tau\in \cF \Rightarrow |q| \le e^{-\pi \sqrt{3}}<1$ and $|\mathrm{Re}(2\pi
+  i \tau)| \le \pi$. 
 
   $\Rightarrow j|_{\cF}$ is definable in $\IRanexp$. 
 \end{frame}
@@ -727,7 +729,8 @@ This definition involves the exponential function on \alert{full}
   \begin{itemize}
   \item O-minimal structures generalize real semi-algebraic sets
   \item There is a well-behaved dimension theory (and much more!)
-  \item We need to  ``sacrifice'' wild sets but also sets like $\IZ$ 
+  \item We need to  ``sacrifice'' wild sets like the Cantor set
+    but also sets like $\IZ$ 
   \end{itemize}
   
   The most important o-minimal structures for us are:
