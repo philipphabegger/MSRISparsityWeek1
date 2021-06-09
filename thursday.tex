@@ -34,6 +34,365 @@
   \titlepage
 \end{frame}
 
+\section{The Ax--Lindemann--Weierstrass Theorem for Abelian Varieties}
+
+
+\begin{frame}{A Review of the Abelian Setting}
+  Let $A$ be a $g$-dimensional abelian variety defined over $\IC$.
+  \begin{itemize}
+  \item We can immerse $A$ into some projective space $\IP^n$.
+
+  \item The complex Lie group $A(\IC)$ is a complex torus, \textit{i.e.} a
+    quotient $\IC^g/\Omega$ where $\Omega$ is a discrete subgroup of
+    rank $2g$.
+
+  \item The quotient map $u\colon \IC^g\rightarrow \IC^g/\Omega
+    =A(\IC)$ can be presented by quasi-periodic holomorphic functions
+    $\vartheta_0,\ldots,\vartheta_n \colon \IC^g\rightarrow\IC$.
+
+  \item Fix a basis $(\omega_1,\ldots,\omega_{2g})$ of $\Omega$ and
+    define a fundamental domain 
+    $$\cF = \{\lambda_1\omega_1+\cdots+\lambda_{2g}\omega_{2g} :
+    \lambda_1,\ldots,\lambda_{2g} \in [0,1]\}.$$
+
+    Then alle $\vartheta_i|_{\cF}\colon \cF\rightarrow\IC$ are
+    definable in $\IRan$.
+
+  \item If $V\subset A$ is an algebraic subset, then the preimage
+    $u^{-1}(V(\IC)) \subset\IC^g$ is $\Omega$-periodic.
+    The restriction $u|_{\cF}^{-1}(V(\IC))$ is definable in $\IRan$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Ax--Lindemann Weierstrass for Abelian Varieties}
+  \begin{definition}
+    Let $A$ be an abelian variety. A \alert{coset} of $A$ is the translate of an
+    abelian subvariety of $A$. 
+  \end{definition}
+
+  \begin{theorem}[Ax--Lindemann--Weierstrass for abelian varieties]
+    Let $C\subset\IC^g$ be a real semi-algebraic curve. After replacing
+    $C$ by a non-empty open subset, the Zariski
+    closure of $u(C)$ in $A$ is a coset of $A$.
+  \end{theorem}
+
+  Historical remark: This theorem follows from a general result of Ax.
+  Pila--Zannier gave a new proof. Later developments by Bakker, Gao, Klingler,
+  Orr, Mok, Pila,
+  Tsimerman, Ullmo, and Yafaev.
+\end{frame}
+
+
+\begin{frame}{Step 1: Complexifying the real semi-algebraic $C$}
+  
+  Let $z_1,\ldots,z_g$ be the complex coordinates of $\IC^g$ with real
+  parts $x_1,\ldots,x_g$ and imaginary parts $y_1,\ldots,y_g$. 
+  After shrinking $C$, which is definable in
+  $\IRalg$ we may assume it is homeomorphic to
+  $(0,1)$ and analytic (use Cell Decomposition).
+
+  We consider $x_1|_{C},\ldots,{x_g}|_C,{y_1}|_C,\ldots
+  y_g|_{C}$ as restricted coordinate functions; the $\IR$-algebra they
+  generate is an integral domain.
+  Then
+  $\mathrm{trdeg}\,\IR({x_1}|_C,\ldots,{y_g}|_C)/\IR=1\Rightarrow
+  \mathrm{trdeg}\,\IC({z_1}|_C,\ldots,{z_g}|_C)/\IC=1$.
+
+  Therefore, $C$
+  lies in an irreducible complex algebraic curve $C_{\IC}\subset\IC^g$. 
+
+  Let $V$ denote the Zariski closure of $u(C_\IC)$ in $A$. Let $Z$
+  denote a maximal irreducible algebraic subset of $\IC^g$ that contains $C_{\IC}$
+  and such that $Z(\IC)\subset u^{-1}(V(\IC))$. 
+\end{frame}
+
+\begin{frame}{Step 2: Applying the Pila--Wilkie Theorem}
+
+
+  We do an $\IR$-linear change of coordinates and
+  replace $\IC^g$ with $\IR^{2g}$ with the help of our basis of
+  $\Omega$. So
+  \begin{equation*}
+    \IC^g\leadsto \IR^{2g}\quad\text{and}\quad
+    \Omega \leadsto \IZ^{2g} \quad\text{and}\quad \cF \leadsto
+    [0,1)^{2g}.
+  \end{equation*}  
+
+  The set
+  \begin{alignat*}1  
+    X =  \{x \in\IR^{2g} : & (Z-x)\cap [0,1)^{2g} \subset u|_{[0,1)^{2g}}^{-1}(V)\\
+    &\color{gray}{\text{and } Z\cap(x+[0,1)^{2g})\text{ contains a
+        neighborhood of $Z$}}
+    \}
+  \end{alignat*}
+  is definable in $\IRan$.
+   
+\end{frame}
+
+\begin{frame}{A Definable Set} 
+  \begin{alignat*}1  
+    X =  \{x \in\IR^{2g} : & (Z-x)\cap [0,1)^{2g} \subset u|_{[0,1)^{2g}}^{-1}(V)\\
+    &\color{gray}{\text{and } Z\cap(x+[0,1)^{2g})\text{ contains a
+        neighborhood of $Z$}}
+    \}
+  \end{alignat*}
+  
+  \begin{lemma}
+    $\{\omega\in\IZ^{2g} :    Z\cap (\omega+[0,1)^{2g})\text{
+      contains a neighborhood  of $Z$}\} \subset X.$
+  \end{lemma}
+  \begin{proof}
+    Let $\omega \in\IZ^{2g}$ be in the set. 
+    Say $y\in Z$ with $y\in \omega+[0,1)^{2g}$. Then $y\in
+    u^{-1}(V)$, using $u(Z)\subset V$, and hence $y \in \omega+u^{-1}(V)$
+    as $u^{-1}(V)$ is $\IZ^{2g}$-periodic. So $y \in
+    \omega+u|_{[0,1)^{2g}}^{-1}(V)$.
+  \end{proof}  
+\end{frame}
+
+\begin{frame}
+  Recall:
+  $Z$ is an irreducible  affine variety of positive
+  dimension. In real coordinates $\IR^{2g}$ it is an \alert{unbounded} set.
+  \begin{minipage}{0.5\linewidth}
+    \includegraphics[width=\textwidth]{grid.png}  
+  \end{minipage}  \begin{minipage}{0.45\linewidth}
+    The set $Z$ meets many translates of the fundamental domain.
+    So $X$ contains many integral points $\omega\in\IZ^{2g}$. 
+
+    $H(\omega) = |\omega|_{\mathrm{max}}$
+    
+    We have $$N(X,T)\gg T$$ as $T\rightarrow\infty$. 
+  \end{minipage}
+  
+  Pila--Wilkie with $\epsilon=1/2$ $\Rightarrow N(X\ssm
+  X^{\mathrm{alg}},T)\ll T^{1/2}$
+
+  So $X$ contains a connected, real semi-algebraic curve $R$ passing
+  through some $\omega\in\IZ^{2g}$. 
+\end{frame}
+
+\begin{frame}
+  So $X$ contains a connected, real semi-algebraic curve $R$ passing
+  through some $\omega\in\IZ^{2g}$.  $\Rightarrow Z\subset Z-R+\omega$.
+
+  If $x\in R$ then $Z-x\subset u^{-1}(V)$ as
+  both sides are complex analytic and since $u^{-1}(V)$ contains a
+  non-empty open subset of $Z-x$. Since $u^{-1}(V)$ is
+  $\IZ^{2g}$-periodic
+  we find $Z-x+\omega\subset u^{-1}(V)$ for all $x\in
+  R$. Therefore,
+  \begin{equation*}
+    Z\subset Z-R+\omega \subset u^{-1}(V).
+  \end{equation*}
+
+  Maximality of $Z$ $\Rightarrow Z = Z-R+\omega \Rightarrow
+  -R+\omega \subset \mathrm{Stab} Z$.
+
+  \begin{definition}
+    The \alert{stabilizer}
+       of $Z$ is the subgroup
+    \begin{equation*}
+      \mathrm{Stab} Z = \{v\in \IC^g : v+Z=Z\} \subset\IC^g.
+    \end{equation*}
+  \end{definition}
+
+  \begin{lemma}
+    The stabilizer $\mathrm{Stab} Z$ is infinite. 
+  \end{lemma}
+\end{frame}
+
+\begin{frame}{The Stabilizer}
+  \begin{definition}
+    The \alert{stabilizer} of $V\subset A$ is
+    \begin{equation*}
+      \mathrm{Stab} V = \{P\in A(\IC) : P+V=V\}. 
+    \end{equation*}
+  \end{definition}
+
+
+  \begin{lemma}
+     $\mathrm{Stab} V$ is an algebraic subgroup of $A$ of
+    positive dimension.
+  \end{lemma}
+  \begin{proof}
+    The stabilizer is Zariski closed as
+      $\mathrm{Stab} V = \bigcup_{P \in V} (V-P)$.
+    
+    Let $z\in Z$ and $v\in G$ be arbitrary. Then $z+v\subset Z$,
+    so $u(z) \subset V-u(v)$. We find $V\subset V-u(v)$ and hence
+    $u(v)+V=V$ by considering the dimension.
+    It follows that 
+    $u(G) \subset\mathrm{Stab} V$.  
+  \end{proof}  
+\end{frame}
+
+\begin{frame}{End of the Proof of
+    Ax--Lindemann--Weierstrass}
+
+  Recall: $C\subset \IC^g$ is a (suitable) real semi-algebraic curve and $V$ is the
+  Zariski closure of $u(C)$ in $A$.
+
+  We know $\dim\mathrm{Stab} V\ge 1$.
+
+  We want to show: $V$ is a coset in $A$. 
+
+  If $\dim V = \dim \mathrm{Stab} V$, then $V$ is a coset and we are
+  done.
+
+  Otherwise $1\le \dim \mathrm{Stab} V \le \dim V-1$.
+  
+  The connected component $B = \mathrm{Stab}^\circ V$ is an abelian
+  subvariety of $A$ of positive dimension. Write $q\colon A\rightarrow
+  A/B$.
+
+  Project the image $u(C)$ everything down
+  to $A/B$ and use $\dim A/B \le \dim A-1$.  An analysis shows that we
+  can proceed by induction on $\dim A$. 
+\end{frame}
+
+\section{Consequences of Ax--Lindemann--Weierstrass}
+
+\begin{frame}{Ueno Locus}
+  ALW (Roughly): the image of a real semi-algebraic curve under
+  $u\colon \IC^g\rightarrow A(\IC)$ lies Zariski dense in a coset of
+  $A$.
+  
+  \begin{definition}
+    Let $V$ be a subvariety of $A$. The \alert{Ueno locus} of $V$ is 
+    \begin{equation*}
+      V^{\circ} = \bigcup_{\substack{\text{coset $\cK$ of $A$} \\\text{with $\dim
+            \cK\ge 1$ and $\cK\subset
+            V$}}} \cK(\IC).
+    \end{equation*}
+  \end{definition}
+
+  In general this is an \alert{infinite} union of Zariski closed
+  subsets of $V$. It is 
+  remarkable that $V^{\circ}$  turns out to be Zariski closed in $V$.
+
+  \begin{theorem}[ALW, alternative formulation]
+    Let $V\subset A$ be an irreducible subvariety and set
+    $X = u|_{\cF}^{-1}(V(\IC))$.
+    Then $u(X^{\mathrm{alg}}) = V^{\circ}$.
+  \end{theorem}
+
+\end{frame}
+
+
+\begin{frame}
+  \begin{definition}
+    Let $V$ be an irreducible subvariety of $A$. A coset $\cK$ of $A$ is
+    called a \alert{maximal coset} of $V$ if $\cK\subset V$ and if it is
+    a maximal coset of $A$ with respect to inclusion that is contained
+    in $V$. 
+  \end{definition}
+
+  Let $\cK_1,\ldots,\cK_r$ be cosets of $A$ contained in $V$ with
+  $$\cK_1\subsetneq \cdots\subsetneq \cK_r.$$
+  Then $r-1\le \dim \cK_r\le V$. So
+  any coset  of $A$ that is contained in $V$ is contained in a maximal
+  coset of $V$.
+\end{frame}
+
+\begin{frame}
+  Many authors contributed to the study of $V^{\circ}$ and variants, including
+  Abramovich, Kawamata, Ochiai, and Ueno.
+
+  Its most remarkable property is that it is an \alert{Zariski closed}
+  subset of $V$. 
+  
+  \begin{theorem} 
+    \begin{enumerate}
+    \item [(i)] If $\cK=P+B$ is a \alert{maximal} coset of $V$ with $B\subset
+      A$ an abelian subvariety, then $B$ lies in a finite set
+      depending only on $V$. 
+    \item[(ii)] The Ueno locus $V^{\circ}$ is Zariski closed in $V$.
+    \item[(iii)] We have $V^{\circ} = V\Longleftrightarrow
+      \dim\mathrm{Stab} V\ge
+      1$. 
+    \end{enumerate}
+  \end{theorem}
+  \begin{proof}\renewcommand{\qedsymbol}{}
+    The basic idea behind (i) is to show that if $\cK$ is a maximal
+    coset of $V$, then $\deg B$ is bounded from above in function of
+    $V$. Then use that an abelian variety has only finitely many
+    abelian subvarieties of bounded degree. 
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+  \begin{proof}[Proof continued]
+    If $B$ is a fixed abelian subvariety of $A$ and $q\colon
+    A\rightarrow A/B$ is the quotient morphism, then
+    a result in algebraic geometry states that
+    \begin{equation*}
+      \{P\in V(\IC) :    \dim_P q|_{V}^{-1}(q(P)) \ge \dim B\}    
+    \end{equation*}
+    is Zariski closed in $V$. Together with (i) we conclude (ii).
+
+    Finally, if $V^{\circ}=V$ then by (ii) there exists a single culprit $B$ with
+    $\dim B\ge 1$ and 
+    $P+B\subset V$ for all $P\in V(\IC)$. So $B\subset
+    \mathrm{Stab} V$ and in particular $\dim \mathrm{Stab}V\ge 1$.
+    Conversely, if $\dim \mathrm{Stab} V \ge 1$, then $P+B\subset V$
+    for all $P\in V(\IC)$ where $B=\mathrm{Stab}^{\circ} V$. 
+  \end{proof}
+\end{frame}
+
+\begin{frame}{Hyperbolic Varieties}
+  \begin{definition}
+    Let $V$ be an irreducible projective variety over $\IC$.
+    % \begin{enumerate}
+    % \item [(i)] 
+      We call $V$ \alert{hyperbolic} if
+      any holomorphic map $\IC \rightarrow A(\IC)$ with values in
+      $V(\IC)$ is
+      constant.
+    % \item[(ii)] We say $V$ is of \alert{general type} if its
+    %   \alert{Kodaira dimension} equals $\dim V$. 
+    % \end{enumerate}
+  \end{definition}
+
+  \begin{example}
+    \begin{enumerate}
+    \item [(i)]    The projective line $\IP^1$ is \alert{not} hyperbolic. Consider
+    $z\mapsto [z:1]$.
+    \item[(ii)] An abelian variety $A/\IC$ is \alert{not} hyperbolic.
+      Indeed, there are many non-constant
+      $\IC\rightarrow \IC^g\rightarrow \IC^g/\Omega =A(\IC)$. 
+    \item[(iii)] A smooth projective curve $C$ of genus $g\ge 2$ is
+      hyperbolic. Indeed, the universal cover of $C(\IC)$ is the open
+      unit disk $\Delta$.
+      Any holomorphic map $\IC\rightarrow C(\IC)$ lifts to a
+      holomorphic map $\IC\rightarrow\Delta$ which is constant by
+      Liouville's Theorem.
+    \end{enumerate}
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{theorem} Let $V$ be an irreducible subvariety of $A$. 
+    Then
+    $$\text{$V$ is hyperbolic}\Longleftrightarrow
+    V^{\circ}=\emptyset. $$
+  \end{theorem}
+
+  Hector will tell you about \alert{smooth projective varieties of
+    general type} next week.
+
+  If $V$ is a smooth subvariety of an abelian variety, then 
+  \begin{alignat*}1
+    V \text{ is of general type }&\Leftrightarrow\dim
+    \mathrm{Stab}(V)=0 \\
+    &\Leftrightarrow
+    \text{$V^{\circ}$ is
+      not Zariski dense in $V$.}
+  \end{alignat*}
+\end{frame}
+
+\section{The Manin--Mumford Conjecture}
+
 \begin{frame}{Manin--Mumford Conjecture}
   Let $A$ be an abelian variety defined over $\IC$.
   
@@ -685,7 +1044,6 @@ Since $\tau$ is in the fundamental domain we
         dense in $V$}\Longleftrightarrow V\text{ is special.}
     \end{equation*}
   \end{theorem}
-  
 \end{frame}
 
 
