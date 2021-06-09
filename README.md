@@ -1,4 +1,3 @@
-
 MSRI
 Summer Graduate School
 Sparsity of Algebraic Points (Virtual School)
