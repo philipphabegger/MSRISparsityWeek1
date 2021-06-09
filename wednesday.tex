@@ -1,0 +1,849 @@
+% MSRI - SGS Sparsity week 1, Wednesday, 1 lecture, 60 minutes
+
+\documentclass{beamer}
+
+\usepackage{amsmath,amssymb,amsthm,mathrsfs,amscd,mathtools}
+\usepackage{datetime}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{tikz,tikz-cd}
+\usetikzlibrary{arrows,shapes}
+
+\usetheme{Metropolis}
+\metroset{block=fill}
+
+
+\input{macrosslides.tex}
+\input{macros.tex}
+
+\title{MSRI Summer Graduate School \\ Sparsity of Algebraic Points \\
+  Day 3: Functional Transcendence}
+\author{Philipp~Habegger \\ University of Basel \\ \texttt{philipp.habegger@unibas.ch}}
+\date{Wednesday, June 9, 2021}
+
+\begin{document}
+
+\setlength{\abovecaptionskip}{0pt} 
+\setlength{\belowcaptionskip}{0pt} 
+
+\renewcommand{\figurename}{Fig.}
+
+
+\begin{frame}
+  \titlepage
+\end{frame}
+\section{Preview}
+\begin{frame}
+  Let $A$ be an abelian variety defined over $\IC$ of dimension $g$. 
+  \begin{definition}
+    A \alert{torsion coset} $\cK$ of $A$
+    the translate of an
+    abelian subvariety of $A$ by a torsion point. So
+    $$ \cK = T+B $$
+    with $B$ an abelian subvariety of $A$ and $T$ a point of finite order. 
+  \end{definition}
+
+  Recall $A(\IC) = \IC^g / \Omega$ and there is a $\IZ$-basis
+  $(\omega_1,\ldots,\omega_{2g})$ of $\Omega$, here $\IC^{g} \cong
+  \mathrm{T}_0(A)$. 
+
+  The group of torsion points $A_{\mathrm{tors}}$ is the image
+  of $\omega_1\IQ+\cdots+\omega_{2g}\IQ$  in $A(\IC)$.
+
+  Set $\Omega_B = \mathrm{T}_0(B)\cap \Omega$, then $B(\IC) =
+  \mathrm{T}_0(B) / \Omega_B$.
+
+  The torsion points of $T+P$ are
+  \alert{dense} in $T+B$ (with respect to the Zariski \alert{and}
+  Archimedean topology).   
+\end{frame}
+
+\begin{frame}
+  \begin{theorem}[Manin--Mumford Conjecture, Raynaud]
+    Let $V\subset A$ be an irreducible closed subvariety. Then
+    \begin{equation*}
+      V\cap A_{\mathrm{tors}} \text{ is Zariski closed in $V$}
+      \Longleftrightarrow \text{$V$ is a torsion coset.}
+    \end{equation*}
+  \end{theorem}
+
+  Let $C/\IC$ be a smooth projective curve of genus $g\ge 1$. Its
+  \alert{Jacobian}
+  $$\mathrm{Jac}(C):=\mathrm{Pic}^0(C)\cong
+  \mathrm{Div}_0(C)/\text{(lin. equiv.)}$$
+  is an abelian variety.
+
+  Let $P_0\in C(\IC)$ be any base point. Then
+  \begin{equation*}
+    P\mapsto ([P]-[P_0])/\text{(lin. eqiuv.)} 
+  \end{equation*}
+  induces a closed immersion
+  \begin{equation*}
+    C\rightarrow \mathrm{Jac}(C).
+  \end{equation*}
+\end{frame}  
+
+\begin{frame}{The Original Question of Manin and Mumford}
+  \begin{theorem}[Manin--Mumford Conjecture, Raynaud]
+    Let $V\subset A$ be an irreducible closed subvariety. Then
+    \begin{equation*}
+      V\cap A_{\mathrm{tors}} \text{ is Zariski closed in $V$}
+      \Longleftrightarrow \text{$V$ is a torsion coset.}
+    \end{equation*}
+  \end{theorem}
+  Many different proofs, including one by Pila--Zannier
+  that uses \alert{o-minimal geometry} and the
+    \alert{Pila--Wilkie Theorem}.
+
+  \begin{corollary}
+    Suppose
+    $C$ is immersed in its Jacobian $\mathrm{Jac}(C)$. If $C(\IC)\cap
+    \mathrm{Jac}(C)_{\mathrm{tors}}$ is infinite, then $g=1$. 
+  \end{corollary}
+  \begin{proof}
+    A $1$-dimension torsion coset in an abelian variety must be a
+    smooth projective curve of genus $1$. 
+  \end{proof}
+  \vspace{-.25cm}
+  
+  Our goal: prove the theorem in an important case.
+\end{frame}
+
+\section{The Pila--Wilkie Theorem}
+
+\begin{frame}{The Height Function}
+  \begin{definition}
+    \begin{enumerate}
+    \item [(i)]
+      Let $x\in \IQ$. There exist coprime integers $p,q$ with
+      $q\ge 1$ and $x=p/q$. The \alert{height} of $x$ is $H(x)=\max\{|p|,q\}$.
+    \item[(ii)] Let $(x_1,\ldots,x_m)\in\IQ^m$. There exist coprime integers
+      $p_1,\ldots,p_m,q$ with $q\ge 1$ and $x_i = p_i/q$ for all $i\in
+      \{1,\ldots,m\}$.
+      The  \alert{height},
+      of $(x_1,\ldots,x_m)$ is $H(x_1,\ldots,x_m)
+      = \max_{1\le i\le m} \{|p_1|,\ldots,|p_m|,q\}$.
+    \end{enumerate}
+  \end{definition}
+
+  \begin{example}
+  \begin{enumerate}
+  \item [(i)] $H(-1)=H(1)=H(0)=0$ and $H(2021/2023) = 2023$.
+  \item[(ii)] 
+    $H(x^d)=H(x)^d$ if $d\ge 1$ and $x\in \IQ^\times \Rightarrow H(x)=H(1/x)$ 
+
+  \item[(iii)] $x,y\in\IQ\Rightarrow H(xy)\le H(x)H(y)$ and $H(x+y)\le
+    2H(x)H(y)$
+  \item[(iv)] $H(1/2,1/3,1/5) = 30, H(8,4,2,1,1/2,1/4,1/8) = 64$
+  \end{enumerate}  
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{example}\label{ex:heightcount1}
+    \begin{enumerate}
+    \item [(i)] If $T\ge 1$, then the \alert{Northcott property} holds:  
+      $$ \# \{ x\in \IQ^m : H(x)\le T\} <\infty.$$
+
+    \item[(ii)]
+      Set $N(T) = \#\{x\in\IQ : H(x)\le T\}$.
+      If $T\ge 1$ is an integer, then $N(T) \ge 2T+1$.
+
+      We have
+      $H(x)=H(-x)=H(1/x)=H(-1/x)$ for all
+      $x\in\IQ^\times$. So it suffices to count rational numbers in
+      $(0,1)$ of height at most $T$. We get
+      \begin{alignat*}1
+        N(T) 
+        &= -1+4\sum_{q=1}^T \varphi(q).
+      \end{alignat*}
+      By Monday's lecture
+      $N(T)$ grows at least as $T^{3/2}$. In fact, it is known that
+      $N(T)\sim \frac{12}{\pi^2} T^2$ as $T\rightarrow\infty$.
+    \end{enumerate}
+  \end{example}
+\end{frame}
+
+\begin{frame}{The Counting Function}
+  \begin{example}[Continued]
+    \begin{enumerate}
+    \item[(iii)] Let $d\ge 1$ be an integer and consider the graph
+      $$\Gamma = \{(x,x^d) : x\in \IR\}.$$
+      If $x\in\IQ$ then $H(x,x^d) = H(x)^d$.
+      So
+      \begin{equation*}
+        \#\{ (x,y) \in \Gamma\cap \IQ^2 : H(x,y)\le T\} \sim
+        \frac{12}{\pi^2}T^{2/d} 
+      \end{equation*}
+      as $T\rightarrow\infty$. 
+    \end{enumerate}  
+  \end{example}
+  \begin{definition}
+    Let $X\subset\IR^m$ be any subset and $T\ge 1$. The \alert{counting
+      function} is 
+    \begin{equation*}
+      N(X,T) = \#\{ x\in X\cap \IQ^m : H(x)\le T\}. 
+    \end{equation*}
+  \end{definition}
+\end{frame}
+
+
+\begin{frame}
+  \begin{example}
+    \begin{enumerate}
+    \item[(i)] $N(\IR,T)\sim \frac{12}{\pi^2} T^2$
+
+    \item[(ii)] $N(\text{Graph of $x\mapsto x^d$},T) \sim \frac{12}{\pi^2}T^{2/d}$
+
+    \item[(iii)] If $d\ge 3$ and $X_d = \{(x,y) \in \IR^2 : x^d+y^d=1\}$,
+      then Wiles's Theorem states $N(X_d,T) \le N(X_d,1)$ for all $T\ge
+      1$.
+
+    \item[(iv)] Let $a,b\in\IQ$ with $4a^3+27b^2\not=0$ and set
+      $X_{(a,b)}= \{(x,y)\in\IR^2 : y^2=x^3+ax+b\}$.      
+      Deciding whether  $T\mapsto N(X_{a,b},T)$ is bounded or not
+      is a difficult, currently \alert{open}, problem.
+
+    \item[(v)] The Lindemann--Weierstrass Theorem implies
+       $$x\in\IQ^\times \Rightarrow \exp(x) \not\in\IQ.$$
+      So the graph
+      $\Gamma=\{(x,\exp(x)) : x\in\IR\}$ satisfies $N(\Gamma,T)=1$ for all
+      $T\ge 1$.      
+    \end{enumerate}
+  \end{example}
+\end{frame}
+
+\begin{frame}{An Exceptional Locus}
+  \begin{definition}
+    Let $X\subset\IR^m$ be any subset. We define
+    \begin{equation*}
+      X^{\mathrm{alg}} = \bigcup_{\substack{\text{connected, real
+            semi-algebraic}\\ \text{curve }C\subset X}} C.
+    \end{equation*}
+  \end{definition}
+  
+  \begin{example}
+    \begin{enumerate}
+    \item [(i)] If $X=\IR$ then $X^{\mathrm{alg}}=\IR$.
+    \item[(ii)] Let $d\ge 1$ be an integer. If
+      $X\subset\IR^2$ is the graph of $x\mapsto x^d$, then
+      $X^{\mathrm{alg}}=X$.
+      
+    \item[(iii)] If $X_{a,b} \subset\IR^2$ is the affine part of an
+      elliptic curve presented by $y^2=x^3+ax+b$, then
+      $X_{a,b}^{\mathrm{alg}}=X$.
+    \end{enumerate}
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{example}[Continued]
+    \begin{enumerate}
+\item[(iv)] Let $X$ be  the graph of
+      $\exp\colon\IR\rightarrow\IR$, then
+      $X^{\mathrm{alg}}=\emptyset$.
+      \begin{minipage}{0.9\linewidth}
+      \begin{proof}
+        \vspace{2.25cm}
+      \end{proof}  
+      \end{minipage}
+            \phantom{Indeed, if
+      $X^{\mathrm{alg}}$ were non-empty, it would contain a connected
+      real semi-algebraic curve. Thus the components of $(x,\exp(x))$
+      would be algebraically dependent for $x$ in some non-empty open
+      interval and thus on all of $\IR$. But then there would exist
+      $A\in \IR[X,Y]\ssm\{0\}$ with $A(x,\exp(x))=0$ for all $x\in\IR$.
+      This is impossible.}
+      
+    \item [(v)] Let $X = \{(x,y,y^x) : y\in (0,\infty), x\in\IR\}$. Then
+      $X$ is definable in $\IRanexp$ and $\dim X = 2$.
+      Observe:
+      \vspace{-.3cm}
+      $$X_a=\{(y,y^a) : y\in (0,\infty)\}$$
+      is real
+      semi-algebraic if and only if 
+      $a\in\IQ$.      One can show that
+      $X^{\mathrm{alg}}$ is \alert{not} definable in
+      $\IRanexp$.      
+    \end{enumerate}
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{example}[Continued]
+    \begin{enumerate}
+    \item[(v)]
+      \alert{Careful:}
+      $$X^{\mathrm{alg}}=X\not\Rightarrow X\text{ is real semi-algebraic.}$$
+      Consider
+      \begin{equation*}
+        X = \{(x,y)\in (0,1)\times\IR : 0<y<\exp(x) \}.
+      \end{equation*}
+      \begin{minipage}{0.45\linewidth}
+        This is a $(1,1)$-cell definable in $\IRan$.  It is also an open
+        subset of $\IR^2$, so $X^{\mathrm{alg}}=X$.
+
+        But $X$ is \alert{not} real semi-algebraic. 
+      \end{minipage}
+      \begin{minipage}{0.5\linewidth}
+        \includegraphics[width=\textwidth]{expcell.png}
+      \end{minipage}
+      
+    \end{enumerate}
+  \end{example}
+\end{frame}
+
+\begin{frame}{The Pila--Wilkie Theorem}
+  \begin{theorem}[Pila--Wilkie]
+    Let $\cS$ be an o-minimal structure, let $\epsilon>0$, and let
+    $X\subset\IR^m$ be definable in $\cS$. There exists $c(\epsilon,X)>0$
+    such that
+    \begin{equation*}
+      N(X\ssm X^{\mathrm{alg}},T)\le c(\epsilon,X) T^\epsilon \quad\text{for
+        all}\quad T\ge 1.
+    \end{equation*}
+  \end{theorem}
+
+  \begin{itemize}
+   \item  $c(\epsilon,X)$ is uniform in families, we
+     can replace $X$ by $X_y$ ($y\in\IR^n$)
+     when interpeting $X$ as a definable
+    family over $\IR^n$.
+
+  \item Pre-o-minimal versions in  dimension $1$ and $2$
+    due are to Bombieri--Pila and Pila. The diophantine ``engine'' is
+    called \alert{determinant method}.
+    
+  \item The growth estimate $T^\epsilon$ is best-possible in general.
+    Wilkie conjectured a
+    poly-logarithmic bound $N(X,T)\le c(X)(\log 3T)^{c'(X)}$ if $\cS=\IRexp$.  
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Back to Manin--Mumford}
+  Let $A$ be a $g$-dimensional abelian variety defined over $\IC$.
+  Recall
+  $A(\IC) = \IC^g / \Omega$ with $\Omega$ a rank $2g$ discrete
+  subgroup of $\IC^g$. 
+
+  Let $u\colon \IC^g \rightarrow A(\IC)$ be the uniformizaton given by
+  theta function and $A\subset\IP^n$. Fix a $\IZ$-basis
+  $(\omega_1,\ldots,\omega_{2g})$ of $\Omega$,
+  this gives a fundamental domain $\cF\subset\IC^g$ and lets us
+  identify $\IC^g$ with $\IR^{2g}$ as $\IR$-vector spaces. 
+
+
+  \begin{center}
+    \begin{minipage}{0.45\linewidth}
+      \begin{center}
+        \includegraphics[width=.5\textwidth]{fundamentaldomainav.png}
+
+        Torsion points: $\sum_{i=1}^{2g} \IQ\omega_i$
+      \end{center}    
+    \end{minipage}$\leadsto$    \begin{minipage}{0.45\linewidth}
+      \begin{center}
+        \includegraphics[width=.5\textwidth]{fundamentaldomainav2.png}
+        
+        Torsion points: $\IQ^{2g}$, Order = height
+      \end{center}
+    \end{minipage}
+  \end{center}
+
+  Let $\tilde u \colon \IR^{2g}\rightarrow A(\IC)$ be the uniformizing map
+  in new coordinates. 
+\end{frame}
+
+\begin{frame}
+  If $V\subset A$ is a subvariety over $\IC$, let $X =
+  \tilde u|_{\cF}^{-1}(V(\IC))$.
+
+    \begin{center}
+    \begin{minipage}{0.45\linewidth}
+      \begin{center}
+        \includegraphics[width=.35\textwidth]{fundamentaldomainav2.png}
+        
+        Torsion points: $\IQ^{2g}$, Order = height
+      \end{center}    
+    \end{minipage}$\leadsto$    \begin{minipage}{0.35\linewidth}
+      \begin{center}
+        \includegraphics[width=\textwidth]{torus.png}
+      \end{center}
+    \end{minipage}
+  \end{center}
+
+  We will use the Pila--Wilkie Theorem to count rational points on
+  $X$.
+  To do this we need to understand $X^{\mathrm{alg}}$.
+  
+  \begin{example}
+    Let $B\subset A$ be an abelian subvariety, $\Omega_B = \Omega \cap
+    \mathrm{T}_0(B) \subset\IC^g$ has rank $2\dim B$.
+
+    If $B\subset V$ and if $\dim B\ge 1$, then $X$ will contain
+    a part of $\mathrm{T}_0(B)$ which is real semi-algebraic. So
+    $X^{\mathrm{alg}}\not=\emptyset$.
+
+    We will see that this is essentially the \alert{only} kind of
+    contribution to $X^{\mathrm{alg}}$.
+  \end{example}
+\end{frame}
+
+% \begin{frame}{Back to Monday}
+%   Let $C\subset \IG_{\mathrm{m}}^2$ be an algebraic curve and let
+%   $$\mathbf{e}(q_1,q_2) = (\exp(2\pi i q_1),\exp(2\pi i q_2)).$$
+
+%   $$\Longrightarrow \quad X=\mathbf{e}^{-1}(C(\IC))\cap [0,1)^2\quad\text{is definable in $\IRan$.}$$
+
+%   \begin{equation*}
+%     \text{torsion points on $C(\IC)$} \xleftrightarrow{\text{1-to-1}} \text{rational
+%       points on $X$}
+%   \end{equation*}
+
+%   Basic idea of Pila--Zannier for the Manin--Mumford Conjecture: apply the counting theorem to $X$.
+
+%   We need to understand the algebraic locus $X^{\mathrm{alg}}$.
+% \end{frame}
+
+\section{Functional Transcendence}
+
+\begin{frame}{Classical Transcendence}
+  \begin{example}
+    \begin{enumerate}
+    \item[(i)] Hermite:  $e\not\in\IQbar$, Lindemann: $\pi
+      \not\in\IQbar$
+    \item[(ii)] Let $z_1,\ldots,z_m\in\IQbar$ be
+      $\IQ$-linearly independent. Then
+      \begin{equation*}
+        \mathrm{trdeg}\,\IQ(\exp(z_1),\ldots,\exp(z_m))/\IQ \ge m,
+      \end{equation*}
+      follows from the \alert{Lindemann--Weierstrass Theorem}.
+      \textit{E.g.} $e$ and $e^{\sqrt{2}} $ are algebraic independent,
+      $2\pi i \not\in \IQbar$, $e\not\in\IQbar$.
+    \item[(iii)] Gelfond--Schneider: if $a,b\in\IQbar$ with
+      $a\not=\{0,1\}$, then $a^b = \exp(b \log a)\not\in \IQbar$.
+      \text{E.g.}
+      $e^\pi = (-1)^{-i}\not\in\IQbar$.       
+    \end{enumerate}
+  \end{example}
+  
+  \begin{conjecture}[Schanuel]
+    Let $z_1,\ldots,z_m\in\IC$ be $\IQ$-linearly independent. Then
+    \begin{equation*}
+      \mathrm{trdeg}\, \IQ(z_1,\ldots,z_m,\exp(z_1),\ldots,\exp(z_m))/\IQ \ge
+      m. 
+    \end{equation*}
+  \end{conjecture}
+\end{frame}
+
+\begin{frame}{Ax's Theorem}
+  Schanuel's Conjecture is most likely far out of reach.
+  It is unknown whether $e+\pi$ is rational or not. 
+
+  But a version for holomorphic maps is known.
+  
+  \begin{theorem}[Ax]
+    Let $\Delta\subset\IC$ be a domain and suppose
+    $f_1,\ldots,f_m \colon\Delta \rightarrow\IC$ are holomorphic
+    functions that are $\IQ$-linearly independent \alert{modulo
+      constants}. Then
+    \begin{equation*}
+      \mathrm{trdeg}\,\IC(f_1,\ldots,f_m,\exp(f_1),\ldots,\exp(f_m))/\IC \ge
+      m+1. 
+    \end{equation*}  
+  \end{theorem}
+
+  It will help us to better understand $X^{\mathrm{alg}}$. In fact, a
+  corollary will be sufficient.
+\end{frame}
+
+\begin{frame}
+  \begin{corollary}[Ax--Lindemann--Weierstrass]
+    Let $C\subset\IC^m$ be a real semi-algebraic curve.
+    After replacing $C$ by a non-empty open subset of itself
+    $\exp(C)=\{\exp(z) :z\in
+    C\}$ is either Zariski dense in
+    $(\IC^\times)^m$ or contained in
+    the
+    translate of a proper algebraic subgroup of $\IG_{\mathrm{m}}^m$.   
+  \end{corollary}
+  \begin{proof}\renewcommand{\qedsymbol}{}
+    \vspace{4cm}
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+  \begin{proof}[Proof continued]
+    \vspace{7cm}
+  \end{proof}
+\end{frame}
+
+
+\section{The Ax--Lindemann--Weierstrass Theorem for Abelian Varieties}
+
+
+\begin{frame}{A Review of the Abelian Setting}
+  Let $A$ be a $g$-dimensional abelian variety defined over $\IC$.
+  \begin{itemize}
+  \item We can immerse $A$ into some projective space $\IP^n$.
+
+  \item The complex Lie group $A(\IC)$ is a complex torus, \textit{i.e.} a
+    quotient $\IC^g/\Omega$ where $\Omega$ is a discrete subgroup of
+    rank $2g$.
+
+  \item The quotient map $u\colon \IC^g\rightarrow \IC^g/\Omega
+    =A(\IC)$ can be presented by quasi-periodic holomorphic functions
+    $\vartheta_0,\ldots,\vartheta_n \colon \IC^g\rightarrow\IC$.
+
+  \item Fix a basis $(\omega_1,\ldots,\omega_{2g})$ of $\Omega$ and
+    define a fundamental domain 
+    $$\cF = \{\lambda_1\omega_1+\cdots+\lambda_{2g}\omega_{2g} :
+    \lambda_1,\ldots,\lambda_{2g} \in [0,1]\}.$$
+
+    Then alle $\vartheta_i|_{\cF}\colon \cF\rightarrow\IC$ are
+    definable in $\IRan$.
+
+  \item If $V\subset A$ is an algebraic subset, then the preimage
+    $u^{-1}(V(\IC)) \subset\IC^g$ is $\Omega$-periodic.
+    The restriction $u|_{\cF}^{-1}(V(\IC))$ is definable in $\IRan$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Ax--Lindemann Weierstrass for Abelian Varieties}
+  \begin{definition}
+    Let $A$ be an abelian variety. A \alert{coset} of $A$ is the translate of an
+    abelian subvariety of $A$. 
+  \end{definition}
+
+  \begin{theorem}[Ax--Lindemann--Weierstrass for abelian varieties]
+    Let $C\subset\IC^g$ be a real semi-algebraic curve. After replacing
+    $C$ by a non-empty open subset, the Zariski
+    closure of $u(C)$ in $A$ is a coset of $A$.
+  \end{theorem}
+
+  Historical remark: This theorem follows from a general result of Ax.
+  Pila--Zannier gave a new proof. Later developments by Bakker, Gao, Klingler,
+  Orr, Mok, Pila,
+  Tsimerman, Ullmo, and Yafaev.
+\end{frame}
+
+
+\begin{frame}{Step 1: Complexifying the real semi-algebraic $C$}
+  
+  Let $z_1,\ldots,z_g$ be the complex coordinates of $\IC^g$ with real
+  parts $x_1,\ldots,x_g$ and imaginary parts $y_1,\ldots,y_g$. 
+  After shrinking $C$, which is definable in
+  $\IRalg$ we may assume it is homeomorphic to
+  $(0,1)$ and analytic (use Cell Decomposition).
+
+  We consider $x_1|_{C},\ldots,{x_g}|_C,{y_1}|_C,\ldots
+  y_g|_{C}$ as restricted coordinate functions; the $\IR$-algebra they
+  generate is an integral domain.
+  Then
+  $\mathrm{trdeg}\,\IR({x_1}|_C,\ldots,{y_g}|_C)/\IR=1\Rightarrow
+  \mathrm{trdeg}\,\IC({z_1}|_C,\ldots,{z_g}|_C)/\IC=1$.
+
+  Therefore, $C$
+  lies in an irreducible complex algebraic curve $C_{\IC}\subset\IC^g$. 
+
+  Let $V$ denote the Zariski closure of $u(C_\IC)$ in $A$. Let $Z$
+  denote a maximal irreducible algebraic subset of $\IC^g$ that contains $C_{\IC}$
+  and such that $Z(\IC)\subset u^{-1}(V(\IC))$. 
+\end{frame}
+
+\begin{frame}{Step 2: Applying the Pila--Wilkie Theorem}
+
+
+  We do an $\IR$-linear change of coordinates and
+  replace $\IC^g$ with $\IR^{2g}$ with the help of our basis of
+  $\Omega$. So
+  \begin{equation*}
+    \IC^g\leadsto \IR^{2g}\quad\text{and}\quad
+    \Omega \leadsto \IZ^{2g} \quad\text{and}\quad \cF \leadsto
+    [0,1)^{2g}.
+  \end{equation*}  
+
+  The set
+  \begin{alignat*}1  
+    X =  \{x \in\IR^{2g} : & (Z-x)\cap [0,1)^{2g} \subset u|_{[0,1)^{2g}}^{-1}(V)\\
+    &\color{gray}{\text{and } Z\cap(x+[0,1)^{2g})\text{ contains a
+        neighborhood of $Z$}}
+    \}
+  \end{alignat*}
+  is definable in $\IRan$.
+   
+\end{frame}
+
+\begin{frame}{A Definable Set} 
+  \begin{alignat*}1  
+    X =  \{x \in\IR^{2g} : & (Z-x)\cap [0,1)^{2g} \subset u|_{[0,1)^{2g}}^{-1}(V)\\
+    &\color{gray}{\text{and } Z\cap(x+[0,1)^{2g})\text{ contains a
+        neighborhood of $Z$}}
+    \}
+  \end{alignat*}
+  
+  \begin{lemma}
+    $\{\omega\in\IZ^{2g} :    Z\cap (\omega+[0,1)^{2g})\text{
+      contains a neighborhood  of $Z$}\} \subset X.$
+  \end{lemma}
+  \begin{proof}
+    Let $\omega \in\IZ^{2g}$ be in the set. 
+    Say $y\in Z$ with $y\in \omega+[0,1)^{2g}$. Then $y\in
+    u^{-1}(V)$, using $u(Z)\subset V$, and hence $y \in \omega+u^{-1}(V)$
+    as $u^{-1}(V)$ is $\IZ^{2g}$-periodic. So $y \in
+    \omega+u|_{[0,1)^{2g}}^{-1}(V)$.
+  \end{proof}  
+\end{frame}
+
+\begin{frame}
+  Recall:
+  $Z$ is an irreducible  affine variety of positive
+  dimension. In real coordinates $\IR^{2g}$ it is an \alert{unbounded} set.
+  \begin{minipage}{0.5\linewidth}
+    \includegraphics[width=\textwidth]{grid.png}  
+  \end{minipage}  \begin{minipage}{0.45\linewidth}
+    The set $Z$ meets many translates of the fundamental domain.
+    So $X$ contains many integral points $\omega\in\IZ^{2g}$. 
+
+    $H(\omega) = |\omega|_{\mathrm{max}}$
+    
+    We have $$N(X,T)\gg T$$ as $T\rightarrow\infty$. 
+  \end{minipage}
+  
+  Pila--Wilkie with $\epsilon=1/2$ $\Rightarrow N(X\ssm
+  X^{\mathrm{alg}},T)\ll T^{1/2}$
+
+  So $X$ contains a connected, real semi-algebraic curve $R$ passing
+  through some $\omega\in\IZ^{2g}$. 
+\end{frame}
+
+\begin{frame}
+  So $X$ contains a connected, real semi-algebraic curve $R$ passing
+  through some $\omega\in\IZ^{2g}$.  $\Rightarrow Z\subset Z-R+\omega$.
+
+  If $x\in R$ then $Z-x\subset u^{-1}(V)$ as
+  both sides are complex analytic and since $u^{-1}(V)$ contains a
+  non-empty open subset of $Z-x$. Since $u^{-1}(V)$ is
+  $\IZ^{2g}$-periodic
+  we find $Z-x+\omega\subset u^{-1}(V)$ for all $x\in
+  R$. Therefore,
+  \begin{equation*}
+    Z\subset Z-R+\omega \subset u^{-1}(V).
+  \end{equation*}
+
+  Maximality of $Z$ $\Rightarrow Z = Z-R+\omega \Rightarrow
+  -R+\omega \subset \mathrm{Stab} Z$.
+
+  \begin{definition}
+    The \alert{stabilizer}
+       of $Z$ is the subgroup
+    \begin{equation*}
+      \mathrm{Stab} Z = \{v\in \IC^g : v+Z=Z\} \subset\IC^g.
+    \end{equation*}
+  \end{definition}
+
+  \begin{lemma}
+    The stabilizer $\mathrm{Stab} Z$ is infinite. 
+  \end{lemma}
+\end{frame}
+
+\begin{frame}{The Stabilizer}
+  \begin{definition}
+    The \alert{stabilizer} of $V\subset A$ is
+    \begin{equation*}
+      \mathrm{Stab} V = \{P\in A(\IC) : P+V=V\}. 
+    \end{equation*}
+  \end{definition}
+
+
+  \begin{lemma}
+     $\mathrm{Stab} V$ is an algebraic subgroup of $A$ of
+    positive dimension.
+  \end{lemma}
+  \begin{proof}
+    The stabilizer is Zariski closed as
+      $\mathrm{Stab} V = \bigcup_{P \in V} (V-P)$.
+    
+    Let $z\in Z$ and $v\in G$ be arbitrary. Then $z+v\subset Z$,
+    so $u(z) \subset V-u(v)$. We find $V\subset V-u(v)$ and hence
+    $u(v)+V=V$ by considering the dimension.
+    It follows that 
+    $u(G) \subset\mathrm{Stab} V$.  
+  \end{proof}  
+\end{frame}
+
+\begin{frame}{End of the Proof of
+    Ax--Lindemann--Weierstrass}
+
+  Recall: $C\subset \IC^g$ is a (suitable) real semi-algebraic curve and $V$ is the
+  Zariski closure of $u(C)$ in $A$.
+
+  We know $\dim\mathrm{Stab} V\ge 1$.
+
+  We want to show: $V$ is a coset in $A$. 
+
+  If $\dim V = \dim \mathrm{Stab} V$, then $V$ is a coset and we are
+  done.
+
+  Otherwise $1\le \dim \mathrm{Stab} V \le \dim V-1$.
+  
+  The connected component $B = \mathrm{Stab}^\circ V$ is an abelian
+  subvariety of $A$ of positive dimension. Write $q\colon A\rightarrow
+  A/B$.
+
+  Project the image $u(C)$ everything down
+  to $A/B$ and use $\dim A/B \le \dim A-1$.  An analysis shows that we
+  can proceed by induction on $\dim A$. 
+\end{frame}
+
+\section{Consequences of Ax--Lindemann--Weierstrass}
+
+\begin{frame}{Ueno Locus}
+  ALW (Roughly): the image of a real semi-algebraic curve under
+  $u\colon \IC^g\rightarrow A(\IC)$ lies Zariski dense in a coset of
+  $A$.
+  
+  \begin{definition}
+    Let $V$ be a subvariety of $A$. The \alert{Ueno locus} of $V$ is 
+    \begin{equation*}
+      V^{\circ} = \bigcup_{\substack{\text{coset $\cK$ of $A$} \\\text{with $\dim
+            \cK\ge 1$ and $\cK\subset
+            V$}}} \cK(\IC).
+    \end{equation*}
+  \end{definition}
+
+  In general this is an \alert{infinite} union of Zariski closed
+  subsets of $V$. It is 
+  remarkable that $V^{\circ}$  turns out to be Zariski closed in $V$.
+
+  \begin{theorem}[ALW, alternative formulation]
+    Let $V\subset A$ be an irreducible subvariety and set
+    $X = u|_{\cF}^{-1}(V(\IC))$.
+    Then $u(X^{\mathrm{alg}}) = V^{\circ}$.
+  \end{theorem}
+
+\end{frame}
+
+
+\begin{frame}
+  \begin{definition}
+    Let $V$ be an irreducible subvariety of $A$. A coset $\cK$ of $A$ is
+    called a \alert{maximal coset} of $V$ if $\cK\subset V$ and if it is
+    a maximal coset of $A$ with respect to inclusion that is contained
+    in $V$. 
+  \end{definition}
+
+  Let $\cK_1,\ldots,\cK_r$ be cosets of $A$ contained in $V$ with
+  $$\cK_1\subsetneq \cdots\subsetneq \cK_r.$$
+  Then $r-1\le \dim \cK_r\le V$. So
+  any coset  of $A$ that is contained in $V$ is contained in a maximal
+  coset of $V$.
+\end{frame}
+
+\begin{frame}
+  Many authors contributed to the study of $V^{\circ}$ and variants, including
+  Abramovich, Kawamata, Ochiai, and Ueno.
+
+  Its most remarkable property is that it is an \alert{Zariski closed}
+  subset of $V$. 
+  
+  \begin{theorem} 
+    \begin{enumerate}
+    \item [(i)] If $\cK=P+B$ is a \alert{maximal} coset of $V$ with $B\subset
+      A$ an abelian subvariety, then $B$ lies in a finite set
+      depending only on $V$. 
+    \item[(ii)] The Ueno locus $V^{\circ}$ is Zariski closed in $V$.
+    \item[(iii)] We have $V^{\circ} = V\Longleftrightarrow
+      \dim\mathrm{Stab} V\ge
+      1$. 
+    \end{enumerate}
+  \end{theorem}
+  \begin{proof}\renewcommand{\qedsymbol}{}
+    The basic idea behind (i) is to show that if $\cK$ is a maximal
+    coset of $V$, then $\deg B$ is bounded from above in function of
+    $V$. Then use that an abelian variety has only finitely many
+    abelian subvarieties of bounded degree. 
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+  \begin{proof}[Proof continued]
+    If $B$ is a fixed abelian subvariety of $A$ and $q\colon
+    A\rightarrow A/B$ is the quotient morphism, then
+    a result in algebraic geometry states that
+    \begin{equation*}
+      \{P\in V(\IC) :    \dim_P q|_{V}^{-1}(q(P)) \ge \dim B\}    
+    \end{equation*}
+    is Zariski closed in $V$. Together with (i) we conclude (ii).
+
+    Finally, if $V^{\circ}=V$ then by (ii) there exists a single culprit $B$ with
+    $\dim B\ge 1$ and 
+    $P+B\subset V$ for all $P\in V(\IC)$. So $B\subset
+    \mathrm{Stab} V$ and in particular $\dim \mathrm{Stab}V\ge 1$.
+    Conversely, if $\dim \mathrm{Stab} V \ge 1$, then $P+B\subset V$
+    for all $P\in V(\IC)$ where $B=\mathrm{Stab}^{\circ} V$. 
+  \end{proof}
+\end{frame}
+
+\begin{frame}{Hyperbolic Varieties}
+  \begin{definition}
+    Let $V$ be an irreducible projective variety over $\IC$.
+    % \begin{enumerate}
+    % \item [(i)] 
+      We call $V$ \alert{hyperbolic} if
+      any holomorphic map $\IC \rightarrow A(\IC)$ with values in
+      $V(\IC)$ is
+      constant.
+    % \item[(ii)] We say $V$ is of \alert{general type} if its
+    %   \alert{Kodaira dimension} equals $\dim V$. 
+    % \end{enumerate}
+  \end{definition}
+
+  \begin{example}
+    \begin{enumerate}
+    \item [(i)]    The projective line $\IP^1$ is \alert{not} hyperbolic. Consider
+    $z\mapsto [z:1]$.
+    \item[(ii)] An abelian variety $A/\IC$ is \alert{not} hyperbolic.
+      Indeed, there are many non-constant
+      $\IC\rightarrow \IC^g\rightarrow \IC^g/\Omega =A(\IC)$. 
+    \item[(iii)] A smooth projective curve $C$ of genus $g\ge 2$ is
+      hyperbolic. Indeed, the universal cover of $C(\IC)$ is the open
+      unit disk $\Delta$.
+      Any holomorphic map $\IC\rightarrow C(\IC)$ lifts to a
+      holomorphic map $\IC\rightarrow\Delta$ which is constant by
+      Liouville's Theorem.
+    \end{enumerate}
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{theorem} Let $V$ be an irreducible subvariety of $A$. 
+    Then
+    $$\text{$V$ is hyperbolic}\Longleftrightarrow
+    V^{\circ}=\emptyset. $$
+  \end{theorem}
+
+  Hector will tell you about \alert{smooth projective varieties of
+    general type} next week.
+
+  If $V$ is a smooth subvariety of an abelian variety, then 
+  \begin{alignat*}1
+    V \text{ is of general type }&\Leftrightarrow\dim
+    \mathrm{Stab}(V)=0 \\
+    &\Leftrightarrow
+    \text{$V^{\circ}$ is
+      not Zariski dense in $V$.}
+  \end{alignat*}
+\end{frame}
+
+
+\begin{frame}
+  \begin{center}
+    Thanks for your attention.
+
+    See you tomorrow when we prove the Manin--Mumford Conjecture for
+    abelian varieties. 
+  \end{center}
+\end{frame}
+
+\end{document}
