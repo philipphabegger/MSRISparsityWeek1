@@ -1,0 +1,700 @@
+% MSRI - SGS Sparsity week 1, Wednesday, 1 lecture, 60 minutes
+
+\documentclass{beamer}
+
+\usepackage{amsmath,amssymb,amsthm,mathrsfs,amscd,mathtools}
+\usepackage{datetime}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{tikz,tikz-cd}
+\usetikzlibrary{arrows,shapes}
+
+\usetheme{Metropolis}
+\metroset{block=fill}
+
+
+\input{macrosslides.tex}
+\input{macros.tex}
+
+\title{MSRI Summer Graduate School \\ Sparsity of Algebraic Points \\
+  Day 4: Manin--Mumford and Andr\'e--Oort}
+\author{Philipp~Habegger \\ University of Basel \\ \texttt{philipp.habegger@unibas.ch}}
+\date{Thursday, June 10, 2021}
+
+\begin{document}
+
+\setlength{\abovecaptionskip}{0pt} 
+\setlength{\belowcaptionskip}{0pt} 
+
+\renewcommand{\figurename}{Fig.}
+
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Manin--Mumford Conjecture}
+  Let $A$ be an abelian variety defined over $\IC$.
+  
+  \begin{definition}
+    The subgroup of points of finite order in $A(\IC)$ is
+    $A_{\mathrm{tors}}$.
+    
+    A \alert{torsion coset} $K$ of $A$
+    is
+    $$ T+B $$
+    with $B$ an abelian subvariety of $A$ and $T\in\mathrm{A}_{\mathrm{tors}}$. 
+  \end{definition}
+
+  \begin{theorem}
+
+  Suppose $K\subset\IC$ is a number field and $A$ is an abelian
+  variety defined over $K$. 
+  Let $V\subset A$ be an irreducible closed subvariety, also defined over a
+  number field $K$. Then
+  \begin{equation*}
+    V(\IC) \cap A_{\mathrm{tors}} \text{ lies Zariski dense in
+      $V$}\Leftrightarrow 
+    \text{$V$ is a torsion coset of $A$.}
+  \end{equation*}
+\end{theorem}
+\end{frame}
+
+\section{Arithmetic of Torsion Points}
+
+\begin{frame}{Group-theoretic Properties} 
+  We collect some facts about the torsion points of an
+  abelian variety $A\subset\IP^n$ defined over a number field
+  $K\subset \IC$.
+
+  As groups we have $A(\IC) \cong \IR^{2g}/\IZ^{2g}$ with $g=\dim A$.
+
+  For $N\in\IZ$ let $A[N] = \ker \text{(multiplication-by-$N$)}
+  \subset A(\overline K)$.
+  Then
+  \begin{equation*}
+    A_{\mathrm{tors}} = \bigcup_{N\in\IN} A[N]
+  \end{equation*}
+  \begin{lemma}
+    $A[N] \cong (\IZ/N\IZ)^{2g}$ if $N\ge 1$.  
+  \end{lemma}
+\end{frame}
+
+
+\begin{frame}{The Galois Action}
+  Let
+  $P=[x_0:\cdots:x_n]\in \IP^n(\overline{K})$ with  $(x_0,\ldots,x_n) \in
+  \overline{K}^{n+1}\ssm\{0\}$.
+  Say $\sigma\in \absgalk$, then
+  \begin{equation*}
+    \sigma(P)=  \sigma([x_0:\cdots:x_n]) = [\sigma(x_0):\cdots:\sigma(x_m)]
+  \end{equation*}
+  is a well-defined action of $\absgalk$ on $\IP^n(\overline K)$.
+
+  If $P\in \IP^n(K)$ we may assume $\forall i:x_i\in K$, so
+  $\sigma(P)=P$ for all $\sigma$.
+  Conversely, 
+  $P\in \IP^n(K)$ with $\sigma(P)=P$ for all $\sigma$ implies
+  $P\in \IP^n(K)$.
+
+  \begin{definition}
+    For $P\in \IP^n(\overline K)$. 
+    We set $K(P)$ to be the fixed field of the stabilizer
+    $\{\sigma\in \absgalk : \sigma(P)=P\}$. 
+  \end{definition}
+
+  We have
+  \begin{equation*}
+    [K(P):K]  = \#\{\sigma(P) : \sigma\in\absgalk \}. 
+  \end{equation*}
+
+\end{frame}
+
+\begin{frame}
+  As $A\subset\IP^n$ is defined over $K$, it is the zero set 
+  of  homogeneous polynomials $f_1,\ldots,f_m$ with
+  coefficients in $K$. Let $P\in A(\overline K)$. 
+
+  $\Rightarrow \forall i: f_i(P) = 0 
+  \Rightarrow \forall \sigma\in\absgalk \forall i: f_i(\sigma(P))=\sigma(f_i(P))=0$
+
+  So $\sigma(P) \in A(\overline K)$ for all $\sigma\in \absgalk$. 
+
+  For $N\in\IN$ the morphism
+  $[N]\colon A\rightarrow A$ is, (Zariski-locally), presented
+  by a collection of homogeneous polynomials. This implies
+  $$\sigma([N](P)) = 
+  [N](\sigma(P))$$
+  holds for {all} $P\in A(\overline K)$.
+
+  We conclude 
+  $\sigma(A[N])\subset A[N]$ and
+  $\sigma(A_{\mathrm{tors}}) \subset A_{\mathrm{tors}}$ for all $N$
+  and all $\sigma$. 
+
+  \begin{definition}
+    The Galois action on $A[N]$ induces a representation
+    $\rho_N \colon \absgalk\rightarrow\mathrm{Aut}(A[N]) \cong
+    \mathrm{GL}_{2g}(\IZ/N\IZ)$.
+  \end{definition}
+\end{frame}
+\begin{frame}
+  
+  \begin{lemma}
+    \begin{enumerate}
+    \item[(i)]
+      For all $N\in\IN$, the extension  $K(A[N])/K$ is Galois
+      of degree at most $N^{4g^2}$.
+    \item[(ii)] If $P\in A[N]$, then $[K(P):K]\le N^2$.
+    \end{enumerate}
+  \end{lemma}
+  \begin{proof}
+    \vspace{3cm}
+  \end{proof}
+
+  We need a \alert{Large Galois Orbit Lemma} as in the proof of the
+  Ihara--Serre--Tate Theorem. 
+\end{frame}
+
+\begin{frame}{Intermezzo: Serre's Theorem}
+  \begin{theorem}[Serre]
+    Let $E$ be  an elliptic curve defined over a number $K$
+    \alert{without} complex multiplication.
+    There exists $c(E)>0$ such that
+    if $p\ge c(E)$ is prime number, then $\rho_p \colon
+    \absgalk\rightarrow \mathrm{Aut}(E[p]) \cong \mathrm{GL}_2(\IF_p)$
+    is surjective.  
+  \end{theorem}
+
+  In contrast to the multiplicative setting:
+  \begin{itemize}
+  \item 
+    $K(A[N])/K$ will usually \alert{not} have  abelian Galois group
+  \item 
+     $K(A(P))/K$ is usually  \alert{not}  even Galois if $P$ has finite
+     order. If  $E$
+     and $p$ are as in Serre's Theorem and if $P$ has order $p$, then
+     \begin{equation*}
+       \mathrm{Gal}(\overline K/K(P))=       \rho_p^{-1} \left\{\mattt{1}{*}{0}{*}\right\}
+     \end{equation*}
+     We have $[K(P):K] = p(p-1) \le p^2$. 
+   \end{itemize}   
+\end{frame}
+
+\begin{frame}{Masser's Theorem}
+  For a root of unity $\zeta$ of order $n$ we have $[\IQ(\zeta):\IQ] =
+  \#(\IZ/n\IZ)^\times =\varphi(n)$.
+  
+  In general there is no ``simple formula'' for the degree of the
+  extension $K(A(P))/K$ if $P\in \mathrm{A}_{\mathrm{tors}}$ has order
+  $N$.
+  Serre's Theorem
+  suggests that the degree $[K(P):K]$ of a point of order $N$ grows
+  polynomially in terms of $N$ at least in some cases.
+
+  
+  \begin{theorem}[Masser]
+    Let $A$ be an abelian variety defined over a number field $K$. There
+    exist $c=c(A)>0$ and $\delta=\delta(A)>0$ with the following
+    property. If $P \in A_{\mathrm{tor}}$ has order $N$, then
+    $[K(P):K]\ge c N^{\delta}$. 
+  \end{theorem}
+\end{frame}
+
+\begin{frame}{Proof of the Manin--Mumford Conjecture}
+  Let $A$ be an abelian variety defined over a number field
+  $K\subset\IC$.
+  Let $V$ be an irreducible subvariety of $A$.
+
+  
+  \begin{lemma}
+    Suppose $V\subset A$ is a torsion coset. Then $V(\overline K)\cap
+    A_{\mathrm{tors}}$ lies Zariski dense in $V$. 
+  \end{lemma}
+  \begin{proof}
+    The torsion points of an abelian variety lie dense with respect to
+    the Archmiedean topology and so in particular with respect to the
+    Zariski topology. The same holds for torsion cosets. 
+  \end{proof}
+
+  This is the easy direction of Manin--Mumford. 
+\end{frame}
+
+\begin{frame}{We have seen this slide before.}
+  \begin{itemize}
+  \item We can immerse $A$ into some projective space $\IP^n$.
+
+  \item The complex Lie group $A(\IC)$ is a complex torus, \textit{i.e.} a
+    quotient $\IC^g/\Omega$ where $\Omega$ is a discrete subgroup of
+    rank $2g$.
+
+  \item The quotient map $u\colon \IC^g\rightarrow \IC^g/\Omega
+    =A(\IC)$ can be presented by quasi-periodic holomorphic functions
+    $\vartheta_0,\ldots,\vartheta_n \colon \IC^g\rightarrow\IC$.
+
+  \item Fix a $\IZ$-basis $(\omega_1,\ldots,\omega_{2g})$ of $\Omega$.
+    This is also an $\IR$-basis of $\IC^g$ and allows us to work with
+    \alert{real coordinates}, also called \alert{Betti coordinates} $\IR^{2g}$.
+    Write $\tilde u\colon \IR^{2g}\rightarrow A(\IC)$, so
+    $\tilde u^{-1}(A_{\mathrm{tors}})=\IQ^{2g}$. 
+
+  \item If $V\subset A$ is an algebraic subset, then the preimage
+    $\tilde u^{-1}(V(\IC)) \subset\IC^g$ is $\IZ^{2g}$-periodic.
+    The restriction $u|_{[0,1)^{2g}}^{-1}(V(\IC))$ is definable in $\IRan$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{lemma}
+    Let $P\in A(\IC)$ be a torsion point of order $N$.
+    There exist $x\in \IQ^{2g}$ with $H(x)=N$ and $u(x)=P$. 
+  \end{lemma}
+  \begin{proof}
+    \vspace{2cm}
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+  The \alert{Ueno locus} $V^{\circ}$  is $\bigcup_{\cK\subset V} \cK$ where $\cK$ is
+  a coset of positive dimension. 
+
+
+  \begin{lemma}
+    There exists $N_0(V,A)$ with the following property. If
+    $P\in V(\overline K)\cap A_{\mathrm{tors}}$ has order $N$
+    and $N\ge N_0(V,A)$, then $P\in V^{\circ}$.
+  \end{lemma}
+  \begin{proof}\renewcommand{\qedsymbol}{}
+    $X = \tilde u^{-1}|_{[0,1)^{2g}}(V(\IC)) \subset \IR^{2g}$
+    is definable in $\IRan$.
+
+    Recall $\tilde u(X^{\mathrm{alg}}) = V^{\circ}$.
+
+    \vspace{3cm}
+
+    % Let $\sigma\in \absgalk$. As $V\subset A\subset\IP^n$ is
+    % vanishing locus of homogeneous polynomials over $K$, we have $\sigma(P)\in
+    % V(\overline K) \Rightarrow P\in V(\overline K)$.
+
+    % Let $P\in V(\overline K) \cap A_{\mathrm{tors}}$ be a point of order
+    % $N$, with $N$ large.
+
+    % Say $\sigma\in \absgalk$ then $\sigma(P)\in V(\overline K)$
+    % also has order $N$.  The number of
+    % Galois conjugates is $[K(P):K]\ge c(A) N^{\delta(A)}$ by
+    % Masser's
+    % Theorem.
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+  \begin{proof}[Proof continued]
+    \vspace{6cm}
+% For any $\sigma$, Lemma~\ref{lem:rationalpreimage} provides $x_\sigma
+%     \in X\cap\IQ^{2g}$ of height $N$ with $u(x_\sigma) = \sigma(P)$. The
+%     number of rational points we obtain in this way is at least
+%     \begin{equation}
+%       \label{eq:rtlptub}
+%       c(N) N^{\delta(A)}. 
+%     \end{equation}
+
+%     Now we are ready to apply the Pila--Wilkie Theorem,
+%     Theorem~\ref{thm:pilawilkie}. It states
+%     \begin{equation}
+%       \label{eq:rtlptlb}
+%       N(X\ssm X^{\mathrm{alg}},N) \le
+%       c(X,\epsilon)N^\epsilon 
+%     \end{equation}
+%     for all $N\ge 1$, here $c(X,\epsilon)$ depends on $X$ and on $\epsilon
+%     > 0$.
+
+%     We set $\epsilon = \delta/2$, which is an invariant that depends only
+%     on $A$. We compare (\ref{eq:rtlptub}) and (\ref{eq:rtlptlb}). As we
+%     may assume that $N$ is large we must have $x_\sigma \in
+%     X^{\mathrm{alg}}$ for some $\sigma\in \absgalk$. 
+%     So $\sigma(P) = u(x_\sigma)  \in u(X^{\mathrm{alg}})$.
+
+%     Now we apply Theorem~\ref{thm:imagealg}, a consequence of the
+%     Ax--Lindemann--Weierstrass. It follows that $\sigma(P)$ lies in a
+%     coset $\sigma(P)+B$ here $B$ is an abelian subvariety of $A$ with
+%     $\dim B\ge 1$. As $P$ and also $\sigma(P)$ are torsion points we see
+%     that $\sigma(P)+B$ is a torsion coset.
+  \end{proof}
+
+\end{frame}
+
+\begin{frame}{Proof of Manin--Mumford}
+  Let $V\subset A$ be an irreducible subvariety defined over $K$
+  such that $V(\overline K)\cap A_{\mathrm{tors}}$ lies Zariski dense
+  in $V$. 
+  
+  All but finitely many torsion
+  points in $A_{\mathrm{tors}}$ have order at least $N(A,V)$.  
+  By the last Lemma,
+  the Ueno locus $V^{\circ}$ lies Zariski dense in $V$.
+
+  But the Ueno locus is always Zariski closed, so 
+  $V^{\circ}=V$ and
+  $\dim \mathrm{Stab}(V) \ge 1$ from earlier.
+
+  Let $B$ be the connected component of $\mathrm{Stab}(V)^{\circ}$
+  containing $0$.
+  If $\dim V = \dim B$, then $V$ is a translate of $B$ by a point of
+  finite order, we are done.
+
+  Otherwise, the theorem follows by induction on $\dim V$ on
+  considering
+  $\varphi(V)$ where 
+    $\varphi\colon A\rightarrow A/B$ is the quotient morphism. \qed
+\end{frame}
+
+
+\section{Unconditional Andr\'e--Oort for $Y(1)^2$}
+
+\begin{frame}{Recall from Monday}
+  \begin{theorem}[Andr\'e--Oort for $Y(1)^2$]
+    Let $C\subset Y(1)^2$ be an irreducible curve. Then
+    \begin{equation*}
+      C \cap Y(1)^2_{\mathrm{special}}\text{ is
+        infinite}\quad\Longleftrightarrow\quad \text{$C$ is a special
+        curve of $Y(1)^2$}. 
+    \end{equation*}  
+  \end{theorem}
+
+  Recall also: the set of special points $Y(1)_{\mathrm{special}}$
+  is the image under Klein's $j$-function of all $\tau\in\IH$ with
+  $[\IQ(\tau):\IQ]$, \textit{e.g.},
+  $$\tau = \sqrt{-D}$$
+  when $-D\equiv 2,3 \mod 4$. 
+  
+
+  We would like to apply the same approach to prove Andr\'e--Oort.
+
+  But $(\mathrm{Re}(\tau),\mathrm{Im}(\tau))$ is
+  algebraic but \alert{no longer} rational!   
+\end{frame}
+
+\begin{frame}{Pila--Wilkie for Algebraic Points}
+  \begin{definition}
+    \begin{enumerate}
+    \item [(i)] Let $x\in\IC$ be an algebraic number. The
+      $\IZ$-minimal polynomial of $x$ is the
+      unique polynomial $P=p_dX^d+\cdots+p_0\in \IZ[X]$ that is
+      irreducible in $\IQ[X]$ with $p_d\ge
+      1,
+      \gcd(p_0,\ldots,p_d)=1,$ and $P(x)=0$. The \alert{height} of $x$
+      is
+      \begin{equation*}
+        H(x) = \left(p_d \prod_{z\in \IC : P(z)=0}
+          \max\{1,|z|\}\right)^{1/d}\ge 1
+      \end{equation*}
+      where the product runs over all complex roots of $P$.
+    \item[(ii)] Let $(x_1,\ldots,x_m)$ with $x_j$
+      algebraic for all $j$. The \alert{height} of
+      $(x_1,\ldots,x_m)$ is
+      $H(x_1,\ldots,x_m) = \max_{1\le j\le m}H(x_j)$. 
+    \end{enumerate}
+  \end{definition}
+  The exponent $1/d$ is there for normalization purposes. So authors
+  work with $h(x)=\log H(x)$. 
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+  \item $H(2^{1/d}) = 2^{1/d}$, just take $P=X^d-2$.
+
+  \item $H(\text{root of unity}) = 1$. Indeed, all roots of the
+    $\IZ$-minimal polynomial of a root of unity are on the unit
+    circle, moreover, the leading term is $1$.
+
+  \item $H(\sqrt{3}/2) = 2$ as $P = 4X^2-3$ has both roots in
+    $[-1,1]$.
+
+  \item Lehmer's polynomial $P=X^{10}+X^9-X^7-X^6-X^5-X^4-X^3+X+1$ is
+    is irreducible and has exactly one root $x=1.1762808\ldots$ outside the
+    unit circle. So $H(x)^{10} = x$. Moreover, $x$ is the least known
+    value $>1$ of $H(x)^{[\IQ(x):\IQ]}$. 
+    
+  \item If $x=p/q$ with $p,q\in\IZ,q\ge 1,\gcd(p,q)=1$, then
+    $P=qX-p$ and $H(x) = q\max\{1,|p/q|\} = \max\{|p|,q\}$, as before. 
+
+    But if $m\ge 2$ this bound \alert{differs}  from the one defined
+    earlier. The difference is harmless for our purposes.
+    
+  \item The height is Galois invariant:
+    $H(\sigma(x))=H(x)$ if $\sigma\in\mathrm{Gal}(\IQbar/\IQ)$. 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  Clearly, any root of unity is contained in
+  \begin{equation*}
+    \{x\in\IQbar : H(x)\le 1\}.
+  \end{equation*}
+  So a set of algebraic numbers of bounded height need \alert{not} be finite.
+  
+  But we can salvage Northcott's Theorem by in addition
+  bounding the degree.
+  
+  \begin{theorem}[Northcott's Theorem]
+    Let $d\ge 1$ and $T\ge 1$. The set
+    \begin{equation*}
+      \{x\in \IC : x \text{ is algebraic with }[\IQ(x):\IQ]\le d\text{
+        and }H(x)\le T\}
+    \end{equation*}
+    is finite. 
+  \end{theorem}
+\end{frame}
+
+
+\begin{frame}{The Pila--Wilkie Theorem for Algebraic Points}
+  \begin{definition}
+    Let $X\subset\IR^m$ be any subset, let $d\ge 1$, and $T\ge 1$. Set
+    \begin{equation*}
+      N_d (X,T) = \#\{ x\in X\cap \IQbar^m : [\IQ(x):\IQ]\le d
+      \text{ and }
+      H(x)\le T\}.
+    \end{equation*}
+  \end{definition}
+
+  Note that $N_d(X,T)<\infty$ for all $T\ge 1$ by Northcott's Theorem. 
+
+  \begin{theorem}[Pila]
+    Let $\cS$ be an o-minimal structure, let $d\ge 1$, let $\epsilon
+    >0$, and   let $X\subset\IR^m$ be
+    definable in $\cS$. 
+    There exists  $c(\epsilon,d,X)>0$ such that
+    \begin{equation*}
+      N_d(X\ssm X^{\mathrm{alg}},T)\le c(\epsilon,d,X) T^\epsilon \quad\text{for
+        all}\quad T\ge 1.
+    \end{equation*}
+  \end{theorem}
+\end{frame}
+
+\begin{frame}
+  \begin{lemma}
+    Let $j(\tau)$ be a special point of $Y(1)$.
+    Let $\Delta$ be the discriminant of
+    the endomorphism ring of the elliptic curve attached to $j(\tau)$.
+    Then $\tau$ is imaginary quadratic. Moreover, if $\tau =x+yi$ with
+    $x,y\in\IR$ then $[\IQ(x,y):\IQ]\le 4$ and $H(x,y)\le 16|\Delta|^{5/2}$.
+  \end{lemma}
+  \begin{proof}\renewcommand{\qedsymbol}{}
+    Set $E = \IC/(\IZ+\tau\IZ)$, then
+    $\mathrm{End}(E) = \IZ + \omega \IZ$ where $\omega = f
+    \frac{\sqrt{D}+D}{2}$ and $D$ is the discriminant of the field of
+    fractions of $\mathrm{End}(E)$ and $f\in\IN$ is its conductor.
+    Then $\Delta = f^2D$.
+    \begin{equation*}
+      \mathrm{Re}(\omega) = f\frac{D}{2} \quad\text{and}\quad
+      \mathrm{Im}(\omega) = f\frac{\sqrt{|D|}}{2}
+      \quad\text{and}\quad
+      |\omega| \le \frac{|\Delta|}{\sqrt{2}}\le|\Delta|
+    \end{equation*}
+    There exist $a,b,c,d\in\IZ$ with
+    $\omega=a+b\tau$ and $\omega\tau = c+d\tau$, so
+    \begin{equation*}
+      b\tau^2+(a-d)\tau-c=0.
+    \end{equation*}
+    So $H(\tau) \le (|b| \max\{1,|\tau|\}^2)^{1/2}$ as $b\not=0$.
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+  \begin{proof}[Proof continued]       
+    $$\frac{fD}{2}=\mathrm{Re}(\omega) =
+    a+b\mathrm{Re}(\tau)\text{ and }\frac{f\sqrt{|D|}}{2}=\mathrm{Im}(\omega)
+    = b \mathrm{Im}(\tau).$$
+    
+Since $\tau$ is in the fundamental domain we
+    find $|\mathrm{Re}(\tau)|\le 1/2$ and $|\mathrm{Im}(\tau)|\ge
+    \sqrt{3}/2$. Therefore,
+    \begin{equation*}
+      b=|b|\le {f \sqrt{|D|/3}} = \sqrt{|\Delta|/3}
+    \end{equation*}
+    and
+    \begin{equation*}
+    |a|\le \frac{b+f|D|}{2} \le \frac{\sqrt{|\Delta|/3} +
+        |\Delta|}{2} \le |\Delta|. 
+    \end{equation*}
+    So
+    $\tau = (\omega-a)/b$ and $|\tau|\le
+    |\omega-a|\le|\omega|+|a| \le 2|\Delta| $.
+
+    We find $H(\tau) \le (|\Delta|/3)^{1/4} (2|\Delta|)$.
+    The estimates for $x=(\tau+\overline\tau)/2$ and $y=(\tau-\overline\tau)/(2i)$ follow from basic height
+    inequalities. Finally, $\IQ(x,y) =\IQ(\tau,i)$ has degree $\le 4$
+    over $\IQ$. 
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+  Let $V\subset Y(1)^2$ be a curve defined over a number field $K$
+  that contains infinitely many special points.
+  We want to show that $V$ is special.
+  
+  The set
+  \begin{equation}
+    \label{def:Xao}
+    X = \{(\tau_1,\tau_2) \in \cF^2 : (j(\tau_1),j(\tau_2)) \in V(\IC) \} =
+    j|_{\cF^2}^{-1}(V(\IC))
+  \end{equation}
+  is \alert{definable} in $\IRanexp$.
+  we also use $j$ to denote $j\times j\colon
+  \IH^2\rightarrow\IC^2$.
+
+  
+  \begin{lemma}
+    Let $(z_1,z_2)\in V(\IC)$ be special and let $\Delta_i$ denote the discriminant
+    of the endomorphismring of the elliptic curve attached to $z_i$.
+    If $\max\{|\Delta_1|,|\Delta_2|\}$ is sufficiently large in terms of
+    $V$, then there exists $\sigma\in \absgalk$ with
+    $\sigma(z_1,z_2)\in j(X^{\mathrm{alg}})$.   
+  \end{lemma}
+
+  The proof is as in the Manin--Mumford Theorem, but we need to use
+  Pila's version of Pila--Wilkie for algebraic points (of degree $\le
+  4$).
+  Large Galois orbits are afforded by the \alert{Landau--Siegel} Theorem.
+\end{frame}
+
+\begin{frame}{Ax--Lindemann--Weierstrass for the $j$-function}
+  But what about $j(X^{\mathrm{alg}})$?
+
+  \begin{theorem}[Pila, 2011]
+    Let $W\subset\IH^m$ be a connected neighborhood of the
+    intersection of an
+    irreducible subvariety of $\IC^m$ with $\IH^m$.
+    Let $\tau_1,\ldots,\tau_m$ denote the coordinate functions of $\IH^m$.
+    Suppose that $j\circ {\tau_1|}_{W},\ldots,j\circ {\tau_m}|_{W}$
+    are \alert{not} algebrically independent.
+    Then there exist $N\in\IN$ and 
+    $k\not=l$ with $\Phi_N(j\circ \tau_k|_W,j\circ \tau_l|_W)=0$ as
+    functions on $W$.    
+  \end{theorem}
+  \vspace{-.2cm}
+  
+  To apply this theorem we take $m=2$ and  $W$ comes from $\IH^2$
+  intersected the complexification of a semi-algebraic curve in $X$.
+  
+  Observe that $j\circ \tau_1|_W$ and $j\circ \tau_2|_W$ are not
+  algebraically independent since their image lies in the algebraic curve
+  $V\subset Y(1)^2$.
+  So one of $j\circ \tau_k|_W$ must be constant or the two coordinates
+  are related by a modular transformation polynomial. In particular,
+  $V$ is special.  
+\end{frame}
+
+\section{Further Developments}
+
+\begin{frame}
+  In his 2011 Annals of Math paper proved Andr\'e--Oort for
+  all subvarieties of $Y(1)^m$.
+
+  \begin{theorem}[Pila]
+    Let $V$ be an irreducible subvariety of $Y(1)^m$. Then
+    $$V(\IC)\cap
+    Y(1)^{m}_{\mathrm{special}}\text{ is Zariski dense in
+      $V$}\Longleftrightarrow V\text{ is special}$$
+  \end{theorem}
+
+  $V$ special in $Y(1)^m$ if, after a  permutating coordinates
+  it is an irreducible component of the algebraic set defined by
+%  the algebraic set determined by the following relations
+  \begin{itemize}
+  \item $X_{1},\ldots,X_{k_1-1}$ are constant on $V$ and take values in
+    $Y(1)_{\mathrm{special}}$
+  \item for $j\ge 1$ there exist $N_{j,1},N_{j,2},\ldots\in\IN$ with 
+    $\Phi_{N_{1,1}}(X_{k_j},X_{k_j+1})=\Phi_{N_{1,2}}(X_{k_j+1},X_{k_1+2})
+    = \cdots =\Phi_{N_{1,k_{j+1}-k_j+1}}(X_{k_{j+1}-2},X_{k_{j+1}-1})$
+  \end{itemize}
+  Coordinates ``packets'' are constant or linked by an isogeny:
+  \vspace{-.2cm}
+  \begin{center}
+  $(X_1,\ldots,X_{k_1-1},X_{k_1},\ldots,X_{k_2-1},\ldots,
+  X_{k_{s-1}},\ldots,X_m)$      
+  \end{center}  
+\end{frame}
+
+
+\begin{frame}
+  Pila's Theorem on Ax--Lindemann Weierstrass
+  was generalized by Pila and Tsimerman to a (weak) Ax--Schanuel
+  Theorem for the $j$-function. The formulation here is chosen to
+  mimic Ax's Theorem.
+
+  \begin{theorem}[Pila--Tsimerman]
+    Let $\tau_1,\ldots,\tau_m\colon\Delta\rightarrow\IH$ be
+    non-constant holomorphic maps on the open unit disk $\Delta$.
+    Suppose that there does not exist $N\in\IN$ and distinct $k,l$
+    such that $\Phi_N(j\circ\tau_k,j\circ \tau_l)=0$ holds
+    identically. Then
+    \begin{equation*}
+      \mathrm{trdeg}\,\IC(\tau_1,\ldots,\tau_m,j\circ\tau_1,\ldots,j\circ\tau_m)/\IC
+      \ge m+1.
+    \end{equation*}
+  \end{theorem}   
+\end{frame}
+
+\begin{frame}{Andr\'e--Oort for $\mathcal{A}_g$}
+  The coarse moduli space $\mathcal{A}_g$ of principally polarized abelian varieties
+  of dimension $g$ is a quotient of
+  \begin{equation*}
+    \IH_g = \{Z\in \mat{g}{\IC} : Z^t = Z \text{ and }
+    \mathrm{Im}(Z) \text{ pos. definite}\}
+  \end{equation*}
+  by the action of the symplectic group $\mathrm{Sp}_{2g}(\IZ)$.
+  
+  \begin{definition}
+    A point in $\mathcal{A}_g(\IC)$ is called \alert{special} or
+    \alert{CM}
+    if the abelian
+    variety  it represents has complex
+    multiplication. 
+  \end{definition}
+
+  Similarities to $Y(1)$:
+  We know $\mathcal{A}_g$ is an irreducible quasi-projective variety of
+  dimension $g(g+1)/2$ defined over $\IQ$.
+  
+  There is a uniformization map
+    $\IH_g \rightarrow \mathcal{A}_g(\IC)$,
+  special points lift to algebraic points in $\mat{g}{\IC}$ (of
+  bounded degree), there are ``special subvarieties''.
+  % From a technical point of view it makes sense to introduce level
+  % structure. 
+\end{frame}
+
+\begin{frame}
+  After many important contributions by:
+
+  \begin{itemize}
+  \item  Pila--Tsimerman, Klinger--Ullmo--Yafaev (Ax--Schanuel)
+  \item   Andreatta--Goren--Howard--Madapusi-Pera, Yuan--Zhang (Colmez
+    Conjecture on the average: Large Galois Orbit)
+  \item Masser--Wüstholz (Endomorphism estimates: Large Galois Orbit)
+  \item   Peterzil--Starchenko (definability)    
+  \end{itemize}
+
+  Tsimerman proved 
+  \begin{theorem}[Tsimerman]
+    Let $V$ be an irreducible subvariety of $\mathcal{A}_g$, then
+    \begin{equation*}
+      V(\IC)\cap \mathcal{A}_{g,\mathrm{special}} \text{ is Zariski
+        dense in $V$}\Longleftrightarrow V\text{ is special.}
+    \end{equation*}
+  \end{theorem}
+  
+\end{frame}
+
+
+
+\begin{frame}
+  \begin{center}
+    Thanks for your attention. The last lecture is on unlikely
+    intersections. 
+  \end{center}
+\end{frame}
+
+\end{document}

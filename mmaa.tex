@@ -123,7 +123,6 @@ Then $A[N] = \{P\in A(\overline K) : [N](P)=0\}$. In fact, all torsion
 points of $A$ are $\overline K$-valued points, \textit{i.e.},
 $A_{\mathrm{tors}}\subset A(\overline K)$. 
 
-%Now suppose that $A$ is defined over a number field $K\subset\IC$.
 Let $\absgalk$ denote the absolute Galois group of $K$. Let
 $P\in \IP^n(\overline{K})$. Fix  $(x_0,\ldots,x_n) \in
 \overline{K}^{n+1}\ssm\{0\}$ with
@@ -165,18 +164,16 @@ $i$, then $K(P) = K(x_0,\ldots,x_n)$.
 
 As $A$ is cut out in $\IP^n$ by homogeneous polynomials with
 coefficients in $K$ we find that the action of $\absgalk$ restricts to
-an action on
-$A(\overline K)$ that fixes $A(K)$.
+an action on $A(\overline K)$ that fixes $A(K)$.
 
-The $[N]\colon A\rightarrow A$ is, at least Zariski-locally, presented
+The multiplication-by-$N$ morphism
+$[N]\colon A\rightarrow A$ is, at least Zariski-locally, presented
 by a collection of homogeneous polynomials. That is, in a Zariski
 neighborhood of any point $P_0\in A(\overline K)$ there exist
 $f_{N,0},\ldots,f_{N,n}\in K[X_0,\ldots,X_n]$, all homogeneous of the
-same degree, such that 
-$[N](P) = [f_{N0}(P):\cdots:f_{Nn}(P)]$ for all $\overline K$-points  $P$ in the said
-neighborhood.
-Patching together neighborhoods yields
-We have
+same degree, such that $[N](P) = [f_{N0}(P):\cdots:f_{Nn}(P)]$ for all
+$\overline K$-points $P$ in the said neighborhood. Patching together
+neighborhoods yields We have
 $$\sigma([N](P)) = [f_{N0}(\sigma(P)):\cdots:f_{Nn}(\sigma(P))] =
 [N](\sigma(P))$$
 holds for \textit{all} $P\in A(\overline K)$.
@@ -225,7 +222,7 @@ elliptic curves.
   taken as defined over $\overline K$ does
   not have complex multiplication. There exists $c(E)>0$ such that
   if $p\ge c(E)$ is prime number, then $\rho_p \colon
-  \absgalk\rightarrow \mathrm{Aut}(E[p]) \cong \mathrm{Gal}_2(\IF_p)$
+  \absgalk\rightarrow \mathrm{Aut}(E[p]) \cong \mathrm{GL}_2(\IF_p)$
   is surjective.  
 \end{theorem}
 
@@ -233,7 +230,8 @@ This theorem illustrates some some notable differences between the
 arithmetic of roots of unity and torsion points on abelian varieties.
 First, in contrast to the multiplicative setting, there is no reason
 to believe that $K(A[N])/K$ is an abelian extension and in general it
-is not. In general, $K(A(P))/K$ is not Galois. In the context of
+is not. In general, $K(A(P))/K$ is not Galois for a torsion point $P$
+of $A$. In the context of
 Serre's Theorem and for all $p$ large enough, the stabilizer of $P \in
 E[p] \ssm\{0\}$ in $\mathrm{Gal}(K(E[p])/K)\cong \mathrm{GL}_2(\IF_p)$
 is a group of upper triangular matrices. It is not normal in
@@ -256,7 +254,7 @@ $\mathrm{Gal}(K(E[p])/K)$.
 But in general there is no simple formula for the degree of the
 extension $K(A(P))/K$ if $P$ has order $N$. At least Serre's Theorem
 suggests that the degree $[K(P):K]$ of a point of order $N$ grows
-polynomially in terms of $N$.
+polynomially in terms of $N$, at least in some cases..
 
 Using methods from transcendence theory, Masser proved the following
 estimate.
@@ -270,13 +268,13 @@ estimate.
 \end{theorem}
 
 
-Now suppose $V$ is an  subvariety of $A$ defined over $K$. We can
-think of $V$ as the zero locus on $A(\overline K)$ of homogeneous
-polynomials with coefficients in $K$. 
+% Now suppose $V$ is an  subvariety of $A$ defined over $K$. We can
+% think of $V$ as the zero locus on $A(\overline K)$ of homogeneous
+% polynomials with coefficients in $K$. 
 
-It is important to distinguish between $A[N]$ and the subgroup
-$A(K)[N] = \{P\in A(K) : [N](P)=0\}$. Indeed, the subgroup $A(K)[N]$ may be
-smaller than $A(K)$.
+% It is important to distinguish between $A[N]$ and the subgroup
+% $A(K)[N] = \{P\in A(K) : [N](P)=0\}$. Indeed, the subgroup $A(K)[N]$ may be
+% smaller than $A(K)$.
 
 
 \section{Proof of the Manin--Mumford Conjecture}
@@ -443,16 +441,21 @@ that the Ueno locus $V^{\circ}$ was introduced  in Definition~\ref{def:ueno}.
 
   Let $B$ be the connected component of $\mathrm{Stab}(V)^{\circ}$
   containing $0$. Then $B$ is an abelian subvariety of $A$, defined
-  over $\overline K$. 
+  over $\overline K$.
+
+  If $\dim B = \dim V$, then $V$ is the translate of $B$ by  a point
+  of finite order. We are done in this case.
+  
+  So assume $\dim B<\dim V$. 
   Let $\varphi\colon A\rightarrow A/B$ denote the quotient morphism.
   After replacing $K$ by a larger number field we may assume that
   everything is defined over $K$.
   The image $\varphi(V)$ is a subvariety of $A/B$. It contains a
   Zariski dense set of torsion points, the image of $V(\overline
   K)\cap A_{\mathrm{tors}}$ in $(A/B)(\overline K)$.
-  Now $\dim A/B = \dim A-\dim B<\dim A$. So by induction on $\dim A$,
+  Now $\dim \varphi(V) = \dim V-\dim B<\dim V$. By induction on $\dim V$,
   we conclude that $\varphi(V)$ is a torsion coset of $A/B$.
-  But as the fibers of $\varphi|_V$ are translates of $B$ we conclude
+  But as the fibers of $\varphi|_V$ are translates of $B$ we can show 
   that $V$ is a torsion coset of $A$. This concludes the proof. 
 \end{proof}
 
@@ -561,25 +564,25 @@ degree.
 \end{proof}
 
 Next we make the statement of Lemma~\ref{lem:tauimagquad} on $\tau$
-quantitative. This allows us to bounde the height of $\tau$.
+quantitative. This allows us to bound the height of $\tau$ if $\tau$
+lies in the fundamental domain $\cF\subset \IH$ and $j(\tau)$ is special.
 
 \begin{lemma}
   \label{lem:heighttaubound}
-  Let $j(\tau)$ be a special point of $Y(1)$.
+  Let $j(\tau)$ be a special point of $Y(1)$ with $\tau\in\cF$.
   Let $\Delta$ be the discriminant of
   the endomorphism ring of the elliptic curve attached to $j(\tau)$.
   Then $\tau$ is imaginary quadratic. Moreover, if $\tau =x+yi$ with
   $x,y\in\IR$ then $[\IQ(x,y):\IQ]\le 4$ and $H(x,y)\le 16|\Delta|^{5/2}$.
 \end{lemma}
 \begin{proof}  
-  Let $E$ be the elliptic curve with $j$-invariant $z$. Then
-  $\mathrm{End}(E) = \IZ + \omega \IZ$ where $\omega = f
-  \frac{\sqrt{D}+D}{2}$ and $D$ is the discriminant of the field of
-  fractions of $\mathrm{End}(E)$ and $f\in\IN$ is its conductor.
-
   We already know from Lemma~\ref{lem:tauimagquad} that $\tau$ is
   imaginary quadratic.
-  
+
+  Let $E$ be the elliptic curve with $j$-invariant $j(\tau)$. Then
+  $\mathrm{End}(E) = \IZ + \omega \IZ$ where $\omega = f
+  \frac{\sqrt{D}+D}{2}$ and $D$ is the discriminant of the field of
+  fractions of $\mathrm{End}(E)$ and $f\in\IN$ is its conductor.  
   Then $\Delta = f^2D$. Observe that
   \begin{equation*}
     \mathrm{Re}(\omega) = f\frac{D}{2} \quad\text{and}\quad
@@ -589,14 +592,15 @@ quantitative. This allows us to bounde the height of $\tau$.
   \end{equation*}
   for the real and imaginary parts. 
 
-  As $\omega 1 \in\IZ+\tau\IZ$ there exist $a,b\in\IZ$ with
-  $\omega=a+b\tau$. So $\frac{fD}{2}=\mathrm{Re}(\omega) =
-  a+b\mathrm{Re}(\tau)$. and $\frac{f\sqrt{|D|}}{2}=\mathrm{Im}(\omega)
+  As $\omega 1 \in\IZ+\tau\IZ$ there exist $a,b,c,d\in\IZ$ with
+  $\omega=a+b\tau$ and $\omega\tau = c+d\tau$.
+  So $\frac{fD}{2}=\mathrm{Re}(\omega) =
+  a+b\mathrm{Re}(\tau)$ and $\frac{f\sqrt{|D|}}{2}=\mathrm{Im}(\omega)
   = b \mathrm{Im}(\tau)$. Since $\tau$ is in the fundamental domain we
   find $|\mathrm{Re}(\tau)|\le 1/2$ and $|\mathrm{Im}(\tau)|\ge
   \sqrt{3}/2$. Therefore,
   \begin{equation*}
-    b=|b|\le {f \sqrt{|D|/3}} = \sqrt{|\Delta|/3}.
+    b=|b|\le {f \sqrt{|D|/3}} = \sqrt{|\Delta|/3}
     \quad\text{and}\quad
     |a|\le \frac{b+f|D|}{2} \le \frac{\sqrt{|\Delta|/3} +
       |\Delta|}{2} \le |\Delta|. 
@@ -604,11 +608,9 @@ quantitative. This allows us to bounde the height of $\tau$.
   Moreover, $b\not=0$ as $\omega\not\in\IR$. So
   $\tau = (\omega-a)/b$ and $|\tau|\le
   |\omega-a|\le|\omega|+|a| \le 2|\Delta| $.
-  This completes the estimates for $a,b,c$. 
+%  This completes the estimates for $a,b,c$. 
 
-%  The lemma follows as $b\tau^2 + (a-d)\tau + c=0$.   
-
-  The polynomial $bX^2+(a-d)X+c$ is an integral multiple of the
+  The polynomial $bX^2+(a-d)X-c$ is an integral multiple of the
   polynomial $P$ of Definition~\ref{def:height2} applied to $\tau$.
   So $H(\tau)^2 \le b\max\{1,|\tau|\}^2 \le |\Delta/3|^{1/2}
   (2|\Delta|)^2 \le 4|\Delta|^{5/2}$.
@@ -637,7 +639,7 @@ given degree.
   The \emph{counting
     function} is 
   \begin{equation*}
-    N_d (X,T) = \#\{ x\in X\cap \IQ^m : [\IQ(x):\IQ]\le d
+    N_d (X,T) = \#\{ x\in X\cap \IQbar^m : [\IQ(x):\IQ]\le d
     \quad\text{and}\quad
     H(x)\le T\};
   \end{equation*}
@@ -684,8 +686,8 @@ The following lemma is the analog of Lemma~\ref{lem:apppw}.
   \label{lem:apppwao}
   Let $V\subset Y(1)^2$ be a geometrically irreducible curve defined
   over a number field $K$.
-  Let $(z_1,z_2)\in V(\IC)$ and let $\Delta_i$ denote the discriminant
-  of the endmorphismring of the elliptic curve attached to $z_i$.
+  Let $(z_1,z_2)\in V(\IC)$ be special and let $\Delta_i$ denote the discriminant
+  of the endomorphismring of the elliptic curve attached to $z_i$.
   If $\max\{|\Delta_1|,|\Delta_2|\}$ is sufficiently large in terms of
   $V$, then there exists $\sigma\in \absgalk$ with
   $\sigma(z_1,z_2)\in j(X^{\mathrm{alg}})$.   

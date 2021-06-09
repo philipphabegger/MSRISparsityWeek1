@@ -93,7 +93,7 @@
   \item \ldots that can be defined using certain formulas in
     first-order
     logic, \textit{e.g.}, 
-    $\exists y\in \IR : x^2=y$ describes the set $[0,\infty)$,
+    $\exists y\in \IR : x=y^2$ describes the set $[0,\infty)$,
     $\phi(x,y)\wedge \psi(x,y)$ describes the set of points
     $(x,y)\in\IR^2$ that satisfy both formulas $\phi(x,y)$ and
     $\psi(x,y)$. 
@@ -113,8 +113,8 @@
     \begin{enumerate}
     \item [(i)] If $X,Y\in S_m$, then $X\cup Y\in S_m$ and
       $\IR^m\ssm X\in S_m$.
-    \item[(ii)] If $X\in S_m$, then $\IR\times X\in S_m$ and $X\times
-      \IR\in S_m$.
+    \item[(ii)] If $X\in S_m$, then $\IR\times X\in S_{m+1}$ and $X\times
+      \IR\in S_{m+1}$.
     \item[(iii)] If $X\in S_{m}$ and $\pi\colon
       \IR^{m}\rightarrow\IR^k$ is the projection to $k$ distinct
       coordinates, then 
@@ -284,8 +284,8 @@
       \phi(x) \wedge \psi(x) & \text{$\psi(x)$ and $\phi(x)$ are true}\\
      \phi(x) \vee \psi(x) & \text{$\psi(x)$ or $\phi(x)$  is true}\\
      \neg \phi(x)  & \text{the negation of $\phi(x)$ is true}\\
-     \exists \phi(x) &\text{there exists $x$ with $\phi(x)$ true}\\
-     \forall \phi(x) &\text{for all $x$ the expression is $\phi(x)$ true}
+     \exists x: \phi(x) &\text{there exists $x$ with $\phi(x)$ true}\\
+     \forall x: \phi(x) &\text{for all $x$ the expression is $\phi(x)$ true}
     \end{array}
   \end{equation*}
 
@@ -305,7 +305,7 @@
       We are not \alert{allowed} to quantify over sets that are not definable in
       the ambient structure. If $\cS$ is any o-minimal
       structure, then $\IZ$ is not definable in $\cS$. So 
-      $$\forall n\ge 3: \forall x \in\IZ:\forall y\in\IZ :\forall z\in \IZ :
+      $$\forall x \in\IZ:\forall y\in\IZ :\forall z\in \IZ :
       (xyz=0) \vee \neg(x^n+y^n=z^n)$$
       does not describe a definable set.
       
@@ -505,7 +505,7 @@
     $X\subset\IR^m$. For all $f\in \mathscr{F}$ there exists $m\in\IN_0$
     and $X\subset\IR^m$ such that $f$ is a function $X\rightarrow\IR$. The
     \alert{structure generated} by $\mathscr{X},\mathscr{F}$ is the small
-    structure in which all elements of $\mathcal{X}$ and $\mathscr{F}$ are
+    structure in which all elements of $\mathscr{X}$ and $\mathscr{F}$ are
     definable.
   \end{definition}
 
