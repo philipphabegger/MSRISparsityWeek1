@@ -536,6 +536,37 @@ Let us define the height of an algebraic number.
   \end{enumerate}
 \end{example}
 
+\begin{lemma}
+  \label{lem:altheight}
+  Let $K$ be a number field and $x\in K$, then
+  $$H(x) = \prod_{\substack{v\text{ place} \\\text{of $K$}}}
+  \max\{1,|x|_v\}^{[K_v:\IQ_p]/[K:\IQ]}.$$
+\end{lemma}
+\begin{proof}
+  See Proposition 1.6.6~\cite{BG}.
+\end{proof}
+
+\begin{exercise}
+  \begin{enumerate}
+  \item Prove $H(x)=H(1/x)$ for all $x\in\IQbar^\times$, you only need
+    Definition~\ref{def:height2}.
+  \item Prove $H(x^k) = H(x)^k$ for all $x\in\IQbar$ and $k\in\IN$,
+    you may need to use Lemma~\ref{lem:altheight}.
+  \item Prove $H(xy) \le H(x)H(y)$ and
+    $H(xy)\le 2H(x)H(y)$ for all $x,y\in\IQbar$,
+    you may need to use Lemma~\ref{lem:altheight}.
+    
+  \end{enumerate}
+\end{exercise}
+
+A number field has 2 kind of places. A finite place $v$ of $K$ can be
+identified with a maximal ideal of the ring of integers of $K$. As
+such it contains a unique rational prime $p$ and our convention is
+$|p|_v=1/p$. An infinite place $v$ of $K$ can be identified with a
+ring homomorphism $\sigma\colon K\rightarrow\IC$ up-to composition
+with complex conjugation; here $|x|_v=|\sigma(x)|$.
+
+
 While  there are infinitely many algebraic numbers of
 bounded height we obtain finiteness after imposing a bound on the
 degree.
@@ -562,6 +593,13 @@ degree.
   coefficients are integers there are at most finitely many $P$ in
   question. So there are at most finitely many $x$. 
 \end{proof}
+
+
+\begin{exercise}
+  Using Northcott's Theorem and $H(x^k)=H(x)^k$ show Kronecker's
+  Theorem: If $x\in\IQbar$ with $H(x)=1$, then $x=0$ or $x$ is a root
+  of unity. 
+\end{exercise}
 
 Next we make the statement of Lemma~\ref{lem:tauimagquad} on $\tau$
 quantitative. This allows us to bound the height of $\tau$ if $\tau$
@@ -951,6 +989,25 @@ exists $c(A,\delta)>0$ with $[K(P):K]\ge c N^{\delta}$. Masser, in an
 unpublished letter to Daniel Bertrand, showed that the supremum is at
 least $1/\dim A$ if $A\not=0$. 
 
+Here is an open problem on heights, sometimes called Lehmer's
+Conjecture.\foonote{Although I know no evidence that Lehmer actually
+  made this conjecture.}
+
+\begin{conjecture}
+  There exists a constant $c>1$ such that for all $x\in\IQbar$ we have
+  $H(x)=1$ or $H(x) \ge c^{[\IQ(x):\IQ]}$.
+\end{conjecture}
+
+The best known result in this direct, up-to numerical constants, is
+Dobrowolski's Theorem~\cite{Dobrowolsi:79}.
+The related Schinzel--Zassenhaus Conjecture was recently proved by
+Dimitrov.
+
+\begin{theorem}[Dimitrov~\cite{Dimitrov:SZ}]
+  Let $x$ be a non-zero algebraic integer that is not a root of unity,
+  then the $\IZ$-minimal polynomial of $x$ has a complex root $z$ with
+  $|z|\ge 2^{1/(4[\IQ(x):\IQ])}$. 
+\end{theorem}
 
 %%% Local Variables:
 %%% TeX-master: "main"

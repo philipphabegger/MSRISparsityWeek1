@@ -42,7 +42,7 @@
   \begin{itemize}
   \item We can immerse $A$ into some projective space $\IP^n$.
 
-  \item The complex Lie group $A(\IC)$ is a complex torus, \textit{i.e.} a
+  \item The complex Lie group $A(\IC)$ is a complex torus, \textit{i.e.}, a
     quotient $\IC^g/\Omega$ where $\Omega$ is a discrete subgroup of
     rank $2g$.
 
@@ -55,7 +55,7 @@
     $$\cF = \{\lambda_1\omega_1+\cdots+\lambda_{2g}\omega_{2g} :
     \lambda_1,\ldots,\lambda_{2g} \in [0,1]\}.$$
 
-    Then alle $\vartheta_i|_{\cF}\colon \cF\rightarrow\IC$ are
+    Then all $\vartheta_i|_{\cF}\colon \cF\rightarrow\IC$ are
     definable in $\IRan$.
 
   \item If $V\subset A$ is an algebraic subset, then the preimage
@@ -76,7 +76,9 @@
     closure of $u(C)$ in $A$ is a coset of $A$.
   \end{theorem}
 
-  Historical remark: This theorem follows from a general result of Ax.
+  Historical remark: This theorem follows from Ax's Theorem, the
+  functional version of Schanuel's Conjecture. 
+  
   Pila--Zannier gave a new proof. Later developments by Bakker, Gao, Klingler,
   Orr, Mok, Pila,
   Tsimerman, Ullmo, and Yafaev.
@@ -87,13 +89,11 @@
   
   Let $z_1,\ldots,z_g$ be the complex coordinates of $\IC^g$ with real
   parts $x_1,\ldots,x_g$ and imaginary parts $y_1,\ldots,y_g$. 
-  After shrinking $C$, which is definable in
-  $\IRalg$ we may assume it is homeomorphic to
+  After shrinking $C$ we may assume it is homeomorphic to
   $(0,1)$ and analytic (use Cell Decomposition).
 
   We consider $x_1|_{C},\ldots,{x_g}|_C,{y_1}|_C,\ldots
-  y_g|_{C}$ as restricted coordinate functions; the $\IR$-algebra they
-  generate is an integral domain.
+  y_g|_{C}$ as restricted coordinate functions.
   Then
   $\mathrm{trdeg}\,\IR({x_1}|_C,\ldots,{y_g}|_C)/\IR=1\Rightarrow
   \mathrm{trdeg}\,\IC({z_1}|_C,\ldots,{z_g}|_C)/\IC=1$.
@@ -115,9 +115,12 @@
   \begin{equation*}
     \IC^g\leadsto \IR^{2g}\quad\text{and}\quad
     \Omega \leadsto \IZ^{2g} \quad\text{and}\quad \cF \leadsto
-    [0,1)^{2g}.
+    [0,1]^{2g}.
   \end{equation*}  
 
+  We continue to use $u$ to denote the uniformization $\IR^{2g}
+  \rightarrow A(\IC)$.
+  
   The set
   \begin{alignat*}1  
     X =  \{x \in\IR^{2g} : & (Z-x)\cap [0,1)^{2g} \subset u|_{[0,1)^{2g}}^{-1}(V)\\
@@ -152,7 +155,7 @@
 
 \begin{frame}
   Recall:
-  $Z$ is an irreducible  affine variety of positive
+  $Z$ is a \alert{complex}  affine variety of positive
   dimension. In real coordinates $\IR^{2g}$ it is an \alert{unbounded} set.
   \begin{minipage}{0.5\linewidth}
     \includegraphics[width=\textwidth]{grid.png}  
@@ -187,22 +190,22 @@
   \end{equation*}
 
   Maximality of $Z$ $\Rightarrow Z = Z-R+\omega \Rightarrow
-  -R+\omega \subset \mathrm{Stab} Z$.
+  -R+\omega \subset \mathrm{Stab}\, Z$.
 
   \begin{definition}
     The \alert{stabilizer}
        of $Z$ is the subgroup
     \begin{equation*}
-      \mathrm{Stab} Z = \{v\in \IC^g : v+Z=Z\} \subset\IC^g.
+      \mathrm{Stab}\, Z = \{v\in \IC^g : v+Z=Z\} \subset\IC^g.
     \end{equation*}
   \end{definition}
 
   \begin{lemma}
-    The stabilizer $\mathrm{Stab} Z$ is infinite. 
+    The stabilizer $\mathrm{Stab}\, Z$ contains a real semi-algebraic curve. 
   \end{lemma}
 \end{frame}
 
-\begin{frame}{The Stabilizer}
+\begin{frame}{The Stabilizer Downstairs}
   \begin{definition}
     The \alert{stabilizer} of $V\subset A$ is
     \begin{equation*}
@@ -217,13 +220,13 @@
   \end{lemma}
   \begin{proof}
     The stabilizer is Zariski closed as
-      $\mathrm{Stab} V = \bigcup_{P \in V} (V-P)$.
+      $\mathrm{Stab} V = \bigcap_{P \in V} (V-P)$.
     
-    Let $z\in Z$ and $v\in G$ be arbitrary. Then $z+v\subset Z$,
-    so $u(z) \subset V-u(v)$. We find $V\subset V-u(v)$ and hence
-    $u(v)+V=V$ by considering the dimension.
+    Let $z\in Z$ and $g\in \mathrm{Stab}\,Z$ be arbitrary. Then $z+g\subset Z$,
+    so $u(z) \subset V-u(g)$. We find $V\subset V-u(g)$ and hence
+    $u(g)+V=V$ by considering the dimension.
     It follows that 
-    $u(G) \subset\mathrm{Stab} V$.  
+    $u(\mathrm{Stab}\,Z) \subset\mathrm{Stab} V$.  
   \end{proof}  
 \end{frame}
 
@@ -246,9 +249,9 @@
   subvariety of $A$ of positive dimension. Write $q\colon A\rightarrow
   A/B$.
 
-  Project the image $u(C)$ everything down
-  to $A/B$ and use $\dim A/B \le \dim A-1$.  An analysis shows that we
-  can proceed by induction on $\dim A$. 
+  Project the image $u(C)$ down
+  to $A/B$ and use $\dim A/B \le \dim A-1$. This trick allows us to
+  conclude the proof by induction on $\dim A$. \qed
 \end{frame}
 
 \section{Consequences of Ax--Lindemann--Weierstrass}
@@ -299,15 +302,15 @@
   Many authors contributed to the study of $V^{\circ}$ and variants, including
   Abramovich, Kawamata, Ochiai, and Ueno.
 
-  Its most remarkable property is that it is an \alert{Zariski closed}
-  subset of $V$. 
+  % Remarkably, $V^{\circ}$ is a \alert{Zariski closed}
+  % subset of $V$. 
   
   \begin{theorem} 
     \begin{enumerate}
     \item [(i)] If $\cK=P+B$ is a \alert{maximal} coset of $V$ with $B\subset
       A$ an abelian subvariety, then $B$ lies in a finite set
       depending only on $V$. 
-    \item[(ii)] The Ueno locus $V^{\circ}$ is Zariski closed in $V$.
+    \item[(ii)] The Ueno locus $V^{\circ}$ is \alert{Zariski closed} in $V$.
     \item[(iii)] We have $V^{\circ} = V\Longleftrightarrow
       \dim\mathrm{Stab} V\ge
       1$. 
@@ -420,9 +423,9 @@
 \end{theorem}
 \end{frame}
 
-\section{Arithmetic of Torsion Points}
+%\section{Arithmetic of Torsion Points}
 
-\begin{frame}{Group-theoretic Properties} 
+\begin{frame}{Group-theoretic Properties of Torsion Points} 
   We collect some facts about the torsion points of an
   abelian variety $A\subset\IP^n$ defined over a number field
   $K\subset \IC$.
@@ -433,7 +436,7 @@
   \subset A(\overline K)$.
   Then
   \begin{equation*}
-    A_{\mathrm{tors}} = \bigcup_{N\in\IN} A[N]
+    A_{\mathrm{tors}} = \bigcup_{N\ge 1} A[N]
   \end{equation*}
   \begin{lemma}
     $A[N] \cong (\IZ/N\IZ)^{2g}$ if $N\ge 1$.  
@@ -451,23 +454,25 @@
   \end{equation*}
   is a well-defined action of $\absgalk$ on $\IP^n(\overline K)$.
 
-  If $P\in \IP^n(K)$ we may assume $\forall i:x_i\in K$, so
+  If $P\in \IP^n(K)$ we may assume $\forall i:x_i\in K$. So
   $\sigma(P)=P$ for all $\sigma$.
   Conversely, 
   $P\in \IP^n(K)$ with $\sigma(P)=P$ for all $\sigma$ implies
   $P\in \IP^n(K)$.
 
   \begin{definition}
-    For $P\in \IP^n(\overline K)$. 
+    Let $P\in \IP^n(\overline K)$. 
     We set $K(P)$ to be the fixed field of the stabilizer
     $\{\sigma\in \absgalk : \sigma(P)=P\}$. 
   \end{definition}
 
-  We have
+
   \begin{equation*}
-    [K(P):K]  = \#\{\sigma(P) : \sigma\in\absgalk \}. 
+    \Rightarrow [K(P):K]  = \#\{\sigma(P) : \sigma\in\absgalk \}. 
   \end{equation*}
 
+  We call $\{\sigma(P) : \sigma\in \absgalk\}$ the \alert{Galois
+    orbit} of $P$. 
 \end{frame}
 
 \begin{frame}
@@ -482,10 +487,10 @@
 
   For $N\in\IN$ the morphism
   $[N]\colon A\rightarrow A$ is, (Zariski-locally), presented
-  by a collection of homogeneous polynomials. This implies
-  $$\sigma([N](P)) = 
-  [N](\sigma(P))$$
-  holds for {all} $P\in A(\overline K)$.
+  by a collection of homogeneous polynomials. 
+  $$\Rightarrow \sigma([N](P)) = 
+  [N](\sigma(P))\text{ for {all} $P\in A(\overline K)$.}$$
+  
 
   We conclude 
   $\sigma(A[N])\subset A[N]$ and
@@ -529,7 +534,7 @@
   In contrast to the multiplicative setting:
   \begin{itemize}
   \item 
-    $K(A[N])/K$ will usually \alert{not} have  abelian Galois group
+    $K(A[N])/K$ is usually \alert{not} an  \alert{abelian} Galois extension
   \item 
      $K(A(P))/K$ is usually  \alert{not}  even Galois if $P$ has finite
      order. If  $E$
@@ -552,6 +557,7 @@
   suggests that the degree $[K(P):K]$ of a point of order $N$ grows
   polynomially in terms of $N$ at least in some cases.
 
+  For a general abelian variety we have Masser's result. 
   
   \begin{theorem}[Masser]
     Let $A$ be an abelian variety defined over a number field $K$. There
@@ -561,7 +567,7 @@
   \end{theorem}
 \end{frame}
 
-\begin{frame}{Proof of the Manin--Mumford Conjecture}
+\begin{frame}{Proof of the Manin--Mumford Conjecture: Easy Direction}
   Let $A$ be an abelian variety defined over a number field
   $K\subset\IC$.
   Let $V$ be an irreducible subvariety of $A$.
@@ -576,8 +582,6 @@
     the Archmiedean topology and so in particular with respect to the
     Zariski topology. The same holds for torsion cosets. 
   \end{proof}
-
-  This is the easy direction of Manin--Mumford. 
 \end{frame}
 
 \begin{frame}{We have seen this slide before.}
@@ -595,16 +599,20 @@
   \item Fix a $\IZ$-basis $(\omega_1,\ldots,\omega_{2g})$ of $\Omega$.
     This is also an $\IR$-basis of $\IC^g$ and allows us to work with
     \alert{real coordinates}, also called \alert{Betti coordinates} $\IR^{2g}$.
-    Write $\tilde u\colon \IR^{2g}\rightarrow A(\IC)$, so
-    $\tilde u^{-1}(A_{\mathrm{tors}})=\IQ^{2g}$. 
+    Write $ u\colon \IR^{2g}\rightarrow A(\IC)$, so
+    $ u^{-1}(A_{\mathrm{tors}})=\IQ^{2g}$. 
 
   \item If $V\subset A$ is an algebraic subset, then the preimage
-    $\tilde u^{-1}(V(\IC)) \subset\IC^g$ is $\IZ^{2g}$-periodic.
+    $ u^{-1}(V(\IC)) \subset\IR^{2g}$ is $\IZ^{2g}$-periodic.
     The restriction $u|_{[0,1)^{2g}}^{-1}(V(\IC))$ is definable in $\IRan$.
   \end{itemize}
 \end{frame}
 
 \begin{frame}
+  % Let $V\subset A$ be an irreducible subvariety defined over $K$
+  % such that $V(\overline K)\cap A_{\mathrm{tors}}$ lies Zariski dense
+  % in $V$. 
+
   \begin{lemma}
     Let $P\in A(\IC)$ be a torsion point of order $N$.
     There exist $x\in \IQ^{2g}$ with $H(x)=N$ and $u(x)=P$. 
@@ -615,7 +623,7 @@
 \end{frame}
 
 \begin{frame}
-  The \alert{Ueno locus} $V^{\circ}$  is $\bigcup_{\cK\subset V} \cK$ where $\cK$ is
+  Recall: The \alert{Ueno locus} $V^{\circ}$  is $\bigcup_{\cK\subset V} \cK$ where $\cK$ is
   a coset of positive dimension. 
 
 
@@ -625,10 +633,10 @@
     and $N\ge N_0(V,A)$, then $P\in V^{\circ}$.
   \end{lemma}
   \begin{proof}\renewcommand{\qedsymbol}{}
-    $X = \tilde u^{-1}|_{[0,1)^{2g}}(V(\IC)) \subset \IR^{2g}$
+    $X =  u^{-1}|_{[0,1)^{2g}}(V(\IC)) \subset \IR^{2g}$
     is definable in $\IRan$.
 
-    Recall $\tilde u(X^{\mathrm{alg}}) = V^{\circ}$.
+    Recall $ u(X^{\mathrm{alg}}) = V^{\circ}$ (Ax--Lindemann--Weierstrass).
 
     \vspace{3cm}
 
@@ -683,14 +691,10 @@
 
 \end{frame}
 
-\begin{frame}{Proof of Manin--Mumford}
-  Let $V\subset A$ be an irreducible subvariety defined over $K$
-  such that $V(\overline K)\cap A_{\mathrm{tors}}$ lies Zariski dense
-  in $V$. 
-  
+\begin{frame}{Proof of Manin--Mumford}  
   All but finitely many torsion
   points in $A_{\mathrm{tors}}$ have order at least $N(A,V)$.  
-  By the last Lemma,
+  By the last lemma,
   the Ueno locus $V^{\circ}$ lies Zariski dense in $V$.
 
   But the Ueno locus is always Zariski closed, so 
@@ -755,12 +759,19 @@
       $H(x_1,\ldots,x_m) = \max_{1\le j\le m}H(x_j)$. 
     \end{enumerate}
   \end{definition}
-  The exponent $1/d$ is there for normalization purposes. So authors
+  The exponent $1/d$ is there for normalization purposes. Some authors
   work with $h(x)=\log H(x)$. 
 \end{frame}
 
 \begin{frame}
   \begin{itemize}
+  \item If $x=p/q$ with $p,q\in\IZ,q\ge 1,\gcd(p,q)=1$, then
+    $P=qX-p$ and
+    $H(x) = q\max\{1,|p/q|\} = \max\{|p|,q\}.$
+
+    But if $m\ge 2$ this bound \alert{differs}  from the one defined
+    earlier. The difference is harmless for our purposes.
+
   \item $H(2^{1/d}) = 2^{1/d}$, just take $P=X^d-2$.
 
   \item $H(\text{root of unity}) = 1$. Indeed, all roots of the
@@ -769,32 +780,48 @@
 
   \item $H(\sqrt{3}/2) = 2$ as $P = 4X^2-3$ has both roots in
     $[-1,1]$.
-
-  \item Lehmer's polynomial $P=X^{10}+X^9-X^7-X^6-X^5-X^4-X^3+X+1$ is
-    is irreducible and has exactly one root $x=1.1762808\ldots$ outside the
-    unit circle. So $H(x)^{10} = x$. Moreover, $x$ is the least known
+  \item Lehmer's polynomial
+    $$P=X^{10}+X^9-X^7-X^6-X^5-X^4-X^3+X+1$$
+    is
+    irreducible and has exactly one root $x=1.1762808\ldots$ outside the
+    unit circle. So $H(x)^{10} = x$. Moreover, $x$ is the \alert{smallest known}
     value $>1$ of $H(x)^{[\IQ(x):\IQ]}$. 
     
-  \item If $x=p/q$ with $p,q\in\IZ,q\ge 1,\gcd(p,q)=1$, then
-    $P=qX-p$ and $H(x) = q\max\{1,|p/q|\} = \max\{|p|,q\}$, as before. 
-
-    But if $m\ge 2$ this bound \alert{differs}  from the one defined
-    earlier. The difference is harmless for our purposes.
-    
-  \item The height is Galois invariant:
-    $H(\sigma(x))=H(x)$ if $\sigma\in\mathrm{Gal}(\IQbar/\IQ)$. 
   \end{itemize}
 \end{frame}
 
+
 \begin{frame}
+  Let $x,y\in\IQbar$ and $k\in\IN$. 
+  
+  The height is Galois invariant:
+  $H(\sigma(x))=H(x)$ if $\sigma\in\mathrm{Gal}(\IQbar/\IQ)$.
+  
+  We have $$H(x^k) = H(x)^k,\text{ }H(x)=H(1/x)
+  \text{  (if $x\not=0$),}$$
+  $$ H(xy)\le H(x)H(y), \text{ and }H(x+y)\le 2H(x)H(y).$$
+
+  Not all these properties are so easy to show with our definition.
+  Need an alternative characterization
+
+  \begin{lemma}
+    Let $K$ be a number field and $x\in K$, then
+    $$H(x) = \prod_{\substack{v\text{ place} \\\text{of $K$}}}
+    \max\{1,|x|_v\}^{[K_v:\IQ_p]/[K:\IQ]}.$$
+    Normalization: $|p|_v=1/p$ if $v\mid p$ for a rational prime $p$.
+  \end{lemma}
+  
+\end{frame}
+
+\begin{frame}{Northcott's Theorem}
   Clearly, any root of unity is contained in
   \begin{equation*}
     \{x\in\IQbar : H(x)\le 1\}.
   \end{equation*}
   So a set of algebraic numbers of bounded height need \alert{not} be finite.
   
-  But we can salvage Northcott's Theorem by in addition
-  bounding the degree.
+  We can salvage Northcott's Theorem by 
+  bounding \alert{height and  degree}.
   
   \begin{theorem}[Northcott's Theorem]
     Let $d\ge 1$ and $T\ge 1$. The set
@@ -836,8 +863,9 @@
     Let $j(\tau)$ be a special point of $Y(1)$.
     Let $\Delta$ be the discriminant of
     the endomorphism ring of the elliptic curve attached to $j(\tau)$.
-    Then $\tau$ is imaginary quadratic. Moreover, if $\tau =x+yi$ with
-    $x,y\in\IR$ then $[\IQ(x,y):\IQ]\le 4$ and $H(x,y)\le 16|\Delta|^{5/2}$.
+    Write $\tau =x+yi$ with
+    $x,y\in\IR$, then
+    $$[\IQ(x,y):\IQ]\le 4\quad\text{and}\quadH(x,y)\le 16|\Delta|^{5/2}.$$
   \end{lemma}
   \begin{proof}\renewcommand{\qedsymbol}{}
     Set $E = \IC/(\IZ+\tau\IZ)$, then
@@ -852,23 +880,22 @@
       |\omega| \le \frac{|\Delta|}{\sqrt{2}}\le|\Delta|
     \end{equation*}
     There exist $a,b,c,d\in\IZ$ with
-    $\omega=a+b\tau$ and $\omega\tau = c+d\tau$, so
+    $\omega=a+b\tau$ and $\omega\tau = c+d\tau$.
     \begin{equation*}
-      b\tau^2+(a-d)\tau-c=0.
+      \Rightarrow b\tau^2+(a-d)\tau-c=0.
     \end{equation*}
-    So $H(\tau) \le (|b| \max\{1,|\tau|\}^2)^{1/2}$ as $b\not=0$.
   \end{proof}
 \end{frame}
 
 \begin{frame}
   \begin{proof}[Proof continued]       
+    So $H(\tau) \le (|b| \max\{1,|\tau|\}^2)^{1/2}$ as $b\not=0$.
     $$\frac{fD}{2}=\mathrm{Re}(\omega) =
     a+b\mathrm{Re}(\tau)\text{ and }\frac{f\sqrt{|D|}}{2}=\mathrm{Im}(\omega)
     = b \mathrm{Im}(\tau).$$
-    
-Since $\tau$ is in the fundamental domain we
-    find $|\mathrm{Re}(\tau)|\le 1/2$ and $|\mathrm{Im}(\tau)|\ge
-    \sqrt{3}/2$. Therefore,
+     $\tau$ is in the fundam. domain $\Rightarrow
+     |\mathrm{Re}(\tau)|\le \frac 12$ and $|\mathrm{Im}(\tau)|\ge
+    \frac{\sqrt{3}}{2}$. So
     \begin{equation*}
       b=|b|\le {f \sqrt{|D|/3}} = \sqrt{|\Delta|/3}
     \end{equation*}
@@ -882,13 +909,15 @@ Since $\tau$ is in the fundamental domain we
     |\omega-a|\le|\omega|+|a| \le 2|\Delta| $.
 
     We find $H(\tau) \le (|\Delta|/3)^{1/4} (2|\Delta|)$.
-    The estimates for $x=(\tau+\overline\tau)/2$ and $y=(\tau-\overline\tau)/(2i)$ follow from basic height
-    inequalities. Finally, $\IQ(x,y) =\IQ(\tau,i)$ has degree $\le 4$
+    The estimates for $x=(\tau+\overline\tau)/2$ and $y=(\tau-\overline\tau)/(2i)$ follow from  height
+    properties.
+
+    Finally, $\IQ(x,y) =\IQ(\tau,i)$ has degree $\le 4$
     over $\IQ$. 
   \end{proof}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{General Approach to Andr\'e--Oort in $Y(1)^2$}
   Let $V\subset Y(1)^2$ be a curve defined over a number field $K$
   that contains infinitely many special points.
   We want to show that $V$ is special.
@@ -897,29 +926,47 @@ Since $\tau$ is in the fundamental domain we
   \begin{equation}
     \label{def:Xao}
     X = \{(\tau_1,\tau_2) \in \cF^2 : (j(\tau_1),j(\tau_2)) \in V(\IC) \} =
-    j|_{\cF^2}^{-1}(V(\IC))
+    \boldsymbol{j}|_{\cF^2}^{-1}(V(\IC))
   \end{equation}
-  is \alert{definable} in $\IRanexp$.
-  we also use $j$ to denote $j\times j\colon
-  \IH^2\rightarrow\IC^2$.
+  is \alert{definable} in $\IRanexp$. (We identify $\IH$ with
+  $\IR\times(0,\infty)$.)
 
   
+  A special point $(z_1,z_2) \in Y(1)^2(\IC)$ is of the form
+  $(j(\tau_1),j(\tau_2))$ where  $(z_1,z_2)$ becomes identified with
+  $(x_1,y_1,x_2,y_2) \in X$ and
+  \begin{equation*}
+    [\IQ(x_1,y_1,x_2,y_2):\IQ]\le 16\text{ and }
+    H(x_1,y_1,x_2,y_2) \ll \max\{|\Delta_1|,|\Delta_2|\}^3
+  \end{equation*}
+  here $\Delta_i$ is the discriminant of the endomorphism ring
+  of $\IC/(\IZ+\tau_i\IZ)$. 
+\end{frame}
+
+\begin{frame}
   \begin{lemma}
     Let $(z_1,z_2)\in V(\IC)$ be special and let $\Delta_i$ denote the discriminant
-    of the endomorphismring of the elliptic curve attached to $z_i$.
+    of the endomorphism ring of the elliptic curve attached to $z_i$.
     If $\max\{|\Delta_1|,|\Delta_2|\}$ is sufficiently large in terms of
     $V$, then there exists $\sigma\in \absgalk$ with
-    $\sigma(z_1,z_2)\in j(X^{\mathrm{alg}})$.   
+    $\sigma(z_1,z_2)\in \boldsymbol{j}(X^{\mathrm{alg}})$.   
   \end{lemma}
-
+  
   The proof is as in the Manin--Mumford Theorem, but we need to use
   Pila's version of Pila--Wilkie for algebraic points (of degree $\le
   4$).
-  Large Galois orbits are afforded by the \alert{Landau--Siegel} Theorem.
+  Large Galois orbits are afforded by the \alert{Landau--Siegel}
+  Theorem.
+
+  \begin{theorem}[Landau--Siegel]
+    For all $\epsilon > 0$ there exists $c(\epsilon)>0$ with
+    $$[\IQ(z_1,z_2):\IQ] \ge c(\epsilon)
+    \max\{|\Delta_1|,|\Delta_2|\}^{1/2-\epsilon}.$$
+  \end{theorem}
 \end{frame}
 
 \begin{frame}{Ax--Lindemann--Weierstrass for the $j$-function}
-  But what about $j(X^{\mathrm{alg}})$?
+  But what about $\boldsymbol{j}(X^{\mathrm{alg}})$?
 
   \begin{theorem}[Pila, 2011]
     Let $W\subset\IH^m$ be a connected neighborhood of the
@@ -928,21 +975,22 @@ Since $\tau$ is in the fundamental domain we
     Let $\tau_1,\ldots,\tau_m$ denote the coordinate functions of $\IH^m$.
     Suppose that $j\circ {\tau_1|}_{W},\ldots,j\circ {\tau_m}|_{W}$
     are \alert{not} algebrically independent.
-    Then there exist $N\in\IN$ and 
+    Then some $j\circ{\tau_k}|_W$ is constant or
+  there exist $N\in\IN$ and 
     $k\not=l$ with $\Phi_N(j\circ \tau_k|_W,j\circ \tau_l|_W)=0$ as
     functions on $W$.    
   \end{theorem}
   \vspace{-.2cm}
   
-  To apply this theorem we take $m=2$ and  $W$ comes from $\IH^2$
-  intersected the complexification of a semi-algebraic curve in $X$.
+  We take $m=2$ and  $W$ equals $\IH^2$
+  intersected with the complexification of a semi-algebraic curve in $X^{\mathrm{alg}}$.
   
   Observe that $j\circ \tau_1|_W$ and $j\circ \tau_2|_W$ are not
   algebraically independent since their image lies in the algebraic curve
   $V\subset Y(1)^2$.
   So one of $j\circ \tau_k|_W$ must be constant or the two coordinates
-  are related by a modular transformation polynomial. In particular,
-  $V$ is special.  
+  are related by a modular transformation polynomial. 
+  $\Rightarrow V$ is \alert{special}.  
 \end{frame}
 
 \section{Further Developments}
@@ -955,7 +1003,7 @@ Since $\tau$ is in the fundamental domain we
     Let $V$ be an irreducible subvariety of $Y(1)^m$. Then
     $$V(\IC)\cap
     Y(1)^{m}_{\mathrm{special}}\text{ is Zariski dense in
-      $V$}\Longleftrightarrow V\text{ is special}$$
+      $V$}\Longleftrightarrow V\text{ is special.}$$
   \end{theorem}
 
   $V$ special in $Y(1)^m$ if, after a  permutating coordinates
@@ -1013,16 +1061,39 @@ Since $\tau$ is in the fundamental domain we
     multiplication. 
   \end{definition}
 
-  Similarities to $Y(1)$:
   We know $\mathcal{A}_g$ is an irreducible quasi-projective variety of
   dimension $g(g+1)/2$ defined over $\IQ$.
   
   There is a uniformization map
     $\IH_g \rightarrow \mathcal{A}_g(\IC)$,
   special points lift to algebraic points in $\mat{g}{\IC}$ (of
-  bounded degree), there are ``special subvarieties''.
-  % From a technical point of view it makes sense to introduce level
-  % structure. 
+  bounded degree).
+\end{frame}
+
+\begin{frame}
+  % Special points are points  $\mathcal{A}_g(\IC)$ where the
+  % associated endomorphism ring is as ``large as possible''.
+  Very roughly speaking, one can think of special subvarieties of
+  $\mathcal{A}_g$ as irreducible subvarieties on which the ``generic''
+  endomorphism ring is constant. (The actual definition is more
+  involved.)
+
+  \begin{example}[Abelian surfaces, so $g=2$,  here $\dim \cA_2=3$]
+    The diagonal period matrices
+    \begin{equation*}
+      \left\{\mattt{\tau_1}{0}{0}{\tau_2} : \tau_1,\tau_2\in\IH
+      \right\} \subset \IH_2
+    \end{equation*}
+    correspond to products of elliptic curves $E_1\times E_2$. This
+    determines 
+    a \alert{special surface} in $\cA_2$. Generically, 
+    \begin{equation*}
+      \mathrm{End}(E_1\times E_2) =\IZ\times\IZ. 
+    \end{equation*}
+    If in addition $\tau_2=2\tau_1$, say, then we are on a \alert{special curve}.
+    The $E_1$ and $E_2$ are related by an isogeny of degree $2$
+    and $\mathrm{End}(E_1\times E_2)$ has rank $4$. 
+  \end{example}
 \end{frame}
 
 \begin{frame}
@@ -1036,7 +1107,7 @@ Since $\tau$ is in the fundamental domain we
   \item   Peterzil--Starchenko (definability)    
   \end{itemize}
 
-  Tsimerman proved 
+  Tsimerman proved the Andr\'e--Oort Conjecture for $\cA_g$. 
   \begin{theorem}[Tsimerman]
     Let $V$ be an irreducible subvariety of $\mathcal{A}_g$, then
     \begin{equation*}
@@ -1044,13 +1115,15 @@ Since $\tau$ is in the fundamental domain we
         dense in $V$}\Longleftrightarrow V\text{ is special.}
     \end{equation*}
   \end{theorem}
+
+  There is still work to do: Shimura varieties.
 \end{frame}
 
 
 
 \begin{frame}
   \begin{center}
-    Thanks for your attention. The last lecture is on unlikely
+    Thanks for your attention. The final lecture is on unlikely
     intersections. 
   \end{center}
 \end{frame}
