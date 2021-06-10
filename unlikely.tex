@@ -127,10 +127,10 @@ case $m=2$ and $\dim V=1$ here.
 
 \begin{theorem}
   \label{thm:relmm2}
-  Let $V$ be an irreducible curve in $\cE^2$ defined over $\IQ$ with $\pi(V)=Y(2)$. 
-  Suppose that $V\not\subset H_{(a,b)}$ for all
+  Let $V$ be an irreducible curve in $\cE^2$ defined over $\IQ$ with
+  $\pi(V)=Y(2)$. Suppose that $V\not\subset H_{(a,b)}$ for all
   $(a,b)\in\IZ^2\ssm\{0\}$. Then $V\cap \cE^2_{\mathrm{tors}}$ is
-  finite. 
+  finite.
 \end{theorem}
 
 \begin{remark}
@@ -226,14 +226,14 @@ So $\cF_{\mathrm{mixed}}$
 is a real semi-algebraic set in $\IR^4\times \IH$ where, as
 usual, we identify $\IC\times \IH$ with $\IR^4\times\IR\times(0,\infty)$.
 
-In our original uniformization we to a real change of coordinates as
+In our original uniformization we do a real change of coordinates as
 follows. 
 For $(a_1,b_1,a_2,b_2,\tau)\in [0,1]^4\times \cF_{\mathrm{mixed}}$ we define
 \begin{equation*}
    u_{\mathrm{Betti}}(a_1,b_1,a_2,b_2,\tau) = u(a_1+b_1\tau,a_2+b_2\tau,\tau)
 \end{equation*}
-and get a map $u_{\mathrm{Betti}}\colon\cF\rightarrow\cE(\IC^2)$
-where
+and get a map $u_{\mathrm{Betti}}\colon \IR^4\times \cF_{\mathrm{pure}}\rightarrow\cE(\IC^2)$
+and a fundamental domain 
 \begin{equation*}
   \cF = [0,1]^4\times \cF_{\mathrm{pure}}. 
 \end{equation*}
@@ -268,7 +268,7 @@ with two issues, one old, with a twist, and a new one.
   Section~\ref{sec:lbdegrel}. 
   
 \item[(New)] The point $z\in \IR^4\times\IH$ produced form $P$ is
-  \emph{not} a rational point. Indeed, only the first four
+  most likely \emph{not} a rational point. Indeed, only the first four
   coordinates $(a_1,b_1,a_2,b_2)$ are rational, but there is no
   reason to believe that $\tau$ is algebraic.\footnote{Indeed,
     expect if $\cE_{\lambda(\tau)}$ has complex multiplication, a
@@ -307,7 +307,7 @@ denominator of (\ref{eq:davidKQlw}). Recall that $\pi\colon
 curves.
 
 \begin{theorem}
-  Let $V\subset \cE^2$ be a curve defined over $\IQ$. There exists 
+  Let $V\subset \cE^2$ be a curve defined over $\IQbar$. There exists 
   $c(V)>0$ such that if $P\in V\cap\mathcal{E}^2_{\mathrm{tors}}$  has
   order $>c(V)$, then $\pi(P)\in \IQbar\ssm\{0,1\}$ and $H(\pi(P))\le c(V)$. 
 \end{theorem}
@@ -372,7 +372,7 @@ the last $n$ coordinates.
   $$(x,y)\in
   \Sigma\Rightarrow x\in \IQ^m \text{ and }H(x)\le T.$$
   If
-  $$\#\pi_2(\Sigma)>cT^\epsilon$$
+  $$\#\pi_2(\Sigma)>c(X,\epsilon) T^\epsilon$$
   then there exists a continuous and definable function $\beta\colon
   [0,1]\rightarrow X$ with the following properties:
   \begin{enumerate}
@@ -398,7 +398,7 @@ If the torsion order is uniformly bounded, then $V$ is an irreducible
 component of $\ker[N]$ for some $N\in\IN$.
 In this case, $V\subset H_{(N,0)}$ and we are done. 
 
-So let $P\in V(\IC)$ be of sufficiently large order $N$. Then $u(x) = P$
+So let $P\in V(\IC)$ be of sufficiently large order $N$. Then $u(z) = P$
 for some $z=(x,\tau)\in [0,1]^4\times\cF_{\mathrm{pure}}$
 where $x\in\IQ^4$ satisfies $H(x)\le N$.
 
@@ -425,7 +425,7 @@ first four components are parametrized by a real semi-algebraic
 function, the final two
 coordinates are parametrized by a  non-constant definable map. 
 
-There is a suitable Ax--Lindemann Weierstrass Theorem here. But in low
+There is a suitable Ax--Lindemann--Weierstrass Theorem here. But in low
 dimension an \textit{ad hoc} approach as in the work of
 Masser--Zannier, Section 4~\cite{MZ:AJM10} suffices. They directly
 exploit monodromy properties of the family $\cE\rightarrow Y(2)$. The

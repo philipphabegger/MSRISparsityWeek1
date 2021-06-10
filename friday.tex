@@ -1,0 +1,531 @@
+% MSRI - SGS Sparsity week 1, Wednesday, 1 lecture, 60 minutes
+
+\documentclass{beamer}
+
+\usepackage{amsmath,amssymb,amsthm,mathrsfs,amscd,mathtools}
+\usepackage{datetime}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{tikz,tikz-cd}
+\usetikzlibrary{arrows,shapes}
+
+\usetheme{Metropolis}
+\metroset{block=fill}
+
+
+\input{macrosslides.tex}
+\input{macros.tex}
+
+\title{MSRI Summer Graduate School \\ Sparsity of Algebraic Points \\
+  Day 5: Unlikely Intersections}
+\author{Philipp~Habegger \\ University of Basel \\ \texttt{philipp.habegger@unibas.ch}}
+\date{Friday, June 11, 2021}
+
+\begin{document}
+
+\setlength{\abovecaptionskip}{0pt} 
+\setlength{\belowcaptionskip}{0pt} 
+
+\renewcommand{\figurename}{Fig.}
+
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\section{Further Developments}
+
+\begin{frame}
+  In his 2011 Annals of Math paper proved Andr\'e--Oort for
+  all subvarieties of $Y(1)^m$.
+
+  \begin{theorem}[Pila]
+    Let $V$ be an irreducible subvariety of $Y(1)^m$. Then
+    $$V(\IC)\cap
+    Y(1)^{m}_{\mathrm{special}}\text{ is Zariski dense in
+      $V$}\Longleftrightarrow V\text{ is special.}$$
+  \end{theorem}
+
+  $V$ is  special in $Y(1)^m$ if, after a  permutating coordinates, we get
+  % it is an irreducible component of the algebraic set defined by
+  % \begin{itemize}
+  % \item $X_{1},\ldots,X_{k_1-1}$ are constant on $V$ and take values in
+  %   $Y(1)_{\mathrm{special}}$
+  % \item for $j\ge 1$ there exist $N_{j,1},N_{j,2},\ldots\in\IN$ with 
+  %   $\Phi_{N_{1,1}}(X_{k_j},X_{k_j+1})=\Phi_{N_{1,2}}(X_{k_j+1},X_{k_1+2})
+  %   = \cdots =\Phi_{N_{1,k_{j+1}-k_j+1}}(X_{k_{j+1}-2},X_{k_{j+1}-1})$
+  % \end{itemize}
+  ``packets'' that are constant or linked by an isogeny:
+  \vspace{-.2cm}
+  \begin{center}
+  $(\underbrace{X_1,\ldots,X_{k_1-1}}_{\text{fixed}},\underbrace{X_{k_1},\ldots,X_{k_2-1}}_{\text{pw
+      isogenous}},\ldots,
+  \underbrace{X_{k_{s-1}},\ldots,X_m}_{\text{pw isogenous}})$      
+  \end{center}  
+\end{frame}
+
+
+\begin{frame}
+  Pila's Theorem on Ax--Lindemann Weierstrass
+  was generalized by Pila and Tsimerman to a (weak) Ax--Schanuel
+  Theorem for the $j$-function. The formulation here is chosen to
+  mimic Ax's Theorem.
+
+  \begin{theorem}[Pila--Tsimerman]
+    Let $\tau_1,\ldots,\tau_m\colon\Delta\rightarrow\IH$ be
+    non-constant holomorphic maps on the open unit disk $\Delta$.
+    Suppose that there does not exist $N\in\IN$ and distinct $k,l$
+    such that $\Phi_N(j\circ\tau_k,j\circ \tau_l)=0$ holds
+    identically. Then
+    \begin{equation*}
+      \mathrm{trdeg}\,\IC(\tau_1,\ldots,\tau_m,j\circ\tau_1,\ldots,j\circ\tau_m)/\IC
+      \ge m+1.
+    \end{equation*}
+  \end{theorem}   
+\end{frame}
+
+\begin{frame}{Andr\'e--Oort for $\mathcal{A}_g$}
+  The coarse moduli space $\mathcal{A}_g$ of principally polarized abelian varieties
+  of dimension $g$ is a quotient of
+  \begin{equation*}
+    \IH_g = \{Z\in \mat{g}{\IC} : Z^t = Z \text{ and }
+    \mathrm{Im}(Z) \text{ pos. definite}\}
+  \end{equation*}
+  by the action of the symplectic group $\mathrm{Sp}_{2g}(\IZ)$.
+  
+  \begin{definition}
+    A point in $\mathcal{A}_g(\IC)$ is called \alert{special} or
+    \alert{CM}
+    if the abelian
+    variety  it represents has complex
+    multiplication. 
+  \end{definition}
+
+  We know $\mathcal{A}_g$ is an irreducible quasi-projective variety of
+  dimension $g(g+1)/2$ defined over $\IQ$.
+  
+  There is a uniformization map
+    $\IH_g \rightarrow \mathcal{A}_g(\IC)$,
+  special points lift to algebraic points in $\mat{g}{\IC}$ (of
+  bounded degree).
+\end{frame}
+
+\begin{frame}
+  % Special points are points  $\mathcal{A}_g(\IC)$ where the
+  % associated endomorphism ring is as ``large as possible''.
+  Very roughly speaking, one can think of special subvarieties of
+  $\mathcal{A}_g$ as irreducible subvarieties on which the ``generic''
+  endomorphism ring is constant. (The actual definition is more
+  involved.)
+
+  \begin{example}[Abelian surfaces, so $g=2$,  here $\dim \cA_2=3$]
+    The diagonal period matrices
+    \begin{equation*}
+      \left\{\mattt{\tau_1}{0}{0}{\tau_2} : \tau_1,\tau_2\in\IH
+      \right\} \subset \IH_2
+    \end{equation*}
+    correspond to products of elliptic curves $E_1\times E_2$. This
+    determines 
+    a \alert{special surface} in $\cA_2$. Generically, 
+    \begin{equation*}
+      \mathrm{End}(E_1\times E_2) =\IZ\times\IZ. 
+    \end{equation*}
+    If in addition $\tau_2=2\tau_1$, say, then we are on a \alert{special curve}.
+    The $E_1$ and $E_2$ are related by an isogeny of degree $2$
+    and $\mathrm{End}(E_1\times E_2)$ has rank $4$. 
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  After many important contributions by:
+
+  \begin{itemize}
+  \item  Pila--Tsimerman, Klinger--Ullmo--Yafaev (Ax--Schanuel)
+  \item   Andreatta--Goren--Howard--Madapusi-Pera, Yuan--Zhang (Colmez
+    Conjecture on the average: Large Galois Orbit)
+  \item Masser--Wüstholz (Endomorphism estimates: Large Galois Orbit)
+  \item   Peterzil--Starchenko (definability)    
+  \end{itemize}
+
+  Tsimerman proved the Andr\'e--Oort Conjecture for $\cA_g$. 
+  \begin{theorem}[Tsimerman]
+    Let $V$ be an irreducible subvariety of $\mathcal{A}_g$, then
+    \begin{equation*}
+      V(\IC)\cap \mathcal{A}_{g,\mathrm{special}} \text{ is Zariski
+        dense in $V$}\Longleftrightarrow V\text{ is special.}
+    \end{equation*}
+  \end{theorem}
+
+  There is still work to do: Shimura varieties.
+\end{frame}
+
+\section{Special Points vs. Unlikely Intersections}
+
+\begin{frame}
+
+  Let $X$ be some ``arithmetically interesting'' variety, such as an
+  abelian variety, or $\IG_{\mathrm{m}}^m$, or $Y(1)^m$ etc.
+  Then $X$  often has
+  a ``special points'' $X_{\mathrm{special}}$ (e.g. torsion points) and ``special
+  subvarieties'' (torsion cosets).
+
+  The basic template for a result of Andr\'e--Oort and Manin--Mumford
+  type goes as follows:
+  
+  Let $V$ be an irreducible subvariety of
+  $X$. Then
+  \begin{equation*}
+    V(\IC) \cap X_{\mathrm{special}}\text{ is Zariski dense in
+      $V$}\Leftrightarrow \text{$V$ is special}.
+  \end{equation*}
+
+  In the 2000s,
+  Zilber, Pink, and Bombieri--Masser--Zannier asked: what if we
+  replace $X_{\mathrm{special}}$ by all special subvarieties
+  \begin{equation*}
+    \bigcup_{\substack{S\subset X \\ \text{$S$ special}}} S?
+  \end{equation*}
+
+  In all our cases $X$ itself was special, so we must restrict
+  $S$ in the union.  
+\end{frame}
+
+\begin{frame}{Conjecture on Unlikely Intersection}
+
+  \begin{tabular}{l|l|l}
+    $X$ & \text{special points} & \text{special subvar.}  \\
+    \hline
+    $\IG_{\mathrm{m}}^m$ &\text{torsion points} & \text{torsion cosets}
+    \\
+    \text{abelian variety} & \text{torsion points} & \text{torsion
+                                                     cosets}
+    \\
+    $Y(1)^m$ & come from CM elliptic curves & $\Phi_N, $ CM
+    \\
+    \alert{families of ab. var.} & \alert{torsion points in CM fibers} & \alert{tba}
+  \end{tabular}
+
+  \begin{conjecture}[Zilber--Pink or Conjecture on Unlikely Intersections]
+    Let $V$ be an irreducible subvariety of $X$. Suppose that $V$ is
+    not contained in a proper special subvariety of $X$. Then
+    \begin{equation*}
+      \bigcup_{S : \dim S  < \dim X - \dim V} V \cap S
+    \end{equation*}
+    is not Zariski dense in $V$.     
+  \end{conjecture}
+
+  Special points are just special subvarieties of dimension $0$. 
+\end{frame}
+
+\section{The Legendre Family of Elliptic Curves}
+
+\begin{frame}{Legendre Family}
+  Abelian varieties can vary in algebraic families.
+  \begin{example}
+    Let $Y(2) = \IP^1\ssm\{0,1,\infty\}$ and $\lambda\in
+    Y(2)(\IC)=\IC\ssm\{0,1\}$. Then
+    \begin{equation*}
+      y^2 = x(x-1)(x-\lambda)
+    \end{equation*}
+    determines 
+    the \alert{Legendre family of elliptic
+      curves} $\cE\subset \IP^2\times Y(2)$, it is a surface.
+    
+    We denote the fiber above $\lambda$  by $\cE_\lambda
+    \subset\IP^2$ and    
+    define
+    \begin{equation*}
+      \cE_{\mathrm{tors}} = \bigcup_{\lambda\not=0,1}
+      \cE_{\lambda,\mathrm{tors}}. 
+    \end{equation*}
+    This is \alert{not} a group.
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  Let $C\subset \mathcal{E}$ be a curve. Does a
+  Manin--Mumford type statement hold for $C\cap
+  \mathcal{E}_{\mathrm{tors}}$? In other words, is this intersection
+  finite ``most of the time''?
+
+  The answer is \alert{no}! 
+
+  Heuristics: For $N\in\IZ$,  multiplication-by-$N$ is a
+  morphism
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&,column sep=small, row sep=small] 
+    \cE \arrow{dr}[swap]{\pi}  \arrow{rr}{[N]} \&  \& \cE\arrow{dl}{\pi}  \\
+     \& Y(2)   
+  \end{tikzcd}  
+  \end{equation*}
+  For $N\ge 1$ the kernel  $\ker[N]$ is a curve
+  in $\cE$, \textit{e.g.},
+  \begin{alignat*}1
+    \ker[2] = &\{[0:0:1],[1:0:1],[0:1:0]\}\times Y(2)\\
+    &\cup
+    \{([\lambda:0:1],\lambda) : \lambda \in Y(2)(\IC)\}.
+  \end{alignat*}
+  % and
+  % $$\cE_{\mathrm{tors}}=\bigcup_{N\ge 1}\ker[N].$$
+  We expect $C\cap \ker[N]\not=\emptyset$
+  since $\dim C + \dim \ker[N] = 2 = \dim \cE$.
+  
+  \alert{Heuristically} $C\cap \cE_{\mathrm{tors}} = \bigcup_{N\ge 1}C\cap \ker[N]
+  \text{ is infinite.}$
+\end{frame}
+
+\begin{frame}
+  This is consistent with the Zilber--Pink Conjecture as for a curve
+  $C\subset \cE$ we take the union over all special subvarieties of
+  dimension $\le \dim\cE-\dim C - 1 = 0$. 
+
+  So let us work instead in  \alert{fibered product}
+  $\cE\times_{Y(2)}\cE=\cE^2$.
+
+  \begin{example}
+    The fiber of $\cE^2\rightarrow Y(1)$ above  $\lambda\in
+    \IC\ssm\{0,1\}$
+    is just the product $\cE_\lambda\times \cE_\lambda=\cE^2_\lambda$ of Legendre
+    elliptic curves, given in affine coordinates by
+    \begin{equation*}
+      \bigl\{([x_1:y_1:z_1],[x_2:y_2:z_2]) \in\IP^2\times\IP^2 : y_i^2z_i =
+      x_i(x_i-z_i)(x_i-\lambda z_i)\bigr\}      
+    \end{equation*}
+
+    This is an abelian surface and we can add and invert points on it.
+
+    We \alert{cannot} add points on distinct fibers $\cE^2_{\lambda}$
+    and $\cE^2_\mu$.
+
+    So $\cE$ is a family of abelian two-folds parametrized by $Y(2)$.
+    In particular, $\dim \cE = 3$. 
+  \end{example}
+\end{frame}
+
+\begin{frame}{Relative Manin--Mumford for Curves}
+  
+  \begin{theorem}[Masser--Zannier]
+    % Consider the curve $C\subset\cE^2$ determined by
+    % \begin{equation*}
+    %   \{((2,y_1),(3,y_2),\lambda) : y_1^2 = 2(2-\lambda) \text{ and }
+    %   y_2 = 6(3-\lambda) \}
+    % \end{equation*}
+    There are at most finitely many $\lambda\in\IC\ssm\{0,1\}$ such
+    that
+    \begin{equation*}
+      (2,*) \text{ \alert{and} } (3,**)
+    \end{equation*}
+    are torsion on the Legendre curve $\cE_\lambda : y^2 =
+    x(x-1)(x-\lambda)$. 
+  \end{theorem}
+
+  Stoll proved that there are \alert{no} such $\lambda$.
+
+  \begin{theorem}[Relative M--M for Curves, Masser--Zannier]
+    Let $V$ be an irreducible curve in $\cE^2$ defined over $\IQbar$ with
+    $\pi(V)=Y(2)$.
+    Suppose $V\cap \cE^2_{\mathrm{tors}}$ is
+    \alert{infinite}.
+    Then there exists $(a,b)\in\IZ^2\ssm\{0\}$ with
+    \begin{equation*}
+      V \subset \ker{\bigl((P,Q)\mapsto [a](P)+[b](Q)\bigr)} 
+    \end{equation*}    
+  \end{theorem} 
+\end{frame}
+
+\begin{frame}{A Uniformization}
+  We want to apply the Pila--Zannier strategy to solve this problem.
+  So first we need a uniformization of $\cE(\IC)$.
+
+  The base $Y(2) =\IP^{1}\ssm\{0,1,\infty\}$ is hyperbolic, its
+  universal cover is given by  $\lambda\colon \IH\rightarrow
+  \IC\ssm\{0,1\}$, a cousin of Klein's $j$-function with
+
+  \begin{equation*}
+        \lambda\left(\frac{a\tau+b}{c\tau +d}\right) =
+        \lambda(\tau)\quad\text{if}\quad
+    \mattt{a}{b}{c}{d}   \equiv \mattt{1}{0}{0}{1} \mod 2.
+  \end{equation*}
+  
+  The universal covering of each $\cE^2_\lambda$ is $\IC^2$.   Together we find
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&,column sep=small, row sep=small] 
+      \& \IC^2\times\IH  \arrow{dd}{} \arrow{r}{u} \& \cE^2(\IC)\arrow{dd}{}\\
+      \&  \&\\
+      \&    \IH \arrow[swap]{r}{\lambda}  \& Y(2)(\IC).
+    \end{tikzcd}
+  \end{equation*}
+
+\end{frame}
+
+\begin{frame}
+  Each fiber $\cE_{\lambda(\tau)}$ of $\cE\rightarrow Y(2)$ is
+  uniformized by $\IC\rightarrow \cE_{\lambda(\tau)}(\IC)$ with kernel
+  $\IZ+\tau\IZ$.
+  We also obtain a relative fundamental domain
+  \begin{equation*}
+     \left\{(z_1,z_2,\tau) \in
+    \IC^2\times \cF_{\lambda} \text{ with }z_i=a_i+b_i\tau\text{
+      where }a_1,b_1,a_2,b_2\in [0,1]  \right\}. 
+  \end{equation*}
+
+  We do a real change of coordinates,
+  $$ (a_1+\tau b_1,a_2 + \tau
+  b_2,\tau)\leadsto (a_1,b_1,a_2,b_2,\tau).$$
+  and get a uniformizing map $u\colon\IR^4 \times \IH\rightarrow\cE(\IC^2)$
+  and a fundamental domain
+  \begin{equation*}
+    \cF = [0,1]^4\times \cF_{\lambda}. 
+  \end{equation*}
+
+  Let $V$ be an irreducible curve in $\cE^2$ defined over $K$. Then
+  \begin{equation*}
+    X = u|_{\cF}^{-1}(V(\IC)) \subset \cF
+  \end{equation*}
+  is definable in $\IRanexp$ and of dimension $2$. 
+\end{frame}
+
+
+\begin{frame}{Semi-rational Points}
+  
+  \begin{equation*}
+    X = u|_{\cF}^{-1}(V(\IC)) \subset \cF
+  \end{equation*}
+
+  Let $(P,Q) \in V(\overline K)$ where $(P,Q)$ has finite order $N$
+  in $\cE_\lambda$. 
+  These points lift to $(a_1,b_1,a_2,b_2,\tau)\in
+  ([0,1)^4\cap\IQ^4)\times\IH$.
+
+  
+  \begin{itemize}
+  \item  We need a lower bound for $[\IQ(P):\IQ]$ that grows like
+    some small but fixed power of $N$. New difficulty: the
+    elliptic curve $\cE_{\lambda}$ \alert{varies}. 
+    
+  \item The point $(a_1,b_1,a_2,b_2,\tau)$ produced form $P$ is
+    most likely
+    \alert{not} a rational point. Only the first four
+    coordinates $(a_1,b_1,a_2,b_2)$ are rational.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{A Lower Bound for the Degree}
+  
+  \begin{theorem}[David]
+    There exists $c>0$ with the following property. 
+    Let $E=\cE_\lambda$ with $\lambda\in\IQbar\ssm\{0,1\}$. If $P\in
+    E(K)$ has finite order $N$ where $K$ is a number field, then
+    \begin{equation}
+      \label{eq:davidKQlb}
+      [K:\IQ] \ge c \frac{N^{1/2}}{\alert{\max\{1,\log H(\lambda)\}}}.
+    \end{equation}    
+  \end{theorem}
+
+  Luckily, using a theorem of \alert{Silverman}, we may assume that
+  $H(\lambda)$ is bounded in our case.
+  
+%   \begin{theorem}[Silverman]
+%     Let $V\subset \cE^2$ be a curve defined over $\IQbar$. There exists 
+%     $c(V)>0$ such that if $P\in V\cap\mathcal{E}^2_{\mathrm{tors}}$  has
+%     order $>c(V)$, then $\pi(P)\in \IQbar\ssm\{0,1\}$ and $H(\pi(P))\le c(V)$. 
+%   \end{theorem}
+
+% \e
+\end{frame}
+
+
+\begin{frame}{Semi-rational Pila--Wilkie}
+  Let $X\subset \IR^m\times\IR^n$
+  be definable in an o-minimal structure. 
+  We have points in this set where the
+  first $m$ coordinates are rational, but the final $n$ most likely not.
+
+  Let $\pi_1\colon\IR^m\times\IR^n\rightarrow\IR^m$ and
+  $\pi_2\colon\IR^m\times\IR^n\rightarrow\IR^n$ be projections.
+
+  \begin{theorem}
+    Let $\epsilon>0$, there exists $C(X,\epsilon)$ with the following. 
+    Let $T\ge 1$ and let $\Sigma\subset X$ be a subset containing
+    \alert{semi-rational points} such that
+    $$
+    \#\pi_2(\Sigma) > c(X,\epsilon) T^\epsilon \text{ and }
+    (x,y)\in\Sigma\Rightarrow x\in \IQ^m \text{ and }H(x)\le T
+    $$  
+    Then   there exists a continuous and definable function $\beta\colon
+    [0,1]\rightarrow X$ such that
+    \begin{center}
+      $\pi_1\circ\beta$ is real semi-algebraic and
+      $\pi_2\circ\beta$ is non-constant.  
+    \end{center}  
+  \end{theorem}
+\end{frame}
+
+\begin{frame}{Putting Everything Together}
+  The strategy is now familiar. Suppose $V\subset\cE$ is defined over
+  $\IQ$. 
+
+  We assume that $V\subset\cE^2$ contains infinitely many torsion points.
+  If the torsion order is uniformly bounded, then $V$ is an irreducible
+  component of $\ker[N]$ for some $N\in\IN$ and we are done.  
+
+  So let $P\in V(\IC)$ be of sufficiently large order $N$. Then $u(z) = P$
+  for some $z=(a_1,b_1,a_2,b_2,\tau)\in X\cap ([0,1]^4\cap\IQ^4)\times \IH$
+  where $H(a_1,b_1,a_2,b_2)\le N$.
+
+  From David's and Silverman's Theorem we get   $[\IQ(P):\IQ]\gg N^{1/2}$.
+
+  Letting the Galois group $\mathrm{Gal}(\IQbar/\IQ)$ act produces
+  roughly $N^{1/2}$ new points in $V(\IQbar)\cap
+  \mathcal{E}_{\mathrm{tors}}$. They also come from points
+  $(x_\sigma,\tau_\sigma)$ where $x_\sigma$ is still rational of height
+  at most $N$.
+\end{frame}
+
+\begin{frame}
+  Now apply the \alert{semi-rational} Pila--Wilkie Theorem.
+  We find a definable curve  in $X$ whose
+  first four components are real semi-algebraic and the rest is
+  non-constant.
+  
+  There is a suitable Ax--Lindemann--Weierstrass Theorem for this too.
+  But in low dimension Masser and Zannier follow an \textit{ad hoc}
+  using monodromy properties of the family $\cE\rightarrow Y(2)$. The
+  conclusion is that
+  $$ V \subset \ker{(P,Q)\mapsto [a](P)+[b](Q)}$$
+  for some
+  $(a,b)\in\IZ^2\ssm\{0\}$. This is precisely the conclusion we want.
+\end{frame}
+
+\begin{frame}
+  We can pass to an $m$-th fibered power of $\cE$ for $m\in\IN$. 
+  \begin{definition}  
+    \begin{enumerate}
+    \item [(i)] The $m$-fold \alert{fibered power} of $\cE\rightarrow Y(2)$
+      is denoted by $\cE^m = \cE\times_{Y(2)}\cdots\times_{Y(2)}\cE$.
+      Let $\pi\colon\cE^m\rightarrow Y(2)$ be the natural projection.
+    \item[(ii)] For $a=(a_1,\ldots,a_m)\in\IZ^m$ we have a morphism
+      $\varphi_a \colon \cE^m\rightarrow \cE$ over $Y(2)$
+      determined  by $P\mapsto
+      [a_1](P_1)+\cdots +[a_m](P_m)$. We also defined $H_a =
+      \{(P_1,\ldots,P_m) \cE^m(\IC) : \varphi_a(P_1,\ldots,P_m)=0\}$. 
+    \item[(iii)]  We write $\cE^m_{\mathrm{tors}} = \bigcup_{\lambda\in Y(2)(\IC)}
+      \cE^m_{\mathrm{tors}}$; these will be the \alert{special points} of $\cE^m$.
+    \end{enumerate}
+  \end{definition}
+\end{frame}
+
+\begin{frame}
+  
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+    Thanks for your attention. See you next week at Hector's
+    lectures. 
+  \end{center}
+\end{frame}
+
+
+\end{document}

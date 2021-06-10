@@ -1,4 +1,4 @@
-% MSRI - SGS Sparsity week 1, Wednesday, 1 lecture, 60 minutes
+% MSRI - SGS Sparsity week 1, Thursday, 2 lecture, 2x 60 minutes
 
 \documentclass{beamer}
 
@@ -123,7 +123,7 @@
   
   The set
   \begin{alignat*}1  
-    X =  \{x \in\IR^{2g} : & (Z-x)\cap [0,1)^{2g} \subset u|_{[0,1)^{2g}}^{-1}(V)\\
+    X =  \{x \in\IR^{2g} : & Z\cap (x+[0,1)^{2g}) \subset x+u|_{[0,1)^{2g}}^{-1}(V)\\
     &\color{gray}{\text{and } Z\cap(x+[0,1)^{2g})\text{ contains a
         neighborhood of $Z$}}
     \}
@@ -134,7 +134,7 @@
 
 \begin{frame}{A Definable Set} 
   \begin{alignat*}1  
-    X =  \{x \in\IR^{2g} : & (Z-x)\cap [0,1)^{2g} \subset u|_{[0,1)^{2g}}^{-1}(V)\\
+    X =  \{x \in\IR^{2g} : & Z\cap (x+[0,1)^{2g}) \subset x+u|_{[0,1)^{2g}}^{-1}(V)\\
     &\color{gray}{\text{and } Z\cap(x+[0,1)^{2g})\text{ contains a
         neighborhood of $Z$}}
     \}
@@ -186,10 +186,10 @@
   we find $Z-x+\omega\subset u^{-1}(V)$ for all $x\in
   R$. Therefore,
   \begin{equation*}
-    Z\subset Z-R+\omega \subset u^{-1}(V).
+    Z\subset Z-R_\IC+\omega \subset u^{-1}(V).
   \end{equation*}
 
-  Maximality of $Z$ $\Rightarrow Z = Z-R+\omega \Rightarrow
+  Maximality of $Z \Rightarrow Z = Z-R_{\IC}+\omega \Rightarrow
   -R+\omega \subset \mathrm{Stab}\, Z$.
 
   \begin{definition}
@@ -222,11 +222,11 @@
     The stabilizer is Zariski closed as
       $\mathrm{Stab} V = \bigcap_{P \in V} (V-P)$.
     
-    Let $z\in Z$ and $g\in \mathrm{Stab}\,Z$ be arbitrary. Then $z+g\subset Z$,
-    so $u(z) \subset V-u(g)$. We find $V\subset V-u(g)$ and hence
-    $u(g)+V=V$ by considering the dimension.
-    It follows that 
-    $u(\mathrm{Stab}\,Z) \subset\mathrm{Stab} V$.  
+    % Let $z\in Z$ and $g\in \mathrm{Stab}\,Z$ be arbitrary. Then $z+g\subset Z$,
+    % so $u(z) \subset V-u(g)$. We find $V\subset V-u(g)$ and hence
+    % $u(g)+V=V$ by considering the dimension.
+    % It follows that 
+    Now use $u(\mathrm{Stab}\,Z) \subset\mathrm{Stab} V$.  
   \end{proof}  
 \end{frame}
 
@@ -317,7 +317,8 @@
     \end{enumerate}
   \end{theorem}
   \begin{proof}\renewcommand{\qedsymbol}{}
-    The basic idea behind (i) is to show that if $\cK$ is a maximal
+    I only mention the basic principle behind (i):
+      $\cK=P+B$ is a maximal
     coset of $V$, then $\deg B$ is bounded from above in function of
     $V$. Then use that an abelian variety has only finitely many
     abelian subvarieties of bounded degree. 
@@ -326,15 +327,18 @@
 
 \begin{frame}
   \begin{proof}[Proof continued]
-    If $B$ is a fixed abelian subvariety of $A$ and $q\colon
-    A\rightarrow A/B$ is the quotient morphism, then
-    a result in algebraic geometry states that
-    \begin{equation*}
-      \{P\in V(\IC) :    \dim_P q|_{V}^{-1}(q(P)) \ge \dim B\}    
-    \end{equation*}
-    is Zariski closed in $V$. Together with (i) we conclude (ii).
+    Part (ii) follows from (i) and a general result in the 
+    dimension theory of fibers of morphisms. 
+    % If $B$ is a fixed abelian subvariety of $A$ and $q\colon
+    % A\rightarrow A/B$ is the quotient morphism, then
+    % a result in algebraic geometry states that
+    % \begin{equation*}
+    %   \{P\in V(\IC) :    \dim_P q|_{V}^{-1}(q(P)) \ge \dim B\}    
+    % \end{equation*}
+    % is Zariski closed in $V$. Together with (i) we conclude (ii).
 
-    Finally, if $V^{\circ}=V$ then by (ii) there exists a single culprit $B$ with
+    % Finally,
+    If $V^{\circ}=V$ then by (ii) there exists a single culprit $B$ with
     $\dim B\ge 1$ and 
     $P+B\subset V$ for all $P\in V(\IC)$. So $B\subset
     \mathrm{Stab} V$ and in particular $\dim \mathrm{Stab}V\ge 1$.
@@ -555,7 +559,7 @@
   $N$.
   Serre's Theorem
   suggests that the degree $[K(P):K]$ of a point of order $N$ grows
-  polynomially in terms of $N$ at least in some cases.
+  polynomially in terms of $N$ in some cases.
 
   For a general abelian variety we have Masser's result. 
   
@@ -584,11 +588,11 @@
   \end{proof}
 \end{frame}
 
-\begin{frame}{We have seen this slide before.}
+\begin{frame}{We have seen this slide before}
   \begin{itemize}
   \item We can immerse $A$ into some projective space $\IP^n$.
 
-  \item The complex Lie group $A(\IC)$ is a complex torus, \textit{i.e.} a
+  \item The complex Lie group $A(\IC)$ is a complex torus, \textit{i.e.}, a
     quotient $\IC^g/\Omega$ where $\Omega$ is a discrete subgroup of
     rank $2g$.
 
@@ -769,8 +773,8 @@
     $P=qX-p$ and
     $H(x) = q\max\{1,|p/q|\} = \max\{|p|,q\}.$
 
-    But if $m\ge 2$ this bound \alert{differs}  from the one defined
-    earlier. The difference is harmless for our purposes.
+    If $m\ge 2$ this bound \alert{differs}  from the one defined
+    earlier on rational vectors. The difference is harmless for our purposes.
 
   \item $H(2^{1/d}) = 2^{1/d}$, just take $P=X^d-2$.
 
@@ -801,8 +805,8 @@
   \text{  (if $x\not=0$),}$$
   $$ H(xy)\le H(x)H(y), \text{ and }H(x+y)\le 2H(x)H(y).$$
 
-  Not all these properties are so easy to show with our definition.
-  Need an alternative characterization
+  Not all these properties are easy to show with our definition.
+  Luckily, there is  an alternative characterization of the height.
 
   \begin{lemma}
     Let $K$ be a number field and $x\in K$, then
@@ -860,12 +864,12 @@
 
 \begin{frame}
   \begin{lemma}
-    Let $j(\tau)$ be a special point of $Y(1)$.
+    Let $j(\tau)$ be a special point of $Y(1)$ with $\tau\in\cF$.
     Let $\Delta$ be the discriminant of
     the endomorphism ring of the elliptic curve attached to $j(\tau)$.
     Write $\tau =x+yi$ with
     $x,y\in\IR$, then
-    $$[\IQ(x,y):\IQ]\le 4\quad\text{and}\quadH(x,y)\le 16|\Delta|^{5/2}.$$
+    $$[\IQ(x,y):\IQ]\le 4\quad\text{and}\quad H(x,y)\le 16|\Delta|^{5/2}.$$
   \end{lemma}
   \begin{proof}\renewcommand{\qedsymbol}{}
     Set $E = \IC/(\IZ+\tau\IZ)$, then
@@ -954,7 +958,7 @@
   
   The proof is as in the Manin--Mumford Theorem, but we need to use
   Pila's version of Pila--Wilkie for algebraic points (of degree $\le
-  4$).
+  16$).
   Large Galois orbits are afforded by the \alert{Landau--Siegel}
   Theorem.
 
@@ -993,137 +997,27 @@
   $\Rightarrow V$ is \alert{special}.  
 \end{frame}
 
-\section{Further Developments}
 
-\begin{frame}
-  In his 2011 Annals of Math paper proved Andr\'e--Oort for
-  all subvarieties of $Y(1)^m$.
-
-  \begin{theorem}[Pila]
-    Let $V$ be an irreducible subvariety of $Y(1)^m$. Then
-    $$V(\IC)\cap
-    Y(1)^{m}_{\mathrm{special}}\text{ is Zariski dense in
-      $V$}\Longleftrightarrow V\text{ is special.}$$
-  \end{theorem}
-
-  $V$ special in $Y(1)^m$ if, after a  permutating coordinates
-  it is an irreducible component of the algebraic set defined by
-%  the algebraic set determined by the following relations
+\begin{frame}{Conclusion}
   \begin{itemize}
-  \item $X_{1},\ldots,X_{k_1-1}$ are constant on $V$ and take values in
-    $Y(1)_{\mathrm{special}}$
-  \item for $j\ge 1$ there exist $N_{j,1},N_{j,2},\ldots\in\IN$ with 
-    $\Phi_{N_{1,1}}(X_{k_j},X_{k_j+1})=\Phi_{N_{1,2}}(X_{k_j+1},X_{k_1+2})
-    = \cdots =\Phi_{N_{1,k_{j+1}-k_j+1}}(X_{k_{j+1}-2},X_{k_{j+1}-1})$
+  \item The proof of Manin--Mumford presented using Pila--Wilkie was
+    devised by Pila and Zannier.
+
+  \item Pila proved Andr\'e--Oort in $Y(1)^m$ \alert{unconditionally}.
+    This approach led to many developments in the last few years. More on
+    this tomorrow. 
+    
+  \item Pila--Wilkie is used \alert{twice} in Pila's proof. Once in a
+    \alert{geometric} setting to prove
+    Ax--Lindemann--Weierstrass and once in an \alert{arithmetic} setting to count Galois conjugates. 
   \end{itemize}
-  Coordinates ``packets'' are constant or linked by an isogeny:
-  \vspace{-.2cm}
-  \begin{center}
-  $(X_1,\ldots,X_{k_1-1},X_{k_1},\ldots,X_{k_2-1},\ldots,
-  X_{k_{s-1}},\ldots,X_m)$      
-  \end{center}  
-\end{frame}
-
-
-\begin{frame}
-  Pila's Theorem on Ax--Lindemann Weierstrass
-  was generalized by Pila and Tsimerman to a (weak) Ax--Schanuel
-  Theorem for the $j$-function. The formulation here is chosen to
-  mimic Ax's Theorem.
-
-  \begin{theorem}[Pila--Tsimerman]
-    Let $\tau_1,\ldots,\tau_m\colon\Delta\rightarrow\IH$ be
-    non-constant holomorphic maps on the open unit disk $\Delta$.
-    Suppose that there does not exist $N\in\IN$ and distinct $k,l$
-    such that $\Phi_N(j\circ\tau_k,j\circ \tau_l)=0$ holds
-    identically. Then
-    \begin{equation*}
-      \mathrm{trdeg}\,\IC(\tau_1,\ldots,\tau_m,j\circ\tau_1,\ldots,j\circ\tau_m)/\IC
-      \ge m+1.
-    \end{equation*}
-  \end{theorem}   
-\end{frame}
-
-\begin{frame}{Andr\'e--Oort for $\mathcal{A}_g$}
-  The coarse moduli space $\mathcal{A}_g$ of principally polarized abelian varieties
-  of dimension $g$ is a quotient of
-  \begin{equation*}
-    \IH_g = \{Z\in \mat{g}{\IC} : Z^t = Z \text{ and }
-    \mathrm{Im}(Z) \text{ pos. definite}\}
-  \end{equation*}
-  by the action of the symplectic group $\mathrm{Sp}_{2g}(\IZ)$.
   
-  \begin{definition}
-    A point in $\mathcal{A}_g(\IC)$ is called \alert{special} or
-    \alert{CM}
-    if the abelian
-    variety  it represents has complex
-    multiplication. 
-  \end{definition}
-
-  We know $\mathcal{A}_g$ is an irreducible quasi-projective variety of
-  dimension $g(g+1)/2$ defined over $\IQ$.
   
-  There is a uniformization map
-    $\IH_g \rightarrow \mathcal{A}_g(\IC)$,
-  special points lift to algebraic points in $\mat{g}{\IC}$ (of
-  bounded degree).
 \end{frame}
-
-\begin{frame}
-  % Special points are points  $\mathcal{A}_g(\IC)$ where the
-  % associated endomorphism ring is as ``large as possible''.
-  Very roughly speaking, one can think of special subvarieties of
-  $\mathcal{A}_g$ as irreducible subvarieties on which the ``generic''
-  endomorphism ring is constant. (The actual definition is more
-  involved.)
-
-  \begin{example}[Abelian surfaces, so $g=2$,  here $\dim \cA_2=3$]
-    The diagonal period matrices
-    \begin{equation*}
-      \left\{\mattt{\tau_1}{0}{0}{\tau_2} : \tau_1,\tau_2\in\IH
-      \right\} \subset \IH_2
-    \end{equation*}
-    correspond to products of elliptic curves $E_1\times E_2$. This
-    determines 
-    a \alert{special surface} in $\cA_2$. Generically, 
-    \begin{equation*}
-      \mathrm{End}(E_1\times E_2) =\IZ\times\IZ. 
-    \end{equation*}
-    If in addition $\tau_2=2\tau_1$, say, then we are on a \alert{special curve}.
-    The $E_1$ and $E_2$ are related by an isogeny of degree $2$
-    and $\mathrm{End}(E_1\times E_2)$ has rank $4$. 
-  \end{example}
-\end{frame}
-
-\begin{frame}
-  After many important contributions by:
-
-  \begin{itemize}
-  \item  Pila--Tsimerman, Klinger--Ullmo--Yafaev (Ax--Schanuel)
-  \item   Andreatta--Goren--Howard--Madapusi-Pera, Yuan--Zhang (Colmez
-    Conjecture on the average: Large Galois Orbit)
-  \item Masser--Wüstholz (Endomorphism estimates: Large Galois Orbit)
-  \item   Peterzil--Starchenko (definability)    
-  \end{itemize}
-
-  Tsimerman proved the Andr\'e--Oort Conjecture for $\cA_g$. 
-  \begin{theorem}[Tsimerman]
-    Let $V$ be an irreducible subvariety of $\mathcal{A}_g$, then
-    \begin{equation*}
-      V(\IC)\cap \mathcal{A}_{g,\mathrm{special}} \text{ is Zariski
-        dense in $V$}\Longleftrightarrow V\text{ is special.}
-    \end{equation*}
-  \end{theorem}
-
-  There is still work to do: Shimura varieties.
-\end{frame}
-
-
 
 \begin{frame}
   \begin{center}
-    Thanks for your attention. The final lecture is on unlikely
+    Thanks for your attention. The final lecture tomorrow is on unlikely
     intersections. 
   \end{center}
 \end{frame}
