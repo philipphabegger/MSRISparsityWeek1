@@ -295,6 +295,59 @@
   \end{proof}  
 \end{frame}
 
+\begin{frame}
+  \begin{equation*}
+    x^{\alpha_1} (1+x)^{\alpha_2} (2+x)^{\alpha_3} =
+    x^{\beta_1} (1+x)^{\beta_2} (2+x)^{\beta_3} = 1.
+  \end{equation*}
+
+  Let us see how to use $H(x)\le 4$ to deduce a \alert{Large Galois Orbit
+    Lemma}.
+
+  Let $\Gamma = \langle x,1+x,2+x\rangle$, a rank $\le 1$
+  subgroup of $\IQbar^\times$.
+  For \alert{simplicity} we assume that $\Gamma$ is free of rank $1$,
+  \textit{i.e.}, $\Gamma = \langle t\rangle$ with
+  $t^a=x,t^b=1+x,t^c=2+x$. 
+$$
+  \Rightarrow h(t) = \log H(t) \ll \frac{1}{\|(a,b,c)\|}.$$
+
+  By the \alert{Geometry of Numbers} there exist
+  $(\alpha,\beta,\gamma)\in\IZ^3\ssm\{0\}$ with
+  $$a\alpha+b\beta+c\gamma=0\text{ and }\|(\alpha,\beta,\gamma)\|
+  \ll \|(a,b,c)\|^{1/2}.$$
+  \begin{alignat*}1
+    &\Rightarrow x^\alpha (1+x)^\beta (2+x)^\gamma=1\\
+    &\Rightarrow [\IQ(t):\IQ]=[\IQ(x):\IQ] \ll \|(\alpha,\beta,\gamma)\|
+  \ll \|(a,b,c)\|^{1/2}
+  \end{alignat*}
+\end{frame}
+
+\begin{frame}{Large Galois Orbits via Height Lower Bounds}
+  \begin{theorem}[Dobrowolski]
+    Let $\epsilon > 0$.
+    If $t\in\IQbar$ with $h(t) > 0$, then
+    \begin{equation*}
+      h(t) \gg_\epsilon \frac{1}{[\IQ(t):\IQ]^{1+\epsilon}}. 
+    \end{equation*}
+  \end{theorem}
+  We have $h(t)>0$ as (by the simplifying) assumption $t$ has infinite
+  order.
+  Take $\epsilon = 1/2$. So
+  \begin{equation*}
+    \frac{1}{\|(a,b,c)\|} \gg h(t) \gg \frac{1}{[\IQ(t):\IQ]^{3/2}}
+    \gg \frac{1}{\|(a,b,c)\|^{3/4}}. 
+  \end{equation*}
+  So $\|(\alpha,\beta,\gamma)\|\ll \|(a,b,c)\|\ll 1$ and $x$ lies in a
+  finite set.
+
+  Variants of Dobrowolski's Theorem for \alert{abelian variety}
+  are \alert{not} strong enough
+  for this approach to work (except in the CM case).
+
+  The Pila--Zannier approach is much more robust and works.
+\end{frame}
+
 \begin{frame}{What is known?}
   \begin{theorem}
     Let $G$ be $\IG_\mathrm{m}^m$ or an abelian variety defined over
@@ -310,7 +363,7 @@
   \item Bombieri--Masser--Zannier: $G=\IG_{\mathrm{m}}^m$ and $C/\IC$
   \item Carrizosa, Galateau, Ratazzi, R\'emond,
     R\'emond--Viada,  Viada: $G=$ product of elliptic
-    curves and other cases when $C/\IQbar$. 
+    curves and CM abel. var. when $C/\IQbar$. 
   \item H.--Pila: $G=$ abelian variety and $C/\IQbar$ (uses
     Pila--Wilkie). 
   \item Barroero--Dill: $G=$ abelian variety and $C/\IC$ (uses Gao's
