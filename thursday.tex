@@ -125,7 +125,7 @@
   \begin{alignat*}1  
     X =  \{x \in\IR^{2g} : & Z\cap (x+[0,1)^{2g}) \subset x+u|_{[0,1)^{2g}}^{-1}(V)\\
     &\color{gray}{\text{and } Z\cap(x+[0,1)^{2g})\text{ contains a
-        neighborhood of $Z$}}
+        neighborhood in $Z$}}
     \}
   \end{alignat*}
   is definable in $\IRan$.
@@ -136,13 +136,13 @@
   \begin{alignat*}1  
     X =  \{x \in\IR^{2g} : & Z\cap (x+[0,1)^{2g}) \subset x+u|_{[0,1)^{2g}}^{-1}(V)\\
     &\color{gray}{\text{and } Z\cap(x+[0,1)^{2g})\text{ contains a
-        neighborhood of $Z$}}
+        neighborhood in $Z$}}
     \}
   \end{alignat*}
   
   \begin{lemma}
     $\{\omega\in\IZ^{2g} :    Z\cap (\omega+[0,1)^{2g})\text{
-      contains a neighborhood  of $Z$}\} \subset X.$
+      contains a neighborhood in $Z$}\} \subset X.$
   \end{lemma}
   \begin{proof}
     Let $\omega \in\IZ^{2g}$ be in the set. 
@@ -350,12 +350,9 @@
 \begin{frame}{Hyperbolic Varieties}
   \begin{definition}
     Let $V$ be an irreducible projective variety over $\IC$.
-    % \begin{enumerate}
-    % \item [(i)] 
-      We call $V$ \alert{hyperbolic} if
-      any holomorphic map $\IC \rightarrow A(\IC)$ with values in
-      $V(\IC)$ is
-      constant.
+    We call $V$ \alert{hyperbolic} if
+    any holomorphic map $\IC \rightarrow V(\IC)$ is
+    constant.
     % \item[(ii)] We say $V$ is of \alert{general type} if its
     %   \alert{Kodaira dimension} equals $\dim V$. 
     % \end{enumerate}
@@ -461,7 +458,7 @@
   If $P\in \IP^n(K)$ we may assume $\forall i:x_i\in K$. So
   $\sigma(P)=P$ for all $\sigma$.
   Conversely, 
-  $P\in \IP^n(K)$ with $\sigma(P)=P$ for all $\sigma$ implies
+  $P\in \IP^n(\overline K)$ with $\sigma(P)=P$ for all $\sigma$ implies
   $P\in \IP^n(K)$.
 
   \begin{definition}
@@ -514,7 +511,7 @@
     \item[(i)]
       For all $N\in\IN$, the extension  $K(A[N])/K$ is Galois
       of degree at most $N^{4g^2}$.
-    \item[(ii)] If $P\in A[N]$, then $[K(P):K]\le N^2$.
+    \item[(ii)] If $P\in A[N]$, then $[K(P):K]\le N^{2g}$.
     \end{enumerate}
   \end{lemma}
   \begin{proof}

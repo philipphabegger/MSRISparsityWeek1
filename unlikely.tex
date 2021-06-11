@@ -1,4 +1,343 @@
+
+
 \chapter{Unlikely Intersections: Relative Manin--Mumford}
+
+\section{Overview}
+
+Let $Z$ be some ``arithmetically interesting'' variety, such as an
+abelian variety, or $\IG_{\mathrm{m}}^m$, or $Y(1)^m$ etc. Then $Z$
+often has a ``special points'' $Z_{\mathrm{special}}$ (e.g. torsion
+points) and ``special subvarieties'' (torsion cosets).
+
+The basic template for a result of Andr\'e--Oort and Manin--Mumford
+type goes as follows:
+
+Let $V$ be an irreducible subvariety of
+$Z$. Then
+\begin{equation*}
+  V(\IC) \cap Z_{\mathrm{special}}\text{ is Zariski dense in
+    $V$}\Leftrightarrow \text{$V$ is special}.
+\end{equation*}
+
+In the 2000s, Zilber~\cite{Zilber}, Pink~\cite{Pink}, and
+Bombieri--Masser--Zannier~\cite{BMZgeometric} asked: what if instead
+of intersecting $V$ with special points, we intersect it with special
+subvarieties? In other words, we replace $Z_{\mathrm{special}}$ by all
+special subvarieties and investigate
+\begin{equation*}
+  \bigcup_{\substack{S\subset Z \\ \text{$S$ special}}} V\cap S.
+\end{equation*}
+
+In all situations the ambient variety $Z$ itself was special, so we must restrict $S$ in
+the union to obtain a meaning problem.
+
+Perhaps the most natural restriction to make is on the dimension of
+$S$. If $Z$ is a regular variety, then every irreducible component in
+$V\cap S$ has dimension at least $\dim V+\dim S - \dim Z$. Recall that
+$V\cap S$ is called a \emph{proper intersection} if every irreducible
+component of $V\cap S$ has dimension equal to $\dim V+\dim S- \dim Z$.
+
+Now if $\dim V + \dim S -\dim Z < 0$, then we would not $V$ and $S$ to
+meet if they are in general position. However, it remains possible
+that the intersection is non-empty but in this case we call it
+\emph{unlikely}.
+
+We have studied the following cases
+\begin{center}
+  \begin{tabular}{l|l|l}
+    Ambient variety & special points & special subvarieties \\
+    \hline
+    $\IG_{\mathrm{m}}^m$ & $\mu_\infty^m$ (torsion points) & torsion cosets \\
+    Abelian varieties & $A_{\mathrm{tors}}$ (torsion points) & torsion cosets \\
+    $Y(1)^m$ & $Y(1)^m_{\mathrm{special}}$ (CM points) & special
+                                                         subvarieties
+    \\
+    \vdots & \vdots & \vdots
+  \end{tabular}
+\end{center}
+
+We will see more examples below coming from a family of elliptic
+curves. In the  general setting studied by Pink~\cite{Pink}
+$Z$ is a mixed Shimura variety.
+
+The Conjectures on unlikely intersections make this heuristic precise.
+
+\begin{conjecture}[Zilber--Pink Conjecture or Conjecture on Unlikely
+  Intersections]
+  \label{conj:ZP}
+  Let $Z$ be onle of the ambient varieties listed above and suppose
+  $V$ is an irreducible subvariety of $Z$. Suppose that $V$ is not
+  contained in a proper special subvariety of $Z$.
+  Then
+  \begin{equation*}
+    \bigcup_{\substack{S\subset Z \text{ special} \\ \dim S < \dim
+        Z-\dim V}} V\cap S
+  \end{equation*}
+  is not Zariski dense in $V$. 
+\end{conjecture}
+
+\begin{exercise}
+  Show that the conjecture above implies the Manin--Mumford Conjecture
+  if $Z = \IG_{\mathrm{m}}$ or if $Z$ is an abelian variety. 
+\end{exercise}
+
+\begin{example}
+  Conjecture~\ref{conj:ZP} is open in general, but some special cases
+  are known. 
+  \begin{itemize}
+  \item If $\dim V = \dim Z-1$, then the condition $\dim S < \dim Z -
+    \dim V$ means $\dim S =0$. So $S$ is a ``special point''. In this
+    case the conjecture reduces to the Manin--Mumford Conjecture if
+    $Z$ is an abelian variety or $\IG_{\mathrm{m}}^m$ and to
+    Andr\'e--Oort if $Z=Y(1)^m$.
+  \item If $\dim V = \dim Z-2$, then we refer  work of
+    Bombieri--Masser--Zannier~\cite{BMZgeometric,BMZUnlikely} for $Z=\IG_{\mathrm{m}}^m$
+    and
+    Barroero--Dill~\cite{BarroeroDill:ENS} for $Z$ an abelian variety.
+  \item Not much is known in the ``intermediate dimensions''.
+  \item If $\dim V = 1$, so $V$ is a curve, we know more.
+    If $Z=\IG_{\mathrm{m}}^m$, then Conjecture~\ref{conj:ZP} follows
+    from work of Maurin~\cite{Maurin} (over base field $\IQbar)$ and
+    Bombieri--Masser--Zannier~\cite{BMZUnlikely} (over $\IC$).
+    If $Z=A$ is an abelian variety, see work of Pila and the author
+    \cite{HabeggerPilaENS} (over the base field $\IQbar$) and
+    Barroero--Dill~\cite{BarroeroDill:ENS}
+    (over $\IC$).
+    Earlier work in the abelian setting
+    was done by
+    Carrizosa, Galateau, Ratazzi, R\'emond, R\'emond--Viada,  and Viada.
+    If $Z=Y(1)^m$ there are some partial results by Pila
+    and the author~\cite{HabeggerPila12}. 
+  \end{itemize}
+\end{example}
+
+\section{An Example in $\IG_{\mathrm{m}}^3$}
+
+In this section we shift gears and consider
+an explicit curve $C$ in  the ambient variety $\IG_{\mathrm{m}}^3$.
+Unlikely intersections asks:  is $$\bigcup_{\dim H \le 1} C\cap
+H$$ finite where $H$ ranges over algebraic subgroups of
+$\IG_{\mathrm{m}}^3$?
+
+If $\dim H=0$, we recover torsion points and Manin--Mumford.
+
+If $\dim H=1$, the unit component of $H$ is
+\begin{equation*}
+  \{(t^{a},t^{b},t^{c}) : t\in \IC^\times \}. 
+\end{equation*}
+Dually we see that  $H$ is described by two equations
+\begin{equation*}
+  x^{\alpha_1} y^{\alpha_2} z^{\alpha_3} =
+  x^{\beta_1} y^{\beta_2} z^{\beta_3} = 1.
+\end{equation*}
+for    \emph{linearly independent}
+$(\alpha_1,\alpha_2,\alpha_3), (\beta_1,\beta_2,\beta_3)\in\IZ^3$.
+
+
+\begin{example}\label{ex:GM3curve}
+  \begin{enumerate}
+  \item [(i)]
+    Say $C$ is the line $\left\{(x,1+x,2+x) : x\in \IC\ssm\{0,-1,-2\}\right\}$.
+    
+    Find solutions  $x\in\IC\ssm\{0,-1,-2\}$ of 
+    \begin{equation*}
+      x^{\alpha_1} (1+x)^{\alpha_2} (2+x)^{\alpha_3} =
+      x^{\beta_1} (1+x)^{\beta_2} (2+x)^{\beta_3} = 1.
+    \end{equation*}
+    with \emph{varying} and \emph{independent}  vectors in the
+    exponents.
+
+    An early result of Bombieri--Masser--Zannier (1999) implies
+    that there are only \emph{finitely} many solutions $x$.
+
+  \item[(ii)] Say $C$ is $\{(x,1+x,1) : x\in \IC\ssm \{0,-1\}\}$.
+    There are \emph{infinitely} many solutions:  let
+    $\zeta\in\mu_\infty$ have order $N\ge 3$, then 
+    \begin{equation*}
+      \zeta^{0} (1+\zeta)^{0} 1^{1} = \zeta^{N} (1+\zeta)^{0} 1^0 = 0
+    \end{equation*}
+    with linearly independent exponent vectors $(0,0,1),(N,0,0)$.
+
+    What goes wrong? $C$ is contained in the proper algebraic subgroup
+    $\IG_{\mathrm{m}}^2\times \{1\}$ of $\IG_{\mathrm{m}}^3$. 
+  \end{enumerate}
+\end{example}  
+
+One fundamental intermediate step towards proving unlikely
+intersection is bounded the height. We do this for our explicit curve
+from Example~\ref{ex:GM3curve}(i). 
+
+\begin{theorem}
+  \label{thm:hgtbd}
+  Let 
+  $x\in\IC\ssm\{0,-1,-2\}$ with
+  \begin{equation}
+    \label{eq:2mult}
+    x^{\alpha_1} (1+x)^{\alpha_2} (2+x)^{\alpha_3} =
+    x^{\beta_1} (1+x)^{\beta_2} (2+x)^{\beta_3} = 1.
+  \end{equation}
+  where
+  $(\alpha_1,\alpha_2,\alpha_3),(\beta_1,\beta_2,\beta_3)\in\IZ^3$
+  are linearly independent. Then $x\in\IQbar$ and $H(x)\le 4$. 
+\end{theorem}
+\begin{proof}
+  Here it is convenient to work with the logarithmic height $h(\cdot) =
+  \log H(\cdot)$ of an algebraic number.
+
+  We translate the property listed in Remark~\ref{rmk:heightprops}(iv)
+  to the logarithmic setting.
+  For all $x,y\in\IQbar$ we have
+  \begin{equation}
+    \label{eq:hgtprop1}
+    h(x+y)\le \log 2 + h(x) + h(y).
+  \end{equation}
+  Moreover, 
+  \begin{equation}
+    \label{eq:hgtprop2}
+    h(x^k) = |k|
+    h(x) \text{ for all $k\in\IZ$, where $x\not=0$ if $k\le 0$};
+  \end{equation}
+  this last property follows from Exercises~\ref{exer:heightprop}(i)
+  and (ii).
+
+  The following argument is due to Bombieri.
+
+  Let $x$ and the $(\alpha_i)_i,(\beta_i)_i\in\IZ^3$ be as in the
+  hypothesis. After rearranging
+  $x^{\alpha_1}(1+x)^{\alpha_2}(2+x)^{\alpha_3}=1$ we obtain a
+  polynomial in integral coefficients with $x$ as a root, so $x$ is
+  algebraic. 
+
+  
+  Next, we eliminate the third coordinate. So fix $\lambda,\mu\in\IZ$
+  not both zero with
+  $\lambda(\alpha_1,\alpha_2,\alpha_3)+\mu(\beta_1,\beta_2,\beta_3)=(r,s,0)$.
+  Then $(r,s)\in\IZ^2\ssm\{0\}$ and
+  $$
+  x^r (1+x)^s = 1.$$
+
+  We rearrange, to get $x^r = (1+x)^{-s}$ and insert into the height,
+  \textit{i.e.},
+  $h(x^r) = h((1+x)^{-s})$. We use (\ref{eq:hgtprop2}) to find
+  \begin{equation*}
+    |r| h(x) = |s| h(1+x). 
+  \end{equation*}
+
+  If $s=0$, then $r\not=0$ and $h(x)=0$ and we are done. So assume
+  $s\not=0$. Thus $h(1+x) = |q| h(x)$ with $q=r/s$. 
+  
+  By (\ref{eq:hgtprop1}) we find $h(x+1) \le \log 2 + h(x) + h(1) =
+  \log 2 +h(x)$ and similarly $h(x+1)\ge h(x)-\log 2$. So
+  $|h(x)-h(x+1)|\le \log 2$. We insert $h(1+x) = |q|h(x)$ to conclude
+  $$
+  \bigl |1 - |q|\bigr |h(x) \le \log 2.$$
+
+  If $|q| \ge 3/2$, then $|1-|q|| = |q|-1\ge 1/2$ and therefore $h(x)\le
+  2\log 2$.
+
+  If $|q|\le 1/2$, then $|1-|q|| = 1-|q|\ge 1/2$ and therefore again
+  $h(x)\le 2\log 2$.
+
+  Finally, assume $1/2 < |q| < 3/2$. We have $x^r(1+x)^s=1$ and divide
+  by $x^{r+s}$, so $(1+x^{-1})^s = x^{-(r+s)}$. We do a change of
+  coordinates $t=x^{-1}$ and
+  find $$1=t^{-(r+s)}(1+t)^s=t^{r'}(1+t)^{s'}$$
+  wir $r'=-(r+s)$ and $s'=s$. Note $q'= r'/s'=-1-q$.
+  So $|q'|< 1/2$ or $|q'|>3/2$ and the argument above yields $h(t)\le
+  \log 4$.
+  But $h(t)=h(x^{-1})=h(x)$ and we are done. 
+\end{proof}
+
+This is not yet enough to deduce finiteness of $x$.
+But as the height is bounded, then the degree of
+$[\IQ(x):\IQ]$ must be large by Northcott's Theorem if we have many
+solutions to (\ref{eq:2mult}).
+
+\begin{corollary}
+  Let $d\ge 1$, there are at most finitely many
+  $x\in\IQbar\ssm\{0,-1,-2\}$ with (\ref{eq:2mult}) with
+  $[\IQ(x):\IQ]\le d$. 
+\end{corollary}
+
+An important tool in order to bound $[\IQ(\alpha):\IQ]$ from below is
+the following result towards Lehmer's Conjecture.
+
+\begin{theorem}[Dobrowolski]
+  Let $\epsilon > 0$, there exist $c(\epsilon)>0$ with the following
+  property.
+  If $\alpha\in\IQbar$ satisfies $H(x) > 1$, then
+  \begin{equation*}
+    \log H(x) \ge \frac{c(\epsilon)}{[\IQ(\alpha):\IQ]^{1+\epsilon}}. 
+  \end{equation*}
+\end{theorem}
+
+
+
+We sketch that, under a simplifying assumption, we have finiteness of the set of
+all $x$ from Theorem~\ref{thm:hgtbd}. 
+
+Let $x$ be as in (\ref{eq:2mult}). We already know that $H(x)\le 4$;
+this will be an important tool. 
+
+Then $x,1+x,2+x$ generate a
+subgroup of $\IQbar^\times$ of rank $1$. So there exists $t\in
+\IQbar^\times, a,b,c\in\IZ,$ and
+$(\zeta_1,\zeta_2,\zeta_3)\in\mu_\infty^3$  with 
+$$
+(x,1+x,2+x) = (\zeta_1 t^a, \zeta_2 t^b,\zeta_3 t^c).
+$$
+
+For \emph{simplicity}\footnote{This assumption is not so harmless.
+  Doing the general case requires a more sophisticated version of
+  Dobrowolski's Theorem.} we assume that
+$\zeta_1=\zeta_2=\zeta_3=1$, so
+$$
+(x,1+x,2+x) = (t^a, t^b,t^c).
+$$
+We also assume for simplicity that $|a|\ge |b|$ and $|a|\ge
+|c|$.\footnote{This is a harmless assumption.}
+
+By Minkowski's Lattice Point Theorem we can find
+$(\alpha,\beta,\gamma)\in\IZ^3\ssm\{0\}$ of norm $\ll
+|a|^{1/2}$
+with $a\alpha+b\beta+c\gamma=0$. This implies
+\begin{equation}
+  \label{eq:simplifiedmult}
+  x^\alpha(1+x)^\beta(2+x)^\gamma =1.  
+\end{equation}
+
+From $x=t^a$ and the height properties\footnote{Including
+  submultiplicativity in Remark~\ref{rmk:heightprops}(iv).}  we get
+$\log H(x) \ge \log H(t^a) = |a| \log H(t)$. But $H(x)\le  4$ by
+Theorem~\ref{thm:hgtbd}. So
+\begin{equation*}
+  \log H(t)\le \frac{\log 4}{|a|}.
+\end{equation*}
+
+If $H(t)=1$, then $t$ is a root of unity by Kronecker's Theorem.
+In this case, we are in the realm Manin--Mumford.
+So let us assume $H(t)>1$. 
+Dobrowolski's Theorem, with $\epsilon=1/3$,  yields $[\IQ(t):\IQ] \gg
+|a|^{3/4}$.
+
+We can rewrite (\ref{eq:simplifiedmult}) as a polynomial equation
+in $x$ of degree $\ll |(\alpha,\beta,\gamma)|_\infty\ll |a|^{1/2}$. 
+So $[\IQ(x):\IQ] \ll |a|^{1/2}$.
+But as $t$ is in the group generated by $x,1+x,2+x$ we have
+$\IQ(t)\subset\IQ(x)$ and actually equality holds since $x=t^a$. Therefore,
+\begin{equation*}
+|a|^{3/4}\ll  [\IQ(t):\IQ] = [\IQ(x):\IQ]  \ll |a|^{1/2}.
+\end{equation*}
+This means that $|a|$ is uniformly bounded from above (independent of
+$x$). The same holds for $|b|$ and $|c|$. But then
+$(\alpha,\beta,\gamma)$ is in a finite set (it has norm
+$\ll|a|^{1/2}$).
+So by (\ref{eq:simplifiedmult}) $x$ is in a finite set.
+
+
+
+\section{Relative Manin--Mumford}
+
 
 One striking feature of abelian varieties is that they deform
 algebraically in families. This is already apparent in the case of

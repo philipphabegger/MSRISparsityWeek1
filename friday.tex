@@ -184,7 +184,7 @@
   Zilber, Pink, and Bombieri--Masser--Zannier asked: what if we
   replace $X_{\mathrm{special}}$ by all special subvarieties
   \begin{equation*}
-    \bigcup_{\substack{S\subset X \\ \text{$S$ special}}} S?
+    \bigcup_{\substack{S\subset X \\ \text{$S$ special}}} V\cap S?
   \end{equation*}
 
   In all our cases $X$ itself was special, so we must restrict
@@ -196,14 +196,14 @@
   \begin{tabular}{l|l|l}
     $X$ & \text{special points} & \text{special subvar.}  \\
     \hline
-    $\IG_{\mathrm{m}}^m$ &\text{torsion points} & \text{torsion cosets}
-    \\
-    \text{abelian variety} & \text{torsion points} & \text{torsion
-                                                     cosets}
+    $\IG_{\mathrm{m}}^m$ \text{ or abel. var.} &\text{torsion points} & \text{torsion cosets}
     \\
     $Y(1)^m$ & come from CM elliptic curves & $\Phi_N, $ CM
     \\
-    \alert{families of ab. var.} & \alert{torsion points in CM fibers} & \alert{tba}
+    \alert{families of ab. var.} & \alert{torsion points in CM fibers}
+                                & \alert{tba}
+    \\
+    \vdots & \vdots & \vdots 
   \end{tabular}
 
   \begin{conjecture}[Zilber--Pink or Conjecture on Unlikely Intersections]
@@ -216,6 +216,107 @@
   \end{conjecture}
 
   Special points are just special subvarieties of dimension $0$. 
+\end{frame}
+
+\section{Group Setting}
+
+\begin{frame}{Unlikely Intersections in $\IG_{\mathrm{m}}^3$}  
+  Consider a curve $C$ in  the ambient variety $\IG_{\mathrm{m}}^3$.
+  Unlikely intersections asks:  is $$\bigcup_{\dim H \le 1} C\cap
+  H$$ finite where $H$ ranges over algebraic subgroups of
+  $\IG_{\mathrm{m}}^3$?
+
+  If $\dim H=0$, we recover torsion points and Manin--Mumford.
+  
+  If $\dim H=1$, the unit component of $H$ is
+  \begin{equation*}
+    \{(t^{a},t^{b},t^{c}) : t\in \IC^\times \}. 
+  \end{equation*}
+  Dually we see that  $H$ is described by two equations
+  \begin{equation*}
+    x^{\alpha_1} y^{\alpha_2} z^{\alpha_3} =
+    x^{\beta_1} y^{\beta_2} z^{\beta_3} = 1.
+  \end{equation*}
+  for    \alert{linearly independent}
+  $(\alpha_1,\alpha_2,\alpha_3), (\beta_1,\beta_2,\beta_3)\in\IZ^3$.
+\end{frame}
+
+\begin{frame}
+  \begin{example}
+    \begin{enumerate}
+    \item [(i)]
+      Say $C$ is the line $\left\{(x,1+x,2+x) : x\in \IC\ssm\{0,-1,-2\}\right\}$.
+      
+      Find solutions  $x\in\IC\ssm\{0,-1,-2\}$ of 
+      \begin{equation*}
+        x^{\alpha_1} (1+x)^{\alpha_2} (2+x)^{\alpha_3} =
+        x^{\beta_1} (1+x)^{\beta_2} (2+x)^{\beta_3} = 1.
+      \end{equation*}
+      with \alert{varying} and \alert{independent}  vectors in the
+      exponents.
+
+      An early result of Bombieri--Masser--Zannier (1999) implies
+      that there are only \alert{finitely} many solutions $x$.
+
+    \item[(ii)] Say $C$ is $\{(x,1+x,1) : x\in \IC\ssm \{0,-1\}\}$.
+      There are \alert{infinitely} many solutions:  let
+      $\zeta\in\mu_\infty$ have order $N\ge 3$, then 
+      \begin{equation*}
+        \zeta^{0} (1+\zeta)^{0} 1^{1} = \zeta^{N} (1+\zeta)^{0} 1^0 = 0
+      \end{equation*}
+      with linearly independent exponent vectors $(0,0,1),(N,0,0)$.
+
+      What goes wrong? $C$ is contained in the proper algebraic subgroup
+      $\IG_{\mathrm{m}}^2\times \{1\}$ of $\IG_{\mathrm{m}}^3$. 
+    \end{enumerate}
+  \end{example}  
+\end{frame}
+
+\begin{frame}{Bounding the Height}
+  \begin{lemma}
+    Let 
+    $x\in\IC\ssm\{0,-1,-2\}$ with
+    \begin{equation*}
+      x^{\alpha_1} (1+x)^{\alpha_2} (2+x)^{\alpha_3} =
+      x^{\beta_1} (1+x)^{\beta_2} (2+x)^{\beta_3} = 1.
+    \end{equation*}
+    where
+    $(\alpha_1,\alpha_2,\alpha_3),(\beta_1,\beta_2,\beta_3)\in\IZ^3$
+    are linearly independent. Then $x\in\IQbar$ and $H(x)\le \cdots$. 
+  \end{lemma}
+  \begin{proof}\renewcommand{\qedsymbol}{}
+    \vspace{2cm}
+  \end{proof}  
+\end{frame}
+
+\begin{frame}
+  \begin{proof}
+    \vspace{6cm}
+  \end{proof}  
+\end{frame}
+
+\begin{frame}{What is known?}
+  \begin{theorem}
+    Let $G$ be $\IG_\mathrm{m}^m$ or an abelian variety defined over
+    $\IC$. Let $C$ be a curve in $G$ that is not contained in a proper
+    algebraic subgroup, then
+    \begin{equation*}
+      \bigcup_{\substack{H\subset G \\\dim H\le \dim G-2}} C\cap H
+      \qquad\text{is finite.}
+    \end{equation*}
+  \end{theorem}
+  \begin{itemize}
+  \item Maurin: $G=\IG_{\mathrm{m}}^m$ and $C/\IQbar$
+  \item Bombieri--Masser--Zannier: $G=\IG_{\mathrm{m}}^m$ and $C/\IC$
+  \item Carrizosa, Galateau, Ratazzi, R\'emond,
+    R\'emond--Viada,  Viada: $G=$ product of elliptic
+    curves and other cases when $C/\IQbar$. 
+  \item H.--Pila: $G=$ abelian variety and $C/\IQbar$ (uses
+    Pila--Wilkie). 
+  \item Barroero--Dill: $G=$ abelian variety and $C/\IC$ (uses Gao's
+    Ax--Schanuel for ``mixed Shimura Varieties''). 
+  \end{itemize}
+  
 \end{frame}
 
 \section{The Legendre Family of Elliptic Curves}
@@ -269,10 +370,11 @@
   % and
   % $$\cE_{\mathrm{tors}}=\bigcup_{N\ge 1}\ker[N].$$
   We expect $C\cap \ker[N]\not=\emptyset$
-  since $\dim C + \dim \ker[N] = 2 = \dim \cE$.
+  since $\dim C + \dim \ker[N] = 2 = \dim \cE$. The intersection is
+  \alert{not} unlikely. 
   
-  \alert{Heuristically} $C\cap \cE_{\mathrm{tors}} = \bigcup_{N\ge 1}C\cap \ker[N]
-  \text{ is infinite.}$
+  We expect $C\cap \cE_{\mathrm{tors}} = \bigcup_{N\ge 1}C\cap \ker[N]
+  \text{ to be infinite.}$
 \end{frame}
 
 \begin{frame}
@@ -287,7 +389,7 @@
     The fiber of $\cE^2\rightarrow Y(1)$ above  $\lambda\in
     \IC\ssm\{0,1\}$
     is just the product $\cE_\lambda\times \cE_\lambda=\cE^2_\lambda$ of Legendre
-    elliptic curves, given in affine coordinates by
+    elliptic curves, given by
     \begin{equation*}
       \bigl\{([x_1:y_1:z_1],[x_2:y_2:z_2]) \in\IP^2\times\IP^2 : y_i^2z_i =
       x_i(x_i-z_i)(x_i-\lambda z_i)\bigr\}      
@@ -314,7 +416,7 @@
     There are at most finitely many $\lambda\in\IC\ssm\{0,1\}$ such
     that
     \begin{equation*}
-      (2,*) \text{ \alert{and} } (3,**)
+      (2,\pm \sqrt{2(2-\lambda)}) \text{ \alert{and} } (3,\pm \sqrt{6(3-\lambda)})
     \end{equation*}
     are torsion on the Legendre curve $\cE_\lambda : y^2 =
     x(x-1)(x-\lambda)$. 
@@ -323,24 +425,24 @@
   Stoll proved that there are \alert{no} such $\lambda$.
 
   \begin{theorem}[Relative M--M for Curves, Masser--Zannier]
-    Let $V$ be an irreducible curve in $\cE^2$ defined over $\IQbar$ with
-    $\pi(V)=Y(2)$.
-    Suppose $V\cap \cE^2_{\mathrm{tors}}$ is
-    \alert{infinite}.
-    Then there exists $(a,b)\in\IZ^2\ssm\{0\}$ with
+    Let $C\subset\cE^2$ be an irreducible curve  defined over $\IC$ with
+    $\pi(C)=Y(2)$.
+    
+    If $C\cap \cE^2_{\mathrm{tors}}$ is
+    \alert{infinite},  there exists $(a,b)\in\IZ^2\ssm\{0\}$ with
     \begin{equation*}
-      V \subset \ker{\bigl((P,Q)\mapsto [a](P)+[b](Q)\bigr)} 
+      C \subset \ker{\bigl((P,Q)\mapsto [a](P)+[b](Q)\bigr)} 
     \end{equation*}    
   \end{theorem} 
 \end{frame}
 
 \begin{frame}{A Uniformization}
-  We want to apply the Pila--Zannier strategy to solve this problem.
-  So first we need a uniformization of $\cE(\IC)$.
+  How can the Pila--Zannier strategy help with this problem?
+  We  first need a uniformization of $\cE(\IC)$.
 
   The base $Y(2) =\IP^{1}\ssm\{0,1,\infty\}$ is hyperbolic, its
   universal cover is given by  $\lambda\colon \IH\rightarrow
-  \IC\ssm\{0,1\}$, a cousin of Klein's $j$-function with
+  \IC\ssm\{0,1\}$, a cousin of Klein's $j$-function, with
 
   \begin{equation*}
         \lambda\left(\frac{a\tau+b}{c\tau +d}\right) =
@@ -379,9 +481,9 @@
     \cF = [0,1]^4\times \cF_{\lambda}. 
   \end{equation*}
 
-  Let $V$ be an irreducible curve in $\cE^2$ defined over $K$. Then
+  Let $C$ be an irreducible curve in $\cE^2$ defined over $K$. Then
   \begin{equation*}
-    X = u|_{\cF}^{-1}(V(\IC)) \subset \cF
+    X = u|_{\cF}^{-1}(C(\IC)) \subset \cF
   \end{equation*}
   is definable in $\IRanexp$ and of dimension $2$. 
 \end{frame}
@@ -390,10 +492,10 @@
 \begin{frame}{Semi-rational Points}
   
   \begin{equation*}
-    X = u|_{\cF}^{-1}(V(\IC)) \subset \cF
+    X = u|_{\cF}^{-1}(C(\IC)) \subset \cF
   \end{equation*}
 
-  Let $(P,Q) \in V(\overline K)$ where $(P,Q)$ has finite order $N$
+  Let $(P,Q) \in C(\overline K)$ where $(P,Q)$ has finite order $N$
   in $\cE_\lambda$. 
   These points lift to $(a_1,b_1,a_2,b_2,\tau)\in
   ([0,1)^4\cap\IQ^4)\times\IH$.
@@ -401,22 +503,33 @@
   
   \begin{itemize}
   \item  We need a lower bound for $[\IQ(P):\IQ]$ that grows like
-    some small but fixed power of $N$. New difficulty: the
-    elliptic curve $\cE_{\lambda}$ \alert{varies}. 
+    some small but fixed power of $N$.
+
+    Masser's result: $[\IQ(P):\IQ] \ge c(A) N^{\delta(A)}$ if
+    $P\in A_{\mathrm{tors}}$ has order $N$. 
+
+    New difficulty: the
+    elliptic curve $\cE_{\lambda}$ \alert{varies}. How does
+    $c(\cE_{\lambda})$ depend on $\lambda$?
     
-  \item The point $(a_1,b_1,a_2,b_2,\tau)$ produced form $P$ is
+  \item The point $(a_1,b_1,a_2,b_2,\tau)$ constructed form $P$ is
     most likely
     \alert{not} a rational point. Only the first four
-    coordinates $(a_1,b_1,a_2,b_2)$ are rational.
+    coordinates $(a_1,b_1,a_2,b_2)$ are rational
+    (torsion condition).
   \end{itemize}
 \end{frame}
 
 \begin{frame}{A Lower Bound for the Degree}
+  For elliptic curves a result of David makes Masser's bound quantitative.
   
   \begin{theorem}[David]
-    There exists $c>0$ with the following property. 
-    Let $E=\cE_\lambda$ with $\lambda\in\IQbar\ssm\{0,1\}$. If $P\in
-    E(K)$ has finite order $N$ where $K$ is a number field, then
+    There exists $c>0$ with the following. 
+    Let $K$ be a number field
+    $$E=\cE_\lambda: y^2=x(x-1)(x-\lambda)    \text{ with }
+    \lambda\in K\ssm\{0,1\}.$$
+    If $P\in
+    E(K)$ has finite order $N$, then
     \begin{equation}
       \label{eq:davidKQlb}
       [K:\IQ] \ge c \frac{N^{1/2}}{\alert{\max\{1,\log H(\lambda)\}}}.
@@ -448,13 +561,13 @@
   \begin{theorem}
     Let $\epsilon>0$, there exists $C(X,\epsilon)$ with the following. 
     Let $T\ge 1$ and let $\Sigma\subset X$ be a subset containing
-    \alert{semi-rational points} such that
+    \alert{semi-rational points}, \textit{i.e.},
     $$
     \#\pi_2(\Sigma) > c(X,\epsilon) T^\epsilon \text{ and }
     (x,y)\in\Sigma\Rightarrow x\in \IQ^m \text{ and }H(x)\le T
     $$  
-    Then   there exists a continuous and definable function $\beta\colon
-    [0,1]\rightarrow X$ such that
+    There is a continuous and definable function $\beta\colon
+    [0,1]\rightarrow X$ with
     \begin{center}
       $\pi_1\circ\beta$ is real semi-algebraic and
       $\pi_2\circ\beta$ is non-constant.  
@@ -463,28 +576,47 @@
 \end{frame}
 
 \begin{frame}{Putting Everything Together}
-  The strategy is now familiar. Suppose $V\subset\cE$ is defined over
+  The strategy is now familiar. Suppose $C\subset\cE$ is defined over
   $\IQ$. 
+  \begin{equation*}
+    X = u|_{\cF}^{-1}(C(\IC)) \subset \cF \quad\text{(defined in $\IRanexp$)}.
+  \end{equation*}
 
-  We assume that $V\subset\cE^2$ contains infinitely many torsion points.
-  If the torsion order is uniformly bounded, then $V$ is an irreducible
-  component of $\ker[N]$ for some $N\in\IN$ and we are done.  
+  We assume that $C\subset\cE^2$ contains infinitely many torsion points.
 
-  So let $P\in V(\IC)$ be of sufficiently large order $N$. Then $u(z) = P$
-  for some $z=(a_1,b_1,a_2,b_2,\tau)\in X\cap ([0,1]^4\cap\IQ^4)\times \IH$
+  Let $P=(x_1,y_1,x_2,y_2,\lambda)\in C(\IC)$
+  be of sufficiently large order $N$.
+  Then $u(z) = P$
+  for some $$z=(a_1,b_1,a_2,b_2,\tau)\in X\cap ([0,1]^4\cap\IQ^4)\times \IH$$
   where $H(a_1,b_1,a_2,b_2)\le N$.
 
-  From David's and Silverman's Theorem we get   $[\IQ(P):\IQ]\gg N^{1/2}$.
 
-  Letting the Galois group $\mathrm{Gal}(\IQbar/\IQ)$ act produces
-  roughly $N^{1/2}$ new points in $V(\IQbar)\cap
-  \mathcal{E}_{\mathrm{tors}}$. They also come from points
-  $(x_\sigma,\tau_\sigma)$ where $x_\sigma$ is still rational of height
-  at most $N$.
+  If $\sigma\in \mathrm{Gal}(\IQbar/\IQ)$, then $\sigma(P) =
+  (\sigma(x_1),\ldots,\sigma(y_2),\sigma(\lambda))$  again lies on
+  $C\subset\cE^2$ and has finite order $N$.
+  $$\leadsto z_\sigma =
+  (\underbrace{a_{1,\sigma},b_{1,\sigma},a_{2,\sigma},b_{2,\sigma}}_{\text{Height}
+    = N},\tau_\sigma)
+  \in X\cap ([0,1]^4\cap\IQ^4)\times \IH$$
 \end{frame}
 
 \begin{frame}
-  Now apply the \alert{semi-rational} Pila--Wilkie Theorem.
+
+  Take for $\Sigma$ the set of $z_\sigma$.
+  \begin{equation*}
+    \Rightarrow \left\{
+      \begin{array}{l}
+        \pi_1(z_\sigma) =
+        (a_{1,\sigma},b_{1,\sigma},a_{2,\sigma},b_{2,\sigma})\in\IQ^4
+        \text{ of height $N$},\\
+   \pi_2(z_\sigma)=\tau_\sigma  \text{ varies over $\gg [\IQ(P):\IQ]$ values.}
+      \end{array}\right.
+  \end{equation*}
+  
+  From David's and Silverman's Theorem we get   $[\IQ(P):\IQ]\gg N^{1/2}$.
+
+  Semi-rational Pila--Wilkie applies with $T=N$.
+  
   We find a definable curve  in $X$ whose
   first four components are real semi-algebraic and the rest is
   non-constant.
@@ -493,32 +625,32 @@
   But in low dimension Masser and Zannier follow an \textit{ad hoc}
   using monodromy properties of the family $\cE\rightarrow Y(2)$. The
   conclusion is that
-  $$ V \subset \ker{(P,Q)\mapsto [a](P)+[b](Q)}$$
+  $$ C \subset \ker{(P,Q)\mapsto [a](P)+[b](Q)}$$
   for some
   $(a,b)\in\IZ^2\ssm\{0\}$. This is precisely the conclusion we want.
 \end{frame}
 
-\begin{frame}
-  We can pass to an $m$-th fibered power of $\cE$ for $m\in\IN$. 
-  \begin{definition}  
-    \begin{enumerate}
-    \item [(i)] The $m$-fold \alert{fibered power} of $\cE\rightarrow Y(2)$
-      is denoted by $\cE^m = \cE\times_{Y(2)}\cdots\times_{Y(2)}\cE$.
-      Let $\pi\colon\cE^m\rightarrow Y(2)$ be the natural projection.
-    \item[(ii)] For $a=(a_1,\ldots,a_m)\in\IZ^m$ we have a morphism
-      $\varphi_a \colon \cE^m\rightarrow \cE$ over $Y(2)$
-      determined  by $P\mapsto
-      [a_1](P_1)+\cdots +[a_m](P_m)$. We also defined $H_a =
-      \{(P_1,\ldots,P_m) \cE^m(\IC) : \varphi_a(P_1,\ldots,P_m)=0\}$. 
-    \item[(iii)]  We write $\cE^m_{\mathrm{tors}} = \bigcup_{\lambda\in Y(2)(\IC)}
-      \cE^m_{\mathrm{tors}}$; these will be the \alert{special points} of $\cE^m$.
-    \end{enumerate}
-  \end{definition}
-\end{frame}
+% \begin{frame}
+%   We can pass to an $m$-th fibered power of $\cE$ for $m\in\IN$. 
+%   \begin{definition}  
+%     \begin{enumerate}
+%     \item [(i)] The $m$-fold \alert{fibered power} of $\cE\rightarrow Y(2)$
+%       is denoted by $\cE^m = \cE\times_{Y(2)}\cdots\times_{Y(2)}\cE$.
+%       Let $\pi\colon\cE^m\rightarrow Y(2)$ be the natural projection.
+%     \item[(ii)] For $a=(a_1,\ldots,a_m)\in\IZ^m$ we have a morphism
+%       $\varphi_a \colon \cE^m\rightarrow \cE$ over $Y(2)$
+%       determined  by $P\mapsto
+%       [a_1](P_1)+\cdots +[a_m](P_m)$. We also defined $H_a =
+%       \{(P_1,\ldots,P_m) \cE^m(\IC) : \varphi_a(P_1,\ldots,P_m)=0\}$. 
+%     \item[(iii)]  We write $\cE^m_{\mathrm{tors}} = \bigcup_{\lambda\in Y(2)(\IC)}
+%       \cE^m_{\mathrm{tors}}$; these will be the \alert{special points} of $\cE^m$.
+%     \end{enumerate}
+%   \end{definition}
+% \end{frame}
 
-\begin{frame}
+% \begin{frame}
   
-\end{frame}
+% \end{frame}
 
 \begin{frame}
   \begin{center}
