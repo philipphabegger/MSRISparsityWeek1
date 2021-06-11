@@ -116,8 +116,8 @@
   % associated endomorphism ring is as ``large as possible''.
   Very roughly speaking, one can think of special subvarieties of
   $\mathcal{A}_g$ as irreducible subvarieties on which the ``generic''
-  endomorphism ring is constant. (The actual definition is more
-  involved.)
+  endomorphism ring is constant. (The actual situation is more
+  subtle.)
 
   \begin{example}[Abelian surfaces, so $g=2$,  here $\dim \cA_2=3$]
     The diagonal period matrices
@@ -166,9 +166,9 @@
 
   Let $X$ be some ``arithmetically interesting'' variety, such as an
   abelian variety, or $\IG_{\mathrm{m}}^m$, or $Y(1)^m$ etc.
-  Then $X$  often has
-  a ``special points'' $X_{\mathrm{special}}$ (e.g. torsion points) and ``special
-  subvarieties'' (torsion cosets).
+  Then $X$ often  has
+   ``special points'' $X_{\mathrm{special}}$ (\textit{e.g.} torsion points) and ``special
+  subvarieties'' (\textit{e.g.} torsion cosets).
 
   The basic template for a result of Andr\'e--Oort and Manin--Mumford
   type goes as follows:
@@ -282,7 +282,7 @@
     \end{equation*}
     where
     $(\alpha_1,\alpha_2,\alpha_3),(\beta_1,\beta_2,\beta_3)\in\IZ^3$
-    are linearly independent. Then $x\in\IQbar$ and $H(x)\le \cdots$. 
+    are linearly independent. Then $x\in\IQbar$ and $H(x)\le 4$. 
   \end{lemma}
   \begin{proof}\renewcommand{\qedsymbol}{}
     \vspace{2cm}
@@ -378,12 +378,13 @@
 \end{frame}
 
 \begin{frame}
-  This is consistent with the Zilber--Pink Conjecture as for a curve
-  $C\subset \cE$ we take the union over all special subvarieties of
-  dimension $\le \dim\cE-\dim C - 1 = 0$. 
-
-  So let us work instead in  \alert{fibered product}
-  $\cE\times_{Y(2)}\cE=\cE^2$.
+  % This is consistent with the Zilber--Pink Conjecture as for a curve
+  % $C\subset \cE$ we take the union over all special subvarieties of
+  % dimension $\le \dim\cE-\dim C - 1 = 0$. 
+  %
+  So let us increase the ambient dimension by  working
+  in  the \alert{fibered product}
+  $$\cE\times_{Y(2)}\cE=\cE^2.$$
 
   \begin{example}
     The fiber of $\cE^2\rightarrow Y(1)$ above  $\lambda\in
@@ -443,7 +444,6 @@
   The base $Y(2) =\IP^{1}\ssm\{0,1,\infty\}$ is hyperbolic, its
   universal cover is given by  $\lambda\colon \IH\rightarrow
   \IC\ssm\{0,1\}$, a cousin of Klein's $j$-function, with
-
   \begin{equation*}
         \lambda\left(\frac{a\tau+b}{c\tau +d}\right) =
         \lambda(\tau)\quad\text{if}\quad
@@ -472,10 +472,10 @@
       where }a_1,b_1,a_2,b_2\in [0,1]  \right\}. 
   \end{equation*}
 
-  We do a real change of coordinates,
+  We do a real change of coordinates
   $$ (a_1+\tau b_1,a_2 + \tau
-  b_2,\tau)\leadsto (a_1,b_1,a_2,b_2,\tau).$$
-  and get a uniformizing map $u\colon\IR^4 \times \IH\rightarrow\cE(\IC^2)$
+  b_2,\tau)\leadsto (a_1,b_1,a_2,b_2,\tau)$$
+  to get a uniformization $u\colon\IR^4 \times \IH\rightarrow\cE(\IC^2)$
   and a fundamental domain
   \begin{equation*}
     \cF = [0,1]^4\times \cF_{\lambda}. 
@@ -537,7 +537,7 @@
   \end{theorem}
 
   Luckily, using a theorem of \alert{Silverman}, we may assume that
-  $H(\lambda)$ is bounded in our case.
+  $H(\lambda)$ is bounded from above in our case.
   
 %   \begin{theorem}[Silverman]
 %     Let $V\subset \cE^2$ be a curve defined over $\IQbar$. There exists 
@@ -555,22 +555,22 @@
   We have points in this set where the
   first $m$ coordinates are rational, but the final $n$ most likely not.
 
-  Let $\pi_1\colon\IR^m\times\IR^n\rightarrow\IR^m$ and
-  $\pi_2\colon\IR^m\times\IR^n\rightarrow\IR^n$ be projections.
+  Let $\pi_{\mathrm{alg}}\colon\IR^m\times\IR^n\rightarrow\IR^m$ and
+  $\pi_{\mathrm{tr}}\colon\IR^m\times\IR^n\rightarrow\IR^n$ be projections.
 
   \begin{theorem}
-    Let $\epsilon>0$, there exists $C(X,\epsilon)$ with the following. 
+    Let $\epsilon>0$, there exists $c(X,\epsilon)$ with the following. 
     Let $T\ge 1$ and let $\Sigma\subset X$ be a subset containing
     \alert{semi-rational points}, \textit{i.e.},
     $$
-    \#\pi_2(\Sigma) > c(X,\epsilon) T^\epsilon \text{ and }
+    \#\pi_{\mathrm{tr}}(\Sigma) > c(X,\epsilon) T^\epsilon \text{ and }
     (x,y)\in\Sigma\Rightarrow x\in \IQ^m \text{ and }H(x)\le T
     $$  
     There is a continuous and definable function $\beta\colon
     [0,1]\rightarrow X$ with
     \begin{center}
-      $\pi_1\circ\beta$ is real semi-algebraic and
-      $\pi_2\circ\beta$ is non-constant.  
+      $\pi_{\mathrm{alg}}\circ\beta$ is real semi-algebraic and
+      $\pi_{\mathrm{tr}}\circ\beta$ is non-constant.  
     \end{center}  
   \end{theorem}
 \end{frame}
@@ -606,10 +606,10 @@
   \begin{equation*}
     \Rightarrow \left\{
       \begin{array}{l}
-        \pi_1(z_\sigma) =
+        \pi_{\mathrm{alg}}(z_\sigma) =
         (a_{1,\sigma},b_{1,\sigma},a_{2,\sigma},b_{2,\sigma})\in\IQ^4
         \text{ of height $N$},\\
-   \pi_2(z_\sigma)=\tau_\sigma  \text{ varies over $\gg [\IQ(P):\IQ]$ values.}
+   \pi_{\mathrm{tr}}(z_\sigma)=\tau_\sigma  \text{ varies over $\gg [\IQ(P):\IQ]$ values.}
       \end{array}\right.
   \end{equation*}
   
